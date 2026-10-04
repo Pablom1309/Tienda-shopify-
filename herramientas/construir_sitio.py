@@ -8,6 +8,7 @@ El sitio funciona gratis en GitHub Pages: el formulario contra entrega arma el p
 y lo envía por WhatsApp al número configurado en datos/tienda.json.
 """
 import csv
+import hashlib
 import html
 import json
 import re
@@ -18,6 +19,11 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parent.parent
 SITIO = RAIZ / "sitio"
 PLANTILLA = RAIZ / "herramientas" / "plantilla"
+
+
+def version(archivo):
+    """Huella corta del archivo: cambia la URL cuando cambia el contenido y evita la caché vieja del celular."""
+    return hashlib.sha1((PLANTILLA / archivo).read_bytes()).hexdigest()[:8]
 REGIONES = ["Arica y Parinacota", "Tarapacá", "Antofagasta", "Atacama", "Coquimbo", "Valparaíso",
             "Metropolitana", "O'Higgins", "Maule", "Ñuble", "Biobío", "La Araucanía", "Los Ríos",
             "Los Lagos", "Aysén", "Magallanes"]
@@ -145,7 +151,7 @@ def pagina(marca, tienda, titulo, descripcion, cuerpo, base="", canonica=None, i
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family={marca['tipografia']}:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{base}estilos.css">
+<link rel="stylesheet" href="{base}estilos.css?v={version('estilos.css')}">
 <style>:root{{--primario:{c['primario']};--acento:{c['acento']};--fondo:{c['fondo']};--texto:{c['texto']}}}</style>
 {scripts}
 </head>
@@ -166,7 +172,7 @@ def pagina(marca, tienda, titulo, descripcion, cuerpo, base="", canonica=None, i
 <p class="legal-pie">© {e(tienda.get('razon_social') or marca['nombre'])}{' · RUT ' + e(tienda['rut']) if tienda.get('rut') else ''}{' · ' + e(tienda['direccion_comercial']) if tienda.get('direccion_comercial') else ''} · Precios en pesos chilenos, IVA incluido.</p>
 </footer>
 {flotante_wa}
-<script src="{base}pedido.js" defer></script>
+<script src="{base}pedido.js?v={version('pedido.js')}" defer></script>
 </body>
 </html>
 """
@@ -182,11 +188,11 @@ def sellos(tienda):
 
 
 def como_funciona():
-    pasos = [("carro", "Haz tu pedido", "Elige tu kit y deja tus datos de entrega. No pagas nada en la web."),
+    pasos = [("carro", "Haz tu pedido", "Elige tu kit y deja tus datos de entrega. Sin cuenta ni tarjeta."),
              ("chat", "Te confirmamos por WhatsApp", "Revisamos dirección y plazo contigo antes de despachar."),
              ("pago", "Pagas cuando llega", "Recibes el kit en tu puerta y pagas al repartidor.")]
     items = "".join(f'<li class="revelar"><span class="paso-num">{i}</span>{icono(ic)}<h3>{e(t)}</h3><p>{e(d)}</p></li>' for i, (ic, t, d) in enumerate(pasos, 1))
-    return f'<section class="seccion contenedor" id="como-funciona"><p class="sobretitulo">Cómo funciona</p><h2>Comprar con pago contra entrega es así de simple</h2><ol class="tres-pasos">{items}</ol></section>'
+    return f'<section class="seccion contenedor" id="como-funciona"><p class="sobretitulo">Cómo funciona</p><h2>Comprar con pago contra entrega es así de simple</h2><ol class="tres-pasos">{items}</ol><p class="nota-cambios">{icono("retracto", "ico ico-s")} ¿No te convenció? Tienes 10 días de retracto desde que lo recibes. <a href="cambios.html">Ver cambios y garantía</a></p></section>'
 
 
 def faq_general(tienda):
@@ -328,8 +334,6 @@ def portada(productos, marca, tienda):
 <div class="tarjeta-cuerpo"><span class="etiqueta">{e(etiqueta_publica(p))}</span><h3>{e(f['titulo_seo'].split(':')[0])}</h3>
 <div class="tarjeta-pie"><div><strong>{clp(p['precio'])}</strong><small>2 por {clp(p['oferta_2'])}</small></div><span class="boton boton-chico" aria-hidden="true">Ver {icono('flecha', 'ico ico-s')}</span></div></div></a>"""
                        for p, f in productos)
-    pilares = "".join(f'<li class="revelar">{icono(i)}<div><strong>{e(x["pilar"])}</strong><p>{e(x["prueba"])}</p></div></li>'
-                      for i, x in zip(("kit", "estrella"), [x for x in marca["pilares"] if x["pilar"] != "Compra sin riesgo"]))
     hero = img_tag("hero", "Perro y gato descansando juntos en un sillón de un living luminoso", "", "hero-img", carga="eager", prioridad=True)
     preguntas = faq_general(tienda)
     filtros = ('<div class="filtros" role="group" aria-label="Filtrar kits">'
@@ -343,9 +347,6 @@ def portada(productos, marca, tienda):
 <div class="hero-acciones"><a class="boton boton-grande" href="#kits">Ver los kits {icono('flecha', 'ico ico-s')}</a><a class="boton-texto" href="#como-funciona">¿Cómo funciona?</a></div></div></section>
 <section class="seccion contenedor" id="kits"><p class="sobretitulo">Nuestros kits</p><h2>Elige el que necesita tu casa</h2>{filtros}<div class="grilla" id="grilla">{tarjetas}</div><nav class="paginas" id="paginas" aria-label="Páginas de kits" hidden></nav></section>
 {como_funciona()}
-<section class="seccion seccion-oscura"><div class="contenedor riesgo"><div><p class="sobretitulo">Compra sin riesgo</p><h2>Si no te sirve, no es tu problema</h2><a class="boton" href="cambios.html">Ver política de cambios</a></div>
-<ul class="riesgo-lista"><li>{icono('pago')}<span><strong>$0 por adelantado</strong>Nada de tarjetas ni transferencias.</span></li><li>{icono('retracto')}<span><strong>10 días de retracto</strong>Desde que lo recibes.</span></li><li>{icono('garantia')}<span><strong>6 meses de garantía</strong>Cambio, reparación o devolución.</span></li></ul></div></section>
-<section class="seccion seccion-suave"><div class="contenedor"><p class="sobretitulo">Cómo trabajamos</p><h2>Una tienda chica que cuida los detalles</h2><ul class="pilares">{pilares}</ul></div></section>
 {bloque_faq(preguntas)}
 <section class="cta-final"><div class="contenedor"><h2>¿Dudas antes de pedir?</h2><p>Escríbenos y te ayudamos a elegir el kit para tu mascota.</p><a class="boton boton-grande boton-auto" href="contacto.html">Contáctanos</a></div></section>"""
     url = (tienda.get("url_sitio") or "").rstrip("/")

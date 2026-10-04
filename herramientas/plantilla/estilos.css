@@ -287,3 +287,6 @@ details[open] summary::after{transform:translateY(2px) rotate(225deg)}
 .pagina{font:inherit;font-weight:800;min-width:44px;height:44px;padding:0 12px;border-radius:999px;border:1.5px solid var(--linea);background:var(--blanco);color:var(--texto);cursor:pointer}
 .pagina.activa{background:var(--primario);border-color:var(--primario);color:#fff}
 .pagina:disabled{opacity:.35;cursor:default}
+.nota-cambios{margin:20px 0 0;color:var(--gris)}.nota-cambios .ico{vertical-align:-3px;margin-right:4px}.nota-cambios .ico{color:var(--primario)}.nota-cambios a{color:var(--primario);font-weight:700}
+
+@media(max-width:699px){.tres-pasos{margin-top:20px;gap:10px}.tres-pasos li{display:grid;grid-template-columns:34px 1fr;column-gap:14px;padding:16px 18px}.tres-pasos .ico{grid-row:span 2;width:28px;height:28px;margin:2px 0 0}.tres-pasos h3{margin:0 0 4px;font-size:1.05rem}.tres-pasos .paso-num{display:none}}
