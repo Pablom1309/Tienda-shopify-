@@ -1,7 +1,7 @@
 {
   "validado": "2026-10-04",
-  "ciclo": 3,
-  "aprobados": 13,
+  "ciclo": 4,
+  "aprobados": 19,
   "productos": [
     {
       "id": "kit-pelo-cero",
@@ -294,6 +294,146 @@
       "criterio_escalar": "CPA ≤ $5.600 (objetivo) por 3 días y entrega real ≥ 70 %.",
       "nota_activacion": "Aprobada en el portón del ciclo 3 (2026-10-04) desde en_observacion: el dueño pidió crecer el catálogo y aceptar estacionales en tienda. Riesgo principal: volumen y flete (logística 2). Costos estimados.",
       "etiqueta": "Verano"
+    },
+    {
+      "id": "kit-gato-navidad",
+      "estado": "aprobado_para_test",
+      "rol": "producto de temporada para gatos: regalo y foto de Navidad. Ventana: activo en tienda desde ~15-nov, pauta 15-nov a ~15-dic (último despacho seguro); retirar o pasar a borrador el 26-dic.",
+      "mascota": "gato",
+      "precio": 24990,
+      "oferta_2": 43990,
+      "cpa_equilibrio_base": 8174,
+      "cpa_objetivo": 6174,
+      "roas_equilibrio_mezcla": 2.92,
+      "costos": "estimados (sin verificar en Dropi)",
+      "condiciones": [
+        "Costo real de todas las piezas en app.dropi.cl y que un mismo proveedor despache el kit en un solo paquete (si no, el flete se duplica y no cierra).",
+        "Sin comestibles ni premios en el kit.",
+        "Pedir una unidad: gorro y bufanda con ajuste suave (velcro o elástico) sin piezas pequeñas que se desprendan; ratones sin partes tragables. No prometer que al gato le guste usar el gorro.",
+        "Confirmar stock para diciembre y fecha de corte de despacho por zona; publicar la fecha límite real (sin contadores ni escasez inventada).",
+        "No lanzar en pauta simultánea con kit-caja-regalo-navidad: misma ventana; repartir presupuesto o alternar por especie."
+      ],
+      "criterio_matar": "Gasto ≥ $24.500 (≈3 CPA de equilibrio) sin pedidos, o CPA > $10.600 sostenido 3 días con CTR < 1 %.",
+      "criterio_escalar": "CPA ≤ $6.100 (objetivo) por 3 días y entrega real ≥ 70 %.",
+      "nota_activacion": "Aprobado en el portón del ciclo 4 (2026-10-04) para equilibrar la oferta de gatos (máx. 20 activos). Costos estimados: verificar en Dropi antes de pautar. Activo en tienda no implica pauta simultánea: el orden de pauta lo fija estratega-ads (máx. 2 en test).",
+      "nota_porton": "Versión gato de kit-caja-regalo-navidad (perro): mismo momento, distinta especie y piezas; no duplica. Pasa holgado (ROAS eq. pesimista 3,81).",
+      "etiqueta": "Navidad del gato"
+    },
+    {
+      "id": "kit-gato-ventana-mirador",
+      "estado": "aprobado_para_test",
+      "rol": "producto para dueños de gato en departamento (hamaca de ventana), todo el año.",
+      "mascota": "gato",
+      "precio": 34990,
+      "oferta_2": 61990,
+      "cpa_equilibrio_base": 10554,
+      "cpa_objetivo": 8554,
+      "roas_equilibrio_mezcla": 3.21,
+      "costos": "estimados (sin verificar en Dropi)",
+      "condiciones": [
+        "Costo real de todas las piezas en app.dropi.cl y que un mismo proveedor despache el kit en un solo paquete (si no, el flete se duplica y no cierra).",
+        "Margen ajustado en escenario pesimista (ROAS eq. 4,11 con entrega 60 %): costo real ≤ $11.000 y flete ≤ $4.200 o no pasa.",
+        "Pedir una unidad y probar ventosas en vidrio varios días; publicar la carga máxima solo si el proveedor la declara y se verificó. Sin promesas de seguridad.",
+        "Indicar en la ficha que requiere vidrio liso (no sirve en ventanas con marco ancho o vidrio rugoso) para evitar devoluciones por expectativa."
+      ],
+      "criterio_matar": "Gasto ≥ $31.500 (≈3 CPA de equilibrio) sin pedidos, o CPA > $13.700 sostenido 3 días con CTR < 1 %.",
+      "criterio_escalar": "CPA ≤ $8.500 (objetivo) por 3 días y entrega real ≥ 70 %.",
+      "nota_activacion": "Aprobado en el portón del ciclo 4 (2026-10-04) para equilibrar la oferta de gatos (máx. 20 activos). Costos estimados: verificar en Dropi antes de pautar. Activo en tienda no implica pauta simultánea: el orden de pauta lo fija estratega-ads (máx. 2 en test).",
+      "nota_porton": "Único activo de descanso/ventana para gato; demostración visual fuerte. Precio bajo las hamacas de retail ($47.990+).",
+      "etiqueta": "Ventana"
+    },
+    {
+      "id": "kit-gato-laser-varitas",
+      "estado": "aprobado_para_test",
+      "rol": "producto de juego activo para gatos (persecución con luz y varitas). Notas internas: riesgo_politica 2 por el puntero láser.",
+      "mascota": "gato",
+      "precio": 24990,
+      "oferta_2": 43990,
+      "cpa_equilibrio_base": 8472,
+      "cpa_objetivo": 6472,
+      "roas_equilibrio_mezcla": 2.82,
+      "costos": "estimados (sin verificar en Dropi)",
+      "condiciones": [
+        "Costo real de todas las piezas en app.dropi.cl y que un mismo proveedor despache el kit en un solo paquete (si no, el flete se duplica y no cierra).",
+        "Puntero de luz de baja potencia (Clase 1 o 2, ≤ 1 mW o el máximo que permita la norma vigente): verificar la clase en la etiqueta de la unidad de prueba; si no está declarada, no se vende.",
+        "Confirmar con Dropi/transportadora que el puntero con batería recargable se despacha sin restricción; si no, reemplazar por juguete de luz LED sin láser o caer a kit-gato-tunel-juego.",
+        "Revisar política de Meta sobre punteros láser antes de pautar; creativos sin primer plano del haz ni apuntar a la cara. Ficha con aviso 'no apuntar a los ojos de personas ni animales'.",
+        "Copy sin ejercicio, peso, ansiedad ni conducta (salud)."
+      ],
+      "criterio_matar": "Gasto ≥ $25.500 (≈3 CPA de equilibrio) sin pedidos, o CPA > $11.000 sostenido 3 días con CTR < 1 %.",
+      "criterio_escalar": "CPA ≤ $6.400 (objetivo) por 3 días y entrega real ≥ 70 %.",
+      "nota_activacion": "Aprobado en el portón del ciclo 4 (2026-10-04) para equilibrar la oferta de gatos (máx. 20 activos). Costos estimados: verificar en Dropi antes de pautar. Activo en tienda no implica pauta simultánea: el orden de pauta lo fija estratega-ads (máx. 2 en test).",
+      "nota_porton": "Elegido sobre kit-gato-tunel-juego (mismo uso: juego activo de gato): mejor economía (ROAS eq. mezcla 2,82 vs 3,11), más liviano y el túnel tiene un set más completo a $8.990 en Paris. Distinto de kit-juegos-interactivos-perro (especie).",
+      "etiqueta": "Juego de luz"
+    },
+    {
+      "id": "kit-gato-aseo-unas-pelo",
+      "estado": "aprobado_para_test",
+      "rol": "producto de aseo en casa para dueños de gato (uñas + muda de pelo de primavera).",
+      "mascota": "gato",
+      "precio": 24990,
+      "oferta_2": 43990,
+      "cpa_equilibrio_base": 8472,
+      "cpa_objetivo": 6472,
+      "roas_equilibrio_mezcla": 2.82,
+      "costos": "estimados (sin verificar en Dropi)",
+      "condiciones": [
+        "Costo real de todas las piezas en app.dropi.cl y que un mismo proveedor despache el kit en un solo paquete (si no, el flete se duplica y no cierra).",
+        "Sin productos químicos, cosméticos ni medicados; solo accesorios.",
+        "Copy de rutina y comodidad: sin salud de uñas o piel ni 'evita arañazos'; instrucción visible de no cortar cerca de la parte rosada.",
+        "Diferenciar de kit-gato-sin-pelusas (activo, también pelo de gato): este kit se vende por las uñas; el guante es complemento. No pautar ambos con el mismo ángulo de pelo."
+      ],
+      "criterio_matar": "Gasto ≥ $25.500 (≈3 CPA de equilibrio) sin pedidos, o CPA > $11.000 sostenido 3 días con CTR < 1 %.",
+      "criterio_escalar": "CPA ≤ $6.400 (objetivo) por 3 días y entrega real ≥ 70 %.",
+      "nota_activacion": "Aprobado en el portón del ciclo 4 (2026-10-04) para equilibrar la oferta de gatos (máx. 20 activos). Costos estimados: verificar en Dropi antes de pautar. Activo en tienda no implica pauta simultánea: el orden de pauta lo fija estratega-ads (máx. 2 en test).",
+      "nota_porton": "Solapa parcialmente con kit-gato-sin-pelusas (guante deslanador); se aprueba porque el eje es el corte de uñas, que ningún activo cubre.",
+      "etiqueta": "Aseo de gato"
+    },
+    {
+      "id": "kit-gato-arnes-paseo",
+      "estado": "aprobado_para_test",
+      "rol": "producto para gatos de departamento que salen al balcón o la plaza (primavera-verano).",
+      "mascota": "gato",
+      "precio": 24990,
+      "oferta_2": 43990,
+      "cpa_equilibrio_base": 8174,
+      "cpa_objetivo": 6174,
+      "roas_equilibrio_mezcla": 2.92,
+      "costos": "estimados (sin verificar en Dropi)",
+      "condiciones": [
+        "Costo real de todas las piezas en app.dropi.cl y que un mismo proveedor despache el kit en un solo paquete (si no, el flete se duplica y no cierra).",
+        "Pedir una unidad y probar ajuste en gato chico y grande: confirmar que 'talla única ajustable' es real (si requiere tallas, ofrecer máx. 2 y recalcular devoluciones).",
+        "Sin 'antiescape' ni promesas de seguridad; recomendar uso supervisado."
+      ],
+      "criterio_matar": "Gasto ≥ $24.500 (≈3 CPA de equilibrio) sin pedidos, o CPA > $10.600 sostenido 3 días con CTR < 1 %.",
+      "criterio_escalar": "CPA ≤ $6.100 (objetivo) por 3 días y entrega real ≥ 70 %.",
+      "nota_activacion": "Aprobado en el portón del ciclo 4 (2026-10-04) para equilibrar la oferta de gatos (máx. 20 activos). Costos estimados: verificar en Dropi antes de pautar. Activo en tienda no implica pauta simultánea: el orden de pauta lo fija estratega-ads (máx. 2 en test).",
+      "nota_porton": "Distinto de kit-paseo-hogar-limpio y kit-paseo-nocturno-led (perro): especie y piezas distintas.",
+      "etiqueta": "Paseo de gato"
+    },
+    {
+      "id": "kit-id-collar-placa",
+      "estado": "aprobado_para_test",
+      "rol": "kit de identificación para perros y gatos (collar reflectante + placa grabada).",
+      "mascota": "ambos",
+      "precio": 24990,
+      "oferta_2": 43990,
+      "cpa_equilibrio_base": 8472,
+      "cpa_objetivo": 6472,
+      "roas_equilibrio_mezcla": 2.82,
+      "costos": "estimados (sin verificar en Dropi)",
+      "condiciones": [
+        "Costo real de todas las piezas en app.dropi.cl y que un mismo proveedor despache el kit en un solo paquete (si no, el flete se duplica y no cierra).",
+        "Condición dura: que un proveedor Dropi CL ofrezca grabado personalizado (nombre y teléfono) con plazo conocido; si no lo ofrece, el producto pasa a descartados sin pautar.",
+        "Definir cómo se capturan los datos del grabado en el formulario o la confirmación por WhatsApp (datos personales: usar solo para el pedido) y verificar errores de grabado antes de despachar.",
+        "Collar ajustable con 2 rangos como máximo (gato/perro chico y perro mediano); cierre de seguridad declarado por el proveedor, sin prometerlo sin verificar.",
+        "No prometer recuperar mascotas perdidas."
+      ],
+      "criterio_matar": "Gasto ≥ $25.500 (≈3 CPA de equilibrio) sin pedidos, o CPA > $11.000 sostenido 3 días con CTR < 1 %.",
+      "criterio_escalar": "CPA ≤ $6.400 (objetivo) por 3 días y entrega real ≥ 70 %.",
+      "nota_activacion": "Aprobado en el portón del ciclo 4 (2026-10-04) para equilibrar la oferta de gatos (máx. 20 activos). Costos estimados: verificar en Dropi antes de pautar. Activo en tienda no implica pauta simultánea: el orden de pauta lo fija estratega-ads (máx. 2 en test).",
+      "nota_porton": "Sirve a ambas especies y no duplica ningún activo. Personalizado: no admite retracto si se grabó a pedido (confirmar con abogado/SERNAC) y la devolución no se revende; por eso la condición de grabado es dura.",
+      "etiqueta": "Identificación"
     }
   ],
   "en_observacion": [
@@ -344,6 +484,38 @@
     {
       "id": "cepillo-vapor-mascotas",
       "motivo": "No pasa el portón suelto (ROAS eq. 4,11); vive solo dentro de Kit Pelo Cero."
+    },
+    {
+      "id": "kit-gato-tunel-juego",
+      "prioridad": 2,
+      "motivo": "Pasa el portón (3,77) pero duplica el uso de kit-gato-laser-varitas (juego activo de gato) y tiene comparabilidad alta: set túnel 3 vías + 20 piezas a $8.990 en Paris/Easy. Reemplazo de kit-gato-laser-varitas si el puntero no se puede despachar o pautar.",
+      "precio_recomendado": 24990,
+      "oferta_2": 43990,
+      "cpa_equilibrio_base": 7622,
+      "cpa_objetivo": 5622,
+      "costos": "estimados (sin verificar en Dropi)",
+      "condiciones": [
+        "Costo real de todas las piezas en app.dropi.cl y que un mismo proveedor despache el kit en un solo paquete (si no, el flete se duplica y no cierra).",
+        "Diferenciar del set de $8.990 (calidad de tela, varita incluida, pago contra entrega) o no se activa."
+      ],
+      "criterio_matar": "Gasto ≥ $23.000 (≈3 CPA de equilibrio) sin pedidos, o CPA > $9.900 sostenido 3 días con CTR < 1 %.",
+      "criterio_escalar": "CPA ≤ $5.600 (objetivo) por 3 días y entrega real ≥ 70 %."
+    },
+    {
+      "id": "kit-bandanas-fotos",
+      "prioridad": 3,
+      "motivo": "Pasa el portón (3,50) pero el ángulo 'fotos y regalo' se superpone con kit-gato-navidad y kit-caja-regalo-navidad (que ya trae bandana) en la misma temporada; bandana suelta a $4.000 en Lider (comparabilidad alta) y tallas. Reevaluar después de Navidad como accesorio de fotos todo el año.",
+      "precio_recomendado": 24990,
+      "oferta_2": 43990,
+      "cpa_equilibrio_base": 8769,
+      "cpa_objetivo": 6769,
+      "costos": "estimados (sin verificar en Dropi)",
+      "condiciones": [
+        "Costo real de todas las piezas en app.dropi.cl y que un mismo proveedor despache el kit en un solo paquete (si no, el flete se duplica y no cierra).",
+        "Bandanas ajustables sin tallas o máx. 2 tallas."
+      ],
+      "criterio_matar": "Gasto ≥ $26.500 (≈3 CPA de equilibrio) sin pedidos, o CPA > $11.300 sostenido 3 días con CTR < 1 %.",
+      "criterio_escalar": "CPA ≤ $6.700 (objetivo) por 3 días y entrega real ≥ 70 %."
     }
   ],
   "descartados": [
@@ -402,6 +574,14 @@
     {
       "id": "kit-orden-alimento",
       "motivo": "No pasa el portón duro (puntaje 2,67 < 3,4): voluminoso, poco demostrable y margen estrecho con flete $4.500."
+    },
+    {
+      "id": "kit-manta-viaje-premios",
+      "motivo": "No pasa el portón duro (puntaje 3,24 < 3,4): set de 3 mantas polares 100x70 a $23.990 en Lider (comparabilidad alta) y logística media."
+    },
+    {
+      "id": "kit-gato-transporte-mochila",
+      "motivo": "No pasa el portón duro (puntaje 3,17 < 3,4): voluminoso (logística 2), ROAS eq. pesimista 4,83 y mochilas desde $12.990 en Sodimac."
     }
   ]
 }

@@ -114,3 +114,9 @@ Cada ciclo agrega una entrada al final: fecha, nodos ejecutados, decisiones del 
 - Portada: filtro Todos/Perros/Gatos; etiquetas públicas cortas (`etiqueta` en catálogo) para no mostrar notas internas.
 - Fotos Canva: 2 nuevas (Navidad, Paseo nocturno). Juegos y Arenero descartadas porque mostraban piezas no incluidas; Canva sin créditos para el resto → imagen provisional de marca "Foto real muy pronto".
 - Próximo: buscar kits de gato/ambos para equilibrar (7 cupos libres).
+
+## Ciclo 4 — 2026-10-04 — validador (portón, equilibrio gatos)
+- Aprobados nuevos (6 de 7 cupos): kit-gato-navidad (temporada 15-nov a ~15-dic; no pautar junto a la caja de perro), kit-gato-ventana-mirador (condición: costo ≤ $11.000 y flete ≤ $4.200, ROAS eq. pesimista 4,11), kit-gato-laser-varitas (riesgo 2: clase del láser, despacho de batería y política de Meta antes de pautar), kit-gato-aseo-unas-pelo (eje uñas; no pautar con el ángulo de pelo de Sin Pelusas), kit-gato-arnes-paseo, kit-id-collar-placa (ambos; condición dura: grabado en Dropi o se descarta). Total activos: 19/20 (10 perro, 8 gato, 1 ambos).
+- En observación: kit-gato-tunel-juego (duplica juego activo de gato; set equivalente a $8.990 en Paris; reemplazo del láser si este cae), kit-bandanas-fotos (superpone ángulo foto/regalo con los dos kits de Navidad; reevaluar en enero).
+- Descartados (portón duro): kit-manta-viaje-premios (3,24), kit-gato-transporte-mochila (3,17).
+- Cupo libre (1) reservado para kit-gato-hidratacion-filtros si el costo real en Dropi cierra. Pendiente: fichas de los 6 nuevos (creador-tienda); todos con costos estimados.
