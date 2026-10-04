@@ -1,6 +1,6 @@
 {
   "generado": "2026-10-04",
-  "ciclo": 2,
+  "ciclo": 3,
   "nicho_objetivo": "mascotas (verano y cuidado en casa) — evaluado contra candidatos de otros nichos",
   "escala": "criterios de 0 a 5; riesgo_politica 0 = sin riesgo, 5 = prohibido",
   "candidatos": [
@@ -463,6 +463,237 @@
         "https://www.yapo.cl/anuncios-clasificados-mascotas-animales-accesorios-de-mascotas/plato-doble-en-silicona-con-comedero-come-lento-p/26775412"
       ],
       "ciclo": 2
+    }
+    ,
+    {
+      "id": "kit-auto-viaje-perro",
+      "nombre": "Kit Viaje en Auto: funda de asiento impermeable + bebedero portátil con tazón",
+      "nicho": "mascotas",
+      "componentes": ["funda cubre asiento impermeable antideslizante", "bebedero portátil de viaje con tazón"],
+      "precio": 32990,
+      "precio_2u": 57990,
+      "costo_estimado": 10500,
+      "flete_estimado": 4200,
+      "criterios": {"demanda": 3, "estacionalidad": 3, "demostrable": 4, "baja_comparabilidad": 3, "logistica": 3, "ajuste_nicho": 5, "recompra": 1},
+      "riesgo_politica": 0,
+      "evidencia": "Cubre la necesidad de viaje/auto que ningún activo atiende (vacaciones de verano, pelo y barro en el asiento). Competencia 2026-10-04 (WebSearch, puntos de precio, NO mediana; sin curl): funda impermeable 137x147 cm Petscool $24.990 (lista $44.990) en Paris y Lider; Xroad con cinturón $36.990 en Paris; Zi Store 144x144 $11.990 en Paris; LABG $45.239. El kit queda +32 % sobre la funda Petscool; el bebedero suma la diferencia. Funda plegada es compacta pero pesa algo: flete puede subir. Sin afirmaciones de seguridad vial. Costo y flete estimados, por verificar en Dropi.",
+      "fuentes": [
+        "https://www.paris.cl/funda-cubre-asiento-de-auto-impermeable-mascotas-negra-xroad-MK4UCH53GL.html",
+        "https://www.paris.cl/funda-cubre-asiento-de-auto-para-mascotas-impermeable-y-antideslizante-negra-MKJDT9MCU0.html",
+        "https://www.lider.cl/ip/accesorios/funda-cubre-asiento-auto-perros-petscool-impermeable-y-antideslizante-negra/00046388206095",
+        "https://www.paris.cl/protector-de-asiento-auto-para-perros-mascotas-funda-impermeable-MKX61T32XD.html"
+      ],
+      "ciclo": 3
+    },
+    {
+      "id": "kit-descanso-cojin-lavable",
+      "nombre": "Kit Descanso: cojín cama lavable M + funda antideslizante de repuesto",
+      "nicho": "mascotas",
+      "componentes": ["cojín cama lavable talla M", "funda de repuesto lavable"],
+      "precio": 34990,
+      "precio_2u": 61990,
+      "costo_estimado": 11000,
+      "flete_estimado": 4500,
+      "criterios": {"demanda": 4, "estacionalidad": 2, "demostrable": 3, "baja_comparabilidad": 2, "logistica": 2, "ajuste_nicho": 5, "recompra": 2},
+      "riesgo_politica": 0,
+      "evidencia": "Camas son la categoría de mayor catálogo (más de 900 camas para perro en Sodimac CL). Competencia 2026-10-04 (WebSearch, puntos de precio, NO mediana; sin curl): Sodimac cama talla M 75x50 $16.990 (lista $24.990) y Koba extra grande $34.990; Falabella cojín lavable impermeable Hally Pet $84.990. Alta comparabilidad y voluminoso (logística 2): solo se sostiene con la funda de repuesto como diferencia. Sin términos 'antiestrés' ni 'ortopédica' (afirmaciones de salud). Costo y flete estimados, por verificar en Dropi.",
+      "fuentes": [
+        "https://www.sodimac.cl/sodimac-cl/lista/CATG11655/Camas-para-perro",
+        "https://www.falabella.com/falabella-cl/product/110152547/Cama-para-Perro-23x60x70-cm-Caf/110152548"
+      ],
+      "ciclo": 3
+    },
+    {
+      "id": "kit-gato-arenero-limpio",
+      "nombre": "Kit Arenero Ordenado: pala metálica + alfombra atrapa arena + dispensador de bolsas",
+      "nicho": "mascotas",
+      "componentes": ["pala metálica para arenero", "alfombra atrapa arena 45x60", "dispensador con bolsas desechables"],
+      "precio": 27990,
+      "precio_2u": 49990,
+      "costo_estimado": 8000,
+      "flete_estimado": 4000,
+      "criterios": {"demanda": 4, "estacionalidad": 2, "demostrable": 5, "baja_comparabilidad": 3, "logistica": 4, "ajuste_nicho": 5, "recompra": 3},
+      "riesgo_politica": 0,
+      "evidencia": "Resuelve arena fuera del arenero (público gato en hogares pequeños, ver mercado-mascotas-chile.md); demostración de 3 s. Bolsas desechables dan recompra. Competencia 2026-10-04 (WebSearch, puntos de precio, NO mediana; sin curl): alfombras atrapa arena en Lider $12.990 (120x70), $19.950, $27.990, $28.990 y $34.990 (45x60); areneros con pala $19.490. Alfombra sola ya cuesta $13.000-$35.000: el kit queda en rango de mercado. Sin promesas de eliminar olor ni de salud. Costo y flete estimados, por verificar en Dropi.",
+      "fuentes": [
+        "https://www.lider.cl/ip/gatos/alfombra-gato-salida-arenero-gato-bano-atrapa-arena-45-60cm-negro/00046030842216",
+        "https://www.lider.cl/ip/gatos/alfombra-atrapa-arena-xl-bano-areneros-gatos-tapete-doble/00046014484908",
+        "https://www.lider.cl/ip/higiene-y-salud/alfombra-atrapa-arena-para-gatos-salida-arenero-mascotas-color-verde/00046014480013",
+        "https://www.lider.cl/browse/mascotas/gatos/arenas-y-banos-Sanitarios/92129034_70005573_10417222"
+      ],
+      "ciclo": 3
+    },
+    {
+      "id": "kit-comedero-elevado-ajustable",
+      "nombre": "Kit Comedor Elevado: comedero elevado de 5 alturas con 2 pocillos de acero + tapete de silicona",
+      "nicho": "mascotas",
+      "componentes": ["comedero elevado ajustable con 2 pocillos de acero inoxidable", "tapete de silicona antideslizante"],
+      "precio": 29990,
+      "precio_2u": 52990,
+      "costo_estimado": 9500,
+      "flete_estimado": 4200,
+      "criterios": {"demanda": 3, "estacionalidad": 2, "demostrable": 4, "baja_comparabilidad": 3, "logistica": 3, "ajuste_nicho": 5, "recompra": 1},
+      "riesgo_politica": 1,
+      "evidencia": "Orden y comodidad en la hora de comer; ajuste de altura se muestra en 3 s. Competencia 2026-10-04 (WebSearch, puntos de precio, NO mediana; sin curl): comedero lento elevado Kopmath $45.990 en Lider (referencia alta); Easy CL vende comederos elevados ajustables de 5 alturas con 2 pocillos (Petscool; precio no visible en el resultado). Precio de piezas sueltas no medido: comparabilidad media. Riesgo 1: no hablar de digestión, hinchazón ni salud; solo comodidad y orden. Costo y flete estimados, por verificar en Dropi.",
+      "fuentes": [
+        "https://www.lider.cl/ip/accesorios/comedero-lento-kopmath-elevated-para-gatos-y-perros-pequenos/00046637667815",
+        "https://www.easy.cl/comedero-elevado-ajustable-5-alturas-plato-anti-voracidad-mkewidyfut/p",
+        "https://www.easy.cl/comedero-bebedero-para-perros-altura-ajustable-mkqioblhuj/p"
+      ],
+      "ciclo": 3
+    },
+    {
+      "id": "kit-mordedores-cepillo-dedal",
+      "nombre": "Kit Mordedores: mordedor de goma + cuerda con nudos + cepillo de dedal de silicona",
+      "nicho": "mascotas",
+      "componentes": ["mordedor de goma resistente", "cuerda con nudos", "cepillo de dedal de silicona"],
+      "precio": 24990,
+      "precio_2u": 43990,
+      "costo_estimado": 6500,
+      "flete_estimado": 3500,
+      "criterios": {"demanda": 3, "estacionalidad": 2, "demostrable": 4, "baja_comparabilidad": 3, "logistica": 5, "ajuste_nicho": 5, "recompra": 3},
+      "riesgo_politica": 1,
+      "evidencia": "Juego de morder y rutina de cuidado con cepillo de dedal (accesorio de silicona; sin afirmaciones de salud bucal, dientes ni sarro). Recompra por reposición de mordedores. Competencia 2026-10-04 (WebSearch, puntos de precio, NO mediana; sin curl): Pet Life Denta-Brush (mordedor + cepillo de silicona) $35.990 en Lider; set 3 juguetes cuerda/goma/pelota $27.990 en Lider; set 20 palitos Tatee $14.990 y cuerda Petizoos $2.190 en Sodimac. Piezas sueltas muy baratas: el kit es de conveniencia. Costo y flete estimados, por verificar en Dropi.",
+      "fuentes": [
+        "https://www.lider.cl/ip/accesorios/cepillo-dental-y-juguete-para-morder-para-perro-pet-life-denta-brush-de-silicona/00081005133309",
+        "https://www.lider.cl/ip/accesorios/set-3-juguetes-cuerda-goma-pelota-perro-gatos-mascotas-lau/00393796370010",
+        "https://www.sodimac.cl/sodimac-cl/category/cat11780011/Juguetes-accesorios-para-perros"
+      ],
+      "ciclo": 3
+    },
+    {
+      "id": "kit-abrigo-invierno-perro",
+      "nombre": "Kit Abrigo de Invierno: chaleco polar + manta polar para perros chicos y medianos",
+      "nicho": "mascotas",
+      "componentes": ["chaleco polar con cierre de velcro", "manta polar 100x70"],
+      "precio": 32990,
+      "precio_2u": 57990,
+      "costo_estimado": 10000,
+      "flete_estimado": 4200,
+      "criterios": {"demanda": 4, "estacionalidad": 1, "demostrable": 3, "baja_comparabilidad": 2, "logistica": 3, "ajuste_nicho": 5, "recompra": 1},
+      "riesgo_politica": 0,
+      "evidencia": "Producto de invierno: lanzar desde abril, NO ahora (estacionalidad 1 hoy; 42 % de hogares con perro tiene perro senior, Kantar). Tallas del chaleco elevan cambios: ofrecer tallas S/M con guía. Competencia 2026-10-04 (WebSearch, puntos de precio, NO mediana; sin curl): chalecos polares Jacko & Co en Lider $27.990-$34.990; set de 3 mantas polares 100x70 $23.990 en Lider; capas de polar para perros grandes $6.900. Chaleco solo ya cuesta casi el kit: alta comparabilidad. Se deja en cartera para evaluar al acercarse abril. Costo y flete estimados, por verificar en Dropi.",
+      "fuentes": [
+        "https://www.lider.cl/ip/perros/chaleco-polar-para-perros-suave-y-calido-para-pequenos-y-medianos/00062867893018",
+        "https://www.lider.cl/ip/perros/sueter-para-perros-chaleco-polar-jacko-co-suave-y-calido-para-perros-pequenos/00099000560038",
+        "https://www.lider.cl/ip/accesorios/set-3-mantas-polar-para-mascotas-perros-gatos-100x70cm-lau/00462702790761"
+      ],
+      "ciclo": 3
+    },
+    {
+      "id": "kit-juegos-interactivos-perro",
+      "nombre": "Kit Juego Interactivo: pelota dispensadora de premios + cuerda con pelota + pelota con sonido",
+      "nicho": "mascotas",
+      "componentes": ["pelota dispensadora de premios", "juguete de cuerda con pelota", "pelota con sonido"],
+      "precio": 29990,
+      "precio_2u": 52990,
+      "costo_estimado": 8500,
+      "flete_estimado": 3800,
+      "criterios": {"demanda": 4, "estacionalidad": 3, "demostrable": 5, "baja_comparabilidad": 3, "logistica": 5, "ajuste_nicho": 5, "recompra": 2},
+      "riesgo_politica": 0,
+      "evidencia": "El perro persiguiendo la pelota que suelta premios es demostración inmediata; complementa el kit de enriquecimiento (alfombra) con juego activo en patio o parque. Competencia 2026-10-04 (WebSearch, puntos de precio, NO mediana; sin curl): dispensador de golosinas para gatos $27.490 (lista $32.990) en Lider (no se verificó precio CL de dispensadora para perro); juguete interactivo cuerda y pelota en Lider (precio no visible); pelota rodadora para premios en Jumbo (precio no visible); set 3 juguetes $27.990 en Lider. Posible solapamiento de público con kit-enriquecimiento-perro. Costo y flete estimados, por verificar en Dropi.",
+      "fuentes": [
+        "https://www.lider.cl/ip/accesorios/juguete-interactivo-gatos-dispensador-de-golosinas-mascotas/00102963031075",
+        "https://www.lider.cl/ip/accesorios/juguete-interactivo-para-mascotas-cuerda-y-pelota-rojo-mm/00809358516853",
+        "https://www.jumbo.cl/juguete-pelota-rod-2044137/p",
+        "https://www.lider.cl/ip/accesorios/set-3-juguetes-cuerda-goma-pelota-perro-gatos-mascotas-lau/00393796370010"
+      ],
+      "ciclo": 3
+    },
+    {
+      "id": "kit-paseo-nocturno-led",
+      "nombre": "Kit Paseo Nocturno: collar LED recargable USB + correa reflectante + luz clip",
+      "nicho": "mascotas",
+      "componentes": ["collar LED recargable por USB", "correa reflectante", "luz clip de seguridad"],
+      "precio": 27990,
+      "precio_2u": 49990,
+      "costo_estimado": 7500,
+      "flete_estimado": 3500,
+      "criterios": {"demanda": 4, "estacionalidad": 4, "demostrable": 5, "baja_comparabilidad": 3, "logistica": 5, "ajuste_nicho": 5, "recompra": 1},
+      "riesgo_politica": 0,
+      "evidencia": "Luz visible en video oscuro: demostración de 3 s; atardeceres tardíos de primavera-verano alargan el paseo nocturno. Competencia 2026-10-04 (WebSearch, puntos de precio, NO mediana; sin curl): collar LED recargable USB $28.990 en Lider; accesorios de luz LED desde $2.990 en Sodimac; Falabella CL no mostró precio en la búsqueda. El kit trae 3 piezas por el precio de un collar de retail. Sin promesas de seguridad vial ni de evitar accidentes: solo 'más visible'. Costo y flete estimados, por verificar en Dropi.",
+      "fuentes": [
+        "https://www.lider.cl/ip/accesorios/collar-led-para-perros-flash-recargable-por-usb-seguridad-para-mascotas/00081596102429",
+        "https://www.sodimac.cl/sodimac-cl/lista/CATG34769/Muebles de Terraza"
+      ],
+      "ciclo": 3
+    },
+    {
+      "id": "kit-cachorro-entrenamiento",
+      "nombre": "Kit Cachorro en Casa: tapetes lavables de entrenamiento (x2) + clicker + bolsa de premios con dispensador",
+      "nicho": "mascotas",
+      "componentes": ["tapete lavable de entrenamiento (2 unidades)", "clicker con correa de muñeca", "bolsa de premios con dispensador de bolsas"],
+      "precio": 27990,
+      "precio_2u": 49990,
+      "costo_estimado": 8000,
+      "flete_estimado": 3800,
+      "criterios": {"demanda": 3, "estacionalidad": 2, "demostrable": 4, "baja_comparabilidad": 3, "logistica": 4, "ajuste_nicho": 5, "recompra": 2},
+      "riesgo_politica": 1,
+      "evidencia": "Reemplaza con otro motivo al kit-bienvenida-cachorro descartado (aquel era set de juguetes comparable): este kit es de entrenamiento, no de juguetes. 70 % de los hogares tiene perro o gato (Kantar). Competencia 2026-10-04 (WebSearch, puntos de precio, NO mediana; sin curl): clicker de marca (Karen Pryor, marca ajena, no se vende) $35.990 en Lider; bolsa para premios con dispensador de bolsas en Lider (precio no visible). Sin promesas de conducta, obediencia ni 'educar en X días'. Costo y flete estimados, por verificar en Dropi.",
+      "fuentes": [
+        "https://www.lider.cl/ip/accesorios/clicker-de-entrenamiento-para-perros-karen-pryor-clicino-mediano-azul/00764999309401",
+        "https://www.lider.cl/ip/menaje-comedor/bolsa-para-premios-para-perros-ideal-para-entrenar-perros-pequenos-y-grandes-ideal-para-transportar-juguetes-croquetas-y-premios-con-dispensador-de-bolsas-para-excrementos-integrado-/00935169916030",
+        "https://www.hola.com/seleccion/20240517254119/productos-para-educar-a-cachorros/"
+      ],
+      "ciclo": 3
+    },
+    {
+      "id": "kit-gato-rascador-pared",
+      "nombre": "Kit Gato Vertical: rascador autoadhesivo de pared/esquina + 2 pelotas con cascabel",
+      "nicho": "mascotas",
+      "componentes": ["rascador autoadhesivo de pared y esquina 30x200 cm", "set 2 pelotas con cascabel"],
+      "precio": 24990,
+      "precio_2u": 43990,
+      "costo_estimado": 6500,
+      "flete_estimado": 3800,
+      "criterios": {"demanda": 4, "estacionalidad": 2, "demostrable": 4, "baja_comparabilidad": 3, "logistica": 4, "ajuste_nicho": 5, "recompra": 2},
+      "riesgo_politica": 0,
+      "evidencia": "Alternativa liviana al rascador de cartón (no usa suelo: sirve en departamentos chicos, hogares de gato 1-2 personas, Kantar). Competencia 2026-10-04 (WebSearch, puntos de precio, NO mediana; sin curl): rascador autoadhesivo de pared/esquina 30x200 cm $13.325 (lista $15.990) en Lider; esquinero sillón $24.990; cartón con bandeja $18.990; sisal Best Pet $45.990. Prima +87 % sobre el autoadhesivo solo: depende de las pelotas y del uso. Solapa levemente con kit-gato-juego-rascado (en observación): elegir uno. Costo y flete estimados, por verificar en Dropi.",
+      "fuentes": [
+        "https://www.lider.cl/ip/gatos/autoadhesivo-rascador-de-gatos-p-esquina-y-pared-30×200cm/00094615284338",
+        "https://www.lider.cl/ip/juguetes-por-edad/rascadores-gatos-rascador-esquinero-sillon-gato-cafe/00046202663035",
+        "https://www.lider.cl/ip/juguetes-por-edad/rascador-gatos-carton-corrugado-bandeja-cama-cafe/00046064101835"
+      ],
+      "ciclo": 3
+    },
+    {
+      "id": "kit-orden-alimento",
+      "nombre": "Kit Orden en la Cocina: contenedor hermético de alimento plegable 8 kg + pala medidora + clip sellador",
+      "nicho": "mascotas",
+      "componentes": ["contenedor hermético plegable 8 kg", "pala medidora", "clip sellador de bolsa"],
+      "precio": 26990,
+      "precio_2u": 47990,
+      "costo_estimado": 9500,
+      "flete_estimado": 4500,
+      "criterios": {"demanda": 3, "estacionalidad": 2, "demostrable": 3, "baja_comparabilidad": 2, "logistica": 2, "ajuste_nicho": 5, "recompra": 1},
+      "riesgo_politica": 0,
+      "evidencia": "Orden y guardado del alimento en departamentos chicos; plegable reduce volumen de despacho. Competencia 2026-10-04 (WebSearch, puntos de precio, NO mediana; sin curl): contenedor de alimento 30 kg $19.990 (lista $25.990) en Lider; plegable 8 kg All For Paws $29.990 (lista $45.990) y plegable 12 kg $36.990 en Paris. Candidato débil: el kit queda bajo el plegable de Paris pero sobre el Lider; margen estrecho con flete $4.500. Sin afirmaciones de frescura sanitaria ni salud. Costo y flete estimados, por verificar en Dropi.",
+      "fuentes": [
+        "https://www.lider.cl/ip/accesorios/contenedor-de-alimentos-para-mascotas-30kg-fresh-lubabycas/00046301495917",
+        "https://www.paris.cl/contenedor-alimento-mascotas-plegable-8kg-perros-gatos-MKJ5VO955L.html",
+        "https://www.paris.cl/contenedor-alimento-mascotas-plegable-12kg-perros-gatos-MKMTFUGUKG.html"
+      ],
+      "ciclo": 3
+    },
+    {
+      "id": "kit-caja-regalo-navidad",
+      "nombre": "Caja Regalo Navidad: bandana navideña + peluche con chillón + cuerda + pelota + tarjeta (sin comestibles)",
+      "nicho": "mascotas",
+      "componentes": ["bandana navideña ajustable", "peluche con sonido", "juguete de cuerda", "pelota de goma"],
+      "precio": 24990,
+      "precio_2u": 43990,
+      "costo_estimado": 7000,
+      "flete_estimado": 3500,
+      "criterios": {"demanda": 4, "estacionalidad": 5, "demostrable": 4, "baja_comparabilidad": 4, "logistica": 5, "ajuste_nicho": 5, "recompra": 1},
+      "riesgo_politica": 0,
+      "evidencia": "Regalo para 'regalón/regalona' (92 % de los dueños lo considera familia, UC) y para quien regala a dueños de mascotas. Ventana: lanzar mediados de noviembre y cortar ~15-dic (despacho). Sin comestibles (alimento mascota es regulado). Distinto al kit-bienvenida-cachorro descartado: es caja de regalo con presentación y bandana, no set de juguetes. Competencia 2026-10-04 (WebSearch, puntos de precio, NO mediana; sin curl): set 3 juguetes $27.990 en Lider; peluche con sonido $6.990 y set 20 juguetes $14.990 en Sodimac; cajas navideñas para perros $5.900-$18.000 solo en nota de prensa argentina (referencia, no Chile). Piezas muy baratas: se vende presentación y fecha. Costo y flete estimados, por verificar en Dropi.",
+      "fuentes": [
+        "https://www.lider.cl/ip/accesorios/set-3-juguetes-cuerda-goma-pelota-perro-gatos-mascotas-lau/00393796370010",
+        "https://www.sodimac.cl/sodimac-cl/category/cat11780011/Juguetes-accesorios-para-perros",
+        "https://www.jumbo.cl/pack-regalos-perro-2044149/p",
+        "https://www.noticiasnqn.com.ar/noticias/2025/12/25/325599-cajas-navidenas-para-perros-y-gatos-que-traen-y-cuanto-cuestan-los-regalos-que-son-furor-en-las-fiestas"
+      ],
+      "ciclo": 3
     }
   ],
   "reintento": 1,

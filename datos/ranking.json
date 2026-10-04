@@ -11,6 +11,24 @@
   },
   "ranking": [
     {
+      "id": "kit-caja-regalo-navidad",
+      "nombre": "Caja Regalo Navidad: bandana navideña + peluche con chillón + cuerda + pelota + tarjeta (sin comestibles)",
+      "nicho": "mascotas",
+      "puntaje": 4.26,
+      "pasa_porton": true,
+      "motivos_rechazo": [],
+      "notas": {
+        "demanda": 4,
+        "estacionalidad": 5,
+        "demostrable": 4,
+        "baja_comparabilidad": 4,
+        "logistica": 5,
+        "ajuste_nicho": 5,
+        "recompra": 1,
+        "economia": 4.6
+      }
+    },
+    {
       "id": "kit-pelo-cero",
       "nombre": "Kit Pelo Cero: cepillo a vapor 3 en 1 + removedor de pelos reutilizable",
       "nicho": "mascotas",
@@ -26,6 +44,24 @@
         "ajuste_nicho": 5,
         "recompra": 2,
         "economia": 3.17
+      }
+    },
+    {
+      "id": "kit-paseo-nocturno-led",
+      "nombre": "Kit Paseo Nocturno: collar LED recargable USB + correa reflectante + luz clip",
+      "nicho": "mascotas",
+      "puntaje": 4.15,
+      "pasa_porton": true,
+      "motivos_rechazo": [],
+      "notas": {
+        "demanda": 4,
+        "estacionalidad": 4,
+        "demostrable": 5,
+        "baja_comparabilidad": 3,
+        "logistica": 5,
+        "ajuste_nicho": 5,
+        "recompra": 1,
+        "economia": 5.0
       }
     },
     {
@@ -62,6 +98,24 @@
         "ajuste_nicho": 5,
         "recompra": 2,
         "economia": 4.85
+      }
+    },
+    {
+      "id": "kit-juegos-interactivos-perro",
+      "nombre": "Kit Juego Interactivo: pelota dispensadora de premios + cuerda con pelota + pelota con sonido",
+      "nicho": "mascotas",
+      "puntaje": 4.03,
+      "pasa_porton": true,
+      "motivos_rechazo": [],
+      "notas": {
+        "demanda": 4,
+        "estacionalidad": 3,
+        "demostrable": 5,
+        "baja_comparabilidad": 3,
+        "logistica": 5,
+        "ajuste_nicho": 5,
+        "recompra": 2,
+        "economia": 4.8
       }
     },
     {
@@ -137,6 +191,24 @@
       }
     },
     {
+      "id": "kit-gato-arenero-limpio",
+      "nombre": "Kit Arenero Ordenado: pala metálica + alfombra atrapa arena + dispensador de bolsas",
+      "nicho": "mascotas",
+      "puntaje": 3.8,
+      "pasa_porton": true,
+      "motivos_rechazo": [],
+      "notas": {
+        "demanda": 4,
+        "estacionalidad": 2,
+        "demostrable": 5,
+        "baja_comparabilidad": 3,
+        "logistica": 4,
+        "ajuste_nicho": 5,
+        "recompra": 3,
+        "economia": 4.53
+      }
+    },
+    {
       "id": "kit-gato-hidratacion-filtros",
       "nombre": "Kit Fuente para gatos 2,5 L + pack de 6 filtros de repuesto",
       "nicho": "mascotas",
@@ -155,6 +227,42 @@
       }
     },
     {
+      "id": "kit-gato-rascador-pared",
+      "nombre": "Kit Gato Vertical: rascador autoadhesivo de pared/esquina + 2 pelotas con cascabel",
+      "nicho": "mascotas",
+      "puntaje": 3.62,
+      "pasa_porton": true,
+      "motivos_rechazo": [],
+      "notas": {
+        "demanda": 4,
+        "estacionalidad": 2,
+        "demostrable": 4,
+        "baja_comparabilidad": 3,
+        "logistica": 4,
+        "ajuste_nicho": 5,
+        "recompra": 2,
+        "economia": 4.73
+      }
+    },
+    {
+      "id": "kit-mordedores-cepillo-dedal",
+      "nombre": "Kit Mordedores: mordedor de goma + cuerda con nudos + cepillo de dedal de silicona",
+      "nicho": "mascotas",
+      "puntaje": 3.59,
+      "pasa_porton": true,
+      "motivos_rechazo": [],
+      "notas": {
+        "demanda": 3,
+        "estacionalidad": 2,
+        "demostrable": 4,
+        "baja_comparabilidad": 3,
+        "logistica": 5,
+        "ajuste_nicho": 5,
+        "recompra": 3,
+        "economia": 4.9
+      }
+    },
+    {
       "id": "kit-gato-juego-rascado",
       "nombre": "Kit Gato Entretenido: rascador de cartón + pelota interactiva recargable",
       "nicho": "mascotas",
@@ -170,6 +278,24 @@
         "ajuste_nicho": 5,
         "recompra": 2,
         "economia": 3.15
+      }
+    },
+    {
+      "id": "kit-cachorro-entrenamiento",
+      "nombre": "Kit Cachorro en Casa: tapetes lavables de entrenamiento (x2) + clicker + bolsa de premios con dispensador",
+      "nicho": "mascotas",
+      "puntaje": 3.42,
+      "pasa_porton": true,
+      "motivos_rechazo": [],
+      "notas": {
+        "demanda": 3,
+        "estacionalidad": 2,
+        "demostrable": 4,
+        "baja_comparabilidad": 3,
+        "logistica": 4,
+        "ajuste_nicho": 5,
+        "recompra": 2,
+        "economia": 4.65
       }
     },
     {
@@ -254,6 +380,26 @@
       }
     },
     {
+      "id": "kit-auto-viaje-perro",
+      "nombre": "Kit Viaje en Auto: funda de asiento impermeable + bebedero portátil con tazón",
+      "nicho": "mascotas",
+      "puntaje": 3.37,
+      "pasa_porton": false,
+      "motivos_rechazo": [
+        "puntaje 3.37 < 3.4"
+      ],
+      "notas": {
+        "demanda": 3,
+        "estacionalidad": 3,
+        "demostrable": 4,
+        "baja_comparabilidad": 3,
+        "logistica": 3,
+        "ajuste_nicho": 5,
+        "recompra": 1,
+        "economia": 4.22
+      }
+    },
+    {
       "id": "kit-bienvenida-cachorro",
       "nombre": "Kit Bienvenida Cachorro: comedero doble de silicona + set de 3 juguetes (cuerda, goma, pelota)",
       "nicho": "mascotas",
@@ -296,6 +442,26 @@
       }
     },
     {
+      "id": "kit-comedero-elevado-ajustable",
+      "nombre": "Kit Comedor Elevado: comedero elevado de 5 alturas con 2 pocillos de acero + tapete de silicona",
+      "nicho": "mascotas",
+      "puntaje": 3.2,
+      "pasa_porton": false,
+      "motivos_rechazo": [
+        "puntaje 3.2 < 3.4"
+      ],
+      "notas": {
+        "demanda": 3,
+        "estacionalidad": 2,
+        "demostrable": 4,
+        "baja_comparabilidad": 3,
+        "logistica": 3,
+        "ajuste_nicho": 5,
+        "recompra": 1,
+        "economia": 4.02
+      }
+    },
+    {
       "id": "ventilador-cuello",
       "nombre": "Ventilador de cuello recargable sin aspas",
       "nicho": "verano",
@@ -334,6 +500,26 @@
         "ajuste_nicho": 0,
         "recompra": 2,
         "economia": 4.0
+      }
+    },
+    {
+      "id": "kit-descanso-cojin-lavable",
+      "nombre": "Kit Descanso: cojín cama lavable M + funda antideslizante de repuesto",
+      "nicho": "mascotas",
+      "puntaje": 3.08,
+      "pasa_porton": false,
+      "motivos_rechazo": [
+        "puntaje 3.08 < 3.4"
+      ],
+      "notas": {
+        "demanda": 4,
+        "estacionalidad": 2,
+        "demostrable": 3,
+        "baja_comparabilidad": 2,
+        "logistica": 2,
+        "ajuste_nicho": 5,
+        "recompra": 2,
+        "economia": 4.3
       }
     },
     {
@@ -379,6 +565,26 @@
       }
     },
     {
+      "id": "kit-abrigo-invierno-perro",
+      "nombre": "Kit Abrigo de Invierno: chaleco polar + manta polar para perros chicos y medianos",
+      "nicho": "mascotas",
+      "puntaje": 3.0,
+      "pasa_porton": false,
+      "motivos_rechazo": [
+        "puntaje 3.0 < 3.4"
+      ],
+      "notas": {
+        "demanda": 4,
+        "estacionalidad": 1,
+        "demostrable": 3,
+        "baja_comparabilidad": 2,
+        "logistica": 3,
+        "ajuste_nicho": 5,
+        "recompra": 1,
+        "economia": 4.5
+      }
+    },
+    {
       "id": "luces-solares-sensor",
       "nombre": "Focos solares LED con sensor de movimiento (pack 4)",
       "nicho": "hogar",
@@ -418,6 +624,26 @@
         "ajuste_nicho": 3,
         "recompra": 0,
         "economia": 1.88
+      }
+    },
+    {
+      "id": "kit-orden-alimento",
+      "nombre": "Kit Orden en la Cocina: contenedor hermético de alimento plegable 8 kg + pala medidora + clip sellador",
+      "nicho": "mascotas",
+      "puntaje": 2.67,
+      "pasa_porton": false,
+      "motivos_rechazo": [
+        "puntaje 2.67 < 3.4"
+      ],
+      "notas": {
+        "demanda": 3,
+        "estacionalidad": 2,
+        "demostrable": 3,
+        "baja_comparabilidad": 2,
+        "logistica": 2,
+        "ajuste_nicho": 5,
+        "recompra": 1,
+        "economia": 2.7
       }
     }
   ]
