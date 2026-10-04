@@ -18,18 +18,47 @@
     reveladores.forEach(function (el) { io.observe(el); });
   }
 
-  // Filtro de kits por mascota (portada). "ambos" aparece en perros y gatos.
-  var filtros = document.querySelectorAll('.filtro');
-  filtros.forEach(function (b) {
-    b.addEventListener('click', function () {
-      var v = b.dataset.filtro;
-      filtros.forEach(function (x) { var on = x === b; x.classList.toggle('activo', on); x.setAttribute('aria-pressed', on); });
-      document.querySelectorAll('#grilla .tarjeta').forEach(function (t) {
-        var m = t.dataset.mascota;
-        t.hidden = !(v === 'todos' || m === v || m === 'ambos');
+  // Catálogo: filtro por mascota + paginación (8 kits por página). Sin JS se ven todos.
+  var grilla = document.getElementById('grilla');
+  var paginas = document.getElementById('paginas');
+  if (grilla && paginas) {
+    var POR_PAGINA = 8, filtro = 'todos', pagina = 1;
+    var tarjetas = Array.prototype.slice.call(grilla.querySelectorAll('.tarjeta'));
+    var visibles = function () {
+      return tarjetas.filter(function (t) { var m = t.dataset.mascota; return filtro === 'todos' || m === filtro || m === 'ambos'; });
+    };
+    var boton = function (txt, n, etiqueta, actual, desactivado) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'pagina' + (actual ? ' activa' : ''); b.textContent = txt;
+      b.setAttribute('aria-label', etiqueta); if (actual) b.setAttribute('aria-current', 'page');
+      b.disabled = !!desactivado;
+      b.addEventListener('click', function () { pagina = n; pintarCatalogo(true); });
+      return b;
+    };
+    var pintarCatalogo = function (desplazar) {
+      var lista = visibles(), total = Math.max(1, Math.ceil(lista.length / POR_PAGINA));
+      if (pagina > total) pagina = total;
+      tarjetas.forEach(function (t) { t.hidden = true; });
+      lista.slice((pagina - 1) * POR_PAGINA, pagina * POR_PAGINA).forEach(function (t) { t.hidden = false; t.classList.add('visible'); });
+      paginas.innerHTML = '';
+      paginas.hidden = total < 2;
+      if (total > 1) {
+        paginas.appendChild(boton('‹', pagina - 1, 'Página anterior', false, pagina === 1));
+        for (var i = 1; i <= total; i++) paginas.appendChild(boton(String(i), i, 'Página ' + i, i === pagina, false));
+        paginas.appendChild(boton('›', pagina + 1, 'Página siguiente', false, pagina === total));
+      }
+      if (desplazar) document.getElementById('kits').scrollIntoView({ behavior: menosMovimiento ? 'auto' : 'smooth', block: 'start' });
+    };
+    var filtros = document.querySelectorAll('.filtro');
+    filtros.forEach(function (b) {
+      b.addEventListener('click', function () {
+        filtro = b.dataset.filtro; pagina = 1;
+        filtros.forEach(function (x) { var on = x === b; x.classList.toggle('activo', on); x.setAttribute('aria-pressed', on); });
+        pintarCatalogo(false);
       });
     });
-  });
+    pintarCatalogo(false);
+  }
 
   var f = document.getElementById('pedido');
   if (!f) return;

@@ -125,3 +125,4 @@ Cada ciclo agrega una entrada al final: fecha, nodos ejecutados, decisiones del 
 - cazador (sonnet) 10 candidatos gato/ambos → 8 pasan → validador (opus) aprueba 6 → **19 activos** (10 perro, 8 gato, 1 ambos). creador-tienda: 6 fichas. Metas sin "Pagas al recibir/Despacho" repetidos.
 - Fotos Canva: Ventana y Rascador; resto sin créditos → imagen provisional. Chromium: 19 páginas sin errores ni scroll horizontal; filtro OK.
 - 2026-10-04 ~16:00 UTC: pedido del dueño, tarjetas más compactas. Grilla 2 columnas (celular) / 3 (tablet) / 4 (escritorio), foto cuadrada, solo etiqueta + nombre + precio (+ botón en pantallas ≥700 px). Sección de kits en celular: de ~9.000 px a ~3.500 px. Kits con foto primero (después de orden_vitrina).
+- 2026-10-04 ~16:20 UTC: pedido del dueño, paginación del catálogo: 8 kits por página con ‹ 1 2 3 ›, compatible con el filtro Perros/Gatos (sin JS se ven todos). Probado en Chromium 390/1366.

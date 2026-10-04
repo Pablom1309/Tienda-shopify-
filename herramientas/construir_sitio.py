@@ -341,7 +341,7 @@ def portada(productos, marca, tienda):
 <h1>Menos pelo en tu casa. Más frescura para tu mascota.</h1>
 <p class="hero-sub">Soluciones completas para el pelo y el calor, pensadas para la vida en casa.</p>
 <div class="hero-acciones"><a class="boton boton-grande" href="#kits">Ver los kits {icono('flecha', 'ico ico-s')}</a><a class="boton-texto" href="#como-funciona">¿Cómo funciona?</a></div></div></section>
-<section class="seccion contenedor" id="kits"><p class="sobretitulo">Nuestros kits</p><h2>Elige el que necesita tu casa</h2>{filtros}<div class="grilla" id="grilla">{tarjetas}</div></section>
+<section class="seccion contenedor" id="kits"><p class="sobretitulo">Nuestros kits</p><h2>Elige el que necesita tu casa</h2>{filtros}<div class="grilla" id="grilla">{tarjetas}</div><nav class="paginas" id="paginas" aria-label="Páginas de kits" hidden></nav></section>
 {como_funciona()}
 <section class="seccion seccion-oscura"><div class="contenedor riesgo"><div><p class="sobretitulo">Compra sin riesgo</p><h2>Si no te sirve, no es tu problema</h2><a class="boton" href="cambios.html">Ver política de cambios</a></div>
 <ul class="riesgo-lista"><li>{icono('pago')}<span><strong>$0 por adelantado</strong>Nada de tarjetas ni transferencias.</span></li><li>{icono('retracto')}<span><strong>10 días de retracto</strong>Desde que lo recibes.</span></li><li>{icono('garantia')}<span><strong>6 meses de garantía</strong>Cambio, reparación o devolución.</span></li></ul></div></section>
