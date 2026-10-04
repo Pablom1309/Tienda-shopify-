@@ -159,7 +159,7 @@ def pagina(marca, tienda, titulo, descripcion, cuerpo, base="", canonica=None, i
 </main>
 <footer class="pie">
 <div class="contenedor pie-in">
-<div class="pie-marca"><p class="logo logo-pie" aria-label="{e(marca['nombre'])}">{logo_svg(pie=True)}</p><p>{e(marca['promesa'])}</p><p class="pie-sello">{icono('pago', 'ico ico-s')} Pago contra entrega · {icono('envio', 'ico ico-s')} Envíos a todo Chile</p></div>
+<div class="pie-marca"><p class="logo logo-pie" aria-label="{e(marca['nombre'])}">{logo_svg(pie=True)}</p><p>{e(marca['promesa'])}</p></div>
 <div><p class="pie-tit">Tienda</p><nav class="pie-nav"><a href="{base}index.html#kits">Kits</a><a href="{base}index.html#como-funciona">Cómo funciona</a><a href="{base}index.html#preguntas">Preguntas frecuentes</a></nav></div>
 <div><p class="pie-tit">Ayuda</p><nav class="pie-nav"><a href="{base}despacho.html">Despacho</a><a href="{base}cambios.html">Cambios, retracto y garantía</a><a href="{base}privacidad.html">Privacidad</a><a href="{base}contacto.html">Contacto</a></nav></div>
 </div>
@@ -192,9 +192,7 @@ def como_funciona():
 def faq_general(tienda):
     pl = tienda["plazos_despacho"]
     preguntas = [
-        ("¿Cómo funciona el pago contra entrega?", "Haces el pedido en la web sin pagar nada. Te confirmamos por WhatsApp y pagas al repartidor cuando recibes el producto."),
         ("¿Cuánto demora el despacho?", f"Región Metropolitana: {pl['RM']}. Otras regiones: {pl['regiones']}. Zonas extremas: {pl['zonas_extremas']}."),
-        ("¿Y si el producto no me sirve?", "Tienes 10 días de retracto desde que lo recibes (sin uso y en su empaque) y 6 meses de garantía legal por fallas."),
         ("¿Por qué venden kits y no productos sueltos?", "Porque un problema casi nunca se resuelve con una sola pieza. El kit trae lo necesario para la mascota y para la casa, y te ahorra un segundo despacho."),
         ("¿Las fotos son del producto real?", "Algunas imágenes son referenciales y lo indicamos en cada una. La descripción, lo que incluye y el precio son exactos."),
     ]
@@ -246,16 +244,15 @@ def formulario(prod, ficha, tienda):
 <button type="submit" class="boton boton-grande">{icono('chat')} Confirmar pedido por WhatsApp</button>
 {aviso}
 <label class="consentimiento"><input type="checkbox" name="consentimiento" value="si"><span>Quiero recibir por WhatsApp recordatorios y novedades de Kuchiwau (opcional; puedes darte de baja cuando quieras).</span></label>
-<ul class="garantias-form"><li>{icono('pago', 'ico ico-s')} No pagas nada ahora</li><li><a href="../cambios.html">{icono('retracto', 'ico ico-s')} 10 días de retracto</a></li><li><a href="../privacidad.html">{icono('garantia', 'ico ico-s')} Cómo usamos tus datos</a></li></ul>
+<ul class="garantias-form"><li><a href="../cambios.html">{icono('retracto', 'ico ico-s')} 10 días de retracto</a></li><li><a href="../privacidad.html">{icono('garantia', 'ico ico-s')} Cómo usamos tus datos</a></li></ul>
 </form>"""
 
 
 def comparacion(prod, ficha):
     filas = [("Lo necesario para la mascota y la casa", True, False),
              ("Un solo despacho", True, False),
-             ("Pagas al recibir", True, None),
              ("Confirmación por WhatsApp antes de despachar", True, None),
-             ("Garantía legal y retracto con un solo vendedor", True, False)]
+             ]
     def celda(v):
         if v is None:
             return '<td class="tal-vez">Depende</td>'
@@ -291,25 +288,23 @@ def pagina_producto(prod, ficha, marca, tienda):
         {"@type": "ListItem", "position": 2, "name": nombre}]}
     cuerpo = f"""<nav class="migas contenedor" aria-label="Migas de pan"><a href="../index.html">Inicio</a><span aria-hidden="true">/</span><a href="../index.html#kits">Kits</a><span aria-hidden="true">/</span><span aria-current="page">{e(nombre)}</span></nav>
 <section class="producto contenedor">
-<div class="galeria">{imagen(prod['id'], ficha['alt_imagenes'][0], '../', 'foto foto-producto')}
-<ul class="galeria-sellos"><li>{icono('pago', 'ico ico-s')} Pago contra entrega</li><li>{icono('envio', 'ico ico-s')} Envío a todo Chile</li><li>{icono('retracto', 'ico ico-s')} 10 días de retracto</li></ul></div>
+<div class="galeria">{imagen(prod['id'], ficha['alt_imagenes'][0], '../', 'foto foto-producto')}</div>
 <div class="compra">
 <span class="etiqueta">{icono('kit', 'ico ico-s')} Kit completo · {len(ficha['incluye'])} piezas</span>
 <h1>{e(ficha['titular'])}</h1>
 <p class="sub">{e(ficha['subtitular'])}</p>
 <div class="precio"><strong>{clp(prod['precio'])}</strong><span class="chip">Lleva 2 y ahorra {clp(ahorro)}</span></div>
-<p class="iva">IVA incluido · Pagas al recibir</p>
+<p class="iva">IVA incluido</p>
 <p class="plazo">{icono('envio', 'ico ico-s')} Llega en {e(tienda['plazos_despacho']['RM'])} en la RM y {e(tienda['plazos_despacho']['regiones'])} en regiones</p>
 {formulario(prod, ficha, tienda)}
 </div>
 </section>
-<section class="banda"><div class="contenedor">{sellos(tienda)}</div></section>
 <section class="seccion contenedor"><p class="sobretitulo">Por qué funciona</p><h2>Todo lo que necesitas, en un solo pedido</h2><ul class="beneficios">{benef}</ul></section>
 <section class="seccion seccion-suave"><div class="contenedor dos-col"><div><p class="sobretitulo">Cómo se usa</p><h2>Listo en minutos</h2><ol class="pasos">{pasos}</ol></div><div class="caja revelar"><h3>Qué incluye</h3>{contenido}<ul class="incluye">{incluye}</ul><p class="nota-chica">Medidas y materiales exactos: los publicamos al recibir la ficha del proveedor.</p></div></div></section>
 {comparacion(prod, ficha)}
 <section class="seccion contenedor estrecho"><p class="sobretitulo">Opiniones</p><h2>Reseñas reales, pronto</h2><div class="resenas-vacio">{icono('estrella')}<p>Solo publicamos opiniones de clientes que recibieron su pedido. Sin reseñas inventadas: cuando lleguen, las verás aquí.</p></div></section>
 {bloque_faq(preguntas, id_="preguntas-producto")}
-<section class="cta-final"><div class="contenedor"><h2>¿Listo para probarlo?</h2><p>Pides hoy, te confirmamos por WhatsApp y pagas cuando llega.</p><a class="boton boton-grande boton-auto" href="#pedido">Pedir {e(nombre)} · {clp(prod['precio'])}</a></div></section>
+<section class="cta-final"><div class="contenedor"><h2>¿Listo para probarlo?</h2><p>Elige tu oferta y deja tus datos: toma menos de un minuto.</p><a class="boton boton-grande boton-auto" href="#pedido">Pedir {e(nombre)} · {clp(prod['precio'])}</a></div></section>
 <div class="barra-compra" id="barra-compra"><div><strong>{clp(prod['precio'])}</strong><span>Pagas al recibir</span></div><a class="boton" href="#pedido">Pedir ahora</a></div>"""
     og = f"img/{prod['id']}.jpg" if (PLANTILLA / "img" / f"{prod['id']}.jpg").exists() else None
     return pagina(marca, tienda, ficha["titulo_seo"], ficha["meta_descripcion"], cuerpo, base="../",
@@ -323,19 +318,17 @@ def portada(productos, marca, tienda):
 <div class="tarjeta-pie"><div><strong>{clp(p['precio'])}</strong><small>o 2 por {clp(p['oferta_2'])}</small></div><span class="boton boton-chico">Ver kit {icono('flecha', 'ico ico-s')}</span></div></div></a>"""
                        for p, f in productos)
     pilares = "".join(f'<li class="revelar">{icono(i)}<div><strong>{e(x["pilar"])}</strong><p>{e(x["prueba"])}</p></div></li>'
-                      for i, x in zip(("kit", "garantia", "estrella"), marca["pilares"]))
+                      for i, x in zip(("kit", "estrella"), [x for x in marca["pilares"] if x["pilar"] != "Compra sin riesgo"]))
     hero = img_tag("hero", "Perro y gato descansando juntos en un sillón de un living luminoso", "", "hero-img", carga="eager", prioridad=True)
     preguntas = faq_general(tienda)
     cuerpo = f"""<section class="hero{' hero-con-img' if hero else ''}">{hero or ''}
 <div class="contenedor hero-in"><p class="sobretitulo">Kits de cuidado para perros y gatos</p>
 <h1>Menos pelo en tu casa. Más frescura para tu mascota.</h1>
-<p class="hero-sub">Soluciones completas para el pelo y el calor, pensadas para la vida en casa. Te confirmamos por WhatsApp y pagas cuando llega.</p>
-<div class="hero-acciones"><a class="boton boton-grande" href="#kits">Ver los kits {icono('flecha', 'ico ico-s')}</a><a class="boton-texto" href="#como-funciona">¿Cómo funciona?</a></div>
-<ul class="hero-confianza"><li>{icono('pago', 'ico ico-s')} Pago contra entrega</li><li>{icono('envio', 'ico ico-s')} Todo Chile</li><li>{icono('garantia', 'ico ico-s')} Garantía 6 meses</li></ul></div></section>
-<section class="banda"><div class="contenedor">{sellos(tienda)}</div></section>
+<p class="hero-sub">Soluciones completas para el pelo y el calor, pensadas para la vida en casa.</p>
+<div class="hero-acciones"><a class="boton boton-grande" href="#kits">Ver los kits {icono('flecha', 'ico ico-s')}</a><a class="boton-texto" href="#como-funciona">¿Cómo funciona?</a></div></div></section>
 <section class="seccion contenedor" id="kits"><p class="sobretitulo">Nuestros kits</p><h2>Elige el que necesita tu casa</h2><div class="grilla">{tarjetas}</div></section>
 {como_funciona()}
-<section class="seccion seccion-oscura"><div class="contenedor riesgo"><div><p class="sobretitulo">Compra sin riesgo</p><h2>Si no te sirve, no es tu problema</h2><p>Pagas solo cuando el kit está en tus manos. Si no es lo que esperabas, tienes 10 días para retractarte, y 6 meses de garantía legal si presenta una falla.</p><a class="boton" href="cambios.html">Ver política de cambios</a></div>
+<section class="seccion seccion-oscura"><div class="contenedor riesgo"><div><p class="sobretitulo">Compra sin riesgo</p><h2>Si no te sirve, no es tu problema</h2><a class="boton" href="cambios.html">Ver política de cambios</a></div>
 <ul class="riesgo-lista"><li>{icono('pago')}<span><strong>$0 por adelantado</strong>Nada de tarjetas ni transferencias.</span></li><li>{icono('retracto')}<span><strong>10 días de retracto</strong>Desde que lo recibes.</span></li><li>{icono('garantia')}<span><strong>6 meses de garantía</strong>Cambio, reparación o devolución.</span></li></ul></div></section>
 <section class="seccion seccion-suave"><div class="contenedor"><p class="sobretitulo">Cómo trabajamos</p><h2>Una tienda chica que cuida los detalles</h2><ul class="pilares">{pilares}</ul></div></section>
 {bloque_faq(preguntas)}
