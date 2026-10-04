@@ -1,0 +1,45 @@
+*{box-sizing:border-box}
+body{margin:0;font-family:Nunito,system-ui,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.5}
+a{color:var(--primario)}
+main{max-width:1080px;margin:0 auto;padding:0 16px 96px}
+.barra{display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--primario);color:#fff}
+.logo{color:#fff;font-weight:800;font-size:1.25rem;text-decoration:none}
+.sello{font-size:.85rem;opacity:.9}
+.portada{padding:40px 0 16px}
+.portada h1{font-size:clamp(1.6rem,5vw,2.6rem);line-height:1.15;margin:0 0 8px}
+.grilla{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.tarjeta{background:#fff;border-radius:16px;padding:16px;text-decoration:none;color:inherit;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.tarjeta h3{margin:8px 0 4px}
+.ilus{width:100%;height:auto;display:block}
+.heroe{display:grid;gap:24px;padding-top:24px}
+@media(min-width:860px){.heroe{grid-template-columns:1fr 1fr;align-items:start}.media{position:sticky;top:16px}}
+.nota-foto{font-size:.8rem;opacity:.7;text-align:center}
+.compra h1{font-size:clamp(1.5rem,4.5vw,2.2rem);line-height:1.15;margin:0}
+.sub{font-size:1.05rem}
+.precio{font-size:1.8rem;font-weight:800;margin:8px 0}
+.precio span{font-size:1rem;font-weight:400;color:var(--primario)}
+.confianza{list-style:none;padding:0;margin:0 0 16px;display:grid;gap:4px}
+.pedido{background:#fff;border:2px solid var(--primario);border-radius:16px;padding:16px;display:grid;gap:10px;scroll-margin-top:16px}
+.pedido h2{margin:0;font-size:1.2rem}
+.pedido label{display:grid;gap:4px;font-weight:700;font-size:.9rem}
+.pedido input,.pedido select{font:inherit;padding:12px;border:1px solid #c9c4bb;border-radius:10px;width:100%;background:#fff}
+.pedido .opcion{display:flex;align-items:center;gap:8px;border:1px solid #c9c4bb;border-radius:10px;padding:10px;font-weight:400}
+.pedido .opcion input{width:auto}
+.pedido .opcion strong{margin-left:auto}
+.pedido .check{display:flex;gap:8px;align-items:center;font-weight:400}
+.pedido .check input{width:auto}
+.pedido button{font:inherit;font-weight:800;font-size:1.05rem;padding:14px;border:0;border-radius:12px;background:var(--acento);color:#1e1e1e;cursor:pointer}
+.total{margin:0}
+.letra{font-size:.8rem;opacity:.75;margin:0}
+.aviso{background:#fff4e0;border-left:4px solid var(--acento);padding:8px 12px;font-size:.9rem;margin:0}
+.bloque{padding:24px 0;border-bottom:1px solid #e6e0d6}
+.beneficios{list-style:none;padding:0;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.beneficios li{background:#fff;border-radius:12px;padding:12px;display:grid;gap:4px}
+details{background:#fff;border-radius:10px;padding:12px;margin-bottom:8px}
+summary{font-weight:700;cursor:pointer}
+.flotante{position:fixed;left:16px;right:16px;bottom:16px;text-align:center;background:var(--primario);color:#fff;padding:14px;border-radius:12px;font-weight:800;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.2)}
+@media(min-width:860px){.flotante{display:none}}
+.pie{background:var(--texto);color:#fff;padding:24px 16px;text-align:center;font-size:.9rem}
+.pie nav{display:flex;flex-wrap:wrap;gap:16px;justify-content:center}
+.pie a{color:#fff}
+.legal{max-width:720px}

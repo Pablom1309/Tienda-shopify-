@@ -1,0 +1,12 @@
+{
+  "nota": "Datos que SOLO el dueño puede completar (portón humano 'cuentas'). Mientras sean null, el sitio muestra avisos y el pedido se arma pero no se envía.",
+  "whatsapp": null,
+  "whatsapp_formato": "56912345678 (sin + ni espacios)",
+  "correo": null,
+  "direccion_comercial": null,
+  "razon_social": null,
+  "rut": null,
+  "url_sitio": null,
+  "plazos_despacho": {"RM": "2 a 4 días hábiles", "regiones": "3 a 7 días hábiles", "zonas_extremas": "consultar por WhatsApp"},
+  "comunas_sin_cobertura": []
+}

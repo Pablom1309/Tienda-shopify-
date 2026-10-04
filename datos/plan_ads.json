@@ -1,0 +1,65 @@
+{
+  "generado": "2026-10-04",
+  "requiere_aprobacion": true,
+  "nota": "Nada se gasta sin aprobación humana (portón 'gasto'). Antes de pautar: píxel + API de conversiones en nivel Máximo, evento de compra que se dispara una sola vez, dominio verificado y UTM en todos los anuncios.",
+  "productos": [
+    {
+      "id": "kit-pelo-cero",
+      "inicio_sugerido": "apenas se cumplan las condiciones del catálogo (octubre: muda de primavera)",
+      "estructura": {
+        "campana": "Ventas · evento Compra · ABO",
+        "publico": "Chile, 25-55, amplio, sin intereses, ubicaciones Advantage+",
+        "conjuntos": 3,
+        "anuncios_por_conjunto": 2,
+        "presupuesto_diario_por_conjunto": 6500,
+        "dias": 4,
+        "presupuesto_total_test": 78000,
+        "utm": "utm_source=meta&utm_medium=paid&utm_campaign=test-pelo-cero&utm_content={{ad.name}}"
+      },
+      "reglas": {
+        "cpa_equilibrio": 6908,
+        "cpa_objetivo": 4908,
+        "matar_conjunto": "Gastó $20.000 sin pedidos, o CPA > $9.000 con CTR de enlace < 1 % a las 72 h.",
+        "arreglar": "CTR ≥ 1,5 % pero conversión < 1 %: revisar página y formulario. Retención 3 s < 25 %: cambiar gancho.",
+        "escalar": "CPA ≤ $4.908 por 3 días y entrega real ≥ 70 %: consolidar en Advantage+ (CBO) y subir 20-30 % cada 2-3 días."
+      },
+      "angulos": [
+        {"id": "problema-casa", "gancho": "Mano pasando por un sillón oscuro lleno de pelo blanco.", "texto_en_pantalla": "Si el pelo está en el sillón, no está en el cepillo", "guion": "0-3 s sillón con pelo · 3-8 s cepillado con niebla, pelo se pega a las cerdas · 8-12 s botón suelta la mota de pelo · 12-18 s removedor limpia el sillón de una pasada · 18-25 s kit sobre la mesa + 'Pagas al recibir, $26.990' · CTA 'Pide el tuyo'", "formato": "video vertical sin rostro"},
+        {"id": "demostracion", "gancho": "Primer plano: botón presionado y sale una mota de pelo entera.", "texto_en_pantalla": "Esto salió en 5 minutos", "guion": "0-3 s mota de pelo · 3-12 s cepillado real en gato y perro · 12-20 s comparación con cepillo común que deja pelo volando · 20-25 s oferta 2 kits $47.990 · CTA", "formato": "video vertical, demostración"},
+        {"id": "temporada-muda", "gancho": "Calendario de octubre con pelos encima.", "texto_en_pantalla": "Primavera = muda de pelo", "guion": "0-3 s calendario · 3-10 s pelo en ropa, cama, auto · 10-20 s rutina de 5 minutos con el kit · 20-25 s 'Pagas al recibir, despacho a todo Chile' · CTA", "formato": "video con persona (dueño real)"},
+        {"id": "regalo", "gancho": "Caja del kit con moño junto a un perro.", "texto_en_pantalla": "El regalo para quien tiene mascota", "guion": "Para noviembre-diciembre. 0-3 s caja · 3-15 s uso · 15-20 s oferta 2 kits para regalar · CTA", "formato": "carrusel de 4 imágenes"},
+        {"id": "comparacion", "gancho": "Rodillo adhesivo gastado vs removedor reutilizable.", "texto_en_pantalla": "Deja de comprar repuestos", "guion": "0-3 s pila de repuestos adhesivos · 3-12 s removedor reutilizable · 12-20 s cepillo en mascota · CTA", "formato": "imagen estática + video corto"}
+      ]
+    },
+    {
+      "id": "kit-verano-fresco",
+      "inicio_sugerido": "desde el 16 de noviembre (antes de Black Friday 27-30 nov) hasta fines de febrero",
+      "estructura": {
+        "campana": "Ventas · evento Compra · ABO",
+        "publico": "Chile, 25-55, amplio, excluir Magallanes y Aysén en el test (verificar cobertura)",
+        "conjuntos": 3,
+        "anuncios_por_conjunto": 2,
+        "presupuesto_diario_por_conjunto": 7500,
+        "dias": 4,
+        "presupuesto_total_test": 90000,
+        "utm": "utm_source=meta&utm_medium=paid&utm_campaign=test-verano-fresco&utm_content={{ad.name}}"
+      },
+      "reglas": {
+        "cpa_equilibrio": 8514,
+        "cpa_objetivo": 6514,
+        "matar_conjunto": "Gastó $25.000 sin pedidos, o CPA > $11.000 con CTR de enlace < 1 % a las 72 h.",
+        "arreglar": "CTR alto y conversión baja: revisar tallas y medidas visibles en la página.",
+        "escalar": "CPA ≤ $6.514 por 3 días y entrega real ≥ 70 %."
+      },
+      "angulos": [
+        {"id": "calor-departamento", "gancho": "Termómetro marcando 32 °C en un departamento; el perro busca la baldosa.", "texto_en_pantalla": "Su lugar favorito en verano", "guion": "0-3 s termómetro y perro en baldosa · 3-10 s se extiende la alfombra y el perro se acuesta · 10-18 s mano sobre la alfombra 'se siente fresca, sin enchufe' · 18-25 s oferta y pago al recibir · CTA", "formato": "video vertical"},
+        {"id": "paseo-verano", "gancho": "Botón de la botella y el bebedero se llena.", "texto_en_pantalla": "Agua en cada paseo, sin plato", "guion": "0-3 s botón · 3-12 s paseo en el parque, bebe y se recoge el agua sobrante · 12-20 s alfombra en casa al volver · CTA", "formato": "video con persona"},
+        {"id": "regalo-navidad-mascota", "gancho": "Árbol de Navidad y perro sobre la alfombra.", "texto_en_pantalla": "Un regalo que usará todo el verano", "guion": "Desde el 1 de diciembre. Uso + oferta 2 kits $57.990 · CTA", "formato": "carrusel"},
+        {"id": "auto-viaje", "gancho": "Perro en el asiento trasero sobre la alfombra en ruta a la playa.", "texto_en_pantalla": "Vacaciones con tu perro", "guion": "Enero. Auto, playa, botella y alfombra · CTA", "formato": "video vertical"},
+        {"id": "sin-enchufe", "gancho": "Enchufe tachado.", "texto_en_pantalla": "No se congela, no se enchufa", "guion": "Explicación en 3 pasos del gel que se activa con el peso · CTA", "formato": "imagen estática"}
+      ]
+    }
+  ],
+  "embudo_alternativo": "Si la entrega real del formulario es < 65 %, probar anuncios de clic a WhatsApp (confirmación en el mismo chat).",
+  "organico_gratis": "Publicar 3 reels por semana con los mismos guiones en Instagram y TikTok de la marca antes de pagar anuncios: valida ganchos sin costo."
+}

@@ -1,0 +1,278 @@
+{
+  "pesos": {
+    "demanda": 0.2,
+    "estacionalidad": 0.15,
+    "demostrable": 0.15,
+    "baja_comparabilidad": 0.15,
+    "logistica": 0.1,
+    "ajuste_nicho": 0.1,
+    "recompra": 0.05,
+    "economia": 0.1
+  },
+  "ranking": [
+    {
+      "id": "kit-pelo-cero",
+      "nombre": "Kit Pelo Cero: cepillo a vapor 3 en 1 + removedor de pelos reutilizable",
+      "nicho": "mascotas",
+      "puntaje": 4.17,
+      "pasa_porton": true,
+      "motivos_rechazo": [],
+      "notas": {
+        "demanda": 4,
+        "estacionalidad": 4,
+        "demostrable": 5,
+        "baja_comparabilidad": 4,
+        "logistica": 5,
+        "ajuste_nicho": 5,
+        "recompra": 2,
+        "economia": 3.17
+      }
+    },
+    {
+      "id": "kit-verano-fresco",
+      "nombre": "Kit Verano Fresco: alfombra refrigerante + botella bebedero de paseo",
+      "nicho": "mascotas",
+      "puntaje": 4.01,
+      "pasa_porton": true,
+      "motivos_rechazo": [],
+      "notas": {
+        "demanda": 4,
+        "estacionalidad": 5,
+        "demostrable": 4,
+        "baja_comparabilidad": 4,
+        "logistica": 4,
+        "ajuste_nicho": 5,
+        "recompra": 1,
+        "economia": 3.15
+      }
+    },
+    {
+      "id": "cepillo-vapor-mascotas",
+      "nombre": "Cepillo a vapor 3 en 1 para perros y gatos",
+      "nicho": "mascotas",
+      "puntaje": 3.92,
+      "pasa_porton": false,
+      "motivos_rechazo": [
+        "ROAS de equilibrio (mezcla base) 4.11 > 4.0"
+      ],
+      "notas": {
+        "demanda": 4,
+        "estacionalidad": 4,
+        "demostrable": 5,
+        "baja_comparabilidad": 3,
+        "logistica": 5,
+        "ajuste_nicho": 5,
+        "recompra": 2,
+        "economia": 2.22
+      }
+    },
+    {
+      "id": "botella-agua-paseo-perro",
+      "nombre": "Botella bebedero portátil para paseos",
+      "nicho": "mascotas",
+      "puntaje": 3.7,
+      "pasa_porton": false,
+      "motivos_rechazo": [
+        "ROAS de equilibrio (mezcla base) 4.01 > 4.0"
+      ],
+      "notas": {
+        "demanda": 3,
+        "estacionalidad": 5,
+        "demostrable": 4,
+        "baja_comparabilidad": 3,
+        "logistica": 5,
+        "ajuste_nicho": 5,
+        "recompra": 1,
+        "economia": 2.48
+      }
+    },
+    {
+      "id": "alfombra-refrigerante-mascotas",
+      "nombre": "Alfombra refrigerante de gel para mascotas (M/L)",
+      "nicho": "mascotas",
+      "puntaje": 3.62,
+      "pasa_porton": false,
+      "motivos_rechazo": [
+        "ROAS de equilibrio (mezcla base) 4.13 > 4.0"
+      ],
+      "notas": {
+        "demanda": 4,
+        "estacionalidad": 5,
+        "demostrable": 4,
+        "baja_comparabilidad": 2,
+        "logistica": 4,
+        "ajuste_nicho": 5,
+        "recompra": 1,
+        "economia": 2.18
+      }
+    },
+    {
+      "id": "fuente-agua-gatos",
+      "nombre": "Fuente de agua con filtro para gatos 2,5 L",
+      "nicho": "mascotas",
+      "puntaje": 3.39,
+      "pasa_porton": false,
+      "motivos_rechazo": [
+        "ROAS de equilibrio (mezcla base) 4.06 > 4.0",
+        "puntaje 3.39 < 3.4"
+      ],
+      "notas": {
+        "demanda": 4,
+        "estacionalidad": 3,
+        "demostrable": 4,
+        "baja_comparabilidad": 2,
+        "logistica": 3,
+        "ajuste_nicho": 5,
+        "recompra": 4,
+        "economia": 2.35
+      }
+    },
+    {
+      "id": "removedor-pelo-reutilizable",
+      "nombre": "Removedor de pelos de mascota reutilizable",
+      "nicho": "mascotas",
+      "puntaje": 3.33,
+      "pasa_porton": false,
+      "motivos_rechazo": [
+        "precio fuera de rango",
+        "ROAS de equilibrio (mezcla base) 4.47 > 4.0",
+        "puntaje 3.33 < 3.4"
+      ],
+      "notas": {
+        "demanda": 4,
+        "estacionalidad": 3,
+        "demostrable": 5,
+        "baja_comparabilidad": 1,
+        "logistica": 5,
+        "ajuste_nicho": 5,
+        "recompra": 1,
+        "economia": 1.33
+      }
+    },
+    {
+      "id": "ventilador-cuello",
+      "nombre": "Ventilador de cuello recargable sin aspas",
+      "nicho": "verano",
+      "puntaje": 3.16,
+      "pasa_porton": false,
+      "motivos_rechazo": [
+        "puntaje 3.16 < 3.4"
+      ],
+      "notas": {
+        "demanda": 4,
+        "estacionalidad": 5,
+        "demostrable": 4,
+        "baja_comparabilidad": 1,
+        "logistica": 5,
+        "ajuste_nicho": 1,
+        "recompra": 0,
+        "economia": 2.57
+      }
+    },
+    {
+      "id": "kit-lifting-pestanas",
+      "nombre": "Kit de lifting de pestañas",
+      "nicho": "belleza",
+      "puntaje": 3.15,
+      "pasa_porton": false,
+      "motivos_rechazo": [
+        "riesgo de política 4",
+        "puntaje 3.15 < 3.4"
+      ],
+      "notas": {
+        "demanda": 4,
+        "estacionalidad": 3,
+        "demostrable": 4,
+        "baja_comparabilidad": 2,
+        "logistica": 5,
+        "ajuste_nicho": 0,
+        "recompra": 2,
+        "economia": 4.0
+      }
+    },
+    {
+      "id": "aspiradora-portatil-auto",
+      "nombre": "Aspiradora inalámbrica portátil para auto y hogar",
+      "nicho": "hogar",
+      "puntaje": 3.07,
+      "pasa_porton": false,
+      "motivos_rechazo": [
+        "ROAS de equilibrio (mezcla base) 4.33 > 4.0",
+        "puntaje 3.07 < 3.4"
+      ],
+      "notas": {
+        "demanda": 4,
+        "estacionalidad": 3,
+        "demostrable": 5,
+        "baja_comparabilidad": 2,
+        "logistica": 3,
+        "ajuste_nicho": 3,
+        "recompra": 0,
+        "economia": 1.67
+      }
+    },
+    {
+      "id": "masajeador-cervical",
+      "nombre": "Masajeador cervical eléctrico",
+      "nicho": "bienestar",
+      "puntaje": 3.05,
+      "pasa_porton": false,
+      "motivos_rechazo": [
+        "riesgo de política 3",
+        "puntaje 3.05 < 3.4"
+      ],
+      "notas": {
+        "demanda": 4,
+        "estacionalidad": 4,
+        "demostrable": 3,
+        "baja_comparabilidad": 3,
+        "logistica": 4,
+        "ajuste_nicho": 0,
+        "recompra": 0,
+        "economia": 3.5
+      }
+    },
+    {
+      "id": "luces-solares-sensor",
+      "nombre": "Focos solares LED con sensor de movimiento (pack 4)",
+      "nicho": "hogar",
+      "puntaje": 2.85,
+      "pasa_porton": false,
+      "motivos_rechazo": [
+        "ROAS de equilibrio (mezcla base) 4.01 > 4.0",
+        "puntaje 2.85 < 3.4"
+      ],
+      "notas": {
+        "demanda": 3,
+        "estacionalidad": 4,
+        "demostrable": 4,
+        "baja_comparabilidad": 2,
+        "logistica": 4,
+        "ajuste_nicho": 1,
+        "recompra": 0,
+        "economia": 2.48
+      }
+    },
+    {
+      "id": "localizador-gps-tag",
+      "nombre": "Localizador tipo tag para llaves, maletas o mascotas",
+      "nicho": "tecnologia",
+      "puntaje": 2.84,
+      "pasa_porton": false,
+      "motivos_rechazo": [
+        "ROAS de equilibrio (mezcla base) 4.25 > 4.0",
+        "puntaje 2.84 < 3.4"
+      ],
+      "notas": {
+        "demanda": 4,
+        "estacionalidad": 3,
+        "demostrable": 3,
+        "baja_comparabilidad": 1,
+        "logistica": 5,
+        "ajuste_nicho": 3,
+        "recompra": 0,
+        "economia": 1.88
+      }
+    }
+  ]
+}

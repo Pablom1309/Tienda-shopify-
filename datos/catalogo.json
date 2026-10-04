@@ -1,0 +1,54 @@
+{
+  "validado": "2026-10-04",
+  "ciclo": 1,
+  "aprobados": 2,
+  "productos": [
+    {
+      "id": "kit-pelo-cero",
+      "estado": "aprobado_para_test",
+      "rol": "producto principal (primavera: muda de pelo)",
+      "precio": 26990,
+      "oferta_2": 47990,
+      "complemento": {"nombre": "Removedor extra para el auto", "precio": 6990},
+      "cpa_equilibrio_base": 6908,
+      "roas_equilibrio_mezcla": 3.73,
+      "condiciones": [
+        "Confirmar en app.dropi.cl costo real del cepillo y del removedor (supuesto: $9.700 juntos) y que un mismo proveedor despache ambos en un paquete; si no, el flete se duplica y el kit no cierra.",
+        "Pedir una unidad y probar: vapor sin fugas, batería, olor del plástico.",
+        "Revisar Biblioteca de anuncios de Meta (Chile) por saturación del cepillo a vapor."
+      ],
+      "criterio_matar": "Gasto ≥ $20.000 (≈3 CPA de equilibrio) sin pedidos, o CPA > $9.000 sostenido 3 días con CTR < 1 %.",
+      "criterio_escalar": "CPA ≤ $4.900 (objetivo) por 3 días y entrega real ≥ 70 %."
+    },
+    {
+      "id": "kit-verano-fresco",
+      "estado": "aprobado_para_test",
+      "rol": "producto de temporada (lanzar desde la 2.ª quincena de noviembre, pico dic-feb)",
+      "precio": 32990,
+      "oferta_2": 57990,
+      "complemento": {"nombre": "Botella bebedero extra", "precio": 8990},
+      "cpa_equilibrio_base": 8514,
+      "roas_equilibrio_mezcla": 3.74,
+      "condiciones": [
+        "Confirmar tallas de la alfombra en Dropi: ofrecer solo M y L (evitar más variantes).",
+        "Confirmar peso/volumen para el flete; si supera $4.500, recalcular.",
+        "No prometer bajar la temperatura corporal ni prevenir golpes de calor (salud)."
+      ],
+      "criterio_matar": "Gasto ≥ $25.000 sin pedidos, o CPA > $11.000 sostenido 3 días.",
+      "criterio_escalar": "CPA ≤ $6.500 por 3 días y entrega real ≥ 70 %."
+    }
+  ],
+  "en_observacion": [
+    {"id": "fuente-agua-gatos", "motivo": "Recompra por filtros: candidata a 2.º producto de marca si sube la holgura (precio 32.990 o kit con filtros)."},
+    {"id": "cepillo-vapor-mascotas", "motivo": "Solo pasa dentro de kit."}
+  ],
+  "descartados": [
+    {"id": "kit-lifting-pestanas", "motivo": "Cosmético regulado y riesgo de política."},
+    {"id": "masajeador-cervical", "motivo": "Afirmaciones de salud: riesgo de rechazo de anuncios."},
+    {"id": "removedor-pelo-reutilizable", "motivo": "Commodity barato en Mercado Libre; sirve solo como complemento."},
+    {"id": "localizador-gps-tag", "motivo": "Muy comparable con marcas conocidas, reclamos de compatibilidad."},
+    {"id": "ventilador-cuello", "motivo": "Fuera del nicho y muy comparable."},
+    {"id": "aspiradora-portatil-auto", "motivo": "Margen bajo y riesgo de falla de batería."},
+    {"id": "luces-solares-sensor", "motivo": "Fuera del nicho, puntaje bajo."}
+  ]
+}

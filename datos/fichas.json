@@ -1,0 +1,65 @@
+{
+  "generado": "2026-10-04",
+  "fichas": [
+    {
+      "id": "kit-pelo-cero",
+      "handle": "kit-pelo-cero-cepillo-vapor-mascotas",
+      "titulo_seo": "Kit Pelo Cero: cepillo a vapor para perros y gatos + removedor de pelos | Huella Sur",
+      "meta_descripcion": "Cepillo a vapor 3 en 1 para el pelo suelto de tu mascota y removedor reutilizable para sillón y ropa. Pagas al recibir. Despacho a todo Chile.",
+      "titular": "El pelo suelto, en el cepillo y no en tu sillón",
+      "subtitular": "Cepillo a vapor 3 en 1 + removedor reutilizable. Un kit para la mascota y otro frente para la casa.",
+      "beneficios": [
+        {"titulo": "Atrapa el pelo muerto", "texto": "La niebla suave ayuda a que el pelo suelto se pegue a las cerdas de silicona en vez de volar por la casa."},
+        {"titulo": "Se limpia con un botón", "texto": "Presionas y el pelo acumulado se desprende de una vez. Sin sacar pelo a mano entre cerdas."},
+        {"titulo": "Sillón y ropa sin pelos", "texto": "El removedor reutilizable no usa repuestos adhesivos: lo pasas, vacías el depósito y listo."},
+        {"titulo": "Recargable por USB", "texto": "El cepillo se carga con cable USB incluido. Usa agua de la llave en su depósito."}
+      ],
+      "como_usar": [
+        "Llena el depósito con agua y enciende la niebla.",
+        "Cepilla en el sentido del pelo, 5 a 10 minutos.",
+        "Presiona el botón para soltar el pelo acumulado.",
+        "Pasa el removedor por sillón, cama o ropa y vacía el depósito."
+      ],
+      "incluye": ["1 cepillo a vapor 3 en 1", "1 removedor de pelos reutilizable", "1 cable USB"],
+      "especificaciones_pendientes": "Medidas, capacidad del depósito, batería y materiales: completar con la ficha real del proveedor en Dropi.",
+      "faq": [
+        {"p": "¿Sirve para perros y gatos?", "r": "Sí, para pelo corto y largo. En mascotas muy nerviosas, empieza sin niebla para que se acostumbren."},
+        {"p": "¿El vapor es caliente?", "r": "No. Es una niebla de agua a temperatura ambiente, no vapor caliente."},
+        {"p": "¿Cómo pago?", "r": "Pagas al recibir, en efectivo o según lo que acepte la transportadora. Antes de despachar te confirmamos el pedido por WhatsApp."},
+        {"p": "¿Y si no me sirve?", "r": "Tienes 10 días de retracto desde que lo recibes y 6 meses de garantía legal por fallas."}
+      ],
+      "alt_imagenes": ["Cepillo a vapor para mascotas atrapando pelo suelto de un gato", "Removedor de pelos pasando por un sillón de tela"],
+      "angulos_principales": ["problema-casa", "demostracion", "temporada-muda"]
+    },
+    {
+      "id": "kit-verano-fresco",
+      "handle": "kit-verano-fresco-alfombra-refrigerante-mascotas",
+      "titulo_seo": "Kit Verano Fresco: alfombra refrigerante para perros y gatos + botella de paseo | Huella Sur",
+      "meta_descripcion": "Alfombra de gel que se siente fresca sin congelar ni enchufar, y botella bebedero para los paseos. Pagas al recibir. Despacho a todo Chile.",
+      "titular": "Un lugar fresco en casa y agua en cada paseo",
+      "subtitular": "Alfombra de gel que se activa con el peso + botella bebedero con un solo botón.",
+      "beneficios": [
+        {"titulo": "Fresca sin enchufe", "texto": "El gel se activa con la presión: no se congela, no se llena con agua y no usa electricidad."},
+        {"titulo": "Va donde tu mascota descansa", "texto": "Liviana y plegable: en el suelo, la cama, el auto o la terraza."},
+        {"titulo": "Agua sin derramar", "texto": "La botella llena su bebedero con un botón y devuelve lo que sobra. Cabe en la mano."},
+        {"titulo": "Fácil de limpiar", "texto": "Superficie lavable con paño húmedo."}
+      ],
+      "como_usar": [
+        "Extiende la alfombra en un lugar a la sombra.",
+        "Deja que tu mascota se recueste; si se calienta, déjala descansar sin uso unos minutos.",
+        "Llena la botella antes de salir y presiona el botón para servir."
+      ],
+      "incluye": ["1 alfombra refrigerante (talla M o L)", "1 botella bebedero de paseo"],
+      "tallas": [{"talla": "M", "medida_pendiente": true, "recomendado": "gatos y perros pequeños"}, {"talla": "L", "medida_pendiente": true, "recomendado": "perros medianos"}],
+      "especificaciones_pendientes": "Medidas exactas de M y L, capacidad de la botella y materiales: completar con la ficha real del proveedor.",
+      "faq": [
+        {"p": "¿Hay que meterla al refrigerador?", "r": "No es necesario. Funciona a temperatura ambiente; ponerla a la sombra ayuda."},
+        {"p": "¿Mi mascota puede morderla?", "r": "No la dejes como juguete: si tu mascota muerde mucho, úsala solo bajo supervisión."},
+        {"p": "¿Cómo pago?", "r": "Pagas al recibir. Antes de despachar te confirmamos el pedido por WhatsApp."},
+        {"p": "¿Y si no me sirve?", "r": "Tienes 10 días de retracto desde que lo recibes y 6 meses de garantía legal por fallas."}
+      ],
+      "alt_imagenes": ["Perro descansando sobre alfombra refrigerante azul", "Botella bebedero para perros durante un paseo"],
+      "angulos_principales": ["calor-departamento", "paseo-verano", "regalo-navidad-mascota"]
+    }
+  ]
+}

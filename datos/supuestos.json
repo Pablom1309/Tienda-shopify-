@@ -1,0 +1,29 @@
+{
+  "pais": "Chile",
+  "moneda": "CLP",
+  "nota": "Supuestos de trabajo. Reemplazar por datos reales de la cuenta Dropi apenas existan (el analista-resultados lo hace solo cuando hay CSV en datos/resultados/).",
+  "tasa_confirmacion": 0.85,
+  "escenarios_entrega": {
+    "pesimista": 0.6,
+    "base": 0.7,
+    "optimista": 0.8
+  },
+  "flete_devolucion": 0,
+  "flete_devolucion_nota": "Verificar en Dropi CL si se cobra flete de retorno; si existe, poner el monto aquí.",
+  "comision_plataforma": 0,
+  "comision_nota": "Dropi no publica comisión oficial; revisar tarifario dentro de la cuenta.",
+  "iva": 0.19,
+  "costo_fijo_por_pedido": 150,
+  "costo_fijo_nota": "Mensajes de confirmación/otros por pedido generado (estimado).",
+  "ganancia_deseada_por_pedido": 2000,
+  "filtros": {
+    "margen_bruto_min": 0.55,
+    "precio_min": 14990,
+    "precio_max": 59990,
+    "riesgo_politica_max": 2,
+    "roas_equilibrio_base_max": 4.0,
+    "puntaje_min": 3.4
+  },
+  "mezcla_oferta_2u": 0.3,
+  "mezcla_nota": "Fracción de pedidos que toma la oferta de 2 unidades (operadores COD reportan 25-40% con oferta por cantidad visible). Recalibrar con datos reales."
+}

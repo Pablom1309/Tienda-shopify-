@@ -1,0 +1,304 @@
+{
+  "generado": "2026-10-04",
+  "ciclo": 1,
+  "nicho_objetivo": "mascotas (verano y cuidado en casa) — evaluado contra candidatos de otros nichos",
+  "escala": "criterios de 0 a 5; riesgo_politica 0 = sin riesgo, 5 = prohibido",
+  "candidatos": [
+    {
+      "id": "cepillo-vapor-mascotas",
+      "nombre": "Cepillo a vapor 3 en 1 para perros y gatos",
+      "nicho": "mascotas",
+      "precio": 19990,
+      "precio_2u": 32990,
+      "costo_estimado": 6500,
+      "flete_estimado": 3800,
+      "criterios": {
+        "demanda": 4,
+        "estacionalidad": 4,
+        "demostrable": 5,
+        "baja_comparabilidad": 3,
+        "logistica": 5,
+        "ajuste_nicho": 5,
+        "recompra": 2
+      },
+      "riesgo_politica": 0,
+      "evidencia": "Viral en clips de Mercado Libre CO/PE/AR (2025-2026); Chile entra a muda de pelo en primavera; demostración en 3 s (pelo que sale).",
+      "fuentes": [
+        "https://www.mercadolibre.cl/blog/mas-vendidos/cepillos-mascotas",
+        "https://www.mercadolibre.com.co/cepillo-a-vapor-automatico-3-en-1-para-gatos-y-perros/up/MCOU3981335082"
+      ]
+    },
+    {
+      "id": "alfombra-refrigerante-mascotas",
+      "nombre": "Alfombra refrigerante de gel para mascotas (M/L)",
+      "nicho": "mascotas",
+      "precio": 22990,
+      "precio_2u": 39990,
+      "costo_estimado": 8000,
+      "flete_estimado": 4200,
+      "criterios": {
+        "demanda": 4,
+        "estacionalidad": 5,
+        "demostrable": 4,
+        "baja_comparabilidad": 2,
+        "logistica": 4,
+        "ajuste_nicho": 5,
+        "recompra": 1
+      },
+      "riesgo_politica": 0,
+      "evidencia": "Falabella CL vende mantas refrescantes de $8.990 a $39.990 (hay demanda y también comparación). Pico dic-feb.",
+      "fuentes": [
+        "https://www.falabella.com/falabella-cl/shop/manta-refrescante-para-perros"
+      ]
+    },
+    {
+      "id": "botella-agua-paseo-perro",
+      "nombre": "Botella bebedero portátil para paseos",
+      "nicho": "mascotas",
+      "precio": 14990,
+      "precio_2u": 24990,
+      "costo_estimado": 4000,
+      "flete_estimado": 3500,
+      "criterios": {
+        "demanda": 3,
+        "estacionalidad": 5,
+        "demostrable": 4,
+        "baja_comparabilidad": 3,
+        "logistica": 5,
+        "ajuste_nicho": 5,
+        "recompra": 1
+      },
+      "riesgo_politica": 0,
+      "evidencia": "Producto de verano y viajes; ticket bajo, sirve como complemento de un clic (upsell) más que como principal.",
+      "fuentes": []
+    },
+    {
+      "id": "fuente-agua-gatos",
+      "nombre": "Fuente de agua con filtro para gatos 2,5 L",
+      "nicho": "mascotas",
+      "precio": 29990,
+      "precio_2u": 52990,
+      "costo_estimado": 11500,
+      "flete_estimado": 4500,
+      "criterios": {
+        "demanda": 4,
+        "estacionalidad": 3,
+        "demostrable": 4,
+        "baja_comparabilidad": 2,
+        "logistica": 3,
+        "ajuste_nicho": 5,
+        "recompra": 4
+      },
+      "riesgo_politica": 1,
+      "evidencia": "Usados en Yapo a $14.900-$25.000, nuevos ~$36.990. Recompra por filtros. Riesgo: no prometer salud renal.",
+      "fuentes": [
+        "https://www.mercadolibre.cl/blog/comparativa-de-fuentes-de-agua-para-gatos-caracteristicas-y-ventajas"
+      ]
+    },
+    {
+      "id": "removedor-pelo-reutilizable",
+      "nombre": "Removedor de pelos de mascota reutilizable",
+      "nicho": "mascotas",
+      "precio": 12990,
+      "precio_2u": 19990,
+      "costo_estimado": 3200,
+      "flete_estimado": 3500,
+      "criterios": {
+        "demanda": 4,
+        "estacionalidad": 3,
+        "demostrable": 5,
+        "baja_comparabilidad": 1,
+        "logistica": 5,
+        "ajuste_nicho": 5,
+        "recompra": 1
+      },
+      "riesgo_politica": 0,
+      "evidencia": "Muy demostrable pero masivo en Mercado Libre a bajo precio.",
+      "fuentes": []
+    },
+    {
+      "id": "ventilador-cuello",
+      "nombre": "Ventilador de cuello recargable sin aspas",
+      "nicho": "verano",
+      "precio": 19990,
+      "precio_2u": 34990,
+      "costo_estimado": 6500,
+      "flete_estimado": 3800,
+      "criterios": {
+        "demanda": 4,
+        "estacionalidad": 5,
+        "demostrable": 4,
+        "baja_comparabilidad": 1,
+        "logistica": 5,
+        "ajuste_nicho": 1,
+        "recompra": 0
+      },
+      "riesgo_politica": 0,
+      "evidencia": "Pico de verano; abundante en Mercado Libre y retail.",
+      "fuentes": []
+    },
+    {
+      "id": "aspiradora-portatil-auto",
+      "nombre": "Aspiradora inalámbrica portátil para auto y hogar",
+      "nicho": "hogar",
+      "precio": 29990,
+      "precio_2u": 54990,
+      "costo_estimado": 12500,
+      "flete_estimado": 4500,
+      "criterios": {
+        "demanda": 4,
+        "estacionalidad": 3,
+        "demostrable": 5,
+        "baja_comparabilidad": 2,
+        "logistica": 3,
+        "ajuste_nicho": 3,
+        "recompra": 0
+      },
+      "riesgo_politica": 0,
+      "evidencia": "Regalo navideño y uso con mascotas (pelos en el auto); batería = riesgo de devolución por falla.",
+      "fuentes": []
+    },
+    {
+      "id": "luces-solares-sensor",
+      "nombre": "Focos solares LED con sensor de movimiento (pack 4)",
+      "nicho": "hogar",
+      "precio": 24990,
+      "precio_2u": 42990,
+      "costo_estimado": 9000,
+      "flete_estimado": 4000,
+      "criterios": {
+        "demanda": 3,
+        "estacionalidad": 4,
+        "demostrable": 4,
+        "baja_comparabilidad": 2,
+        "logistica": 4,
+        "ajuste_nicho": 1,
+        "recompra": 0
+      },
+      "riesgo_politica": 0,
+      "evidencia": "Primavera-verano, jardín y seguridad.",
+      "fuentes": []
+    },
+    {
+      "id": "masajeador-cervical",
+      "nombre": "Masajeador cervical eléctrico",
+      "nicho": "bienestar",
+      "precio": 34990,
+      "precio_2u": 62990,
+      "costo_estimado": 13000,
+      "flete_estimado": 4200,
+      "criterios": {
+        "demanda": 4,
+        "estacionalidad": 4,
+        "demostrable": 3,
+        "baja_comparabilidad": 3,
+        "logistica": 4,
+        "ajuste_nicho": 0,
+        "recompra": 0
+      },
+      "riesgo_politica": 3,
+      "evidencia": "Buen regalo, pero las afirmaciones de alivio de dolor chocan con políticas de salud de Meta.",
+      "fuentes": []
+    },
+    {
+      "id": "localizador-gps-tag",
+      "nombre": "Localizador tipo tag para llaves, maletas o mascotas",
+      "nicho": "tecnologia",
+      "precio": 17990,
+      "precio_2u": 29990,
+      "costo_estimado": 6000,
+      "flete_estimado": 3500,
+      "criterios": {
+        "demanda": 4,
+        "estacionalidad": 3,
+        "demostrable": 3,
+        "baja_comparabilidad": 1,
+        "logistica": 5,
+        "ajuste_nicho": 3,
+        "recompra": 0
+      },
+      "riesgo_politica": 2,
+      "evidencia": "Tendencia en Mercado Libre CL (localizadores GPS); compite con marcas conocidas y genera reclamos de compatibilidad.",
+      "fuentes": [
+        "https://www.tiendanube.com/blog/productos-mas-vendidos-chile/"
+      ]
+    },
+    {
+      "id": "kit-lifting-pestanas",
+      "nombre": "Kit de lifting de pestañas",
+      "nicho": "belleza",
+      "precio": 19990,
+      "precio_2u": 34990,
+      "costo_estimado": 5500,
+      "flete_estimado": 3500,
+      "criterios": {
+        "demanda": 4,
+        "estacionalidad": 3,
+        "demostrable": 4,
+        "baja_comparabilidad": 2,
+        "logistica": 5,
+        "ajuste_nicho": 0,
+        "recompra": 2
+      },
+      "riesgo_politica": 4,
+      "evidencia": "Tendencia ML CL, pero es cosmético con químicos: regulación ISP y riesgo de reacciones. Excluir.",
+      "fuentes": []
+    },
+    {
+      "id": "kit-pelo-cero",
+      "nombre": "Kit Pelo Cero: cepillo a vapor 3 en 1 + removedor de pelos reutilizable",
+      "nicho": "mascotas",
+      "componentes": [
+        "cepillo-vapor-mascotas",
+        "removedor-pelo-reutilizable"
+      ],
+      "precio": 26990,
+      "precio_2u": 47990,
+      "costo_estimado": 9700,
+      "flete_estimado": 3800,
+      "criterios": {
+        "demanda": 4,
+        "estacionalidad": 4,
+        "demostrable": 5,
+        "baja_comparabilidad": 4,
+        "logistica": 5,
+        "ajuste_nicho": 5,
+        "recompra": 2
+      },
+      "riesgo_politica": 0,
+      "evidencia": "Combina el cepillo viral (muda de primavera) con el removedor para ropa y sillón: resuelve el problema completo del pelo. Kit no comparable 1:1 en Mercado Libre.",
+      "fuentes": [
+        "https://www.mercadolibre.cl/blog/mas-vendidos/cepillos-mascotas"
+      ]
+    },
+    {
+      "id": "kit-verano-fresco",
+      "nombre": "Kit Verano Fresco: alfombra refrigerante + botella bebedero de paseo",
+      "nicho": "mascotas",
+      "componentes": [
+        "alfombra-refrigerante-mascotas",
+        "botella-agua-paseo-perro"
+      ],
+      "precio": 32990,
+      "precio_2u": 57990,
+      "costo_estimado": 12000,
+      "flete_estimado": 4500,
+      "criterios": {
+        "demanda": 4,
+        "estacionalidad": 5,
+        "demostrable": 4,
+        "baja_comparabilidad": 4,
+        "logistica": 4,
+        "ajuste_nicho": 5,
+        "recompra": 1
+      },
+      "riesgo_politica": 0,
+      "evidencia": "Calor de diciembre a febrero en Chile central; Falabella vende la alfombra sola entre $8.990 y $39.990, el kit con bebedero es una oferta distinta.",
+      "fuentes": [
+        "https://www.falabella.com/falabella-cl/shop/manta-refrescante-para-perros"
+      ]
+    }
+  ],
+  "reintento": 1,
+  "nota_reintento": "Iteración 1 del portón: 0 aprobados a precio unitario (ROAS eq > 4 por flete fijo). Se agregan kits del nicho mascotas para subir AOV y diferenciar la oferta frente a Mercado Libre."
+}

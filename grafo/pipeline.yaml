@@ -1,0 +1,137 @@
+# Grafo de agentes de la tienda (fuente de verdad del orquestador).
+#
+# Principios de "graph engineering" aplicados:
+#  - Estado explícito y compartido (pizarra): estado/estado.json. Los nodos leen y escriben
+#    solo sus claves declaradas en `lee` / `escribe`.
+#  - Nodos deterministas en código (gratis, reproducibles) y nodos LLM solo donde hace falta juicio.
+#  - Ejecución incremental: un nodo corre solo si está vencido (ttl_dias) o si cambió una entrada.
+#  - Abanico en paralelo (fan-out) cuando los nodos no dependen entre sí; unión (join) antes del portón.
+#  - Aristas condicionales: el portón de validación decide avanzar, reintentar o descartar.
+#  - Puntos de control: cada ciclo termina en un commit (checkpoint recuperable).
+#  - Modelos por nivel: barato para recolectar, medio para analizar, alto solo para decidir.
+#  - Humano solo donde hay dinero, cuentas o datos personales (portones `humano: true`).
+
+version: 1
+estado: estado/estado.json
+bitacora: estado/bitacora.md
+skill_experta: anthropic-skills:ecommerce-dropi-shopify-growth
+
+nodos:
+  investigador-mercado:
+    tipo: agente
+    agente: .claude/agents/investigador-mercado.md
+    modelo: sonnet
+    ttl_dias: 7
+    lee: [mercado, calendario]
+    escribe: [mercado]
+    salida: investigacion/mercado-AAAA-MM-DD.md
+
+  cazador-productos:
+    tipo: agente
+    agente: .claude/agents/cazador-productos.md
+    modelo: sonnet
+    ttl_dias: 7
+    lee: [mercado, nicho, descartados]
+    escribe: [candidatos]
+    salida: datos/candidatos.json
+
+  economia:
+    tipo: codigo
+    comando: python3 herramientas/economia.py
+    ttl_dias: 0          # corre siempre que cambien los candidatos (es gratis)
+    lee: [candidatos, supuestos]
+    escribe: [economia]
+    salida: datos/economia.json
+
+  puntaje:
+    tipo: codigo
+    comando: python3 herramientas/puntaje.py
+    ttl_dias: 0
+    lee: [candidatos, economia]
+    escribe: [ranking]
+    salida: datos/ranking.json
+
+  validador:
+    tipo: agente
+    agente: .claude/agents/validador.md
+    modelo: opus
+    ttl_dias: 7
+    lee: [ranking, economia, mercado]
+    escribe: [catalogo, descartados]
+    salida: datos/catalogo.json
+
+  creador-tienda:
+    tipo: agente
+    agente: .claude/agents/creador-tienda.md
+    modelo: sonnet
+    ttl_dias: 14
+    lee: [catalogo, marca]
+    escribe: [fichas]
+    salida: datos/fichas.json
+
+  construir-sitio:
+    tipo: codigo
+    comando: python3 herramientas/construir_sitio.py
+    ttl_dias: 0
+    lee: [catalogo, fichas, marca, tienda]
+    escribe: [sitio]
+    salida: sitio/
+
+  estratega-ads:
+    tipo: agente
+    agente: .claude/agents/estratega-ads.md
+    modelo: sonnet
+    ttl_dias: 14
+    lee: [catalogo, fichas, economia]
+    escribe: [plan_ads]
+    salida: datos/plan_ads.json
+
+  auditor:
+    tipo: agente
+    agente: .claude/agents/auditor.md
+    modelo: haiku
+    ttl_dias: 0
+    lee: [fichas, plan_ads, sitio]
+    escribe: [auditoria]
+    salida: estado/auditoria.md
+
+  analista-resultados:
+    tipo: agente
+    agente: .claude/agents/analista-resultados.md
+    modelo: sonnet
+    ttl_dias: 1
+    activo_si: "existe datos/resultados/*.csv"   # se activa cuando hay ventas o pauta reales
+    lee: [resultados, economia, plan_ads]
+    escribe: [decisiones]
+    salida: estado/decisiones.md
+
+aristas:
+  - [investigador-mercado, cazador-productos]
+  - [cazador-productos, economia]
+  - [economia, puntaje]
+  - [puntaje, validador]
+  # Portón condicional
+  - desde: validador
+    si: "catalogo.aprobados >= 1"
+    hacia: [creador-tienda]
+  - desde: validador
+    si: "catalogo.aprobados == 0 and ciclo.reintentos < 2"
+    hacia: [cazador-productos]      # vuelve a buscar con los descartes como contexto
+  - desde: validador
+    si: "catalogo.aprobados == 0 and ciclo.reintentos >= 2"
+    hacia: [FIN]                    # registra y espera al próximo ciclo
+  # Fan-out en paralelo después de las fichas
+  - [creador-tienda, construir-sitio]
+  - [creador-tienda, estratega-ads]
+  # Join
+  - [construir-sitio, auditor]
+  - [estratega-ads, auditor]
+  - [analista-resultados, validador]   # resultados reales pueden matar o escalar productos
+
+portones_humanos:
+  - id: cuentas
+    descripcion: "Crear cuenta Dropi Chile, validar identidad/banco, número de WhatsApp Business, datos de contacto reales."
+  - id: gasto
+    descripcion: "Cualquier gasto en anuncios o apps pagadas. El sistema propone presupuesto; el humano aprueba."
+  - id: publicacion_shopify
+    descripcion: "Importar shopify/productos.csv en una tienda Shopify (cuando se decida pagar plan)."

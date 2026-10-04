@@ -1,0 +1,548 @@
+{
+  "supuestos_usados": {
+    "tasa_confirmacion": 0.85,
+    "escenarios_entrega": {
+      "pesimista": 0.6,
+      "base": 0.7,
+      "optimista": 0.8
+    },
+    "flete_devolucion": 0,
+    "comision_plataforma": 0,
+    "costo_fijo_por_pedido": 150
+  },
+  "productos": [
+    {
+      "id": "cepillo-vapor-mascotas",
+      "precio": 19990,
+      "margen_bruto": 0.675,
+      "escenarios": {
+        "pesimista": {
+          "entrega": 0.6,
+          "G": 3500,
+          "G_con_iva": 2401,
+          "cpa_equilibrio": 3500,
+          "roas_equilibrio": 5.71,
+          "cpa_objetivo": 1500
+        },
+        "base": {
+          "entrega": 0.7,
+          "G": 4647,
+          "G_con_iva": 3365,
+          "cpa_equilibrio": 4647,
+          "roas_equilibrio": 4.3,
+          "cpa_objetivo": 2647
+        },
+        "optimista": {
+          "entrega": 0.8,
+          "G": 5793,
+          "G_con_iva": 4329,
+          "cpa_equilibrio": 5793,
+          "roas_equilibrio": 3.45,
+          "cpa_objetivo": 3793
+        }
+      },
+      "mezcla_base": {
+        "aov": 23890,
+        "G": 5807,
+        "roas_equilibrio": 4.11
+      },
+      "oferta_2u": {
+        "precio": 32990,
+        "G_base": 8514,
+        "roas_equilibrio": 3.87
+      }
+    },
+    {
+      "id": "alfombra-refrigerante-mascotas",
+      "precio": 22990,
+      "margen_bruto": 0.652,
+      "escenarios": {
+        "pesimista": {
+          "entrega": 0.6,
+          "G": 3925,
+          "G_con_iva": 2704,
+          "cpa_equilibrio": 3925,
+          "roas_equilibrio": 5.86,
+          "cpa_objetivo": 1925
+        },
+        "base": {
+          "entrega": 0.7,
+          "G": 5199,
+          "G_con_iva": 3775,
+          "cpa_equilibrio": 5199,
+          "roas_equilibrio": 4.42,
+          "cpa_objetivo": 3199
+        },
+        "optimista": {
+          "entrega": 0.8,
+          "G": 6473,
+          "G_con_iva": 4846,
+          "cpa_equilibrio": 6473,
+          "roas_equilibrio": 3.55,
+          "cpa_objetivo": 4473
+        }
+      },
+      "mezcla_base": {
+        "aov": 28090,
+        "G": 6806,
+        "roas_equilibrio": 4.13
+      },
+      "oferta_2u": {
+        "precio": 39990,
+        "G_base": 10554,
+        "roas_equilibrio": 3.79
+      }
+    },
+    {
+      "id": "botella-agua-paseo-perro",
+      "precio": 14990,
+      "margen_bruto": 0.733,
+      "escenarios": {
+        "pesimista": {
+          "entrega": 0.6,
+          "G": 2480,
+          "G_con_iva": 1585,
+          "cpa_equilibrio": 2480,
+          "roas_equilibrio": 6.04,
+          "cpa_objetivo": 480
+        },
+        "base": {
+          "entrega": 0.7,
+          "G": 3414,
+          "G_con_iva": 2370,
+          "cpa_equilibrio": 3414,
+          "roas_equilibrio": 4.39,
+          "cpa_objetivo": 1414
+        },
+        "optimista": {
+          "entrega": 0.8,
+          "G": 4348,
+          "G_con_iva": 3155,
+          "cpa_equilibrio": 4348,
+          "roas_equilibrio": 3.45,
+          "cpa_objetivo": 2348
+        }
+      },
+      "mezcla_base": {
+        "aov": 17990,
+        "G": 4485,
+        "roas_equilibrio": 4.01
+      },
+      "oferta_2u": {
+        "precio": 24990,
+        "G_base": 6984,
+        "roas_equilibrio": 3.58
+      }
+    },
+    {
+      "id": "fuente-agua-gatos",
+      "precio": 29990,
+      "margen_bruto": 0.617,
+      "escenarios": {
+        "pesimista": {
+          "entrega": 0.6,
+          "G": 5455,
+          "G_con_iva": 3949,
+          "cpa_equilibrio": 5455,
+          "roas_equilibrio": 5.5,
+          "cpa_objetivo": 3455
+        },
+        "base": {
+          "entrega": 0.7,
+          "G": 7027,
+          "G_con_iva": 5270,
+          "cpa_equilibrio": 7027,
+          "roas_equilibrio": 4.27,
+          "cpa_objetivo": 5027
+        },
+        "optimista": {
+          "entrega": 0.8,
+          "G": 8598,
+          "G_con_iva": 6591,
+          "cpa_equilibrio": 8598,
+          "roas_equilibrio": 3.49,
+          "cpa_objetivo": 6598
+        }
+      },
+      "mezcla_base": {
+        "aov": 36890,
+        "G": 9080,
+        "roas_equilibrio": 4.06
+      },
+      "oferta_2u": {
+        "precio": 52990,
+        "G_base": 13869,
+        "roas_equilibrio": 3.82
+      }
+    },
+    {
+      "id": "removedor-pelo-reutilizable",
+      "precio": 12990,
+      "margen_bruto": 0.754,
+      "escenarios": {
+        "pesimista": {
+          "entrega": 0.6,
+          "G": 1868,
+          "G_con_iva": 1071,
+          "cpa_equilibrio": 1868,
+          "roas_equilibrio": 6.95,
+          "cpa_objetivo": -132
+        },
+        "base": {
+          "entrega": 0.7,
+          "G": 2700,
+          "G_con_iva": 1770,
+          "cpa_equilibrio": 2700,
+          "roas_equilibrio": 4.81,
+          "cpa_objetivo": 700
+        },
+        "optimista": {
+          "entrega": 0.8,
+          "G": 3532,
+          "G_con_iva": 2469,
+          "cpa_equilibrio": 3532,
+          "roas_equilibrio": 3.68,
+          "cpa_objetivo": 1532
+        }
+      },
+      "mezcla_base": {
+        "aov": 15090,
+        "G": 3378,
+        "roas_equilibrio": 4.47
+      },
+      "oferta_2u": {
+        "precio": 19990,
+        "G_base": 4961,
+        "roas_equilibrio": 4.03
+      }
+    },
+    {
+      "id": "ventilador-cuello",
+      "precio": 19990,
+      "margen_bruto": 0.675,
+      "escenarios": {
+        "pesimista": {
+          "entrega": 0.6,
+          "G": 3500,
+          "G_con_iva": 2401,
+          "cpa_equilibrio": 3500,
+          "roas_equilibrio": 5.71,
+          "cpa_objetivo": 1500
+        },
+        "base": {
+          "entrega": 0.7,
+          "G": 4647,
+          "G_con_iva": 3365,
+          "cpa_equilibrio": 4647,
+          "roas_equilibrio": 4.3,
+          "cpa_objetivo": 2647
+        },
+        "optimista": {
+          "entrega": 0.8,
+          "G": 5793,
+          "G_con_iva": 4329,
+          "cpa_equilibrio": 5793,
+          "roas_equilibrio": 3.45,
+          "cpa_objetivo": 3793
+        }
+      },
+      "mezcla_base": {
+        "aov": 24490,
+        "G": 6164,
+        "roas_equilibrio": 3.97
+      },
+      "oferta_2u": {
+        "precio": 34990,
+        "G_base": 9704,
+        "roas_equilibrio": 3.61
+      }
+    },
+    {
+      "id": "aspiradora-portatil-auto",
+      "precio": 29990,
+      "margen_bruto": 0.583,
+      "escenarios": {
+        "pesimista": {
+          "entrega": 0.6,
+          "G": 4945,
+          "G_con_iva": 3521,
+          "cpa_equilibrio": 4945,
+          "roas_equilibrio": 6.06,
+          "cpa_objetivo": 2945
+        },
+        "base": {
+          "entrega": 0.7,
+          "G": 6432,
+          "G_con_iva": 4770,
+          "cpa_equilibrio": 6432,
+          "roas_equilibrio": 4.66,
+          "cpa_objetivo": 4432
+        },
+        "optimista": {
+          "entrega": 0.8,
+          "G": 7918,
+          "G_con_iva": 6019,
+          "cpa_equilibrio": 7918,
+          "roas_equilibrio": 3.79,
+          "cpa_objetivo": 5918
+        }
+      },
+      "mezcla_base": {
+        "aov": 37490,
+        "G": 8663,
+        "roas_equilibrio": 4.33
+      },
+      "oferta_2u": {
+        "precio": 54990,
+        "G_base": 13869,
+        "roas_equilibrio": 3.96
+      }
+    },
+    {
+      "id": "luces-solares-sensor",
+      "precio": 24990,
+      "margen_bruto": 0.64,
+      "escenarios": {
+        "pesimista": {
+          "entrega": 0.6,
+          "G": 4605,
+          "G_con_iva": 3303,
+          "cpa_equilibrio": 4605,
+          "roas_equilibrio": 5.43,
+          "cpa_objetivo": 2605
+        },
+        "base": {
+          "entrega": 0.7,
+          "G": 5964,
+          "G_con_iva": 4445,
+          "cpa_equilibrio": 5964,
+          "roas_equilibrio": 4.19,
+          "cpa_objetivo": 3964
+        },
+        "optimista": {
+          "entrega": 0.8,
+          "G": 7323,
+          "G_con_iva": 5587,
+          "cpa_equilibrio": 7323,
+          "roas_equilibrio": 3.41,
+          "cpa_objetivo": 5323
+        }
+      },
+      "mezcla_base": {
+        "aov": 30390,
+        "G": 7571,
+        "roas_equilibrio": 4.01
+      },
+      "oferta_2u": {
+        "precio": 42990,
+        "G_base": 11319,
+        "roas_equilibrio": 3.8
+      }
+    },
+    {
+      "id": "masajeador-cervical",
+      "precio": 34990,
+      "margen_bruto": 0.628,
+      "escenarios": {
+        "pesimista": {
+          "entrega": 0.6,
+          "G": 7495,
+          "G_con_iva": 5704,
+          "cpa_equilibrio": 7495,
+          "roas_equilibrio": 4.67,
+          "cpa_objetivo": 5495
+        },
+        "base": {
+          "entrega": 0.7,
+          "G": 9364,
+          "G_con_iva": 7275,
+          "cpa_equilibrio": 9364,
+          "roas_equilibrio": 3.74,
+          "cpa_objetivo": 7364
+        },
+        "optimista": {
+          "entrega": 0.8,
+          "G": 11233,
+          "G_con_iva": 8846,
+          "cpa_equilibrio": 11233,
+          "roas_equilibrio": 3.11,
+          "cpa_objetivo": 9233
+        }
+      },
+      "mezcla_base": {
+        "aov": 43390,
+        "G": 12042,
+        "roas_equilibrio": 3.6
+      },
+      "oferta_2u": {
+        "precio": 62990,
+        "G_base": 18289,
+        "roas_equilibrio": 3.44
+      }
+    },
+    {
+      "id": "localizador-gps-tag",
+      "precio": 17990,
+      "margen_bruto": 0.666,
+      "escenarios": {
+        "pesimista": {
+          "entrega": 0.6,
+          "G": 2990,
+          "G_con_iva": 2014,
+          "cpa_equilibrio": 2990,
+          "roas_equilibrio": 6.02,
+          "cpa_objetivo": 990
+        },
+        "base": {
+          "entrega": 0.7,
+          "G": 4009,
+          "G_con_iva": 2870,
+          "cpa_equilibrio": 4009,
+          "roas_equilibrio": 4.49,
+          "cpa_objetivo": 2009
+        },
+        "optimista": {
+          "entrega": 0.8,
+          "G": 5028,
+          "G_con_iva": 3726,
+          "cpa_equilibrio": 5028,
+          "roas_equilibrio": 3.58,
+          "cpa_objetivo": 3028
+        }
+      },
+      "mezcla_base": {
+        "aov": 21590,
+        "G": 5080,
+        "roas_equilibrio": 4.25
+      },
+      "oferta_2u": {
+        "precio": 29990,
+        "G_base": 7579,
+        "roas_equilibrio": 3.96
+      }
+    },
+    {
+      "id": "kit-lifting-pestanas",
+      "precio": 19990,
+      "margen_bruto": 0.725,
+      "escenarios": {
+        "pesimista": {
+          "entrega": 0.6,
+          "G": 4265,
+          "G_con_iva": 3085,
+          "cpa_equilibrio": 4265,
+          "roas_equilibrio": 4.69,
+          "cpa_objetivo": 2265
+        },
+        "base": {
+          "entrega": 0.7,
+          "G": 5497,
+          "G_con_iva": 4120,
+          "cpa_equilibrio": 5497,
+          "roas_equilibrio": 3.64,
+          "cpa_objetivo": 3497
+        },
+        "optimista": {
+          "entrega": 0.8,
+          "G": 6728,
+          "G_con_iva": 5155,
+          "cpa_equilibrio": 6728,
+          "roas_equilibrio": 2.97,
+          "cpa_objetivo": 4728
+        }
+      },
+      "mezcla_base": {
+        "aov": 24490,
+        "G": 7193,
+        "roas_equilibrio": 3.4
+      },
+      "oferta_2u": {
+        "precio": 34990,
+        "G_base": 11149,
+        "roas_equilibrio": 3.14
+      }
+    },
+    {
+      "id": "kit-pelo-cero",
+      "precio": 26990,
+      "margen_bruto": 0.641,
+      "escenarios": {
+        "pesimista": {
+          "entrega": 0.6,
+          "G": 5438,
+          "G_con_iva": 4030,
+          "cpa_equilibrio": 5438,
+          "roas_equilibrio": 4.96,
+          "cpa_objetivo": 3438
+        },
+        "base": {
+          "entrega": 0.7,
+          "G": 6908,
+          "G_con_iva": 5265,
+          "cpa_equilibrio": 6908,
+          "roas_equilibrio": 3.91,
+          "cpa_objetivo": 4908
+        },
+        "optimista": {
+          "entrega": 0.8,
+          "G": 8377,
+          "G_con_iva": 6500,
+          "cpa_equilibrio": 8377,
+          "roas_equilibrio": 3.22,
+          "cpa_objetivo": 6377
+        }
+      },
+      "mezcla_base": {
+        "aov": 33290,
+        "G": 8925,
+        "roas_equilibrio": 3.73
+      },
+      "oferta_2u": {
+        "precio": 47990,
+        "G_base": 13631,
+        "roas_equilibrio": 3.52
+      }
+    },
+    {
+      "id": "kit-verano-fresco",
+      "precio": 32990,
+      "margen_bruto": 0.636,
+      "escenarios": {
+        "pesimista": {
+          "entrega": 0.6,
+          "G": 6730,
+          "G_con_iva": 5021,
+          "cpa_equilibrio": 6730,
+          "roas_equilibrio": 4.9,
+          "cpa_objetivo": 4730
+        },
+        "base": {
+          "entrega": 0.7,
+          "G": 8514,
+          "G_con_iva": 6520,
+          "cpa_equilibrio": 8514,
+          "roas_equilibrio": 3.87,
+          "cpa_objetivo": 6514
+        },
+        "optimista": {
+          "entrega": 0.8,
+          "G": 10298,
+          "G_con_iva": 8019,
+          "cpa_equilibrio": 10298,
+          "roas_equilibrio": 3.2,
+          "cpa_objetivo": 8298
+        }
+      },
+      "mezcla_base": {
+        "aov": 40490,
+        "G": 10835,
+        "roas_equilibrio": 3.74
+      },
+      "oferta_2u": {
+        "precio": 57990,
+        "G_base": 16249,
+        "roas_equilibrio": 3.57
+      }
+    }
+  ]
+}
