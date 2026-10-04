@@ -1,9 +1,9 @@
 /* Kimo — estilos de la tienda. Colores de marca vienen como variables desde datos/marca.json. */
 :root{
-  --suave:#F3EDE3; --linea:#E6DFD3; --blanco:#fff; --gris:#59615D; --error:#B3261E;
+  --suave:#FCEFE3; --linea:#F0E2D3; --blanco:#fff; --gris:#5B6072; --error:#B3261E;
   --radio:20px; --radio-s:12px;
-  --sombra:0 1px 2px rgba(30,36,34,.05),0 8px 28px rgba(30,36,34,.08);
-  --sombra-alta:0 2px 4px rgba(30,36,34,.06),0 20px 44px rgba(30,36,34,.14);
+  --sombra:0 1px 2px rgba(28,32,51,.05),0 8px 28px rgba(28,32,51,.08);
+  --sombra-alta:0 2px 4px rgba(28,32,51,.06),0 20px 44px rgba(28,32,51,.14);
   --titulo:"Fraunces",Georgia,serif; --cuerpo:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
   --ease-out:cubic-bezier(.23,1,.32,1);
 }
@@ -44,7 +44,7 @@ p{margin:0 0 1em;text-wrap:pretty}
 @media(max-width:760px){.menu a:not(.boton){display:none}}
 
 /* Botones */
-.boton{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--acento);color:#1C1C1C;font:inherit;font-weight:800;text-decoration:none;border:0;border-radius:999px;padding:12px 22px;cursor:pointer;min-height:46px;transition:transform .16s var(--ease-out),box-shadow .2s ease,background-color .2s ease;-webkit-tap-highlight-color:transparent}
+.boton{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--acento);color:#1C2033;font:inherit;font-weight:800;text-decoration:none;border:0;border-radius:999px;padding:12px 22px;cursor:pointer;min-height:46px;transition:transform .16s var(--ease-out),box-shadow .2s ease,background-color .2s ease;-webkit-tap-highlight-color:transparent}
 .boton:active{transform:scale(.97)}
 @media(hover:hover) and (pointer:fine){.boton:hover{box-shadow:0 8px 20px color-mix(in srgb,var(--acento) 45%,transparent);background:color-mix(in srgb,var(--acento) 92%,#fff)}}
 .boton-grande{padding:17px 30px;font-size:1.06rem;width:100%}
@@ -55,9 +55,9 @@ p{margin:0 0 1em;text-wrap:pretty}
 
 /* Hero */
 .hero{position:relative;padding:80px 0;background:radial-gradient(1200px 500px at 85% -10%,color-mix(in srgb,var(--acento) 25%,transparent),transparent),var(--suave);overflow:hidden}
-.hero-con-img{min-height:min(82vh,700px);display:flex;align-items:center;color:#fff;background:#163330}
+.hero-con-img{min-height:min(82vh,700px);display:flex;align-items:center;color:#fff;background:#141B3F}
 .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:65% center}
-.hero-con-img::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,34,32,.9) 0%,rgba(14,34,32,.66) 42%,rgba(14,34,32,.08) 100%)}
+.hero-con-img::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,27,63,.9) 0%,rgba(20,27,63,.66) 42%,rgba(20,27,63,.08) 100%)}
 @media(max-width:760px){
   .hero-con-img{display:block;min-height:0;padding:0 0 44px}
   .hero-con-img .hero-img{position:relative;height:auto;aspect-ratio:5/4;object-position:74% 60%;mask-image:linear-gradient(180deg,#000 70%,transparent);-webkit-mask-image:linear-gradient(180deg,#000 70%,transparent)}
@@ -97,7 +97,7 @@ p{margin:0 0 1em;text-wrap:pretty}
 .seccion{padding:80px 20px}
 @media(max-width:640px){.seccion{padding:60px 20px}}
 .seccion-suave{background:var(--suave)}
-.seccion-oscura{background:#163330;color:#EEF2EF}
+.seccion-oscura{background:#141B3F;color:#EEF0F7}
 .seccion h2+p{color:var(--gris);max-width:60ch}
 .grilla{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));margin-top:32px}
 .tarjeta{background:var(--blanco);border-radius:var(--radio);overflow:hidden;text-decoration:none;color:inherit;box-shadow:var(--sombra);display:flex;flex-direction:column;border:1px solid var(--linea);transition:transform .3s var(--ease-out),box-shadow .3s var(--ease-out),opacity .6s var(--ease-out)}
@@ -116,8 +116,8 @@ p{margin:0 0 1em;text-wrap:pretty}
 .foto{margin:0;position:relative;background:var(--suave);overflow:hidden}
 .foto img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease-out)}
 .foto figcaption{position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.5);backdrop-filter:blur(6px);color:#fff;font-size:.7rem;font-weight:700;padding:4px 9px;border-radius:999px}
-.foto-tarjeta{aspect-ratio:4/3}
-.foto-producto{aspect-ratio:1;border-radius:var(--radio);box-shadow:var(--sombra)}
+.foto-tarjeta{aspect-ratio:4/5}
+.foto-producto{aspect-ratio:4/5;border-radius:var(--radio);box-shadow:var(--sombra)}
 .ilus{display:grid;place-items:center;padding:24px}
 .ilus svg{width:80%}
 
@@ -131,12 +131,12 @@ p{margin:0 0 1em;text-wrap:pretty}
 /* Compra sin riesgo */
 .riesgo{display:grid;gap:36px;align-items:center}
 @media(min-width:900px){.riesgo{grid-template-columns:1.1fr 1fr}}
-.seccion-oscura .riesgo p{color:#C9D3CF;max-width:52ch}
+.seccion-oscura .riesgo p{color:#C3C8DA;max-width:52ch}
 .riesgo-lista{list-style:none;padding:0;margin:0;display:grid;gap:14px}
 .riesgo-lista li{display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--radio-s);padding:18px}
 .riesgo-lista .ico{color:var(--acento);width:28px;height:28px}
 .riesgo-lista strong{display:block;font-size:1.05rem;color:#fff}
-.riesgo-lista span{color:#C9D3CF;font-size:.92rem}
+.riesgo-lista span{color:#C3C8DA;font-size:.92rem}
 
 /* Pilares y beneficios */
 .pilares,.beneficios{list-style:none;padding:0;margin:32px 0 0;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
@@ -162,13 +162,13 @@ p{margin:0 0 1em;text-wrap:pretty}
 .precio{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:8px 0 2px}
 .precio strong{font-size:2.3rem;font-family:var(--titulo);line-height:1}
 .iva{font-size:.85rem;color:var(--gris);margin:0 0 6px}
-.plazo{display:flex;align-items:center;gap:6px;font-size:.88rem;font-weight:700;color:var(--texto,#1d2b25);margin:0 0 20px}
+.plazo{display:flex;align-items:center;gap:6px;font-size:.88rem;font-weight:700;color:var(--texto,#1C2033);margin:0 0 20px}
 .plazo .ico{color:var(--primario)}
 .consentimiento{display:flex;gap:10px;align-items:flex-start;font-size:.82rem;color:var(--gris);cursor:pointer}
 .consentimiento input{accent-color:var(--primario);width:18px;height:18px;margin:2px 0 0;flex:none}
 .garantias-form a{color:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:4px}
 .garantias-form a:hover{text-decoration:underline}
-.chip{background:color-mix(in srgb,var(--acento) 22%,#fff);color:#7A4A06;font-weight:800;font-size:.82rem;padding:6px 12px;border-radius:999px}
+.chip{background:color-mix(in srgb,var(--acento) 22%,#fff);color:#9A3C0F;font-weight:800;font-size:.82rem;padding:6px 12px;border-radius:999px}
 
 /* Formulario */
 .pedido{background:var(--blanco);border-radius:var(--radio);padding:24px;box-shadow:var(--sombra-alta);border:1px solid var(--linea);display:grid;gap:14px;scroll-margin-top:96px}
@@ -178,7 +178,7 @@ p{margin:0 0 1em;text-wrap:pretty}
 .opcion:has(input:checked){border-color:var(--primario);background:color-mix(in srgb,var(--primario) 5%,#fff)}
 .opcion input{accent-color:var(--primario);width:20px;height:20px;margin:0}
 .opcion-txt{display:flex;flex-direction:column;line-height:1.3;flex:1;min-width:0}
-.opcion-txt em{font-style:normal;font-size:.78rem;font-weight:700;color:#8A5507}
+.opcion-txt em{font-style:normal;font-size:.78rem;font-weight:700;color:#9A3C0F}
 .opcion-precio{margin-left:auto;font-weight:800;white-space:nowrap}
 .insignia{position:absolute;top:-10px;right:14px;background:var(--primario);color:#fff;font-size:.7rem;font-weight:800;padding:3px 9px;border-radius:999px;letter-spacing:.02em}
 .extra{display:flex;align-items:center;gap:10px;background:var(--suave);border-radius:var(--radio-s);padding:13px 14px;cursor:pointer;font-size:.93rem}
@@ -194,7 +194,7 @@ p{margin:0 0 1em;text-wrap:pretty}
 .entrega{margin:0;background:color-mix(in srgb,var(--primario) 7%,#fff);color:var(--primario);border-radius:var(--radio-s);padding:10px 12px;font-weight:700;font-size:.9rem}
 .total{display:flex;justify-content:space-between;align-items:center;border-top:1px dashed var(--linea);padding-top:14px}
 .total strong{font-size:1.6rem;font-family:var(--titulo)}
-.aviso{background:#FFF4E0;border-left:4px solid var(--acento);padding:10px 12px;font-size:.9rem;margin:0;border-radius:6px}
+.aviso{background:#FFEFE4;border-left:4px solid var(--acento);padding:10px 12px;font-size:.9rem;margin:0;border-radius:6px}
 .garantias-form{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px;font-size:.8rem;color:var(--gris);font-weight:700}
 .garantias-form .ico{color:var(--primario)}
 
@@ -249,7 +249,7 @@ details[open] summary::after{transform:translateY(2px) rotate(225deg)}
 @media(min-width:960px){.wa{bottom:26px}}
 
 /* Pie */
-.pie{background:var(--texto);color:#D8DED9;padding:56px 0 28px}
+.pie{background:var(--texto);color:#D6D9E6;padding:56px 0 28px}
 .pie-in{display:grid;gap:32px}
 @media(min-width:760px){.pie-in{grid-template-columns:1.6fr 1fr 1fr}}
 .pie .logo{color:#fff;margin-bottom:8px}
@@ -258,8 +258,11 @@ details[open] summary::after{transform:translateY(2px) rotate(225deg)}
 .pie-sello .ico{color:var(--acento)}
 .pie-tit{color:#fff;font-weight:800;margin-bottom:10px}
 .pie-nav{display:grid;gap:8px}
-.pie a{color:#D8DED9;text-decoration:none}
+.pie a{color:#D6D9E6;text-decoration:none}
 .pie a:hover{color:#fff;text-decoration:underline}
 .legal-pie{text-align:center;font-size:.8rem;opacity:.65;margin:36px 20px 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.1)}
 .legal ul{padding-left:20px}
 .legal h2{font-size:1.4rem;margin-top:1.2em}
+
+.foto-contenido{margin:0 0 16px;border-radius:var(--radio-s);overflow:hidden;background:var(--fondo)}
+.foto-contenido img{width:100%;height:auto;display:block}

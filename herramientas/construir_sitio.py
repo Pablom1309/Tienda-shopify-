@@ -104,7 +104,7 @@ def logo_svg(pie=False):
     """Isotipo + palabra (texto convertido a trazos, color heredado) desde herramientas/plantilla."""
     iso = (PLANTILLA / "isotipo.svg").read_text(encoding="utf-8").strip()
     if pie:
-        iso = iso.replace('fill="#1F5F5B"', 'fill="#FBF8F3"', 1).replace('<g fill="#FBF8F3">', '<g fill="#1F5F5B">')
+        iso = iso.replace('fill="#24316B"', 'fill="#FFF8F0"', 1).replace('<g fill="#FFF8F0">', '<g fill="#24316B">')
     iso = iso.replace("<svg ", '<svg class="logo-iso" aria-hidden="true" ', 1).replace(' role="img" aria-label="Kimo"', "")
     palabra = (PLANTILLA / "palabra.svg").read_text(encoding="utf-8").strip().replace("<svg ", '<svg class="logo-palabra" aria-hidden="true" ', 1)
     return iso + palabra
@@ -270,6 +270,8 @@ def pagina_producto(prod, ficha, marca, tienda):
     pasos = "".join(f'<li><span class="num">{i}</span><p>{e(p)}</p></li>' for i, p in enumerate(ficha["como_usar"], 1))
     incluye = "".join(f"<li>{icono('check', 'ico ico-s')}{e(i)}</li>" for i in ficha["incluye"])
     ahorro = 2 * prod["precio"] - prod["oferta_2"]
+    tag_contenido = img_tag(f"{prod['id']}-contenido", "Todo lo que trae el " + ficha["titulo_seo"].split(":")[0], "../", sizes="(min-width:900px) 40vw, 100vw")
+    contenido = f'<figure class="foto-contenido">{tag_contenido}</figure>' if tag_contenido else ""
     nombre = ficha["titulo_seo"].split(":")[0]
     url = (tienda.get("url_sitio") or "").rstrip("/")
     preguntas = [(f["p"], f["r"]) for f in ficha["faq"]]
@@ -303,7 +305,7 @@ def pagina_producto(prod, ficha, marca, tienda):
 </section>
 <section class="banda"><div class="contenedor">{sellos(tienda)}</div></section>
 <section class="seccion contenedor"><p class="sobretitulo">Por qué funciona</p><h2>Todo lo que necesitas, en un solo pedido</h2><ul class="beneficios">{benef}</ul></section>
-<section class="seccion seccion-suave"><div class="contenedor dos-col"><div><p class="sobretitulo">Cómo se usa</p><h2>Listo en minutos</h2><ol class="pasos">{pasos}</ol></div><div class="caja revelar"><h3>Qué incluye</h3><ul class="incluye">{incluye}</ul><p class="nota-chica">Medidas y materiales exactos: los publicamos al recibir la ficha del proveedor.</p></div></div></section>
+<section class="seccion seccion-suave"><div class="contenedor dos-col"><div><p class="sobretitulo">Cómo se usa</p><h2>Listo en minutos</h2><ol class="pasos">{pasos}</ol></div><div class="caja revelar"><h3>Qué incluye</h3>{contenido}<ul class="incluye">{incluye}</ul><p class="nota-chica">Medidas y materiales exactos: los publicamos al recibir la ficha del proveedor.</p></div></div></section>
 {comparacion(prod, ficha)}
 <section class="seccion contenedor estrecho"><p class="sobretitulo">Opiniones</p><h2>Reseñas reales, pronto</h2><div class="resenas-vacio">{icono('estrella')}<p>Solo publicamos opiniones de clientes que recibieron su pedido. Sin reseñas inventadas: cuando lleguen, las verás aquí.</p></div></section>
 {bloque_faq(preguntas, id_="preguntas-producto")}

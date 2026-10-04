@@ -31,11 +31,15 @@
     ]
   },
   "colores": {
-    "primario": "#1F5F5B",
-    "acento": "#F2A541",
-    "fondo": "#FBF8F3",
-    "texto": "#1E2422"
+    "primario": "#24316B",
+    "acento": "#FF8A4C",
+    "fondo": "#FFF8F0",
+    "texto": "#1C2033",
+    "oscuro": "#141B3F",
+    "suave": "#FCEFE3",
+    "estrella": "#FFC845"
   },
   "tipografia": "Nunito",
-  "nombre_anterior": "Huella Sur (cambiado por decisión del dueño el 2026-10-04)"
+  "nombre_anterior": "Huella Sur (cambiado por decisión del dueño el 2026-10-04)",
+  "paleta_nota": "Paleta 'tinta y mandarina' (2026-10-04): azul tinta = confianza (como Chewy/BarkBox), mandarina = calidez y botón de compra, crema cálida de fondo (estilo DTC tipo Wild One/Fable). Contrastes verificados WCAG AA. Ver investigacion/paleta-colores.md."
 }

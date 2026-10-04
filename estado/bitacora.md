@@ -81,3 +81,7 @@ Cada ciclo agrega una entrada al final: fecha, nodos ejecutados, decisiones del 
 ## 2026-10-04 ~12:00 UTC — pedido del dueño: nombre nuevo
 - La marca pasa de "Huella Sur" a **Kimo** (elegido por el dueño entre 4 opciones con .cl libre en nic.cl). Cambiado en marca.json, fichas, plantilla, CLAUDE.md, README, SKU (KM-) y logo (`marca/`).
 - Pendiente humano: registrar kimo.cl y buscar "Kimo" en INAPI antes de invertir.
+
+## 2026-10-04 ~12:30 UTC — pedido del dueño: paleta nueva y fotos completas
+- Paleta "tinta y mandarina" (`investigacion/paleta-colores.md`, contrastes WCAG AA): marca.json, CSS y logo actualizados.
+- Fotos: las tarjetas recortaban a 4:3 y cortaban las piezas; ahora tarjetas y ficha en 4:5 con la foto completa. Foto de contenido (catálogo, todas las piezas) en "Qué incluye" para Pelo Cero y Verano; Canva sin créditos y el dueño detuvo su uso para los demás.
