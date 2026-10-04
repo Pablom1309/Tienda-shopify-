@@ -16,4 +16,5 @@ La sesión principal es siempre el **orquestador**. Conocimiento experto: skill 
 - Nunca inventar reseñas, testimonios, escasez, precios de referencia ni costos. Todo costo no verificado se marca "estimado".
 - Sin afirmaciones de salud. `python3 herramientas/verificar.py` debe salir con código 0 antes de cada commit.
 - Eficiencia: los nodos de código corren siempre; los nodos LLM solo si están vencidos (TTL) o cambió su entrada. Lanza en paralelo los nodos independientes. Usa el modelo indicado en el nodo.
+- Guardián activo (`herramientas/guardian.py`, hook PreToolUse): bloquea fuga de credenciales, sitios de riesgo, dinero/anuncios, push fuera de la rama y borrados masivos. Si bloquea algo, no intentes rodearlo: anótalo en la bitácora como pendiente humano. Registro de accesos en `estado/accesos.log`. Pruebas: `python3 herramientas/probar_guardian.py`.
 - Responde y escribe en español de Chile, moneda CLP.

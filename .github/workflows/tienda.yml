@@ -28,6 +28,7 @@ jobs:
           python3 herramientas/puntaje.py
           python3 herramientas/construir_sitio.py
           python3 herramientas/verificar.py
+          python3 herramientas/probar_guardian.py
       - uses: actions/upload-pages-artifact@v3
         with:
           path: sitio

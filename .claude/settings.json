@@ -19,5 +19,20 @@
       "Glob",
       "Grep"
     ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|WebFetch|WebSearch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/herramientas/guardian.py\"",
+            "timeout": 10,
+            "statusMessage": "Guardián revisando..."
+          }
+        ]
+      }
+    ]
   }
 }
