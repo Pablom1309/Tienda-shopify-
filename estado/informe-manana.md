@@ -2,6 +2,12 @@
 
 Se actualiza al final de cada turno autónomo. Lo más reciente arriba.
 
+## 2026-10-04 tarde — lanzamiento y redes
+- **Guía de lanzamiento `LANZAMIENTO.md`**: 6 fases con dónde, cuánto y en qué orden (nombre y dominio → SII → INAPI → Dropi → Shopify y pagos → Instagram/WhatsApp → anuncios). Arranque ≈ $230.000–$300.000 sin anuncios (UTM oct = $72.151).
+- **Kit de perfil para redes** en `marca/redes/`: foto de perfil 1080 y 5 portadas de destacados.
+- **Plantillas de WhatsApp Business** en `datos/plantillas_whatsapp.md`: saludo, ausencia, confirmación, despacho, día de entrega, reprogramar, cambios y seguimiento.
+- Para ti esta semana: Fase 0 de `LANZAMIENTO.md` (búsqueda INAPI, kuchiwau.cl, correo, @kuchiwau) e inicio de actividades en el SII.
+
 ## 2026-10-04 — catálogo ampliado a 19 kits (límite 20)
 - Dos rondas de búsqueda: 22 candidatos; 13 aprobados por el validador. Hoy hay **19 kits activos** (10 perro, 8 gato, 1 ambos); 1 cupo libre reservado para la fuente con filtros si Dropi confirma costos.
 - Portada con filtro Todos / Perros / Gatos y etiquetas cortas por kit.

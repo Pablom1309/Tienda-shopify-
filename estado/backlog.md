@@ -4,10 +4,10 @@ Cada sesión del turno toma la **primera tarea `[ ]`** (o dos si son cortas), la
 Tareas que requieren al dueño van en "Bloqueadas (portón humano)": nunca se ejecutan, se saltan.
 
 ## Prioridad 0 — Lanzamiento (pasos del dueño en `LANZAMIENTO.md`)
-- [ ] **Kit de perfil para redes:** exportar el isotipo a PNG 1080x1080 (foto de perfil, se ve bien en círculo a 110 px) y 5 portadas de destacados (Kits, Cómo comprar, Envíos, Cambios, Preguntas) en la paleta de marca. → `marca/redes/`
+- [x] (2026-10-04) → `marca/redes/` · **Kit de perfil para redes:** exportar el isotipo a PNG 1080x1080 (foto de perfil, se ve bien en círculo a 110 px) y 5 portadas de destacados (Kits, Cómo comprar, Envíos, Cambios, Preguntas) en la paleta de marca. → `marca/redes/`
 - [ ] **Grilla inicial de Instagram (9 piezas 1080x1350):** usar fotos existentes de `herramientas/plantilla/img/` + textos de `investigacion/lanzamiento-instagram-meta.md`; pie de foto listo para copiar en `marca/redes/grilla.md`. Sin reseñas, escasez ni afirmaciones de salud.
 - [ ] **Política de privacidad para la Ley 21.719 (vigente 1-dic-2026):** revisar `privacidad.html` contra el contenido sugerido en `investigacion/lanzamiento-legal.md`; datos del dueño como pendientes.
-- [ ] **Plantillas WhatsApp Business:** pasar las 4 plantillas de `investigacion/lanzamiento-instagram-meta.md` a `datos/plantillas_whatsapp.md` junto con la confirmación de pedido (cierra la tarea de P3).
+- [x] (2026-10-04) → `datos/plantillas_whatsapp.md` · **Plantillas WhatsApp Business:** pasar las 4 plantillas de `investigacion/lanzamiento-instagram-meta.md` a `datos/plantillas_whatsapp.md` junto con la confirmación de pedido (cierra la tarea de P3).
 
 ## Prioridad 1 — Conocer el mercado y el negocio
 - [x] (2026-10-04) → `investigacion/mercado-mascotas-chile.md` · **Mercado objetivo Chile (mascotas):** tamaño del mercado, % de hogares con perros/gatos, gasto promedio, crecimiento, canales de compra online, estacionalidad, regiones. Fuentes con URL. → `investigacion/mercado-mascotas-chile.md`
@@ -28,7 +28,7 @@ Tareas que requieren al dueño van en "Bloqueadas (portón humano)": nunca se ej
 - [ ] **Guía de tallas** para la alfombra (qué talla según peso/tamaño del perro) y especificaciones claras; marcar como "por confirmar con proveedor" lo no verificado.
 - [ ] **SEO de contenido (publicar "Verano con tu perro" antes del 15-nov, ver `investigacion/estacionalidad-trends.md`):** 2 guías útiles en `sitio/guias/` (por ejemplo "Cómo reducir el pelo de tu mascota en casa" y "Verano con tu perro: guía práctica para Chile"), sin afirmaciones de salud, con enlaces internos a los kits y datos estructurados de artículo.
 - [ ] **FAQ y copy desde objeciones reales (creador-tienda):** agregar a las fichas "¿Qué tamaño tiene?" (cm), "¿Cómo se carga y cuánto dura?" (por confirmar con proveedor) y "¿Qué talla elijo?"; describir el vapor como bruma fina sin sobreprometer. Fuente: `investigacion/cliente-objeciones.md`.
-- [ ] **Plantilla de confirmación por WhatsApp (borrador, no enviar):** producto, foto, total a pagar al recibir, fecha estimada y cómo reprogramar. → `datos/plantillas_whatsapp.md`
+- [x] (2026-10-04) → `datos/plantillas_whatsapp.md` · **Plantilla de confirmación por WhatsApp (borrador, no enviar):** producto, foto, total a pagar al recibir, fecha estimada y cómo reprogramar. → `datos/plantillas_whatsapp.md`
 - [ ] **Oferta por kit con la ecuación de valor (Hormozi):** resultado, probabilidad (guía, cambio, pago al recibir), demora (plazo visible), esfuerzo; bonos de bajo costo (guía PDF). Sin escasez ni testimonios inventados. → `datos/ofertas.md`
 - [x] (2026-10-04) → plazo junto al precio + enlaces a cambios/privacidad · **Plazo de entrega y resumen de cambios junto al botón de pedido** (Baymard: envío lento 21 % y devoluciones 15 % de abandonos); plazos "por confirmar con Dropi".
 - [ ] **Página de gracias con upsell de un clic** del complemento (sacarlo del formulario previo si baja fricción).
