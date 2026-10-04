@@ -1,22 +1,97 @@
-// Formulario contra entrega: calcula el total y abre WhatsApp con el pedido armado.
+// Huella Sur: interacciones de la tienda (sin dependencias).
 (function () {
+  document.documentElement.classList.add('js');
+
+  // Revelado suave al hacer scroll; si el usuario pidió menos movimiento, se muestra todo de inmediato.
+  var reveladores = document.querySelectorAll('.revelar');
+  var menosMovimiento = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!('IntersectionObserver' in window) || menosMovimiento) {
+    reveladores.forEach(function (el) { el.classList.add('visible'); });
+  } else {
+    var io = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (en, i) {
+        if (!en.isIntersecting) return;
+        setTimeout(function () { en.target.classList.add('visible'); }, i * 60);
+        io.unobserve(en.target);
+      });
+    }, { rootMargin: '0px 0px -60px 0px' });
+    reveladores.forEach(function (el) { io.observe(el); });
+  }
+
   var f = document.getElementById('pedido');
   if (!f) return;
-  var clp = function (n) { return '$' + n.toLocaleString('es-CL'); };
+  var clp = function (n) { return '$' + Number(n).toLocaleString('es-CL'); };
+
+  // Barra de compra fija (móvil): aparece cuando el formulario sale de la pantalla.
+  var barra = document.getElementById('barra-compra');
+  if (barra && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (en) {
+      var fuera = !en[0].isIntersecting && en[0].boundingClientRect.top < 0;
+      barra.classList.toggle('visible', fuera);
+    }).observe(f);
+  }
+
   var total = function () {
     var r = f.querySelector('input[name=cantidad]:checked');
     var c = f.querySelector('input[name=complemento]');
     return Number(r ? r.dataset.precio : 0) + (c && c.checked ? Number(c.value) : 0);
   };
-  var pintar = function () { document.getElementById('total').textContent = clp(total()); };
-  f.addEventListener('change', pintar);
+
+  // Fecha estimada de entrega según la región (días hábiles, desde mañana).
+  var PLAZOS = { rm: [2, 4], regiones: [3, 7] };
+  var sumarHabiles = function (desde, n) {
+    var d = new Date(desde);
+    while (n > 0) { d.setDate(d.getDate() + 1); if (d.getDay() !== 0 && d.getDay() !== 6) n--; }
+    return d;
+  };
+  var fmt = function (d) { return d.toLocaleDateString('es-CL', { weekday: 'short', day: 'numeric', month: 'short' }); };
+  var entrega = document.getElementById('entrega');
+  var pintarEntrega = function () {
+    var sel = f.querySelector('select[name=region]');
+    var op = sel && sel.selectedOptions[0];
+    var zona = op && op.dataset.zona;
+    if (!entrega || !zona) { if (entrega) entrega.hidden = true; return; }
+    var txt = entrega.querySelector('span');
+    if (zona === 'extrema') {
+      txt.textContent = 'Para tu región coordinamos el plazo por WhatsApp.';
+    } else {
+      var p = PLAZOS[zona], hoy = new Date();
+      txt.textContent = 'Llegada estimada: entre el ' + fmt(sumarHabiles(hoy, p[0])) + ' y el ' + fmt(sumarHabiles(hoy, p[1])) + '.';
+    }
+    entrega.hidden = false;
+  };
+
+  // Borrador local: si el cliente sale y vuelve, no pierde lo escrito.
+  var CLAVE = 'hs-borrador-' + (f.dataset.id || 'pedido');
+  var campos = ['nombre', 'telefono', 'region', 'comuna', 'direccion'];
+  try {
+    var guardado = JSON.parse(localStorage.getItem(CLAVE) || '{}');
+    campos.forEach(function (k) { if (guardado[k] && f.elements[k]) f.elements[k].value = guardado[k]; });
+  } catch (e) { /* almacenamiento no disponible: el formulario funciona igual */ }
+  var guardar = function () {
+    try {
+      var d = {};
+      campos.forEach(function (k) { if (f.elements[k]) d[k] = f.elements[k].value; });
+      localStorage.setItem(CLAVE, JSON.stringify(d));
+    } catch (e) { /* sin almacenamiento */ }
+  };
+
+  var pintar = function () { document.getElementById('total').textContent = clp(total()); pintarEntrega(); };
+  f.addEventListener('change', function () { pintar(); guardar(); });
+  f.addEventListener('input', function (ev) {
+    guardar();
+    var c = ev.target.closest('.campo');
+    if (c && c.classList.contains('error') && ev.target.checkValidity()) c.classList.remove('error');
+  });
+  pintar();
+
   f.addEventListener('submit', function (ev) {
     ev.preventDefault();
     // Marca los campos incompletos sin perder lo escrito.
     var primero = null;
     f.querySelectorAll('[required]').forEach(function (el) {
       var ok = el.checkValidity();
-      el.closest('.campo') && el.closest('.campo').classList.toggle('error', !ok);
+      if (el.closest('.campo')) el.closest('.campo').classList.toggle('error', !ok);
       if (!ok && !primero) primero = el;
     });
     if (primero) { primero.focus(); return; }
