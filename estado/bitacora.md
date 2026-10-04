@@ -120,3 +120,7 @@ Cada ciclo agrega una entrada al final: fecha, nodos ejecutados, decisiones del 
 - En observación: kit-gato-tunel-juego (duplica juego activo de gato; set equivalente a $8.990 en Paris; reemplazo del láser si este cae), kit-bandanas-fotos (superpone ángulo foto/regalo con los dos kits de Navidad; reevaluar en enero).
 - Descartados (portón duro): kit-manta-viaje-premios (3,24), kit-gato-transporte-mochila (3,17).
 - Cupo libre (1) reservado para kit-gato-hidratacion-filtros si el costo real en Dropi cierra. Pendiente: fichas de los 6 nuevos (creador-tienda); todos con costos estimados.
+
+## Ciclo 4 — 2026-10-04 (orquestador)
+- cazador (sonnet) 10 candidatos gato/ambos → 8 pasan → validador (opus) aprueba 6 → **19 activos** (10 perro, 8 gato, 1 ambos). creador-tienda: 6 fichas. Metas sin "Pagas al recibir/Despacho" repetidos.
+- Fotos Canva: Ventana y Rascador; resto sin créditos → imagen provisional. Chromium: 19 páginas sin errores ni scroll horizontal; filtro OK.

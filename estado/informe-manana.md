@@ -2,6 +2,13 @@
 
 Se actualiza al final de cada turno autónomo. Lo más reciente arriba.
 
+## 2026-10-04 — catálogo ampliado a 19 kits (límite 20)
+- Dos rondas de búsqueda: 22 candidatos; 13 aprobados por el validador. Hoy hay **19 kits activos** (10 perro, 8 gato, 1 ambos); 1 cupo libre reservado para la fuente con filtros si Dropi confirma costos.
+- Portada con filtro Todos / Perros / Gatos y etiquetas cortas por kit.
+- Fotos: 10 kits con foto referencial; 9 con imagen provisional "Foto real muy pronto" (Canva sin créditos). Descarté 2 fotos que mostraban piezas que el kit no trae.
+- Para ti: cotizar en Dropi los 19 kits (mismo proveedor por kit); el láser requiere verificar clase y despacho de batería; la placa ID requiere que el proveedor grabe.
+
+
 ## 2026-10-04 (resumen de 24 horas) — ciclo diario
 **Lo hecho**
 - Investigación: mercado de mascotas en Chile, precios reales de la competencia (Falabella y Paris), reseñas y objeciones, referentes mundiales, estacionalidad (Google Trends), recompra (LTV) y plan financiero. Todo en `investigacion/`.
