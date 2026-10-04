@@ -2,6 +2,22 @@
 
 Se actualiza al final de cada turno autónomo. Lo más reciente arriba.
 
+## 2026-10-04 (resumen de 24 horas) — ciclo diario
+**Lo hecho**
+- Investigación: mercado de mascotas en Chile, precios reales de la competencia (Falabella y Paris), reseñas y objeciones, referentes mundiales, estacionalidad (Google Trends), recompra (LTV) y plan financiero. Todo en `investigacion/`.
+- Productos: ciclo 2 con 8 candidatos; por tu pedido subí el límite a 6 kits activos y hay 4 kits nuevos publicados.
+- Marca: nuevo nombre **Kimo**, logo (carpeta `marca/`) y paleta "tinta y mandarina" con contraste verificado.
+- Tienda: fotos sin recorte, foto de contenido en 2 kits, plazo visible, consentimiento WhatsApp, Kit Pelo Cero ahora para perros.
+- Anuncios: plan para los 6 kits con orden de lanzamiento: partir con Gato Sin Pelusas + Pelo Cero ($178.000 de test, máximo 2 kits a la vez).
+- Auditoría: sin problemas de precios, salud ni testimonios.
+
+**Lo que necesito de ti (en orden)**
+1. Cuenta Dropi: costos reales y proveedor único por kit (sobre todo Gato Sin Pelusas y Pelo Cero), comisión, flete de devolución y días de pago.
+2. WhatsApp de la tienda y datos legales (razón social, RUT, dirección, correo) en `datos/tienda.json`.
+3. Registrar kimo.cl y revisar "Kimo" en INAPI.
+4. Reservar ~$300.000-$400.000 de capital de trabajo antes de aprobar anuncios.
+
+
 ## 2026-10-04 ~08:30 (Chile) — por tu pedido: 6 kits en la tienda
 - Subí el límite de productos activos de 2 a 6 y publiqué 4 kits nuevos: Gato Sin Pelusas, Perro Entretenido, Paseo Limpio y Baño y Secado.
 - Para ti: en Dropi cotiza las piezas de los 4 kits nuevos (mismo proveedor por kit) antes de pautar.

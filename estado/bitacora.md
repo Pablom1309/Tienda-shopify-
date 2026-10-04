@@ -85,3 +85,9 @@ Cada ciclo agrega una entrada al final: fecha, nodos ejecutados, decisiones del 
 ## 2026-10-04 ~12:30 UTC — pedido del dueño: paleta nueva y fotos completas
 - Paleta "tinta y mandarina" (`investigacion/paleta-colores.md`, contrastes WCAG AA): marca.json, CSS y logo actualizados.
 - Fotos: las tarjetas recortaban a 4:3 y cortaban las piezas; ahora tarjetas y ficha en 4:5 con la foto completa. Foto de contenido (catálogo, todas las piezas) en "Qué incluye" para Pelo Cero y Verano; Canva sin créditos y el dueño detuvo su uso para los demás.
+
+## Ciclo 3 — 2026-10-04 (ciclo diario)
+- Nodos: economia, ltv, finanzas, puntaje (código) → estratega-ads (sonnet) → auditor (haiku) → construir-sitio. Resto vigente (TTL 7 días, corrieron hoy).
+- estratega-ads: plan_ads.json con 6 kits y orden de lanzamiento (máx. 2 en pauta): Gato Sin Pelusas + Pelo Cero primero ($178.000 de test), Baño y Secado 26-oct, Verano 16-nov, Enriquecimiento 1-dic, Paseo en enero. requiere_aprobacion: true.
+- auditor (`estado/auditoria.md`): sin problemas en precios, salud, testimonios ni restos de "Huella Sur"; alta = datos legales/WhatsApp pendientes (portón humano); media = ángulos "regalo para quien vive con un perro/gato" a revisar en Biblioteca de anuncios antes de pautar.
+- Configuración: Canva permitido sin prompt en `.claude/settings.json` (pedido del dueño).
