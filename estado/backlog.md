@@ -5,7 +5,7 @@ Tareas que requieren al dueño van en "Bloqueadas (portón humano)": nunca se ej
 
 ## Prioridad 1 — Conocer el mercado y el negocio
 - [x] (2026-10-04) → `investigacion/mercado-mascotas-chile.md` · **Mercado objetivo Chile (mascotas):** tamaño del mercado, % de hogares con perros/gatos, gasto promedio, crecimiento, canales de compra online, estacionalidad, regiones. Fuentes con URL. → `investigacion/mercado-mascotas-chile.md`
-- [ ] **Competencia real con precios:** leer Mercado Libre Chile, Falabella, Paris y tiendas de mascotas online (Petco, SuperZoo, Club de Perros y Gatos u otras) para los componentes de nuestros kits: precio mínimo/mediano/máximo, envío, reseñas, cómo se presentan. Actualizar `evidencia` en `datos/candidatos.json` sin inventar. → `investigacion/competencia-precios.md`
+- [x] (2026-10-04) → `investigacion/competencia-precios.md` · **Competencia real con precios:** leer Mercado Libre Chile, Falabella, Paris y tiendas de mascotas online (Petco, SuperZoo, Club de Perros y Gatos u otras) para los componentes de nuestros kits: precio mínimo/mediano/máximo, envío, reseñas, cómo se presentan. Actualizar `evidencia` en `datos/candidatos.json` sin inventar. → `investigacion/competencia-precios.md`
 - [ ] **Cliente ideal (buyer persona) y objeciones:** a partir de reseñas y preguntas públicas de compradores en Mercado Libre/Falabella: dolores, palabras que usan, objeciones, motivos de devolución. → `investigacion/cliente-objeciones.md`
 - [ ] **Referentes mundiales:** cómo venden online los mejores (marcas DTC de mascotas como Chewy, BarkBox, Wild One, Fable; operadores de contra entrega LATAM; guías de conversión de Baymard Institute; marcos de oferta tipo "Grand Slam Offer"; estrategia creativa en Meta). Extraer solo lo aplicable a nuestra tienda, con fuente, y convertirlo en tareas concretas al final de este backlog. → `investigacion/playbook-referentes.md`
 - [ ] **Estacionalidad con Google Trends CL:** descargar curvas semanales 5 años de "cepillo para perros", "cama refrescante perro", "fuente de agua gatos" y confirmar las ventanas del calendario. → `investigacion/estacionalidad-trends.md`
@@ -14,6 +14,7 @@ Tareas que requieren al dueño van en "Bloqueadas (portón humano)": nunca se ej
 - [ ] **Ciclo 2 de productos:** 8–10 candidatos nuevos del nicho (con Google Trends Chile, más vendidos de Mercado Libre, tendencias de TikTok), correr `economia.py` y `puntaje.py`, y pasar por el validador. Mantener máximo 2 activos; los demás que pasen el portón quedan `en_observacion` con su ficha lista para reemplazo.
 - [ ] **Segundo producto con recompra:** evaluar a fondo fuente de agua para gatos + filtros de repuesto (modelo de suscripción/recompra), con economía de vida del cliente (LTV) y no solo del primer pedido.
 - [ ] **Análisis financiero:** presupuesto de test, punto de equilibrio, flujo de caja a 30/60/90 días con supuestos explícitos y sensibilidad a la tasa de entrega y al CPA. → `investigacion/plan-financiero.md`
+- [ ] **Revalidar precio de Kit Pelo Cero (validador):** con la competencia leída (cepillo a vapor mediana $7.445 en Falabella), evaluar bajar a $22.990-$24.990 o sumar una tercera pieza barata; recalcular economía. Requiere costo real para decidir el precio final.
 
 ## Prioridad 3 — Tienda que convierte y genera confianza
 - [ ] **Auditoría de conversión** de `sitio/` contra las guías de Baymard (página de producto, formulario, confianza, móvil), con lista priorizada de cambios; implementar los de bajo riesgo en `herramientas/construir_sitio.py` y la plantilla. Verificar en Chromium (móvil y escritorio) antes del commit.
@@ -36,3 +37,4 @@ Tareas que requieren al dueño van en "Bloqueadas (portón humano)": nunca se ej
 - Aprobación de presupuesto de anuncios y creación de campañas.
 - Plan pagado de Shopify e importación del CSV.
 - Fotos reales del producto (requiere muestra física).
+- Precios de Mercado Libre Chile: la búsqueda pide verificación anti-bots y la API exige credenciales (revisar a mano o con la cuenta del dueño).

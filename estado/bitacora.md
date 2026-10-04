@@ -17,3 +17,9 @@ Cada ciclo agrega una entrada al final: fecha, nodos ejecutados, decisiones del 
 - Hallazgos: 70 % de hogares con perro o gato; gasto $60.100/mes; accesorios sube a 7,8 % del gasto; ecommerce mascotas US$650-670 M en 2026; conversión de referencia 1,72 %.
 - Decisión: no pautar en CyberMonday (5-7 oct) ni Black Friday (27-30 nov); separar anuncios familias con perro vs dueños de gato.
 - Nueva tarea: estacionalidad con Google Trends CL. Sin bloqueos del guardián.
+
+## Turno 2026-10-04 03:55 UTC — competencia con precios
+- Tarea: precios de Falabella y Paris para los 4 componentes y la fuente de gatos → `investigacion/competencia-precios.md` (+ datos crudos en `investigacion/datos-competencia/`); evidencia actualizada en `datos/candidatos.json`.
+- Hallazgo: cepillo a vapor mediana $7.445 (Falabella), con reseñas desde $4.990; manta refrescante mediana ~$14.500; Kit Pelo Cero cobra +55 % sobre la suma de piezas, Kit Verano +41 %.
+- Decisión: no se toca el catálogo; nueva tarea para que el validador revalúe el precio de Kit Pelo Cero.
+- Bloqueo: Mercado Libre CL (anti-bots y API 403) → anotado en Bloqueadas.

@@ -22,10 +22,12 @@
         "recompra": 2
       },
       "riesgo_politica": 0,
-      "evidencia": "Viral en clips de Mercado Libre CO/PE/AR (2025-2026); Chile entra a muda de pelo en primavera; demostración en 3 s (pelo que sale).",
+      "evidencia": "Viral en clips de Mercado Libre CO/PE/AR (2025-2026); Chile entra a muda de pelo en primavera; demostración en 3 s (pelo que sale). | Competencia CL 2026-10-04: Falabella 50 avisos $3.750-$29.990 (mediana $7.445; los más reseñados $4.990-$5.490, 12 reseñas); Paris 10 avisos $5.490-$42.000 (mediana $9.990). Muy comparable: solo justifica precio dentro de kit.",
       "fuentes": [
         "https://www.mercadolibre.cl/blog/mas-vendidos/cepillos-mascotas",
-        "https://www.mercadolibre.com.co/cepillo-a-vapor-automatico-3-en-1-para-gatos-y-perros/up/MCOU3981335082"
+        "https://www.mercadolibre.com.co/cepillo-a-vapor-automatico-3-en-1-para-gatos-y-perros/up/MCOU3981335082",
+        "https://www.falabella.com/falabella-cl/search?Ntt=cepillo+vapor+mascotas",
+        "https://www.paris.cl/search?q=cepillo%20vapor%20mascota"
       ]
     },
     {
@@ -46,9 +48,11 @@
         "recompra": 1
       },
       "riesgo_politica": 0,
-      "evidencia": "Falabella CL vende mantas refrescantes de $8.990 a $39.990 (hay demanda y también comparación). Pico dic-feb.",
+      "evidencia": "Falabella CL vende mantas refrescantes de $8.990 a $39.990 (hay demanda y también comparación). Pico dic-feb. | Competencia CL 2026-10-04: Falabella 49 mantas refrescantes $4.990-$62.990 (mediana $14.839; 40x50 ~$9.000-$16.000, 50x65 ~$10.000-$20.000); Paris 30 avisos $7.992-$27.990 (mediana $14.340).",
       "fuentes": [
-        "https://www.falabella.com/falabella-cl/shop/manta-refrescante-para-perros"
+        "https://www.falabella.com/falabella-cl/shop/manta-refrescante-para-perros",
+        "https://www.falabella.com/falabella-cl/search?Ntt=manta+refrescante+perro",
+        "https://www.paris.cl/search?q=manta%20refrescante%20perro"
       ]
     },
     {
@@ -69,8 +73,11 @@
         "recompra": 1
       },
       "riesgo_politica": 0,
-      "evidencia": "Producto de verano y viajes; ticket bajo, sirve como complemento de un clic (upsell) más que como principal.",
-      "fuentes": []
+      "evidencia": "Producto de verano y viajes; ticket bajo, sirve como complemento de un clic (upsell) más que como principal. | Competencia CL 2026-10-04: Falabella 50 avisos $2.590-$16.990 (mediana $5.990); Paris 11 avisos $6.390-$13.990 (mediana $8.990).",
+      "fuentes": [
+        "https://www.falabella.com/falabella-cl/search?Ntt=botella+bebedero+perro",
+        "https://www.paris.cl/search?q=botella%20agua%20perro"
+      ]
     },
     {
       "id": "fuente-agua-gatos",
@@ -90,9 +97,10 @@
         "recompra": 4
       },
       "riesgo_politica": 1,
-      "evidencia": "Usados en Yapo a $14.900-$25.000, nuevos ~$36.990. Recompra por filtros. Riesgo: no prometer salud renal.",
+      "evidencia": "Usados en Yapo a $14.900-$25.000, nuevos ~$36.990. Recompra por filtros. Riesgo: no prometer salud renal. | Competencia CL 2026-10-04: Falabella 53 avisos $4.990-$39.990 (mediana $15.990; fuente 2,4 L + filtro $19.490 con 32 reseñas; pack 12 filtros $6.980).",
       "fuentes": [
-        "https://www.mercadolibre.cl/blog/comparativa-de-fuentes-de-agua-para-gatos-caracteristicas-y-ventajas"
+        "https://www.mercadolibre.cl/blog/comparativa-de-fuentes-de-agua-para-gatos-caracteristicas-y-ventajas",
+        "https://www.falabella.com/falabella-cl/search?Ntt=fuente+agua+gatos"
       ]
     },
     {
@@ -113,8 +121,11 @@
         "recompra": 1
       },
       "riesgo_politica": 0,
-      "evidencia": "Muy demostrable pero masivo en Mercado Libre a bajo precio.",
-      "fuentes": []
+      "evidencia": "Muy demostrable pero masivo en Mercado Libre a bajo precio. | Competencia CL 2026-10-04: Falabella 46 avisos $3.190-$24.000 (mediana $9.990, incluye guantes y peines); Paris 9 avisos $3.790-$20.990 (mediana $6.990; rodillos reutilizables $4.990-$6.990).",
+      "fuentes": [
+        "https://www.falabella.com/falabella-cl/search?Ntt=removedor+pelo+mascotas",
+        "https://www.paris.cl/search?q=removedor%20pelo%20mascota"
+      ]
     },
     {
       "id": "ventilador-cuello",

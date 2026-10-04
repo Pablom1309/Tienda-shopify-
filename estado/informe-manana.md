@@ -2,6 +2,13 @@
 
 Se actualiza al final de cada turno autónomo. Lo más reciente arriba.
 
+## 2026-10-04 ~01:00 (Chile) — turno: competencia con precios
+- Hecho: precios reales de Falabella y Paris por componente → `investigacion/competencia-precios.md`.
+- Clave: el cepillo a vapor se vende a $4.990-$7.445 en Falabella; la suma de piezas de Kit Pelo Cero es ~$17.000 vs nuestro $26.990 (+55 %). Kit Verano queda mejor (+41 %).
+- Clave: nadie vende kits ni explica tallas de mantas → nuestra ventaja es kit + contra entrega + guía, no el precio.
+- Decisión que te toca: al tener el costo real en Dropi, aprobar si Kit Pelo Cero baja a $22.990-$24.990.
+- No pude leer Mercado Libre (bloqueo anti-bots): revísalo a mano si puedes.
+
 ## 2026-10-04 ~00:00 (Chile) — turno: mercado objetivo
 - Hecho: estudio del mercado de mascotas en Chile con fuentes → `investigacion/mercado-mascotas-chile.md`.
 - Clave: 70 % de hogares tiene perro o gato; gasto medio $60.100/mes, accesorios es el rubro que más crece (7,8 %); online de mascotas ≈ US$650-670 M en 2026.
