@@ -13,5 +13,9 @@
     "zonas_extremas": "consultar por WhatsApp"
   },
   "comunas_sin_cobertura": [],
-  "whatsapp_nota": "Número entregado por el dueño el 2026-10-04 (Claro)."
+  "whatsapp_nota": "Número entregado por el dueño el 2026-10-04 (Claro).",
+  "orden_vitrina": [
+    "kit-bano-secado-perro"
+  ],
+  "orden_vitrina_nota": "Orden de los kits en la portada (pedido del dueño 2026-10-04: primero Kit Baño y Secado). Los kits no listados van después, en orden de catálogo."
 }

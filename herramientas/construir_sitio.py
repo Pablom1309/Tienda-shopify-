@@ -394,6 +394,8 @@ def main():
     fichas = {f["id"]: f for f in cargar("fichas.json")["fichas"]}
     productos = [(p, fichas[p["id"]]) for p in cargar("catalogo.json")["productos"]
                  if p["estado"] in ("aprobado_para_test", "escalar") and p["id"] in fichas]
+    orden = tienda.get("orden_vitrina", [])  # el dueño decide qué kit va primero; los no listados siguen en orden de catálogo
+    productos.sort(key=lambda pf: orden.index(pf[0]["id"]) if pf[0]["id"] in orden else len(orden))
     if SITIO.exists():
         shutil.rmtree(SITIO)
     (SITIO / "productos").mkdir(parents=True)
