@@ -100,6 +100,16 @@ def ld(datos):
     return f'<script type="application/ld+json">{json.dumps(datos, ensure_ascii=False)}</script>'
 
 
+def logo_svg(pie=False):
+    """Isotipo + palabra (texto convertido a trazos, color heredado) desde herramientas/plantilla."""
+    iso = (PLANTILLA / "isotipo.svg").read_text(encoding="utf-8").strip()
+    if pie:
+        iso = iso.replace('fill="#1F5F5B"', 'fill="#FBF8F3"', 1).replace('<g fill="#FBF8F3">', '<g fill="#1F5F5B">')
+    iso = iso.replace("<svg ", '<svg class="logo-iso" aria-hidden="true" ', 1).replace(' role="img" aria-label="Huella Sur"', "")
+    palabra = (PLANTILLA / "palabra.svg").read_text(encoding="utf-8").strip().replace("<svg ", '<svg class="logo-palabra" aria-hidden="true" ', 1)
+    return iso + palabra
+
+
 def pagina(marca, tienda, titulo, descripcion, cuerpo, base="", canonica=None, imagen_og=None, precarga=None, extra_ld=()):
     c = marca["colores"]
     url = (tienda.get("url_sitio") or "").rstrip("/")
@@ -142,14 +152,14 @@ def pagina(marca, tienda, titulo, descripcion, cuerpo, base="", canonica=None, i
 <body>
 <a class="saltar" href="#contenido">Saltar al contenido</a>
 <div class="anuncio"><span>{icono('pago', 'ico ico-s')} Pagas al recibir</span><span class="sep" aria-hidden="true">·</span><span>{icono('envio', 'ico ico-s')} Despacho a todo Chile</span><span class="sep ocultar-movil" aria-hidden="true">·</span><span class="ocultar-movil">{icono('garantia', 'ico ico-s')} Garantía legal 6 meses</span></div>
-<header class="barra"><div class="contenedor barra-in"><a class="logo" href="{base}index.html" aria-label="{e(marca['nombre'])}, inicio"><svg class="logo-huella" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="16" rx="5" ry="4"/><circle cx="5.5" cy="10" r="2.2"/><circle cx="9.5" cy="5.5" r="2.2"/><circle cx="14.5" cy="5.5" r="2.2"/><circle cx="18.5" cy="10" r="2.2"/></svg>{e(marca['nombre'])}</a>
+<header class="barra"><div class="contenedor barra-in"><a class="logo" href="{base}index.html" aria-label="{e(marca['nombre'])}, inicio">{logo_svg()}</a>
 <nav class="menu" aria-label="Principal"><a href="{base}index.html#kits">Kits</a><a href="{base}index.html#como-funciona">Cómo funciona</a><a href="{base}index.html#preguntas">Preguntas</a><a class="boton boton-chico" href="{base}index.html#kits">{icono('carro', 'ico ico-s')} Comprar</a></nav></div></header>
 <main id="contenido">
 {cuerpo}
 </main>
 <footer class="pie">
 <div class="contenedor pie-in">
-<div class="pie-marca"><p class="logo">{e(marca['nombre'])}</p><p>{e(marca['promesa'])}</p><p class="pie-sello">{icono('pago', 'ico ico-s')} Pago contra entrega · {icono('envio', 'ico ico-s')} Envíos a todo Chile</p></div>
+<div class="pie-marca"><p class="logo logo-pie" aria-label="{e(marca['nombre'])}">{logo_svg(pie=True)}</p><p>{e(marca['promesa'])}</p><p class="pie-sello">{icono('pago', 'ico ico-s')} Pago contra entrega · {icono('envio', 'ico ico-s')} Envíos a todo Chile</p></div>
 <div><p class="pie-tit">Tienda</p><nav class="pie-nav"><a href="{base}index.html#kits">Kits</a><a href="{base}index.html#como-funciona">Cómo funciona</a><a href="{base}index.html#preguntas">Preguntas frecuentes</a></nav></div>
 <div><p class="pie-tit">Ayuda</p><nav class="pie-nav"><a href="{base}despacho.html">Despacho</a><a href="{base}cambios.html">Cambios, retracto y garantía</a><a href="{base}privacidad.html">Privacidad</a><a href="{base}contacto.html">Contacto</a></nav></div>
 </div>

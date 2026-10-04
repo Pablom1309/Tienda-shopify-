@@ -73,3 +73,7 @@ Cada ciclo agrega una entrada al final: fecha, nodos ejecutados, decisiones del 
 - Límite de activos 2 → 6 (`max_activos` en supuestos; verificar.py y validador.md lo leen).
 - Activados desde observación: kit-gato-sin-pelusas, kit-enriquecimiento-perro, kit-paseo-hogar-limpio, kit-bano-secado-perro (piscina no: canibaliza Kit Verano). Fichas por creador-tienda; sitio con 6 kits.
 - Costos siguen estimados: verificar todos en Dropi antes de pautar.
+
+## 2026-10-04 ~11:45 UTC — pedido del dueño: logo y foto repetida
+- Logo nuevo (isotipo de huella con estrella de la Cruz del Sur + nombre en minúsculas convertido a trazos) en `marca/`; integrado en cabecera, pie y favicon.
+- Kit Pelo Cero tenía una foto de gato cepillado, igual que Kit Gato Sin Pelusas: se cambió a perro con cepillo a vapor y se reposicionó el kit para perros (rol, subtítulo, título SEO y texto alternativo de la imagen).
