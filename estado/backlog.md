@@ -13,7 +13,7 @@ Tareas que requieren al dueño van en "Bloqueadas (portón humano)": nunca se ej
 ## Prioridad 2 — Más productos rentables
 - [x] (2026-10-04) → `datos/catalogo.json` · **Ciclo 2 de productos:** 8–10 candidatos nuevos del nicho (con Google Trends Chile, más vendidos de Mercado Libre, tendencias de TikTok), correr `economia.py` y `puntaje.py`, y pasar por el validador. Mantener máximo 2 activos; los demás que pasen el portón quedan `en_observacion` con su ficha lista para reemplazo.
 - [x] (2026-10-04) → `investigacion/recompra-fuente-gatos.md` + `herramientas/ltv.py` · **Segundo producto con recompra:** evaluar a fondo fuente de agua para gatos + filtros de repuesto (modelo de suscripción/recompra), con economía de vida del cliente (LTV) y no solo del primer pedido.
-- [ ] **Análisis financiero:** presupuesto de test, punto de equilibrio, flujo de caja a 30/60/90 días con supuestos explícitos y sensibilidad a la tasa de entrega y al CPA. → `investigacion/plan-financiero.md`
+- [x] (2026-10-04) → `investigacion/plan-financiero.md` + `herramientas/finanzas.py` · **Análisis financiero:** presupuesto de test, punto de equilibrio, flujo de caja a 30/60/90 días con supuestos explícitos y sensibilidad a la tasa de entrega y al CPA. → `investigacion/plan-financiero.md`
 - [ ] **Revalidar precio de Kit Pelo Cero (validador) — avance 2026-10-04: se mantiene $26.990; bajar a $24.990 solo si Dropi confirma cepillo+removedor ≤ $8.000; alternativa: Kit Gato Sin Pelusas en observación como reemplazo:** con la competencia leída (cepillo a vapor mediana $7.445 en Falabella), evaluar bajar a $22.990-$24.990 o sumar una tercera pieza barata; recalcular economía. Requiere costo real para decidir el precio final.
 
 ## Prioridad 3 — Tienda que convierte y genera confianza
@@ -43,5 +43,6 @@ Tareas que requieren al dueño van en "Bloqueadas (portón humano)": nunca se ej
 - Aprobación de presupuesto de anuncios y creación de campañas.
 - Plan pagado de Shopify e importación del CSV.
 - Fotos reales del producto (requiere muestra física).
+- Verificar en Dropi comisión por pedido, flete de devolución y días de liquidación (mueven el CPA de equilibrio ~$1.700).
 - Confirmar en Dropi fuente + filtros compatibles del mismo proveedor (sin eso no hay recompra).
 - Precios de Mercado Libre Chile: la búsqueda pide verificación anti-bots y la API exige credenciales (revisar a mano o con la cuenta del dueño).

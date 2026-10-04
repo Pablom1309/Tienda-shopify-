@@ -55,5 +55,35 @@
         "flete_estimado": 3800
       }
     }
+  },
+  "finanzas": {
+    "nota": "Supuestos del plan financiero (estimados). Día 1 = primer día de anuncios (cuando el dueño apruebe el gasto).",
+    "desfase_cobro_dias": 14,
+    "desfase_nota": "Entrega 3-5 días + liquidación a billetera Dropi 2-7 días hábiles + retiro 2-5 días hábiles (fuente: andreybusiness.com, por verificar en la cuenta).",
+    "costos_fijos_mensuales": 37000,
+    "costos_fijos_nota": "Shopify Basic US$39/mes (websitebuilderexpert.com) a ~$950/US$ (tipo de cambio estimado). Hoy la tienda está en GitHub Pages sin costo; dominio y apps no incluidos.",
+    "fijo_por_pedido_en_G": 150,
+    "comision_alternativa": 0.035,
+    "flete_devolucion_alternativo": 3800,
+    "alternativa_nota": "Sensibilidad: comisión Dropi 2-5 % (andreybusiness.com) y flete de devolución igual al de ida; ambos sin verificar.",
+    "cpa_escenarios": [
+      5000,
+      7000,
+      9000,
+      11000
+    ],
+    "calendario": {
+      "kit-pelo-cero": {
+        "inicio_dia": 1,
+        "fin_dia": 90,
+        "gasto_diario_escala": 15000
+      },
+      "kit-verano-fresco": {
+        "inicio_dia": 32,
+        "fin_dia": 90,
+        "gasto_diario_escala": 15000
+      }
+    },
+    "calendario_nota": "Si el test pasa (CPA real ≤ G) se sigue con gasto de escala; si no, se apaga al día 4 del test (regla de matar). Día 32 ≈ 16-nov si se parte el 15-oct."
   }
 }

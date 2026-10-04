@@ -1,0 +1,202 @@
+{
+  "supuestos": {
+    "nota": "Supuestos del plan financiero (estimados). Día 1 = primer día de anuncios (cuando el dueño apruebe el gasto).",
+    "desfase_cobro_dias": 14,
+    "desfase_nota": "Entrega 3-5 días + liquidación a billetera Dropi 2-7 días hábiles + retiro 2-5 días hábiles (fuente: andreybusiness.com, por verificar en la cuenta).",
+    "costos_fijos_mensuales": 37000,
+    "costos_fijos_nota": "Shopify Basic US$39/mes (websitebuilderexpert.com) a ~$950/US$ (tipo de cambio estimado). Hoy la tienda está en GitHub Pages sin costo; dominio y apps no incluidos.",
+    "fijo_por_pedido_en_G": 150,
+    "comision_alternativa": 0.035,
+    "flete_devolucion_alternativo": 3800,
+    "alternativa_nota": "Sensibilidad: comisión Dropi 2-5 % (andreybusiness.com) y flete de devolución igual al de ida; ambos sin verificar.",
+    "cpa_escenarios": [
+      5000,
+      7000,
+      9000,
+      11000
+    ],
+    "calendario": {
+      "kit-pelo-cero": {
+        "inicio_dia": 1,
+        "fin_dia": 90,
+        "gasto_diario_escala": 15000
+      },
+      "kit-verano-fresco": {
+        "inicio_dia": 32,
+        "fin_dia": 90,
+        "gasto_diario_escala": 15000
+      }
+    },
+    "calendario_nota": "Si el test pasa (CPA real ≤ G) se sigue con gasto de escala; si no, se apaga al día 4 del test (regla de matar). Día 32 ≈ 16-nov si se parte el 15-oct."
+  },
+  "productos": [
+    {
+      "id": "kit-pelo-cero",
+      "G_base": 8925,
+      "test_presupuesto": 78000,
+      "pedidos_para_juzgar_test": 8.7
+    },
+    {
+      "id": "kit-verano-fresco",
+      "G_base": 10835,
+      "test_presupuesto": 90000,
+      "pedidos_para_juzgar_test": 8.3
+    }
+  ],
+  "sensibilidad": {
+    "kit-pelo-cero": {
+      "pesimista|supuesto": {
+        "G": 7167,
+        "por_100k_anuncios": {
+          "5000": 43336,
+          "7000": 2383,
+          "9000": -20369,
+          "11000": -34847
+        }
+      },
+      "pesimista|con_comision_y_devolucion": {
+        "G": 5281,
+        "por_100k_anuncios": {
+          "5000": 5611,
+          "7000": -24563,
+          "9000": -41327,
+          "11000": -51995
+        }
+      },
+      "base|supuesto": {
+        "G": 8925,
+        "por_100k_anuncios": {
+          "5000": 78492,
+          "7000": 27494,
+          "9000": -838,
+          "11000": -18867
+        }
+      },
+      "base|con_comision_y_devolucion": {
+        "G": 7262,
+        "por_100k_anuncios": {
+          "5000": 45247,
+          "7000": 3748,
+          "9000": -19307,
+          "11000": -33979
+        }
+      },
+      "optimista|supuesto": {
+        "G": 10682,
+        "por_100k_anuncios": {
+          "5000": 113648,
+          "7000": 52606,
+          "9000": 18693,
+          "11000": -2887
+        }
+      },
+      "optimista|con_comision_y_devolucion": {
+        "G": 9244,
+        "por_100k_anuncios": {
+          "5000": 84882,
+          "7000": 32059,
+          "9000": 2712,
+          "11000": -15963
+        }
+      }
+    },
+    "kit-verano-fresco": {
+      "pesimista|supuesto": {
+        "G": 8719,
+        "por_100k_anuncios": {
+          "5000": 74378,
+          "7000": 24556,
+          "9000": -3123,
+          "11000": -20737
+        }
+      },
+      "pesimista|con_comision_y_devolucion": {
+        "G": 6704,
+        "por_100k_anuncios": {
+          "5000": 34083,
+          "7000": -4226,
+          "9000": -25509,
+          "11000": -39053
+        }
+      },
+      "base|supuesto": {
+        "G": 10835,
+        "por_100k_anuncios": {
+          "5000": 116691,
+          "7000": 54779,
+          "9000": 20384,
+          "11000": -1504
+        }
+      },
+      "base|con_comision_y_devolucion": {
+        "G": 9022,
+        "por_100k_anuncios": {
+          "5000": 80447,
+          "7000": 28891,
+          "9000": 248,
+          "11000": -17979
+        }
+      },
+      "optimista|supuesto": {
+        "G": 12950,
+        "por_100k_anuncios": {
+          "5000": 159004,
+          "7000": 85003,
+          "9000": 43891,
+          "11000": 17729
+        }
+      },
+      "optimista|con_comision_y_devolucion": {
+        "G": 11341,
+        "por_100k_anuncios": {
+          "5000": 126811,
+          "7000": 62008,
+          "9000": 26006,
+          "11000": 3096
+        }
+      }
+    }
+  },
+  "caja": {
+    "5000": {
+      "caja": {
+        "30": -50791,
+        "60": 346685,
+        "90": 1188009
+      },
+      "caja_minima": -271840,
+      "gasto_anuncios": 2283000,
+      "pedidos_generados": 457
+    },
+    "7000": {
+      "caja": {
+        "30": -180565,
+        "60": -168653,
+        "90": 164578
+      },
+      "caja_minima": -400845,
+      "gasto_anuncios": 2283000,
+      "pedidos_generados": 326
+    },
+    "9000": {
+      "caja": {
+        "30": -37653,
+        "60": -236175,
+        "90": -181447
+      },
+      "caja_minima": -318653,
+      "gasto_anuncios": 993000,
+      "pedidos_generados": 110
+    },
+    "11000": {
+      "caja": {
+        "30": -51716,
+        "60": -90070,
+        "90": -127070
+      },
+      "caja_minima": -179944,
+      "gasto_anuncios": 168000,
+      "pedidos_generados": 15
+    }
+  }
+}

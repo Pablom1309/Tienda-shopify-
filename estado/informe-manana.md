@@ -2,6 +2,13 @@
 
 Se actualiza al final de cada turno autónomo. Lo más reciente arriba.
 
+## 2026-10-04 ~07:00 (Chile) — turno: plan financiero
+- Hecho: equilibrio, sensibilidad y caja a 30/60/90 días → `investigacion/plan-financiero.md` (herramienta nueva `herramientas/finanzas.py`).
+- Clave: necesitas ~$300.000-$400.000 de capital de trabajo aunque funcione (el anuncio se paga hoy, Dropi paga ~14 días después).
+- Clave: si nada funciona, la pérdida máxima estimada es ~$180.000 (tests de ambos kits + Shopify 3 meses).
+- Clave: el CPA manda; si Dropi cobra comisión y flete de devolución, el CPA máximo de Pelo Cero baja de $8.925 a $7.262.
+- Para ti: en Dropi revisa comisión, flete de devolución y días de pago antes de aprobar presupuesto.
+
 ## 2026-10-04 ~06:00 (Chile) — turno: producto con recompra
 - Hecho: valor de vida del cliente para fuente de gatos + filtros → `investigacion/recompra-fuente-gatos.md`; nueva herramienta `herramientas/ltv.py` (gratis, en el grafo).
 - Clave: la recompra de filtros deja ~$5.200 por pedido (sin anuncios) y sube el valor del cliente ~13 % a 6 meses; el ROAS de equilibrio baja de 3,91 a 3,47. Ayuda, pero no supera al kit de gatos ni justifica cambiar los activos.

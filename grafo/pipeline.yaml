@@ -51,6 +51,14 @@ nodos:
     escribe: [ltv]
     salida: datos/ltv.json
 
+  finanzas:
+    tipo: codigo
+    comando: python3 herramientas/finanzas.py
+    ttl_dias: 0
+    lee: [economia, candidatos, supuestos, plan_ads]
+    escribe: [finanzas]
+    salida: datos/finanzas.json
+
   puntaje:
     tipo: codigo
     comando: python3 herramientas/puntaje.py
@@ -118,6 +126,7 @@ aristas:
   - [cazador-productos, economia]
   - [economia, puntaje]
   - [economia, ltv]
+  - [economia, finanzas]
   - [puntaje, validador]
   # Portón condicional
   - desde: validador

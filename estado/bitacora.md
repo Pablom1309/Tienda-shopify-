@@ -57,3 +57,8 @@ Cada ciclo agrega una entrada al final: fecha, nodos ejecutados, decisiones del 
 - Tarea: LTV de kit hidratación gatos + filtros → `investigacion/recompra-fuente-gatos.md`; nodo determinista nuevo `ltv` (`herramientas/ltv.py`, `datos/ltv.json`, bloque `recompra` en supuestos).
 - Resultado: G por recompra $5.209; LTV base $12.260 (+13 %); ROAS eq. 3,91 → 3,47.
 - Decisión: sigue en observación; requisito: filtros compatibles del mismo proveedor en Dropi + WhatsApp con consentimiento.
+
+## Turno 2026-10-04 09:55 UTC — plan financiero
+- Tarea: equilibrio, sensibilidad (entrega × CPA × comisión/devolución) y caja diaria a 90 días → `investigacion/plan-financiero.md`; nodo determinista nuevo `finanzas` (`herramientas/finanzas.py`, `datos/finanzas.json`, bloque `finanzas` en supuestos).
+- Resultado: capital de trabajo necesario $270.000-$400.000; pérdida máxima si nada funciona ~$180.000; CPA de equilibrio Pelo Cero $8.925 ($7.262 con comisión + devolución).
+- Se omitió "Revalidar precio Pelo Cero": depende de costo real (portón humano).
