@@ -25,8 +25,9 @@ if errores:
 cat, ranking = cargar("catalogo.json"), {r["id"]: r for r in cargar("ranking.json")["ranking"]}
 fichas = {f["id"]: f for f in cargar("fichas.json")["fichas"]}
 activos = [p for p in cat["productos"] if p["estado"] in ("aprobado_para_test", "escalar")]
-if len(activos) > 2:
-    errores.append(f"catálogo: {len(activos)} productos activos (máximo 2)")
+max_activos = cargar("supuestos.json").get("max_activos", 2)
+if len(activos) > max_activos:
+    errores.append(f"catálogo: {len(activos)} productos activos (máximo {max_activos})")
 for p in activos:
     if not ranking.get(p["id"], {}).get("pasa_porton"):
         errores.append(f"{p['id']}: aprobado sin pasar el portón duro")

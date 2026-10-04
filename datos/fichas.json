@@ -9,10 +9,22 @@
       "titular": "El pelo suelto, en el cepillo y no en tu sillón",
       "subtitular": "Cepillo a vapor 3 en 1 + removedor reutilizable. Un kit para la mascota y otro frente para la casa.",
       "beneficios": [
-        {"titulo": "Atrapa el pelo muerto", "texto": "La niebla suave ayuda a que el pelo suelto se pegue a las cerdas de silicona en vez de volar por la casa."},
-        {"titulo": "Se limpia con un botón", "texto": "Presionas y el pelo acumulado se desprende de una vez. Sin sacar pelo a mano entre cerdas."},
-        {"titulo": "Sillón y ropa sin pelos", "texto": "El removedor reutilizable no usa repuestos adhesivos: lo pasas, vacías el depósito y listo."},
-        {"titulo": "Recargable por USB", "texto": "El cepillo se carga con cable USB incluido. Usa agua de la llave en su depósito."}
+        {
+          "titulo": "Atrapa el pelo muerto",
+          "texto": "La niebla suave ayuda a que el pelo suelto se pegue a las cerdas de silicona en vez de volar por la casa."
+        },
+        {
+          "titulo": "Se limpia con un botón",
+          "texto": "Presionas y el pelo acumulado se desprende de una vez. Sin sacar pelo a mano entre cerdas."
+        },
+        {
+          "titulo": "Sillón y ropa sin pelos",
+          "texto": "El removedor reutilizable no usa repuestos adhesivos: lo pasas, vacías el depósito y listo."
+        },
+        {
+          "titulo": "Recargable por USB",
+          "texto": "El cepillo se carga con cable USB incluido. Usa agua de la llave en su depósito."
+        }
       ],
       "como_usar": [
         "Llena el depósito con agua y enciende la niebla.",
@@ -20,16 +32,39 @@
         "Presiona el botón para soltar el pelo acumulado.",
         "Pasa el removedor por sillón, cama o ropa y vacía el depósito."
       ],
-      "incluye": ["1 cepillo a vapor 3 en 1", "1 removedor de pelos reutilizable", "1 cable USB"],
+      "incluye": [
+        "1 cepillo a vapor 3 en 1",
+        "1 removedor de pelos reutilizable",
+        "1 cable USB"
+      ],
       "especificaciones_pendientes": "Medidas, capacidad del depósito, batería y materiales: completar con la ficha real del proveedor en Dropi.",
       "faq": [
-        {"p": "¿Sirve para perros y gatos?", "r": "Sí, para pelo corto y largo. En mascotas muy nerviosas, empieza sin niebla para que se acostumbren."},
-        {"p": "¿El vapor es caliente?", "r": "No. Es una niebla de agua a temperatura ambiente, no vapor caliente."},
-        {"p": "¿Cómo pago?", "r": "Pagas al recibir, en efectivo o según lo que acepte la transportadora. Antes de despachar te confirmamos el pedido por WhatsApp."},
-        {"p": "¿Y si no me sirve?", "r": "Tienes 10 días de retracto desde que lo recibes y 6 meses de garantía legal por fallas."}
+        {
+          "p": "¿Sirve para perros y gatos?",
+          "r": "Sí, para pelo corto y largo. En mascotas muy nerviosas, empieza sin niebla para que se acostumbren."
+        },
+        {
+          "p": "¿El vapor es caliente?",
+          "r": "No. Es una niebla de agua a temperatura ambiente, no vapor caliente."
+        },
+        {
+          "p": "¿Cómo pago?",
+          "r": "Pagas al recibir, en efectivo o según lo que acepte la transportadora. Antes de despachar te confirmamos el pedido por WhatsApp."
+        },
+        {
+          "p": "¿Y si no me sirve?",
+          "r": "Tienes 10 días de retracto desde que lo recibes y 6 meses de garantía legal por fallas."
+        }
       ],
-      "alt_imagenes": ["Cepillo a vapor para mascotas atrapando pelo suelto de un gato", "Removedor de pelos pasando por un sillón de tela"],
-      "angulos_principales": ["problema-casa", "demostracion", "temporada-muda"]
+      "alt_imagenes": [
+        "Cepillo a vapor para mascotas atrapando pelo suelto de un gato",
+        "Removedor de pelos pasando por un sillón de tela"
+      ],
+      "angulos_principales": [
+        "problema-casa",
+        "demostracion",
+        "temporada-muda"
+      ]
     },
     {
       "id": "kit-verano-fresco",
@@ -39,27 +74,350 @@
       "titular": "Un lugar fresco en casa y agua en cada paseo",
       "subtitular": "Alfombra de gel que se activa con el peso + botella bebedero con un solo botón.",
       "beneficios": [
-        {"titulo": "Fresca sin enchufe", "texto": "El gel se activa con la presión: no se congela, no se llena con agua y no usa electricidad."},
-        {"titulo": "Va donde tu mascota descansa", "texto": "Liviana y plegable: en el suelo, la cama, el auto o la terraza."},
-        {"titulo": "Agua sin derramar", "texto": "La botella llena su bebedero con un botón y devuelve lo que sobra. Cabe en la mano."},
-        {"titulo": "Fácil de limpiar", "texto": "Superficie lavable con paño húmedo."}
+        {
+          "titulo": "Fresca sin enchufe",
+          "texto": "El gel se activa con la presión: no se congela, no se llena con agua y no usa electricidad."
+        },
+        {
+          "titulo": "Va donde tu mascota descansa",
+          "texto": "Liviana y plegable: en el suelo, la cama, el auto o la terraza."
+        },
+        {
+          "titulo": "Agua sin derramar",
+          "texto": "La botella llena su bebedero con un botón y devuelve lo que sobra. Cabe en la mano."
+        },
+        {
+          "titulo": "Fácil de limpiar",
+          "texto": "Superficie lavable con paño húmedo."
+        }
       ],
       "como_usar": [
         "Extiende la alfombra en un lugar a la sombra.",
         "Deja que tu mascota se recueste; si se calienta, déjala descansar sin uso unos minutos.",
         "Llena la botella antes de salir y presiona el botón para servir."
       ],
-      "incluye": ["1 alfombra refrigerante (talla M o L)", "1 botella bebedero de paseo"],
-      "tallas": [{"talla": "M", "medida_pendiente": true, "recomendado": "gatos y perros pequeños"}, {"talla": "L", "medida_pendiente": true, "recomendado": "perros medianos"}],
+      "incluye": [
+        "1 alfombra refrigerante (talla M o L)",
+        "1 botella bebedero de paseo"
+      ],
+      "tallas": [
+        {
+          "talla": "M",
+          "medida_pendiente": true,
+          "recomendado": "gatos y perros pequeños"
+        },
+        {
+          "talla": "L",
+          "medida_pendiente": true,
+          "recomendado": "perros medianos"
+        }
+      ],
       "especificaciones_pendientes": "Medidas exactas de M y L, capacidad de la botella y materiales: completar con la ficha real del proveedor.",
       "faq": [
-        {"p": "¿Hay que meterla al refrigerador?", "r": "No es necesario. Funciona a temperatura ambiente; ponerla a la sombra ayuda."},
-        {"p": "¿Mi mascota puede morderla?", "r": "No la dejes como juguete: si tu mascota muerde mucho, úsala solo bajo supervisión."},
-        {"p": "¿Cómo pago?", "r": "Pagas al recibir. Antes de despachar te confirmamos el pedido por WhatsApp."},
-        {"p": "¿Y si no me sirve?", "r": "Tienes 10 días de retracto desde que lo recibes y 6 meses de garantía legal por fallas."}
+        {
+          "p": "¿Hay que meterla al refrigerador?",
+          "r": "No es necesario. Funciona a temperatura ambiente; ponerla a la sombra ayuda."
+        },
+        {
+          "p": "¿Mi mascota puede morderla?",
+          "r": "No la dejes como juguete: si tu mascota muerde mucho, úsala solo bajo supervisión."
+        },
+        {
+          "p": "¿Cómo pago?",
+          "r": "Pagas al recibir. Antes de despachar te confirmamos el pedido por WhatsApp."
+        },
+        {
+          "p": "¿Y si no me sirve?",
+          "r": "Tienes 10 días de retracto desde que lo recibes y 6 meses de garantía legal por fallas."
+        }
       ],
-      "alt_imagenes": ["Perro descansando sobre alfombra refrigerante azul", "Botella bebedero para perros durante un paseo"],
-      "angulos_principales": ["calor-departamento", "paseo-verano", "regalo-navidad-mascota"]
+      "alt_imagenes": [
+        "Perro descansando sobre alfombra refrigerante azul",
+        "Botella bebedero para perros durante un paseo"
+      ],
+      "angulos_principales": [
+        "calor-departamento",
+        "paseo-verano",
+        "regalo-navidad-mascota"
+      ]
+    },
+    {
+      "id": "kit-gato-sin-pelusas",
+      "handle": "kit-gato-sin-pelusas-cepillo-autolimpiante",
+      "titulo_seo": "Kit Gato Sin Pelusas: cepillo autolimpiante + removedor de pelos + varita | Huella Sur",
+      "meta_descripcion": "Cepillo autolimpiante para gatos, removedor de pelos reutilizable para sillón y ropa, y varita con plumas para jugar. Pagas al recibir. Despacho a todo Chile.",
+      "titular": "El pelo muerto de tu gato, en el cepillo y no en tu ropa",
+      "subtitular": "Cepillo autolimpiante + removedor reutilizable + varita con plumas. Cepillar, limpiar la casa y jugar en un solo kit.",
+      "beneficios": [
+        {
+          "titulo": "Saca el pelo muerto",
+          "texto": "Cepillas en el sentido del pelo y el pelo suelto queda en el cepillo, no en el sillón."
+        },
+        {
+          "titulo": "Se limpia con un botón",
+          "texto": "Presionas y el pelo acumulado se desprende de una vez, sin sacarlo a mano."
+        },
+        {
+          "titulo": "Sillón y ropa sin pelusas",
+          "texto": "El removedor es reutilizable: lo pasas, vacías y sigues, sin repuestos adhesivos."
+        },
+        {
+          "titulo": "Un rato de juego",
+          "texto": "La varita con plumas sirve para jugar con tu regalón después del cepillado."
+        }
+      ],
+      "como_usar": [
+        "Cepilla a tu gato en el sentido del pelo, de a poco y con calma.",
+        "Presiona el botón del cepillo para soltar el pelo acumulado.",
+        "Pasa el removedor por sillón, cama o ropa y vacía el depósito.",
+        "Cierra con un rato de juego con la varita."
+      ],
+      "incluye": [
+        "1 cepillo autolimpiante para gatos",
+        "1 removedor de pelo reutilizable",
+        "1 varita de juguete con plumas"
+      ],
+      "especificaciones_pendientes": "Medidas, materiales y tipo de cerdas del cepillo, y largo de la varita: por confirmar con proveedor.",
+      "faq": [
+        {
+          "p": "¿Qué tamaño tiene?",
+          "r": "Las medidas exactas las publicamos en esta página apenas recibamos la ficha del proveedor. Si necesitas la medida antes de comprar, escríbenos por WhatsApp."
+        },
+        {
+          "p": "¿Sirve para pelo largo y corto?",
+          "r": "Está pensado para gatos de pelo corto y largo; el tipo de cerdas lo confirmamos con el proveedor y lo publicamos aquí."
+        },
+        {
+          "p": "¿Se puede usar la varita sin supervisión?",
+          "r": "No la dejes sola con tu gato: úsala para jugar juntos y guárdala después."
+        },
+        {
+          "p": "¿Cómo pago?",
+          "r": "Pagas al recibir. Antes de despachar te confirmamos el pedido por WhatsApp."
+        },
+        {
+          "p": "¿Y si no me sirve?",
+          "r": "Tienes 10 días de retracto desde que lo recibes y 6 meses de garantía legal por fallas."
+        }
+      ],
+      "alt_imagenes": [
+        "Cepillo autolimpiante para gatos con el pelo muerto recién soltado",
+        "Removedor de pelos reutilizable pasando por un sillón",
+        "Gato jugando con una varita de plumas"
+      ],
+      "angulos_principales": [
+        "problema-casa",
+        "dueno-de-gato",
+        "demostracion"
+      ]
+    },
+    {
+      "id": "kit-enriquecimiento-perro",
+      "handle": "kit-perro-entretenido-alfombra-olfativa-tapete-lamer",
+      "titulo_seo": "Kit Perro Entretenido: alfombra olfativa + tapete de lamer de silicona | Huella Sur",
+      "meta_descripcion": "Alfombra olfativa para esconder premios y tapete de lamer de silicona para que tu perro se entretenga en casa. Pagas al recibir. Despacho a todo Chile.",
+      "titular": "Juegos para tu perro, sin salir del departamento",
+      "subtitular": "Alfombra olfativa + tapete de lamer de silicona. Dos formas de entretener a tu regalón en casa.",
+      "beneficios": [
+        {
+          "titulo": "Busca sus premios",
+          "texto": "Escondes snacks entre los pliegues de la alfombra y tu perro los encuentra con el olfato."
+        },
+        {
+          "titulo": "Tapete de lamer",
+          "texto": "Extiendes una pasta o comida blanda sobre la silicona y tu perro la va lamiendo a su ritmo."
+        },
+        {
+          "titulo": "Cabe en cualquier rincón",
+          "texto": "Ocupa poco espacio y se guarda doblado o enrollado."
+        },
+        {
+          "titulo": "Fácil de lavar",
+          "texto": "El tapete de silicona se lava con agua y jabón; la alfombra, según indicación del proveedor."
+        }
+      ],
+      "como_usar": [
+        "Esparce premios pequeños entre los pliegues de la alfombra.",
+        "Deja que tu perro los busque; ayúdalo las primeras veces.",
+        "Unta comida blanda sobre el tapete de lamer y ofrécelo en el suelo.",
+        "Lava y seca ambos antes de guardarlos."
+      ],
+      "incluye": [
+        "1 alfombra olfativa para perros",
+        "1 tapete de lamer de silicona"
+      ],
+      "especificaciones_pendientes": "Medidas de la alfombra y del tapete, materiales, ventosas y lavado a máquina: por confirmar con proveedor.",
+      "faq": [
+        {
+          "p": "¿Qué tamaño tiene?",
+          "r": "Las medidas exactas las publicamos en esta página apenas recibamos la ficha del proveedor. Si necesitas la medida antes de comprar, escríbenos por WhatsApp."
+        },
+        {
+          "p": "¿Sirve para cualquier perro?",
+          "r": "Para perros de distintos tamaños. Úsalos siempre con supervisión, para que no muerda ni se coma la tela."
+        },
+        {
+          "p": "¿Qué premios uso?",
+          "r": "Los snacks o croquetas que ya le das a tu perro, en trozos pequeños."
+        },
+        {
+          "p": "¿Cómo pago?",
+          "r": "Pagas al recibir. Antes de despachar te confirmamos el pedido por WhatsApp."
+        },
+        {
+          "p": "¿Y si no me sirve?",
+          "r": "Tienes 10 días de retracto desde que lo recibes y 6 meses de garantía legal por fallas."
+        }
+      ],
+      "alt_imagenes": [
+        "Perro buscando premios en una alfombra olfativa",
+        "Tapete de lamer de silicona con comida blanda"
+      ],
+      "angulos_principales": [
+        "departamento-chico",
+        "demostracion",
+        "regalo-navidad-mascota"
+      ]
+    },
+    {
+      "id": "kit-paseo-hogar-limpio",
+      "handle": "kit-paseo-limpio-limpiador-patas-dispensador-bolsas",
+      "titulo_seo": "Kit Paseo Limpio: limpiador de patas + dispensador de bolsas + comedero plegable | Huella Sur",
+      "meta_descripcion": "Limpiador de patas portátil, dispensador con rollos de bolsas y comedero plegable de silicona para el paseo. Pagas al recibir. Despacho a todo Chile.",
+      "titular": "Vuelve del paseo sin llenar la casa de barro",
+      "subtitular": "Limpiador de patas + dispensador con bolsas + comedero plegable. Todo lo del paseo en un solo kit.",
+      "beneficios": [
+        {
+          "titulo": "Patas limpias en la puerta",
+          "texto": "El limpiador portátil te ayuda a sacar el barro de las patas antes de entrar."
+        },
+        {
+          "titulo": "Bolsas siempre a mano",
+          "texto": "El dispensador se engancha en la correa y trae rollos de bolsas para el paseo."
+        },
+        {
+          "titulo": "Comedero que se pliega",
+          "texto": "El comedero de silicona se dobla y cabe en el bolsillo o la mochila."
+        },
+        {
+          "titulo": "Un solo pedido",
+          "texto": "Lo básico del paseo llega junto, y las bolsas se pueden reponer después."
+        }
+      ],
+      "como_usar": [
+        "Engancha el dispensador a la correa antes de salir.",
+        "Lleva el comedero plegado para servir agua o comida en el camino.",
+        "Al volver, pasa las patas por el limpiador antes de entrar.",
+        "Enjuaga y seca las piezas para el próximo paseo."
+      ],
+      "incluye": [
+        "1 limpiador de patas portátil",
+        "1 dispensador con rollos de bolsas (8 rollos)",
+        "1 comedero plegable de silicona"
+      ],
+      "especificaciones_pendientes": "Medidas, capacidad del comedero, tamaño del limpiador de patas y largo de los rollos: por confirmar con proveedor.",
+      "faq": [
+        {
+          "p": "¿Qué tamaño tiene?",
+          "r": "Las medidas exactas las publicamos en esta página apenas recibamos la ficha del proveedor. Si necesitas la medida antes de comprar, escríbenos por WhatsApp."
+        },
+        {
+          "p": "¿Sirve para perros grandes?",
+          "r": "El tamaño del limpiador de patas lo confirmamos con el proveedor; lo publicamos aquí para que revises si calza con tu perro."
+        },
+        {
+          "p": "¿Cuántas bolsas trae?",
+          "r": "Trae 8 rollos de bolsas. El número de bolsas por rollo lo confirmamos con el proveedor."
+        },
+        {
+          "p": "¿Cómo pago?",
+          "r": "Pagas al recibir. Antes de despachar te confirmamos el pedido por WhatsApp."
+        },
+        {
+          "p": "¿Y si no me sirve?",
+          "r": "Tienes 10 días de retracto desde que lo recibes y 6 meses de garantía legal por fallas."
+        }
+      ],
+      "alt_imagenes": [
+        "Limpiador de patas portátil usado al volver del paseo",
+        "Dispensador de bolsas enganchado a la correa de un perro",
+        "Comedero plegable de silicona doblado y abierto"
+      ],
+      "angulos_principales": [
+        "problema-casa",
+        "paseo-diario",
+        "departamento"
+      ]
+    },
+    {
+      "id": "kit-bano-secado-perro",
+      "handle": "kit-bano-secado-perro-toalla-microfibra-cepillo-guante",
+      "titulo_seo": "Kit Baño y Secado: toalla de microfibra + cepillo de silicona + guante para perros | Huella Sur",
+      "meta_descripcion": "Toalla de microfibra, cepillo de baño de silicona y guante de baño para el día de baño de tu perro. No incluye shampoo. Pagas al recibir. Despacho a todo Chile.",
+      "titular": "Día de baño más simple: enjabonar y secar con lo justo",
+      "subtitular": "Toalla de microfibra + cepillo de silicona + guante de baño. Sin shampoo, para que uses el que ya tienes.",
+      "beneficios": [
+        {
+          "titulo": "Toalla de microfibra",
+          "texto": "Absorbe el agua del pelaje al salir de la ducha y se seca rápido."
+        },
+        {
+          "titulo": "Cepillo de silicona",
+          "texto": "Ayuda a repartir el shampoo por el pelaje durante el baño."
+        },
+        {
+          "titulo": "Guante de baño",
+          "texto": "Te calza en la mano para enjabonar y enjuagar a tu regalón con más comodidad."
+        },
+        {
+          "titulo": "Sin químicos incluidos",
+          "texto": "El kit no trae shampoo: usas el que ya tienes en casa."
+        }
+      ],
+      "como_usar": [
+        "Moja el pelaje con agua tibia y aplica tu shampoo habitual.",
+        "Reparte con el cepillo de silicona o el guante de baño.",
+        "Enjuaga bien y envuelve a tu perro en la toalla.",
+        "Lava y seca las piezas después de cada baño."
+      ],
+      "incluye": [
+        "1 toalla de microfibra para mascotas",
+        "1 cepillo de baño de silicona",
+        "1 guante de baño"
+      ],
+      "especificaciones_pendientes": "Medidas de la toalla, materiales y tamaño del guante: por confirmar con proveedor.",
+      "faq": [
+        {
+          "p": "¿Qué tamaño tiene?",
+          "r": "Las medidas exactas las publicamos en esta página apenas recibamos la ficha del proveedor. Si necesitas la medida antes de comprar, escríbenos por WhatsApp."
+        },
+        {
+          "p": "¿Incluye shampoo?",
+          "r": "No. El kit trae solo toalla, cepillo y guante; usas el shampoo que ya tienes."
+        },
+        {
+          "p": "¿Sirve para perros grandes?",
+          "r": "El tamaño de la toalla lo confirmamos con el proveedor y lo publicamos aquí para que veas si te sirve."
+        },
+        {
+          "p": "¿Cómo pago?",
+          "r": "Pagas al recibir. Antes de despachar te confirmamos el pedido por WhatsApp."
+        },
+        {
+          "p": "¿Y si no me sirve?",
+          "r": "Tienes 10 días de retracto desde que lo recibes y 6 meses de garantía legal por fallas."
+        }
+      ],
+      "alt_imagenes": [
+        "Toalla de microfibra para perros",
+        "Cepillo de baño de silicona y guante de baño",
+        "Perro envuelto en una toalla después del baño"
+      ],
+      "angulos_principales": [
+        "primavera-verano",
+        "demostracion",
+        "problema-casa"
+      ]
     }
   ]
 }

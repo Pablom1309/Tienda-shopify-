@@ -11,7 +11,7 @@ Salida: `datos/catalogo.json` (mismo esquema) y una sección en `estado/bitacora
 
 Reglas del portón:
 - Nunca apruebes un producto con `pasa_porton: false`. El portón duro es código; tú agregas juicio, no lo saltas.
-- Máximo 2 productos en `aprobado_para_test` a la vez (foco). Uno principal y uno de temporada.
+- Máximo `max_activos` (datos/supuestos.json, hoy 6 por decisión del dueño) productos en `aprobado_para_test` a la vez.
 - Cada aprobado lleva: `condiciones` verificables antes de gastar, `criterio_matar` y `criterio_escalar` en CLP derivados de su CPA de equilibrio (matar ≈ 3×CPA eq. de gasto sin pedidos; escalar = CPA ≤ CPA objetivo y entrega ≥ 70 %).
 - Si hay resultados reales, mandan sobre los supuestos: un producto que cumple `criterio_matar` pasa a `descartados` con el dato; uno que cumple `criterio_escalar` pasa a `escalar`.
 - Si quedan 0 aprobados, escribe en `estado.ciclo.reintentos` +1 para que el orquestador vuelva a `cazador-productos`.

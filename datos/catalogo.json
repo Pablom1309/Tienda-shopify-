@@ -1,7 +1,7 @@
 {
   "validado": "2026-10-04",
   "ciclo": 2,
-  "aprobados": 2,
+  "aprobados": 6,
   "productos": [
     {
       "id": "kit-pelo-cero",
@@ -46,14 +46,12 @@
       ],
       "criterio_matar": "Gasto ≥ $25.000 sin pedidos, o CPA > $11.000 sostenido 3 días.",
       "criterio_escalar": "CPA ≤ $6.500 por 3 días y entrega real ≥ 70 %."
-    }
-  ],
-  "en_observacion": [
+    },
     {
       "id": "kit-gato-sin-pelusas",
-      "prioridad": 1,
-      "motivo": "Puntaje 4,13 y mejor economía que Kit Pelo Cero (ROAS eq. mezcla 3,26 vs 3,73; CPA eq. $8.217); prima solo +8 % sobre piezas a mediana Falabella (vs +55 % de Pelo Cero); pico de búsqueda 'cepillo gato' en octubre (+27 %). No se aprueba ahora: comparte problema (pelo) y el removedor con Kit Pelo Cero, y sin costos reales cambiar el activo sería a ciegas. Reemplazo preferente de Pelo Cero.",
-      "precio_recomendado": 27990,
+      "estado": "aprobado_para_test",
+      "rol": "producto para dueños de gato (pico de búsqueda en octubre)",
+      "precio": 27990,
       "oferta_2": 49990,
       "cpa_equilibrio_base": 8217,
       "cpa_objetivo": 6217,
@@ -65,13 +63,14 @@
         "Revisar Biblioteca de anuncios de Meta CL por saturación del cepillo autolimpiante."
       ],
       "criterio_matar": "Gasto ≥ $25.000 (≈3 CPA de equilibrio) sin pedidos, o CPA > $10.700 sostenido 3 días con CTR < 1 %.",
-      "criterio_escalar": "CPA ≤ $6.200 (objetivo) por 3 días y entrega real ≥ 70 %."
+      "criterio_escalar": "CPA ≤ $6.200 (objetivo) por 3 días y entrega real ≥ 70 %.",
+      "nota_activacion": "Activado el 2026-10-04 por instrucción directa del dueño (límite subido a 6). Costos estimados: verificar en Dropi antes de pautar."
     },
     {
       "id": "kit-enriquecimiento-perro",
-      "prioridad": 2,
-      "motivo": "Puntaje 4,04 y la mejor economía del ciclo (ROAS eq. mezcla 3,06; CPA eq. $8.812); precio bajo la suma de piezas (~$47.000 a mediana Falabella). Candidato a producto principal post-verano (feb-mar, invierno en casa). Riesgo de política: tentación de prometer bajar ansiedad.",
-      "precio_recomendado": 27990,
+      "estado": "aprobado_para_test",
+      "rol": "producto de juego en casa (todo el año)",
+      "precio": 27990,
       "oferta_2": 48990,
       "cpa_equilibrio_base": 8812,
       "cpa_objetivo": 6812,
@@ -83,8 +82,47 @@
         "Revisar que la alfombra no sea voluminosa (flete ≤ $3.800 estimado)."
       ],
       "criterio_matar": "Gasto ≥ $26.000 (≈3 CPA de equilibrio) sin pedidos, o CPA > $11.500 sostenido 3 días con CTR < 1 %.",
-      "criterio_escalar": "CPA ≤ $6.800 (objetivo) por 3 días y entrega real ≥ 70 %."
+      "criterio_escalar": "CPA ≤ $6.800 (objetivo) por 3 días y entrega real ≥ 70 %.",
+      "nota_activacion": "Activado el 2026-10-04 por instrucción directa del dueño (límite subido a 6). Costos estimados: verificar en Dropi antes de pautar."
     },
+    {
+      "id": "kit-paseo-hogar-limpio",
+      "estado": "aprobado_para_test",
+      "rol": "producto de paseo con recompra de bolsas",
+      "precio": 25990,
+      "oferta_2": 44990,
+      "cpa_equilibrio_base": 7324,
+      "cpa_objetivo": 5324,
+      "costos": "estimados (sin verificar en Dropi)",
+      "condiciones": [
+        "Costo real de todas las piezas en app.dropi.cl y que un mismo proveedor despache el kit en un solo paquete (si no, el flete se duplica y no cierra).",
+        "Validar que la recompra de bolsas sea vendible (rollos disponibles en Dropi a costo que deje margen).",
+        "No mostrar precios de referencia ni invitar a comparar pieza a pieza."
+      ],
+      "criterio_matar": "Gasto ≥ $22.000 (≈3 CPA de equilibrio) sin pedidos, o CPA > $9.500 sostenido 3 días con CTR < 1 %.",
+      "criterio_escalar": "CPA ≤ $5.300 (objetivo) por 3 días y entrega real ≥ 70 %.",
+      "nota_activacion": "Activado el 2026-10-04 por instrucción directa del dueño (límite subido a 6). Costos estimados: verificar en Dropi antes de pautar."
+    },
+    {
+      "id": "kit-bano-secado-perro",
+      "estado": "aprobado_para_test",
+      "rol": "producto de baño en casa (primavera-verano)",
+      "precio": 29990,
+      "oferta_2": 52990,
+      "cpa_equilibrio_base": 9407,
+      "cpa_objetivo": 7407,
+      "costos": "estimados (sin verificar en Dropi)",
+      "condiciones": [
+        "Costo real de todas las piezas en app.dropi.cl y que un mismo proveedor despache el kit en un solo paquete (si no, el flete se duplica y no cierra).",
+        "Medir precio CL de cepillo de silicona y guante de baño antes de activarlo.",
+        "Mantener el kit sin productos químicos; sin afirmaciones sobre piel o pelaje sano."
+      ],
+      "criterio_matar": "Gasto ≥ $28.000 (≈3 CPA de equilibrio) sin pedidos, o CPA > $12.200 sostenido 3 días con CTR < 1 %.",
+      "criterio_escalar": "CPA ≤ $7.400 (objetivo) por 3 días y entrega real ≥ 70 %.",
+      "nota_activacion": "Activado el 2026-10-04 por instrucción directa del dueño (límite subido a 6). Costos estimados: verificar en Dropi antes de pautar."
+    }
+  ],
+  "en_observacion": [
     {
       "id": "piscina-plegable-perros-120",
       "prioridad": 3,
@@ -102,40 +140,6 @@
       ],
       "criterio_matar": "Gasto ≥ $23.000 (≈3 CPA de equilibrio) sin pedidos, o CPA > $9.900 sostenido 3 días con CTR < 1 %.",
       "criterio_escalar": "CPA ≤ $5.600 (objetivo) por 3 días y entrega real ≥ 70 %."
-    },
-    {
-      "id": "kit-paseo-hogar-limpio",
-      "prioridad": 4,
-      "motivo": "Puntaje 3,85; recompra por rollos de bolsas. Débil en comparabilidad: piezas sueltas baratas (limpiador $7.900, bolsas $3.990, comedero ~$6.000; suma ~$18.000, prima ~+44 %) y demanda 3.",
-      "precio_recomendado": 25990,
-      "oferta_2": 44990,
-      "cpa_equilibrio_base": 7324,
-      "cpa_objetivo": 5324,
-      "costos": "estimados (sin verificar en Dropi)",
-      "condiciones": [
-        "Costo real de todas las piezas en app.dropi.cl y que un mismo proveedor despache el kit en un solo paquete (si no, el flete se duplica y no cierra).",
-        "Validar que la recompra de bolsas sea vendible (rollos disponibles en Dropi a costo que deje margen).",
-        "No mostrar precios de referencia ni invitar a comparar pieza a pieza."
-      ],
-      "criterio_matar": "Gasto ≥ $22.000 (≈3 CPA de equilibrio) sin pedidos, o CPA > $9.500 sostenido 3 días con CTR < 1 %.",
-      "criterio_escalar": "CPA ≤ $5.300 (objetivo) por 3 días y entrega real ≥ 70 %."
-    },
-    {
-      "id": "kit-bano-secado-perro",
-      "prioridad": 5,
-      "motivo": "Puntaje 3,83; buena economía (ROAS eq. mezcla 3,08). Precio coherente con la toalla de microfibra (mediana $21.990, solo 9 avisos) pero cepillo y guante sin precio CL verificado. Sin shampoo para evitar cosmética regulada.",
-      "precio_recomendado": 29990,
-      "oferta_2": 52990,
-      "cpa_equilibrio_base": 9407,
-      "cpa_objetivo": 7407,
-      "costos": "estimados (sin verificar en Dropi)",
-      "condiciones": [
-        "Costo real de todas las piezas en app.dropi.cl y que un mismo proveedor despache el kit en un solo paquete (si no, el flete se duplica y no cierra).",
-        "Medir precio CL de cepillo de silicona y guante de baño antes de activarlo.",
-        "Mantener el kit sin productos químicos; sin afirmaciones sobre piel o pelaje sano."
-      ],
-      "criterio_matar": "Gasto ≥ $28.000 (≈3 CPA de equilibrio) sin pedidos, o CPA > $12.200 sostenido 3 días con CTR < 1 %.",
-      "criterio_escalar": "CPA ≤ $7.400 (objetivo) por 3 días y entrega real ≥ 70 %."
     },
     {
       "id": "kit-gato-hidratacion-filtros",
