@@ -105,7 +105,7 @@ def logo_svg(pie=False):
     iso = (PLANTILLA / "isotipo.svg").read_text(encoding="utf-8").strip()
     if pie:
         iso = iso.replace('fill="#1F5F5B"', 'fill="#FBF8F3"', 1).replace('<g fill="#FBF8F3">', '<g fill="#1F5F5B">')
-    iso = iso.replace("<svg ", '<svg class="logo-iso" aria-hidden="true" ', 1).replace(' role="img" aria-label="Huella Sur"', "")
+    iso = iso.replace("<svg ", '<svg class="logo-iso" aria-hidden="true" ', 1).replace(' role="img" aria-label="Kimo"', "")
     palabra = (PLANTILLA / "palabra.svg").read_text(encoding="utf-8").strip().replace("<svg ", '<svg class="logo-palabra" aria-hidden="true" ', 1)
     return iso + palabra
 
@@ -245,7 +245,7 @@ def formulario(prod, ficha, tienda):
 <div class="total"><span>Total a pagar al recibir</span><strong id="total">{clp(prod['precio'])}</strong></div>
 <button type="submit" class="boton boton-grande">{icono('chat')} Confirmar pedido por WhatsApp</button>
 {aviso}
-<label class="consentimiento"><input type="checkbox" name="consentimiento" value="si"><span>Quiero recibir por WhatsApp recordatorios y novedades de Huella Sur (opcional; puedes darte de baja cuando quieras).</span></label>
+<label class="consentimiento"><input type="checkbox" name="consentimiento" value="si"><span>Quiero recibir por WhatsApp recordatorios y novedades de Kimo (opcional; puedes darte de baja cuando quieras).</span></label>
 <ul class="garantias-form"><li>{icono('pago', 'ico ico-s')} No pagas nada ahora</li><li><a href="../cambios.html">{icono('retracto', 'ico ico-s')} 10 días de retracto</a></li><li><a href="../privacidad.html">{icono('garantia', 'ico ico-s')} Cómo usamos tus datos</a></li></ul>
 </form>"""
 
@@ -275,7 +275,7 @@ def pagina_producto(prod, ficha, marca, tienda):
     preguntas = [(f["p"], f["r"]) for f in ficha["faq"]]
     producto_ld = {
         "@context": "https://schema.org", "@type": "Product", "name": ficha["titulo_seo"].split(" | ")[0],
-        "description": ficha["meta_descripcion"], "brand": {"@type": "Brand", "name": marca["nombre"]}, "sku": f"HS-{prod['id'].upper()}",
+        "description": ficha["meta_descripcion"], "brand": {"@type": "Brand", "name": marca["nombre"]}, "sku": f"KM-{prod['id'].upper()}",
         "offers": {"@type": "Offer", "priceCurrency": "CLP", "price": prod["precio"], "availability": "https://schema.org/InStock",
                    "itemCondition": "https://schema.org/NewCondition",
                    "hasMerchantReturnPolicy": {"@type": "MerchantReturnPolicy", "applicableCountry": "CL",
@@ -383,7 +383,7 @@ def csv_shopify(productos, marca):
                 w.writerow([f["handle"], f["titulo_seo"].split(" | ")[0] if primera else "", cuerpo if primera else "",
                             marca["nombre"] if primera else "", "", "Mascotas" if primera else "", "mascotas,kit,contra-entrega" if primera else "",
                             "FALSE" if primera else "", "Talla" if f.get("tallas") else "Title", v,
-                            (f"HS-{p['id'].upper()}" + ("" if v == "Default Title" else f"-{v}"))[:40], "deny", "manual", p["precio"], "TRUE", "TRUE",
+                            (f"KM-{p['id'].upper()}" + ("" if v == "Default Title" else f"-{v}"))[:40], "deny", "manual", p["precio"], "TRUE", "TRUE",
                             f["titulo_seo"] if primera else "", f["meta_descripcion"] if primera else "", "draft" if primera else ""])
 
 

@@ -39,6 +39,7 @@ Tareas que requieren al dueño van en "Bloqueadas (portón humano)": nunca se ej
 - [ ] (recurrente) Actualizar `estado/informe-manana.md` con lo hecho en la noche, hallazgos clave y decisiones que necesitan al dueño, en ≤ 25 líneas.
 
 ## Bloqueadas (portón humano) — no ejecutar
+- Registrar kimo.cl (nic.cl) y revisar "Kimo" en INAPI (clases 35, 18, 21, 28).
 - Número de WhatsApp y datos legales en `datos/tienda.json`.
 - Costos reales y proveedor en Dropi (requiere la cuenta del dueño).
 - Aprobación de presupuesto de anuncios y creación de campañas.

@@ -1,4 +1,4 @@
-/* Huella Sur — estilos de la tienda. Colores de marca vienen como variables desde datos/marca.json. */
+/* Kimo — estilos de la tienda. Colores de marca vienen como variables desde datos/marca.json. */
 :root{
   --suave:#F3EDE3; --linea:#E6DFD3; --blanco:#fff; --gris:#59615D; --error:#B3261E;
   --radio:20px; --radio-s:12px;
@@ -36,8 +36,8 @@ p{margin:0 0 1em;text-wrap:pretty}
 .barra-in{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
 .logo{font-family:var(--titulo);font-weight:700;font-size:1.5rem;color:var(--primario);text-decoration:none;display:flex;align-items:center;gap:10px;margin:0;letter-spacing:-.02em}
 .logo-iso{width:38px;height:38px;flex:none}
-.logo-palabra{height:27px;width:auto;display:block}
-.logo-pie .logo-iso{width:34px;height:34px}.logo-pie .logo-palabra{height:24px}
+.logo-palabra{height:30px;width:auto;display:block}
+.logo-pie .logo-iso{width:34px;height:34px}.logo-pie .logo-palabra{height:26px}
 .menu{display:flex;align-items:center;gap:24px}
 .menu a:not(.boton){color:var(--texto);text-decoration:none;font-weight:700;font-size:.95rem;opacity:.85;transition:opacity .15s ease}
 .menu a:not(.boton):hover{opacity:1}

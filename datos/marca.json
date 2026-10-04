@@ -1,15 +1,41 @@
 {
-  "nombre": "Huella Sur",
-  "verificar": "Antes de invertir: buscar el nombre en INAPI (marcas, clase 35) y en nic.cl. Búsqueda web del 2026-10-04 no mostró una tienda de mascotas con ese nombre.",
+  "nombre": "Kimo",
+  "verificar": "Antes de invertir: buscar 'Kimo' en INAPI (marcas, clases 35 y 18/21/28 de artículos para mascotas). kimo.cl figuraba libre en nic.cl el 2026-10-04; búsqueda web no mostró una marca de mascotas 'Kimo' (sí 'Kmimos', México, servicios de cuidado, y 'Kimi Pet', Vietnam).",
   "promesa": "Menos pelo en tu casa y más frescura para tu mascota, con pago al recibir.",
-  "enunciado": "Para dueños de perros y gatos en Chile que viven con pelo en todas partes y veranos cada vez más calurosos, Huella Sur es una tienda de kits de cuidado en casa que resuelve el problema completo en un solo pedido, porque arma soluciones y no productos sueltos. A diferencia de comprar piezas sueltas en marketplaces, recibes el kit probado, con garantía legal y pagas cuando llega.",
+  "enunciado": "Para dueños de perros y gatos en Chile que viven con pelo en todas partes y veranos cada vez más calurosos, Kimo es una tienda de kits de cuidado en casa que resuelve el problema completo en un solo pedido, porque arma soluciones y no productos sueltos. A diferencia de comprar piezas sueltas en marketplaces, recibes el kit probado, con garantía legal y pagas cuando llega.",
   "cliente_ideal": "Dueños de perros y gatos de 25 a 50 años en Chile urbano, que viven en departamento o casa con muebles de tela, y valoran el tiempo.",
   "pilares": [
-    {"pilar": "Soluciones completas", "prueba": "Cada kit cubre el problema de punta a punta (mascota + casa)."},
-    {"pilar": "Compra sin riesgo", "prueba": "Pago contra entrega, garantía legal de 6 meses y retracto de 10 días."},
-    {"pilar": "Honestidad", "prueba": "Plazos reales por zona, fotos reales y reseñas solo de clientes verificados."}
+    {
+      "pilar": "Soluciones completas",
+      "prueba": "Cada kit cubre el problema de punta a punta (mascota + casa)."
+    },
+    {
+      "pilar": "Compra sin riesgo",
+      "prueba": "Pago contra entrega, garantía legal de 6 meses y retracto de 10 días."
+    },
+    {
+      "pilar": "Honestidad",
+      "prueba": "Plazos reales por zona, fotos reales y reseñas solo de clientes verificados."
+    }
   ],
-  "tono": {"es": ["cercano", "práctico", "sobrio"], "nunca": ["prometer salud o curas", "escasez falsa", "mayúsculas gritonas"]},
-  "colores": {"primario": "#1F5F5B", "acento": "#F2A541", "fondo": "#FBF8F3", "texto": "#1E2422"},
-  "tipografia": "Nunito"
+  "tono": {
+    "es": [
+      "cercano",
+      "práctico",
+      "sobrio"
+    ],
+    "nunca": [
+      "prometer salud o curas",
+      "escasez falsa",
+      "mayúsculas gritonas"
+    ]
+  },
+  "colores": {
+    "primario": "#1F5F5B",
+    "acento": "#F2A541",
+    "fondo": "#FBF8F3",
+    "texto": "#1E2422"
+  },
+  "tipografia": "Nunito",
+  "nombre_anterior": "Huella Sur (cambiado por decisión del dueño el 2026-10-04)"
 }

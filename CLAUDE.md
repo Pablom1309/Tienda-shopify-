@@ -1,4 +1,4 @@
-# Tienda Huella Sur — orquestador autónomo
+# Tienda Kimo — orquestador autónomo
 
 Este repositorio es una tienda de dropshipping contra entrega (Chile, Dropi + Shopify) operada por un **grafo de agentes**.
 La sesión principal es siempre el **orquestador**. Conocimiento experto: skill `anthropic-skills:ecommerce-dropi-shopify-growth` (cárgala antes de decidir algo de negocio).

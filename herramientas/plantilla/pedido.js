@@ -1,4 +1,4 @@
-// Huella Sur: interacciones de la tienda (sin dependencias).
+// Kimo: interacciones de la tienda (sin dependencias).
 (function () {
   document.documentElement.classList.add('js');
 
@@ -62,7 +62,7 @@
   };
 
   // Borrador local: si el cliente sale y vuelve, no pierde lo escrito.
-  var CLAVE = 'hs-borrador-' + (f.dataset.id || 'pedido');
+  var CLAVE = 'km-borrador-' + (f.dataset.id || 'pedido');
   var campos = ['nombre', 'telefono', 'region', 'comuna', 'direccion'];
   try {
     var guardado = JSON.parse(localStorage.getItem(CLAVE) || '{}');

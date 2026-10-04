@@ -77,3 +77,7 @@ Cada ciclo agrega una entrada al final: fecha, nodos ejecutados, decisiones del 
 ## 2026-10-04 ~11:45 UTC — pedido del dueño: logo y foto repetida
 - Logo nuevo (isotipo de huella con estrella de la Cruz del Sur + nombre en minúsculas convertido a trazos) en `marca/`; integrado en cabecera, pie y favicon.
 - Kit Pelo Cero tenía una foto de gato cepillado, igual que Kit Gato Sin Pelusas: se cambió a perro con cepillo a vapor y se reposicionó el kit para perros (rol, subtítulo, título SEO y texto alternativo de la imagen).
+
+## 2026-10-04 ~12:00 UTC — pedido del dueño: nombre nuevo
+- La marca pasa de "Huella Sur" a **Kimo** (elegido por el dueño entre 4 opciones con .cl libre en nic.cl). Cambiado en marca.json, fichas, plantilla, CLAUDE.md, README, SKU (KM-) y logo (`marca/`).
+- Pendiente humano: registrar kimo.cl y buscar "Kimo" en INAPI antes de invertir.
