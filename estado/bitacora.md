@@ -91,3 +91,7 @@ Cada ciclo agrega una entrada al final: fecha, nodos ejecutados, decisiones del 
 - estratega-ads: plan_ads.json con 6 kits y orden de lanzamiento (máx. 2 en pauta): Gato Sin Pelusas + Pelo Cero primero ($178.000 de test), Baño y Secado 26-oct, Verano 16-nov, Enriquecimiento 1-dic, Paseo en enero. requiere_aprobacion: true.
 - auditor (`estado/auditoria.md`): sin problemas en precios, salud, testimonios ni restos de "Huella Sur"; alta = datos legales/WhatsApp pendientes (portón humano); media = ángulos "regalo para quien vive con un perro/gato" a revisar en Biblioteca de anuncios antes de pautar.
 - Configuración: Canva permitido sin prompt en `.claude/settings.json` (pedido del dueño).
+
+## 2026-10-04 ~13:00 UTC — dueño entregó WhatsApp
+- `datos/tienda.json` → whatsapp 56979814797. Formulario probado en Chromium: abre wa.me con el pedido completo. La tienda ya puede recibir pedidos por WhatsApp.
+- Siguen pendientes: correo, dirección comercial, razón social y RUT.

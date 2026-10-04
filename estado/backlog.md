@@ -40,7 +40,7 @@ Tareas que requieren al dueño van en "Bloqueadas (portón humano)": nunca se ej
 
 ## Bloqueadas (portón humano) — no ejecutar
 - Registrar kimo.cl (nic.cl) y revisar "Kimo" en INAPI (clases 35, 18, 21, 28).
-- Número de WhatsApp y datos legales en `datos/tienda.json`.
+- Datos legales en `datos/tienda.json` (correo, dirección, razón social, RUT). WhatsApp listo el 2026-10-04.
 - Costos reales y proveedor en Dropi (requiere la cuenta del dueño).
 - Aprobación de presupuesto de anuncios y creación de campañas.
 - Plan pagado de Shopify e importación del CSV.
