@@ -16,3 +16,4 @@ Reglas del portón:
 - Si hay resultados reales, mandan sobre los supuestos: un producto que cumple `criterio_matar` pasa a `descartados` con el dato; uno que cumple `criterio_escalar` pasa a `escalar`.
 - Si quedan 0 aprobados, escribe en `estado.ciclo.reintentos` +1 para que el orquestador vuelva a `cazador-productos`.
 - Sé conservador: ante la duda, `en_observacion`.
+- Calidad de proveedor: un kit solo puede pasar a pauta/escalar si en `datos/verificacion_dropi.csv` tiene proveedor verificado o premium en Dropi, todas las piezas del mismo proveedor, muestra calificada ≥ 4/5 y costo real anotado (ver `investigacion/guia-verificacion-dropi.md`). Si con costos reales no pasa el portón, a observación o descartado.

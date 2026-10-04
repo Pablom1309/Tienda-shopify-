@@ -59,9 +59,28 @@ def evaluar(cand, s):
     }
 
 
+def aplicar_costos_reales(cands):
+    """Si el dueño anotó costo/flete reales en datos/verificacion_dropi.csv, reemplazan a los estimados."""
+    import csv
+    ruta = RAIZ / "datos" / "verificacion_dropi.csv"
+    if not ruta.exists():
+        return
+    reales = {f["id"]: f for f in csv.DictReader(ruta.open(encoding="utf-8"))}
+    num = lambda v: int("".join(ch for ch in (v or "") if ch.isdigit()) or 0)
+    for c in cands:
+        f = reales.get(c["id"])
+        if not f:
+            continue
+        if num(f.get("costo_real_total")):
+            c["costo_estimado"], c["costo_verificado"] = num(f["costo_real_total"]), True
+        if num(f.get("flete_real")):
+            c["flete_estimado"] = num(f["flete_real"])
+
+
 def main():
     s = cargar("supuestos.json")
     cands = cargar("candidatos.json")["candidatos"]
+    aplicar_costos_reales(cands)
     salida = {"supuestos_usados": {k: s[k] for k in ("tasa_confirmacion", "escenarios_entrega", "flete_devolucion", "comision_plataforma", "costo_fijo_por_pedido")},
               "productos": [evaluar(c, s) for c in cands]}
     (RAIZ / "datos" / "economia.json").write_text(json.dumps(salida, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

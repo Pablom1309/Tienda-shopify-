@@ -59,5 +59,22 @@ for k, v in cargar("tienda.json").items():
     if v is None:
         avisos.append(f"portón humano pendiente: datos/tienda.json → {k}")
 
+# Calidad de proveedor: un kit solo se puede pautar si pasó la revisión en Dropi (datos/verificacion_dropi.csv).
+import csv as _csv
+_ruta = RAIZ / "datos" / "verificacion_dropi.csv"
+if _ruta.exists():
+    def _ok(f):
+        tipo = (f.get("tipo_proveedor (verificado/premium/no)") or "").strip().lower()
+        try:
+            calidad = int((f.get("calidad_muestra (1-5)") or "0").strip() or 0)
+        except ValueError:
+            calidad = 0
+        return (tipo in ("verificado", "premium") and (f.get("mismo_proveedor_todas_las_piezas (si/no)") or "").strip().lower() == "si"
+                and calidad >= 4 and (f.get("costo_real_total") or "").strip() != "")
+    _filas = list(_csv.DictReader(_ruta.open(encoding="utf-8")))
+    _pend = [f["id"] for f in _filas if not _ok(f)]
+    if _pend:
+        avisos.append(f"calidad Dropi: {len(_pend)}/{len(_filas)} kits sin verificar (proveedor verificado/premium, mismo proveedor, muestra ≥ 4/5, costo real). NO pautar esos kits.")
+
 print("\n".join([f"ERROR {e}" for e in errores] + [f"AVISO {a}" for a in avisos]) or "OK")
 sys.exit(1 if errores else 0)
