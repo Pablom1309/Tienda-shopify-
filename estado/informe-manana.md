@@ -2,6 +2,12 @@
 
 Se actualiza al final de cada turno autónomo. Lo más reciente arriba.
 
+## 2026-10-04 ~04:00 (Chile) — turno: estacionalidad (Google Trends)
+- Hecho: curvas de 10 años de Google Trends Chile → `investigacion/estacionalidad-trends.md`.
+- Clave: "manta refrescante" y "piscina para perros" se multiplican ×4-5 en diciembre y ×3 en enero; casi cero de abril a septiembre. Ventana del Kit Verano: mediados de nov a fines de ene.
+- Clave: pelo/cepillado es parejo todo el año (la muda de primavera es suave): Kit Pelo Cero es de todo el año. "Cepillo gato" tiene su pico en octubre.
+- Ojo: el volumen de búsqueda en Google es bajo; estos productos se descubren en redes sociales.
+
 ## 2026-10-04 ~03:00 (Chile) — turno: referentes mundiales
 - Hecho: lo aplicable de Chewy, Wild One, Fable, Baymard, Hormozi y Meta → `investigacion/playbook-referentes.md`.
 - Clave: Chewy vive de la recompra (83 % de sus ventas son suscripción) → la fuente con filtros merece evaluarse como 2.º producto.

@@ -34,3 +34,9 @@ Cada ciclo agrega una entrada al final: fecha, nodos ejecutados, decisiones del 
 - Tarea: Chewy (Autoship 83,3 % de ventas FY2025), Wild One/Fable (kits con 15-20 % de descuento), Baymard (abandono: costos extra 39 %, envío lento 21 %), Hormozi (ecuación de valor), Meta Andromeda (diversidad creativa) y operadores COD → `investigacion/playbook-referentes.md`.
 - Decisión: creativos pasan de "10 ganchos" a 4-5 conceptos distintos por kit.
 - Nuevas tareas P3: oferta por kit, plazo y cambios junto al botón, página de gracias con upsell, consentimiento WhatsApp (Ley 21.719).
+
+## Turno 2026-10-04 06:55 UTC — estacionalidad Google Trends
+- Tarea: 10 años mensuales + 5 años semanales de Google Trends CL (7+6 términos) → `investigacion/estacionalidad-trends.md`.
+- Hallazgos: verano concentrado (manta refrescante dic ×4,9, ene ×3,3); pelo/cepillado parejo todo el año; cepillo gato pico en oct; fuente para gatos estable.
+- Decisión: Kit Verano del 16-nov al 31-ene; guía SEO de verano antes del 15-nov (agregado al calendario).
+- Bloqueo menor: Google Trends devolvió 429 en la comparación de volumen entre términos; queda pendiente.
