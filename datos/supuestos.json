@@ -86,6 +86,6 @@
     },
     "calendario_nota": "Si el test pasa (CPA real ≤ G) se sigue con gasto de escala; si no, se apaga al día 4 del test (regla de matar). Día 32 ≈ 16-nov si se parte el 15-oct."
   },
-  "max_activos": 6,
-  "max_activos_nota": "Subido de 2 a 6 por instrucción directa del dueño (2026-10-04)."
+  "max_activos": 20,
+  "max_activos_nota": "Subido a 20 por instrucción directa del dueño (2026-10-04)."
 }
