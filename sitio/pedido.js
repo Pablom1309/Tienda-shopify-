@@ -18,6 +18,19 @@
     reveladores.forEach(function (el) { io.observe(el); });
   }
 
+  // Filtro de kits por mascota (portada). "ambos" aparece en perros y gatos.
+  var filtros = document.querySelectorAll('.filtro');
+  filtros.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var v = b.dataset.filtro;
+      filtros.forEach(function (x) { var on = x === b; x.classList.toggle('activo', on); x.setAttribute('aria-pressed', on); });
+      document.querySelectorAll('#grilla .tarjeta').forEach(function (t) {
+        var m = t.dataset.mascota;
+        t.hidden = !(v === 'todos' || m === v || m === 'ambos');
+      });
+    });
+  });
+
   var f = document.getElementById('pedido');
   if (!f) return;
   var clp = function (n) { return '$' + Number(n).toLocaleString('es-CL'); };

@@ -312,7 +312,12 @@ def pagina_producto(prod, ficha, marca, tienda):
 
 
 def portada(productos, marca, tienda):
-    tarjetas = "".join(f"""<a class="tarjeta revelar" href="productos/{e(f['handle'])}.html">{imagen(p['id'], f['alt_imagenes'][0], '', 'foto foto-tarjeta', sizes='(min-width:900px) 50vw, 100vw')}
+    def mascota(p):
+        if p.get("mascota"):
+            return p["mascota"]
+        t = (p["id"] + " " + p.get("rol", "")).lower()
+        return "gato" if "gato" in t else ("perro" if "perro" in t or "paseo" in t else "ambos")
+    tarjetas = "".join(f"""<a class="tarjeta revelar" data-mascota="{mascota(p)}" href="productos/{e(f['handle'])}.html">{imagen(p['id'], f['alt_imagenes'][0], '', 'foto foto-tarjeta', sizes='(min-width:900px) 50vw, 100vw')}
 <div class="tarjeta-cuerpo"><span class="etiqueta">{e(p['rol'].split('(')[0].strip().capitalize())}</span><h3>{e(f['titulo_seo'].split(':')[0])}</h3><p>{e(f['subtitular'])}</p>
 <ul class="tarjeta-incluye">{''.join(f"<li>{icono('check', 'ico ico-s')}{e(i)}</li>" for i in f['incluye'][:2])}</ul>
 <div class="tarjeta-pie"><div><strong>{clp(p['precio'])}</strong><small>o 2 por {clp(p['oferta_2'])}</small></div><span class="boton boton-chico">Ver kit {icono('flecha', 'ico ico-s')}</span></div></div></a>"""
@@ -321,12 +326,16 @@ def portada(productos, marca, tienda):
                       for i, x in zip(("kit", "estrella"), [x for x in marca["pilares"] if x["pilar"] != "Compra sin riesgo"]))
     hero = img_tag("hero", "Perro y gato descansando juntos en un sillón de un living luminoso", "", "hero-img", carga="eager", prioridad=True)
     preguntas = faq_general(tienda)
+    filtros = ('<div class="filtros" role="group" aria-label="Filtrar kits">'
+               '<button type="button" class="filtro activo" data-filtro="todos" aria-pressed="true">Todos</button>'
+               '<button type="button" class="filtro" data-filtro="perro" aria-pressed="false">Perros</button>'
+               '<button type="button" class="filtro" data-filtro="gato" aria-pressed="false">Gatos</button></div>') if len(productos) > 6 else ""
     cuerpo = f"""<section class="hero{' hero-con-img' if hero else ''}">{hero or ''}
 <div class="contenedor hero-in"><p class="sobretitulo">Kits de cuidado para perros y gatos</p>
 <h1>Menos pelo en tu casa. Más frescura para tu mascota.</h1>
 <p class="hero-sub">Soluciones completas para el pelo y el calor, pensadas para la vida en casa.</p>
 <div class="hero-acciones"><a class="boton boton-grande" href="#kits">Ver los kits {icono('flecha', 'ico ico-s')}</a><a class="boton-texto" href="#como-funciona">¿Cómo funciona?</a></div></div></section>
-<section class="seccion contenedor" id="kits"><p class="sobretitulo">Nuestros kits</p><h2>Elige el que necesita tu casa</h2><div class="grilla">{tarjetas}</div></section>
+<section class="seccion contenedor" id="kits"><p class="sobretitulo">Nuestros kits</p><h2>Elige el que necesita tu casa</h2>{filtros}<div class="grilla" id="grilla">{tarjetas}</div></section>
 {como_funciona()}
 <section class="seccion seccion-oscura"><div class="contenedor riesgo"><div><p class="sobretitulo">Compra sin riesgo</p><h2>Si no te sirve, no es tu problema</h2><a class="boton" href="cambios.html">Ver política de cambios</a></div>
 <ul class="riesgo-lista"><li>{icono('pago')}<span><strong>$0 por adelantado</strong>Nada de tarjetas ni transferencias.</span></li><li>{icono('retracto')}<span><strong>10 días de retracto</strong>Desde que lo recibes.</span></li><li>{icono('garantia')}<span><strong>6 meses de garantía</strong>Cambio, reparación o devolución.</span></li></ul></div></section>
