@@ -1,6 +1,6 @@
 {
   "generado": "2026-10-04",
-  "ciclo": 1,
+  "ciclo": 2,
   "nicho_objetivo": "mascotas (verano y cuidado en casa) — evaluado contra candidatos de otros nichos",
   "escala": "criterios de 0 a 5; riesgo_politica 0 = sin riesgo, 5 = prohibido",
   "candidatos": [
@@ -308,6 +308,161 @@
       "fuentes": [
         "https://www.falabella.com/falabella-cl/shop/manta-refrescante-para-perros"
       ]
+    },
+    {
+      "id": "kit-gato-sin-pelusas",
+      "nombre": "Kit Gato Sin Pelusas: cepillo autolimpiante + removedor de pelos reutilizable + varita de juguete",
+      "nicho": "mascotas",
+      "componentes": ["cepillo autolimpiante para gatos", "removedor de pelo reutilizable", "varita de juguete con plumas"],
+      "precio": 27990,
+      "precio_2u": 49990,
+      "costo_estimado": 8500,
+      "flete_estimado": 3800,
+      "criterios": {"demanda": 4, "estacionalidad": 4, "demostrable": 5, "baja_comparabilidad": 3, "logistica": 5, "ajuste_nicho": 5, "recompra": 2},
+      "riesgo_politica": 0,
+      "evidencia": "Pico de búsqueda 'cepillo gato' en octubre (índice 1,52; +27 % vs año anterior, Google Trends CL, ver investigacion/estacionalidad-trends.md); cepillo autolimpiante figura entre los más vendidos de mascotas 2026 (Tiendanube). Competencia 2026-10-04 (WebSearch, puntos de precio, NO mediana: no hubo acceso a curl en este nodo): cepillo autolimpiante/vapor gato $11.900 en Falabella CL (lista $21.900) y $11.990 en Easy; removedor ya medido: mediana $9.990 Falabella / $6.990 Paris. Suma de piezas sueltas ~ $19.000-$25.000 vs kit $27.990: prima moderada, justificada solo por problema resuelto + pago contra entrega. Costo y flete estimados, por verificar en Dropi. Sin promesas de salud.",
+      "fuentes": [
+        "https://www.tiendanube.com/blog/productos-para-mascotas/",
+        "https://www.easy.cl/cepillo-autolimpiable-von-go-fainvet-1216430/p",
+        "https://www.falabella.com/falabella-cl/search?Ntt=cepillo+gato+autolimpiante",
+        "https://www.falabella.com/falabella-cl/search?Ntt=removedor+pelo+mascotas",
+        "https://www.paris.cl/search?q=removedor%20pelo%20mascota"
+      ],
+      "ciclo": 2
+    },
+    {
+      "id": "kit-gato-hidratacion-filtros",
+      "nombre": "Kit Fuente para gatos 2,5 L + pack de 6 filtros de repuesto",
+      "nicho": "mascotas",
+      "componentes": ["fuente-agua-gatos", "pack 6 filtros de repuesto"],
+      "precio": 34990,
+      "precio_2u": 59990,
+      "costo_estimado": 13500,
+      "flete_estimado": 4500,
+      "criterios": {"demanda": 4, "estacionalidad": 3, "demostrable": 4, "baja_comparabilidad": 3, "logistica": 3, "ajuste_nicho": 5, "recompra": 5},
+      "riesgo_politica": 1,
+      "evidencia": "Fuente para gatos con demanda pareja todo el año (Trends CL, leve alza en enero). Recompra real por filtros: reseñas en Falabella piden cambiar filtro y limpiar (ver investigacion/cliente-objeciones.md). Competencia 2026-10-04 (datos del ciclo 1, Falabella 53 avisos): fuente $4.990-$39.990, mediana $15.990; fuente 2,4 L + filtro $19.490 (32 reseñas); pack 12 filtros $6.980. Kit incluye filtros para evitar el 'costo oculto' y diferenciar. Prima alta frente a la mediana: depende de mostrar el kit completo y la guía de mantención. No prometer salud renal ni hidratación terapéutica. Costo y flete estimados, por verificar en Dropi.",
+      "fuentes": [
+        "https://www.falabella.com/falabella-cl/search?Ntt=fuente+agua+gatos",
+        "https://www.mercadolibre.cl/blog/comparativa-de-fuentes-de-agua-para-gatos-caracteristicas-y-ventajas"
+      ],
+      "ciclo": 2
+    },
+    {
+      "id": "kit-gato-juego-rascado",
+      "nombre": "Kit Gato Entretenido: rascador de cartón + pelota interactiva recargable",
+      "nicho": "mascotas",
+      "componentes": ["rascador de cartón corrugado", "pelota interactiva recargable USB"],
+      "precio": 29990,
+      "precio_2u": 52990,
+      "costo_estimado": 10500,
+      "flete_estimado": 4500,
+      "criterios": {"demanda": 4, "estacionalidad": 2, "demostrable": 5, "baja_comparabilidad": 3, "logistica": 3, "ajuste_nicho": 5, "recompra": 2},
+      "riesgo_politica": 0,
+      "evidencia": "Público gato en hogares pequeños (Kantar, ver mercado-mascotas-chile.md); el gato reaccionando al juguete es video de 3 s. Competencia 2026-10-04 (WebSearch, puntos de precio, NO mediana; sin curl): rascadores de cartón en Lider CL $18.990 / $28.990 / $34.990 / $38.990 y casa rascador con juguetes en Falabella $23.890; pelota interactiva recargable en Yapo $10.990-$15.990 y en Lider $21.990-$24.990. Suma de piezas $30.000-$40.000: el kit queda en el rango de mercado, no con prima. Riesgo: volumen del rascador sube el flete (4.500 estimado). Costo y flete estimados, por verificar en Dropi.",
+      "fuentes": [
+        "https://www.lider.cl/ip/juguetes-por-edad/rascador-vertical-diseno-l-carton-corrugado-gatos-cafe/00046076016785",
+        "https://www.lider.cl/ip/juguetes-por-edad/rascador-gatos-carton-corrugado-bandeja-cama-cafe/00046064101835",
+        "https://www.lider.cl/ip/accesorios/juguete-interactivo-cinetica-automatica-para-gatos-mascotas/00894021146618",
+        "https://www.yapo.cl/anuncios-clasificados-mascotas-animales-accesorios-de-mascotas/juguete-gato-bola-interactivo-inteligente-recargab/26536168"
+      ],
+      "ciclo": 2
+    },
+    {
+      "id": "kit-paseo-hogar-limpio",
+      "nombre": "Kit Paseo Limpio: limpiador de patas portátil + dispensador con bolsas (8 rollos) + comedero plegable",
+      "nicho": "mascotas",
+      "componentes": ["limpiador de patas portátil", "dispensador con rollos de bolsas", "comedero plegable de silicona"],
+      "precio": 25990,
+      "precio_2u": 44990,
+      "costo_estimado": 8000,
+      "flete_estimado": 3800,
+      "criterios": {"demanda": 3, "estacionalidad": 3, "demostrable": 4, "baja_comparabilidad": 4, "logistica": 5, "ajuste_nicho": 5, "recompra": 4},
+      "riesgo_politica": 0,
+      "evidencia": "Resuelve 'volver del paseo sin ensuciar la casa' (dolor de hogares urbanos, 84 % de las mascotas viven en ciudad, UC). Las bolsas son consumible: recompra por rollos. Competencia 2026-10-04 (WebSearch, puntos de precio, NO mediana; sin curl): bolsas 16 rollos de 15 en Easy $3.990 (lista $7.990); comedero plegable Zee.Dog $6.230-$9.990 y doble de silicona en Yapo $3.490; limpiador de patas en Easy (precio no visible). Piezas sueltas muy baratas: el kit se vende solo por conveniencia y combinación, la prima es alta; demanda 3 por eso. Costo y flete estimados, por verificar en Dropi.",
+      "fuentes": [
+        "https://www.easy.cl/bolsa-sanitaria-oxo-biodegradable-16-rollos-1406395/p",
+        "https://www.easy.cl/limpiador-de-patas-portatil-para-perros-grande-mk1x2ffbl4/p",
+        "https://allnutrition.cl/products/plato-portatil-para-perros-go-bowl-pink-zee-dog-l",
+        "https://www.yapo.cl/anuncios-clasificados-mascotas-animales-accesorios-de-mascotas/plato-doble-en-silicona-con-comedero-come-lento-p/26775412"
+      ],
+      "ciclo": 2
+    },
+    {
+      "id": "kit-enriquecimiento-perro",
+      "nombre": "Kit Perro Entretenido en Casa: alfombra olfativa + tapete de lamer de silicona",
+      "nicho": "mascotas",
+      "componentes": ["alfombra olfativa para perros", "tapete de lamer de silicona"],
+      "precio": 27990,
+      "precio_2u": 48990,
+      "costo_estimado": 7500,
+      "flete_estimado": 3800,
+      "criterios": {"demanda": 4, "estacionalidad": 3, "demostrable": 5, "baja_comparabilidad": 3, "logistica": 5, "ajuste_nicho": 5, "recompra": 2},
+      "riesgo_politica": 1,
+      "evidencia": "Perro buscando premios en la alfombra es demostración visual inmediata; 42 % de hogares con perro tiene perro senior y departamentos chicos (Kantar). Competencia 2026-10-04 (WebSearch, puntos de precio, NO mediana; sin curl): alfombras olfativas en Falabella CL $8.990-$43.000 (Zupet $17.990, Importadora USA $19.990); comedero lento de silicona en Lider $43.990 (referencia alta). Piezas sueltas en torno a $17.000-$20.000 cada una: kit a $27.990 es coherente. Riesgo de política: no prometer reducir ansiedad ni nada conductual/salud; hablar de entretención y juego. Costo y flete estimados, por verificar en Dropi.",
+      "fuentes": [
+        "https://www.falabella.com/falabella-cl/shop/alfombra-olfativa-para-perros",
+        "https://www.lider.cl/ip/accesorios/comedero-lento-doweiss-gris-suave-de-silicona-l-25-cm/00933171560895",
+        "https://www.paris.cl/lick-mat-comedero-lento-perros-gatos-alta-adherenc-MKKDO3ECEP.html"
+      ],
+      "ciclo": 2
+    },
+    {
+      "id": "piscina-plegable-perros-120",
+      "nombre": "Piscina plegable para perros 120x30 cm",
+      "nicho": "mascotas",
+      "precio": 26990,
+      "precio_2u": 47990,
+      "costo_estimado": 7500,
+      "flete_estimado": 4500,
+      "criterios": {"demanda": 4, "estacionalidad": 5, "demostrable": 5, "baja_comparabilidad": 3, "logistica": 2, "ajuste_nicho": 5, "recompra": 1},
+      "riesgo_politica": 0,
+      "evidencia": "Google Trends CL: 'piscina para perros' dic 4,4 / ene 3,4 / nov 2,2 y +30 % vs año anterior (investigacion/estacionalidad-trends.md): mayor alza de los términos medidos. Competencia 2026-10-04 (WebSearch, puntos de precio, NO mediana; sin curl): Falabella 50 cm $9.990 (lista $19.990); Easy 80x20 $14.990 (lista $24.990); Sodimac 80x30 $12.990, 80x20 $13.990, 160x30 $30.990; Paris 120x30 $42.490 (lista $57.490). 120x30 a $26.990 queda entre Sodimac y Paris. Voluminoso: flete real puede superar el estimado. Ventana nov-ene, mismo calendario que Kit Verano Fresco (puede canibalizar). Costo y flete estimados, por verificar en Dropi.",
+      "fuentes": [
+        "https://www.paris.cl/piscina-plegable-120x30cm-para-perros-mascotas-MKCM21436D.html",
+        "https://www.sodimac.cl/sodimac-cl/b/piscina-para-perros",
+        "https://www.easy.cl/piscina-banera-portatil-plegable-para-perros-80x20cm-mke25p6lt0/p",
+        "https://www.falabella.com/falabella-cl/product/150198114/piscina-plegable-50cm-para-mascotas-verano"
+      ],
+      "ciclo": 2
+    },
+    {
+      "id": "kit-bano-secado-perro",
+      "nombre": "Kit Baño y Secado: toalla de microfibra + cepillo de silicona + guante de baño (sin shampoo)",
+      "nicho": "mascotas",
+      "componentes": ["toalla de microfibra para mascotas", "cepillo de baño de silicona", "guante de baño"],
+      "precio": 29990,
+      "precio_2u": 52990,
+      "costo_estimado": 8500,
+      "flete_estimado": 3800,
+      "criterios": {"demanda": 3, "estacionalidad": 4, "demostrable": 4, "baja_comparabilidad": 3, "logistica": 5, "ajuste_nicho": 5, "recompra": 2},
+      "riesgo_politica": 0,
+      "evidencia": "Baño más frecuente en primavera-verano; kit sin productos químicos para evitar cosmética regulada (no incluye shampoo). Competencia 2026-10-04 (WebSearch, puntos de precio, NO mediana; sin curl): toalla de microfibra Devil Dog 40x61 cm en Lider $24.990 (la toalla sola ya cuesta casi el kit); cepillos de silicona y guantes sin precio CL verificado. Precio del kit coherente con la toalla de referencia, pero la comparabilidad de cepillo y guante no se pudo medir. Costo y flete estimados, por verificar en Dropi.",
+      "fuentes": [
+        "https://www.lider.cl/ip/higiene-y-salud/toalla-para-perros-devil-dog-de-microfibra-40-x-61-cm-1200-gsm-gris/00019928449400",
+        "https://www.hola.com/seleccion/20240222249797/mejores-cepillos-bano-mascotas/"
+      ],
+      "ciclo": 2
+    },
+    {
+      "id": "kit-bienvenida-cachorro",
+      "nombre": "Kit Bienvenida Cachorro: comedero doble de silicona + set de 3 juguetes (cuerda, goma, pelota)",
+      "nicho": "mascotas",
+      "componentes": ["comedero doble de silicona antideslizante", "set de 3 juguetes"],
+      "precio": 25990,
+      "precio_2u": 44990,
+      "costo_estimado": 7000,
+      "flete_estimado": 3800,
+      "criterios": {"demanda": 3, "estacionalidad": 2, "demostrable": 3, "baja_comparabilidad": 3, "logistica": 5, "ajuste_nicho": 5, "recompra": 2},
+      "riesgo_politica": 0,
+      "evidencia": "Regalo / primera compra al adoptar (70 % de los hogares tiene perro o gato, Kantar). Competencia 2026-10-04 (WebSearch, puntos de precio, NO mediana; sin curl): set de 3 juguetes en Lider $27.990; pack de 3 pelotas con sonido en Ripley $7.590; set de 20 juguetes Sodimac $14.990 (lista $18.990); comedero doble de silicona en Yapo $3.490. Hay sets más baratos y completos: producto con alta comparabilidad, el kit solo cierra si se vende como paquete de bienvenida con guía. Candidato débil, se deja para que lo evalúe economia.py. Costo y flete estimados, por verificar en Dropi.",
+      "fuentes": [
+        "https://www.lider.cl/ip/accesorios/set-3-juguetes-cuerda-goma-pelota-perro-gatos-mascotas-lau/00393796370010",
+        "https://simple.ripley.cl/mascotas/perro/juguetes",
+        "https://www.sodimac.cl/sodimac-cl/category/cat11780011/Juguetes-accesorios-para-perros",
+        "https://www.yapo.cl/anuncios-clasificados-mascotas-animales-accesorios-de-mascotas/plato-doble-en-silicona-con-comedero-come-lento-p/26775412"
+      ],
+      "ciclo": 2
     }
   ],
   "reintento": 1,

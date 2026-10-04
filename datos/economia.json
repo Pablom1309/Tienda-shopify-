@@ -543,6 +543,334 @@
         "G_base": 16249,
         "roas_equilibrio": 3.57
       }
+    },
+    {
+      "id": "kit-gato-sin-pelusas",
+      "precio": 27990,
+      "margen_bruto": 0.696,
+      "escenarios": {
+        "pesimista": {
+          "entrega": 0.6,
+          "G": 6560,
+          "G_con_iva": 4973,
+          "cpa_equilibrio": 6560,
+          "roas_equilibrio": 4.27,
+          "cpa_objetivo": 4560
+        },
+        "base": {
+          "entrega": 0.7,
+          "G": 8217,
+          "G_con_iva": 6365,
+          "cpa_equilibrio": 8217,
+          "roas_equilibrio": 3.41,
+          "cpa_objetivo": 6217
+        },
+        "optimista": {
+          "entrega": 0.8,
+          "G": 9873,
+          "G_con_iva": 7757,
+          "cpa_equilibrio": 9873,
+          "roas_equilibrio": 2.83,
+          "cpa_objetivo": 7873
+        }
+      },
+      "mezcla_base": {
+        "aov": 34590,
+        "G": 10627,
+        "roas_equilibrio": 3.26
+      },
+      "oferta_2u": {
+        "precio": 49990,
+        "G_base": 16249,
+        "roas_equilibrio": 3.08
+      }
+    },
+    {
+      "id": "kit-gato-hidratacion-filtros",
+      "precio": 34990,
+      "margen_bruto": 0.614,
+      "escenarios": {
+        "pesimista": {
+          "entrega": 0.6,
+          "G": 6985,
+          "G_con_iva": 5235,
+          "cpa_equilibrio": 6985,
+          "roas_equilibrio": 5.01,
+          "cpa_objetivo": 4985
+        },
+        "base": {
+          "entrega": 0.7,
+          "G": 8812,
+          "G_con_iva": 6770,
+          "cpa_equilibrio": 8812,
+          "roas_equilibrio": 3.97,
+          "cpa_objetivo": 6812
+        },
+        "optimista": {
+          "entrega": 0.8,
+          "G": 10638,
+          "G_con_iva": 8305,
+          "cpa_equilibrio": 10638,
+          "roas_equilibrio": 3.29,
+          "cpa_objetivo": 8638
+        }
+      },
+      "mezcla_base": {
+        "aov": 42490,
+        "G": 10865,
+        "roas_equilibrio": 3.91
+      },
+      "oferta_2u": {
+        "precio": 59990,
+        "G_base": 15654,
+        "roas_equilibrio": 3.83
+      }
+    },
+    {
+      "id": "kit-gato-juego-rascado",
+      "precio": 29990,
+      "margen_bruto": 0.65,
+      "escenarios": {
+        "pesimista": {
+          "entrega": 0.6,
+          "G": 5965,
+          "G_con_iva": 4378,
+          "cpa_equilibrio": 5965,
+          "roas_equilibrio": 5.03,
+          "cpa_objetivo": 3965
+        },
+        "base": {
+          "entrega": 0.7,
+          "G": 7622,
+          "G_con_iva": 5770,
+          "cpa_equilibrio": 7622,
+          "roas_equilibrio": 3.93,
+          "cpa_objetivo": 5622
+        },
+        "optimista": {
+          "entrega": 0.8,
+          "G": 9278,
+          "G_con_iva": 7162,
+          "cpa_equilibrio": 9278,
+          "roas_equilibrio": 3.23,
+          "cpa_objetivo": 7278
+        }
+      },
+      "mezcla_base": {
+        "aov": 36890,
+        "G": 9853,
+        "roas_equilibrio": 3.74
+      },
+      "oferta_2u": {
+        "precio": 52990,
+        "G_base": 15059,
+        "roas_equilibrio": 3.52
+      }
+    },
+    {
+      "id": "kit-paseo-hogar-limpio",
+      "precio": 25990,
+      "margen_bruto": 0.692,
+      "escenarios": {
+        "pesimista": {
+          "entrega": 0.6,
+          "G": 5795,
+          "G_con_iva": 4330,
+          "cpa_equilibrio": 5795,
+          "roas_equilibrio": 4.48,
+          "cpa_objetivo": 3795
+        },
+        "base": {
+          "entrega": 0.7,
+          "G": 7324,
+          "G_con_iva": 5615,
+          "cpa_equilibrio": 7324,
+          "roas_equilibrio": 3.55,
+          "cpa_objetivo": 5324
+        },
+        "optimista": {
+          "entrega": 0.8,
+          "G": 8853,
+          "G_con_iva": 6900,
+          "cpa_equilibrio": 8853,
+          "roas_equilibrio": 2.94,
+          "cpa_objetivo": 6853
+        }
+      },
+      "mezcla_base": {
+        "aov": 31690,
+        "G": 9288,
+        "roas_equilibrio": 3.41
+      },
+      "oferta_2u": {
+        "precio": 44990,
+        "G_base": 13869,
+        "roas_equilibrio": 3.24
+      }
+    },
+    {
+      "id": "kit-enriquecimiento-perro",
+      "precio": 27990,
+      "margen_bruto": 0.732,
+      "escenarios": {
+        "pesimista": {
+          "entrega": 0.6,
+          "G": 7070,
+          "G_con_iva": 5401,
+          "cpa_equilibrio": 7070,
+          "roas_equilibrio": 3.96,
+          "cpa_objetivo": 5070
+        },
+        "base": {
+          "entrega": 0.7,
+          "G": 8812,
+          "G_con_iva": 6865,
+          "cpa_equilibrio": 8812,
+          "roas_equilibrio": 3.18,
+          "cpa_objetivo": 6812
+        },
+        "optimista": {
+          "entrega": 0.8,
+          "G": 10553,
+          "G_con_iva": 8329,
+          "cpa_equilibrio": 10553,
+          "roas_equilibrio": 2.65,
+          "cpa_objetivo": 8553
+        }
+      },
+      "mezcla_base": {
+        "aov": 34290,
+        "G": 11222,
+        "roas_equilibrio": 3.06
+      },
+      "oferta_2u": {
+        "precio": 48990,
+        "G_base": 16844,
+        "roas_equilibrio": 2.91
+      }
+    },
+    {
+      "id": "piscina-plegable-perros-120",
+      "precio": 26990,
+      "margen_bruto": 0.722,
+      "escenarios": {
+        "pesimista": {
+          "entrega": 0.6,
+          "G": 5965,
+          "G_con_iva": 4378,
+          "cpa_equilibrio": 5965,
+          "roas_equilibrio": 4.52,
+          "cpa_objetivo": 3965
+        },
+        "base": {
+          "entrega": 0.7,
+          "G": 7622,
+          "G_con_iva": 5770,
+          "cpa_equilibrio": 7622,
+          "roas_equilibrio": 3.54,
+          "cpa_objetivo": 5622
+        },
+        "optimista": {
+          "entrega": 0.8,
+          "G": 9278,
+          "G_con_iva": 7162,
+          "cpa_equilibrio": 9278,
+          "roas_equilibrio": 2.91,
+          "cpa_objetivo": 7278
+        }
+      },
+      "mezcla_base": {
+        "aov": 33290,
+        "G": 10032,
+        "roas_equilibrio": 3.32
+      },
+      "oferta_2u": {
+        "precio": 47990,
+        "G_base": 15654,
+        "roas_equilibrio": 3.07
+      }
+    },
+    {
+      "id": "kit-bano-secado-perro",
+      "precio": 29990,
+      "margen_bruto": 0.717,
+      "escenarios": {
+        "pesimista": {
+          "entrega": 0.6,
+          "G": 7580,
+          "G_con_iva": 5830,
+          "cpa_equilibrio": 7580,
+          "roas_equilibrio": 3.96,
+          "cpa_objetivo": 5580
+        },
+        "base": {
+          "entrega": 0.7,
+          "G": 9407,
+          "G_con_iva": 7365,
+          "cpa_equilibrio": 9407,
+          "roas_equilibrio": 3.19,
+          "cpa_objetivo": 7407
+        },
+        "optimista": {
+          "entrega": 0.8,
+          "G": 11233,
+          "G_con_iva": 8900,
+          "cpa_equilibrio": 11233,
+          "roas_equilibrio": 2.67,
+          "cpa_objetivo": 9233
+        }
+      },
+      "mezcla_base": {
+        "aov": 36890,
+        "G": 11995,
+        "roas_equilibrio": 3.08
+      },
+      "oferta_2u": {
+        "precio": 52990,
+        "G_base": 18034,
+        "roas_equilibrio": 2.94
+      }
+    },
+    {
+      "id": "kit-bienvenida-cachorro",
+      "precio": 25990,
+      "margen_bruto": 0.731,
+      "escenarios": {
+        "pesimista": {
+          "entrega": 0.6,
+          "G": 6305,
+          "G_con_iva": 4759,
+          "cpa_equilibrio": 6305,
+          "roas_equilibrio": 4.12,
+          "cpa_objetivo": 4305
+        },
+        "base": {
+          "entrega": 0.7,
+          "G": 7919,
+          "G_con_iva": 6115,
+          "cpa_equilibrio": 7919,
+          "roas_equilibrio": 3.28,
+          "cpa_objetivo": 5919
+        },
+        "optimista": {
+          "entrega": 0.8,
+          "G": 9533,
+          "G_con_iva": 7471,
+          "cpa_equilibrio": 9533,
+          "roas_equilibrio": 2.73,
+          "cpa_objetivo": 7533
+        }
+      },
+      "mezcla_base": {
+        "aov": 31690,
+        "G": 10061,
+        "roas_equilibrio": 3.15
+      },
+      "oferta_2u": {
+        "precio": 44990,
+        "G_base": 15059,
+        "roas_equilibrio": 2.99
+      }
     }
   ]
 }

@@ -41,3 +41,20 @@ Método: descarga directa de los resultados de búsqueda de Falabella (marketpla
 - Mercado Libre Chile: requiere navegador con sesión o la cuenta del dueño (anotado en Bloqueadas).
 - Costos de envío de cada competidor (no vienen en los resultados de búsqueda).
 - Petco CL y TusMascotas (tiendas especializadas).
+
+## Ciclo 2 — componentes de candidatos nuevos (Falabella, 2026-10-04)
+Datos crudos: `investigacion/datos-competencia/falabella_ciclo2.json`. Búsquedas amplias: la mediana puede incluir artículos parecidos de otro tamaño.
+
+| Componente | Avisos | Mín | Mediana | Máx |
+|---|---|---|---|---|
+| Cepillo autolimpiante gato | 18 | 2.990 | 13.090 | 35.990 |
+| Varita con plumas | 32 | 2.990 | 3.990 | 44.980 |
+| Alfombra olfativa perro | 27 | 6.990 | 29.990 | 47.990 |
+| Tapete para lamer | 40 | 4.990 | 16.990 | 73.990 |
+| Piscina plegable perro | 34 | 10.990 | 18.990 | 78.099 |
+| Limpiador de patas | 13 | 5.990 | 7.900 | 14.990 |
+| Toalla microfibra mascota | 9 | 7.990 | 21.990 | 21.990 |
+| Rascador de cartón | 49 | 3.990 | 11.990 | 26.700 |
+| Filtros de fuente | 52 | 3.990 | 12.245 | 34.990 |
+
+[I] Suma de piezas a mediana: Kit Gato Sin Pelusas ≈ $26.000 (cepillo + removedor $9.990 + varita) vs precio $27.990 (+8 %); Kit Enriquecimiento ≈ $47.000 vs $27.990 (**bajo** la suma de piezas). Piscina: $26.990 vs mediana $18.990 (+42 %).

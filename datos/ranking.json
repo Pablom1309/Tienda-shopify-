@@ -29,6 +29,42 @@
       }
     },
     {
+      "id": "kit-gato-sin-pelusas",
+      "nombre": "Kit Gato Sin Pelusas: cepillo autolimpiante + removedor de pelos reutilizable + varita de juguete",
+      "nicho": "mascotas",
+      "puntaje": 4.13,
+      "pasa_porton": true,
+      "motivos_rechazo": [],
+      "notas": {
+        "demanda": 4,
+        "estacionalidad": 4,
+        "demostrable": 5,
+        "baja_comparabilidad": 3,
+        "logistica": 5,
+        "ajuste_nicho": 5,
+        "recompra": 2,
+        "economia": 4.35
+      }
+    },
+    {
+      "id": "kit-enriquecimiento-perro",
+      "nombre": "Kit Perro Entretenido en Casa: alfombra olfativa + tapete de lamer de silicona",
+      "nicho": "mascotas",
+      "puntaje": 4.04,
+      "pasa_porton": true,
+      "motivos_rechazo": [],
+      "notas": {
+        "demanda": 4,
+        "estacionalidad": 3,
+        "demostrable": 5,
+        "baja_comparabilidad": 3,
+        "logistica": 5,
+        "ajuste_nicho": 5,
+        "recompra": 2,
+        "economia": 4.85
+      }
+    },
+    {
       "id": "kit-verano-fresco",
       "nombre": "Kit Verano Fresco: alfombra refrigerante + botella bebedero de paseo",
       "nicho": "mascotas",
@@ -43,6 +79,96 @@
         "logistica": 4,
         "ajuste_nicho": 5,
         "recompra": 1,
+        "economia": 3.15
+      }
+    },
+    {
+      "id": "piscina-plegable-perros-120",
+      "nombre": "Piscina plegable para perros 120x30 cm",
+      "nicho": "mascotas",
+      "puntaje": 3.92,
+      "pasa_porton": true,
+      "motivos_rechazo": [],
+      "notas": {
+        "demanda": 4,
+        "estacionalidad": 5,
+        "demostrable": 5,
+        "baja_comparabilidad": 3,
+        "logistica": 2,
+        "ajuste_nicho": 5,
+        "recompra": 1,
+        "economia": 4.2
+      }
+    },
+    {
+      "id": "kit-paseo-hogar-limpio",
+      "nombre": "Kit Paseo Limpio: limpiador de patas portátil + dispensador con bolsas (8 rollos) + comedero plegable",
+      "nicho": "mascotas",
+      "puntaje": 3.85,
+      "pasa_porton": true,
+      "motivos_rechazo": [],
+      "notas": {
+        "demanda": 3,
+        "estacionalidad": 3,
+        "demostrable": 4,
+        "baja_comparabilidad": 4,
+        "logistica": 5,
+        "ajuste_nicho": 5,
+        "recompra": 4,
+        "economia": 3.97
+      }
+    },
+    {
+      "id": "kit-bano-secado-perro",
+      "nombre": "Kit Baño y Secado: toalla de microfibra + cepillo de silicona + guante de baño (sin shampoo)",
+      "nicho": "mascotas",
+      "puntaje": 3.83,
+      "pasa_porton": true,
+      "motivos_rechazo": [],
+      "notas": {
+        "demanda": 3,
+        "estacionalidad": 4,
+        "demostrable": 4,
+        "baja_comparabilidad": 3,
+        "logistica": 5,
+        "ajuste_nicho": 5,
+        "recompra": 2,
+        "economia": 4.8
+      }
+    },
+    {
+      "id": "kit-gato-hidratacion-filtros",
+      "nombre": "Kit Fuente para gatos 2,5 L + pack de 6 filtros de repuesto",
+      "nicho": "mascotas",
+      "puntaje": 3.62,
+      "pasa_porton": true,
+      "motivos_rechazo": [],
+      "notas": {
+        "demanda": 4,
+        "estacionalidad": 3,
+        "demostrable": 4,
+        "baja_comparabilidad": 3,
+        "logistica": 3,
+        "ajuste_nicho": 5,
+        "recompra": 5,
+        "economia": 2.72
+      }
+    },
+    {
+      "id": "kit-gato-juego-rascado",
+      "nombre": "Kit Gato Entretenido: rascador de cartón + pelota interactiva recargable",
+      "nicho": "mascotas",
+      "puntaje": 3.51,
+      "pasa_porton": true,
+      "motivos_rechazo": [],
+      "notas": {
+        "demanda": 4,
+        "estacionalidad": 2,
+        "demostrable": 5,
+        "baja_comparabilidad": 3,
+        "logistica": 3,
+        "ajuste_nicho": 5,
+        "recompra": 2,
         "economia": 3.15
       }
     },
@@ -125,6 +251,26 @@
         "ajuste_nicho": 5,
         "recompra": 4,
         "economia": 2.35
+      }
+    },
+    {
+      "id": "kit-bienvenida-cachorro",
+      "nombre": "Kit Bienvenida Cachorro: comedero doble de silicona + set de 3 juguetes (cuerda, goma, pelota)",
+      "nicho": "mascotas",
+      "puntaje": 3.36,
+      "pasa_porton": false,
+      "motivos_rechazo": [
+        "puntaje 3.36 < 3.4"
+      ],
+      "notas": {
+        "demanda": 3,
+        "estacionalidad": 2,
+        "demostrable": 3,
+        "baja_comparabilidad": 3,
+        "logistica": 5,
+        "ajuste_nicho": 5,
+        "recompra": 2,
+        "economia": 4.62
       }
     },
     {
