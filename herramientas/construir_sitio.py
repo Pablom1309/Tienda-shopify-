@@ -324,10 +324,9 @@ def portada(productos, marca, tienda):
             return p["mascota"]
         t = (p["id"] + " " + p.get("rol", "")).lower()
         return "gato" if "gato" in t else ("perro" if "perro" in t or "paseo" in t else "ambos")
-    tarjetas = "".join(f"""<a class="tarjeta revelar" data-mascota="{mascota(p)}" href="productos/{e(f['handle'])}.html">{imagen(p['id'], f['alt_imagenes'][0], '', 'foto foto-tarjeta', sizes='(min-width:900px) 50vw, 100vw')}
-<div class="tarjeta-cuerpo"><span class="etiqueta">{e(etiqueta_publica(p))}</span><h3>{e(f['titulo_seo'].split(':')[0])}</h3><p>{e(f['subtitular'])}</p>
-<ul class="tarjeta-incluye">{''.join(f"<li>{icono('check', 'ico ico-s')}{e(i)}</li>" for i in f['incluye'][:2])}</ul>
-<div class="tarjeta-pie"><div><strong>{clp(p['precio'])}</strong><small>o 2 por {clp(p['oferta_2'])}</small></div><span class="boton boton-chico">Ver kit {icono('flecha', 'ico ico-s')}</span></div></div></a>"""
+    tarjetas = "".join(f"""<a class="tarjeta revelar" data-mascota="{mascota(p)}" href="productos/{e(f['handle'])}.html">{imagen(p['id'], f['alt_imagenes'][0], '', 'foto foto-tarjeta', sizes='(min-width:1100px) 25vw, (min-width:700px) 33vw, 50vw')}
+<div class="tarjeta-cuerpo"><span class="etiqueta">{e(etiqueta_publica(p))}</span><h3>{e(f['titulo_seo'].split(':')[0])}</h3>
+<div class="tarjeta-pie"><div><strong>{clp(p['precio'])}</strong><small>2 por {clp(p['oferta_2'])}</small></div><span class="boton boton-chico" aria-hidden="true">Ver {icono('flecha', 'ico ico-s')}</span></div></div></a>"""
                        for p, f in productos)
     pilares = "".join(f'<li class="revelar">{icono(i)}<div><strong>{e(x["pilar"])}</strong><p>{e(x["prueba"])}</p></div></li>'
                       for i, x in zip(("kit", "estrella"), [x for x in marca["pilares"] if x["pilar"] != "Compra sin riesgo"]))
@@ -404,7 +403,8 @@ def main():
     productos = [(p, fichas[p["id"]]) for p in cargar("catalogo.json")["productos"]
                  if p["estado"] in ("aprobado_para_test", "escalar") and p["id"] in fichas]
     orden = tienda.get("orden_vitrina", [])  # el dueño decide qué kit va primero; los no listados siguen en orden de catálogo
-    productos.sort(key=lambda pf: orden.index(pf[0]["id"]) if pf[0]["id"] in orden else len(orden))
+    tiene_foto = lambda pid: (PLANTILLA / "img" / f"{pid}.jpg").exists()
+    productos.sort(key=lambda pf: (orden.index(pf[0]["id"]), 0) if pf[0]["id"] in orden else (len(orden), 0 if tiene_foto(pf[0]["id"]) else 1))
     if SITIO.exists():
         shutil.rmtree(SITIO)
     (SITIO / "productos").mkdir(parents=True)
