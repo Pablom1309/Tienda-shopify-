@@ -1,4 +1,4 @@
-# Kimo — tienda autónoma de dropshipping (Chile)
+# Kuchiwau — tienda autónoma de dropshipping (Chile)
 
 Tienda de kits de cuidado para mascotas con pago contra entrega, operada por un **grafo de agentes** que investiga el mercado, busca productos, los valida con números, genera la tienda y el plan de anuncios, y se ejecuta solo todos los días.
 

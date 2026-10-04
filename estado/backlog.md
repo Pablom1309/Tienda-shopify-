@@ -39,7 +39,7 @@ Tareas que requieren al dueño van en "Bloqueadas (portón humano)": nunca se ej
 - [ ] (recurrente) Actualizar `estado/informe-manana.md` con lo hecho en la noche, hallazgos clave y decisiones que necesitan al dueño, en ≤ 25 líneas.
 
 ## Bloqueadas (portón humano) — no ejecutar
-- Registrar kimo.cl (nic.cl) y revisar "Kimo" en INAPI (clases 35, 18, 21, 28).
+- Registrar kuchiwau.cl (y kuchiguau.cl, cuchiguau.cl para redirigir) y solicitar la marca "Kuchiwau" en INAPI (clases 35, 18, 21, 28). Kimo descartado: registrado por Puratos S.A.
 - Datos legales en `datos/tienda.json` (correo, dirección, razón social, RUT). WhatsApp listo el 2026-10-04.
 - Costos reales y proveedor en Dropi (requiere la cuenta del dueño).
 - Aprobación de presupuesto de anuncios y creación de campañas.

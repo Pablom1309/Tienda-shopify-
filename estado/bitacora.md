@@ -95,3 +95,7 @@ Cada ciclo agrega una entrada al final: fecha, nodos ejecutados, decisiones del 
 ## 2026-10-04 ~13:00 UTC — dueño entregó WhatsApp
 - `datos/tienda.json` → whatsapp 56979814797. Formulario probado en Chromium: abre wa.me con el pedido completo. La tienda ya puede recibir pedidos por WhatsApp.
 - Siguen pendientes: correo, dirección comercial, razón social y RUT.
+
+## 2026-10-04 ~14:00 UTC — nombre definitivo: Kuchiwau
+- Kimo descartado: KIMO registrado en INAPI por Puratos S.A. (clases 1 y 30), detectado por el dueño. Lección: verificar INAPI (lo hace el dueño; INAPI no es accesible desde el entorno) antes de proponer nombres.
+- Nuevo nombre **Kuchiwau** (idea del dueño; "cuchi cuchi" + "wau"). Dueño verificó en INAPI que no hay marcas "Kuchi"; kuchiwau.cl libre. Cambiado en marca, fichas, plan de anuncios, plantilla, logo (estrella como punto de la i), SKU KW-.

@@ -1,8 +1,8 @@
 {
-  "nombre": "Kimo",
-  "verificar": "Antes de invertir: buscar 'Kimo' en INAPI (marcas, clases 35 y 18/21/28 de artículos para mascotas). kimo.cl figuraba libre en nic.cl el 2026-10-04; búsqueda web no mostró una marca de mascotas 'Kimo' (sí 'Kmimos', México, servicios de cuidado, y 'Kimi Pet', Vietnam).",
+  "nombre": "Kuchiwau",
+  "verificar": "Dueño verificó en INAPI (2026-10-04) que no existen marcas 'Kuchi'. kuchiwau.cl, kuchiguau.cl y cuchiguau.cl libres en nic.cl el 2026-10-04. Pendiente: solicitar registro en INAPI (clases 35, 18, 21, 28) y registrar los dominios.",
   "promesa": "Menos pelo en tu casa y más frescura para tu mascota, con pago al recibir.",
-  "enunciado": "Para dueños de perros y gatos en Chile que viven con pelo en todas partes y veranos cada vez más calurosos, Kimo es una tienda de kits de cuidado en casa que resuelve el problema completo en un solo pedido, porque arma soluciones y no productos sueltos. A diferencia de comprar piezas sueltas en marketplaces, recibes el kit probado, con garantía legal y pagas cuando llega.",
+  "enunciado": "Para dueños de perros y gatos en Chile que viven con pelo en todas partes y veranos cada vez más calurosos, Kuchiwau es una tienda de kits de cuidado en casa que resuelve el problema completo en un solo pedido, porque arma soluciones y no productos sueltos. A diferencia de comprar piezas sueltas en marketplaces, recibes el kit probado, con garantía legal y pagas cuando llega.",
   "cliente_ideal": "Dueños de perros y gatos de 25 a 50 años en Chile urbano, que viven en departamento o casa con muebles de tela, y valoran el tiempo.",
   "pilares": [
     {
@@ -40,6 +40,7 @@
     "estrella": "#FFC845"
   },
   "tipografia": "Nunito",
-  "nombre_anterior": "Huella Sur (cambiado por decisión del dueño el 2026-10-04)",
-  "paleta_nota": "Paleta 'tinta y mandarina' (2026-10-04): azul tinta = confianza (como Chewy/BarkBox), mandarina = calidez y botón de compra, crema cálida de fondo (estilo DTC tipo Wild One/Fable). Contrastes verificados WCAG AA. Ver investigacion/paleta-colores.md."
+  "nombre_anterior": "Huella Sur → Kimo (descartado 2026-10-04: KIMO registrado en INAPI por Puratos S.A., clases 1 y 30) → Kuchiwau",
+  "paleta_nota": "Paleta 'tinta y mandarina' (2026-10-04): azul tinta = confianza (como Chewy/BarkBox), mandarina = calidez y botón de compra, crema cálida de fondo (estilo DTC tipo Wild One/Fable). Contrastes verificados WCAG AA. Ver investigacion/paleta-colores.md.",
+  "origen_nombre": "'Cuchi cuchi' (el mimo a la mascota) + 'wau' (ladrido). Idea del dueño."
 }
