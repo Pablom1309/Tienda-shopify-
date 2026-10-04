@@ -2,6 +2,10 @@
 
 Se actualiza al final de cada turno autónomo. Lo más reciente arriba.
 
+## 2026-10-04 ~08:30 (Chile) — por tu pedido: 6 kits en la tienda
+- Subí el límite de productos activos de 2 a 6 y publiqué 4 kits nuevos: Gato Sin Pelusas, Perro Entretenido, Paseo Limpio y Baño y Secado.
+- Para ti: en Dropi cotiza las piezas de los 4 kits nuevos (mismo proveedor por kit) antes de pautar.
+
 ## 2026-10-04 ~08:00 (Chile) — turno: auditoría de conversión
 - Hecho: auditoría de la tienda → `investigacion/auditoria-conversion.md`; revisada en Chromium (móvil y escritorio) sin errores propios.
 - Cambios en la tienda: plazo de entrega junto al precio, enlaces a retracto y privacidad junto al botón, y casilla opcional de consentimiento para WhatsApp (Ley 21.719).

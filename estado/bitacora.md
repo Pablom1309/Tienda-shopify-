@@ -68,3 +68,8 @@ Cada ciclo agrega una entrada al final: fecha, nodos ejecutados, decisiones del 
 - Implementado (plantilla + construir_sitio.py): plazo junto al precio, retracto/privacidad enlazados, consentimiento WhatsApp opcional (cierra 2 tareas P3).
 - Chromium 390/1366 px: sin scroll horizontal; solo error de Google Fonts por certificado del proxy del entorno.
 - Nueva tarea: corregir evento del píxel (Purchase → Lead).
+
+## 2026-10-04 ~11:30 UTC — instrucción directa del dueño: más productos en la tienda
+- Límite de activos 2 → 6 (`max_activos` en supuestos; verificar.py y validador.md lo leen).
+- Activados desde observación: kit-gato-sin-pelusas, kit-enriquecimiento-perro, kit-paseo-hogar-limpio, kit-bano-secado-perro (piscina no: canibaliza Kit Verano). Fichas por creador-tienda; sitio con 6 kits.
+- Costos siguen estimados: verificar todos en Dropi antes de pautar.
