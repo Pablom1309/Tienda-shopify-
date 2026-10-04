@@ -2,6 +2,13 @@
 
 Se actualiza al final de cada turno autónomo. Lo más reciente arriba.
 
+## 2026-10-04 ~03:00 (Chile) — turno: referentes mundiales
+- Hecho: lo aplicable de Chewy, Wild One, Fable, Baymard, Hormozi y Meta → `investigacion/playbook-referentes.md`.
+- Clave: Chewy vive de la recompra (83 % de sus ventas son suscripción) → la fuente con filtros merece evaluarse como 2.º producto.
+- Clave: los kits de Wild One cuestan menos que las piezas; los nuestros, más que las piezas en Falabella. Refuerza revisar el precio de Kit Pelo Cero.
+- Clave: Meta premia 3-5 anuncios realmente distintos, no 10 variaciones del mismo; ajusté la tarea de creativos.
+- Para ti (antes del 1-dic): los recordatorios por WhatsApp necesitarán consentimiento expreso (Ley 21.719); se agregará una casilla al formulario.
+
 ## 2026-10-04 ~02:00 (Chile) — turno: cliente y objeciones
 - Hecho: perfil de cliente y objeciones desde reseñas reales de Falabella → `investigacion/cliente-objeciones.md`.
 - Clave: lo que más molesta es "más chico que la foto", "el vapor casi no se nota" y "no trae instrucciones de carga". Conviene mostrar medidas en cm y una mini-guía de uso.

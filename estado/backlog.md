@@ -7,7 +7,7 @@ Tareas que requieren al dueño van en "Bloqueadas (portón humano)": nunca se ej
 - [x] (2026-10-04) → `investigacion/mercado-mascotas-chile.md` · **Mercado objetivo Chile (mascotas):** tamaño del mercado, % de hogares con perros/gatos, gasto promedio, crecimiento, canales de compra online, estacionalidad, regiones. Fuentes con URL. → `investigacion/mercado-mascotas-chile.md`
 - [x] (2026-10-04) → `investigacion/competencia-precios.md` · **Competencia real con precios:** leer Mercado Libre Chile, Falabella, Paris y tiendas de mascotas online (Petco, SuperZoo, Club de Perros y Gatos u otras) para los componentes de nuestros kits: precio mínimo/mediano/máximo, envío, reseñas, cómo se presentan. Actualizar `evidencia` en `datos/candidatos.json` sin inventar. → `investigacion/competencia-precios.md`
 - [x] (2026-10-04) → `investigacion/cliente-objeciones.md` · **Cliente ideal (buyer persona) y objeciones:** a partir de reseñas y preguntas públicas de compradores en Mercado Libre/Falabella: dolores, palabras que usan, objeciones, motivos de devolución. → `investigacion/cliente-objeciones.md`
-- [ ] **Referentes mundiales:** cómo venden online los mejores (marcas DTC de mascotas como Chewy, BarkBox, Wild One, Fable; operadores de contra entrega LATAM; guías de conversión de Baymard Institute; marcos de oferta tipo "Grand Slam Offer"; estrategia creativa en Meta). Extraer solo lo aplicable a nuestra tienda, con fuente, y convertirlo en tareas concretas al final de este backlog. → `investigacion/playbook-referentes.md`
+- [x] (2026-10-04) → `investigacion/playbook-referentes.md` · **Referentes mundiales:** cómo venden online los mejores (marcas DTC de mascotas como Chewy, BarkBox, Wild One, Fable; operadores de contra entrega LATAM; guías de conversión de Baymard Institute; marcos de oferta tipo "Grand Slam Offer"; estrategia creativa en Meta). Extraer solo lo aplicable a nuestra tienda, con fuente, y convertirlo en tareas concretas al final de este backlog. → `investigacion/playbook-referentes.md`
 - [ ] **Estacionalidad con Google Trends CL:** descargar curvas semanales 5 años de "cepillo para perros", "cama refrescante perro", "fuente de agua gatos" y confirmar las ventanas del calendario. → `investigacion/estacionalidad-trends.md`
 
 ## Prioridad 2 — Más productos rentables
@@ -23,11 +23,15 @@ Tareas que requieren al dueño van en "Bloqueadas (portón humano)": nunca se ej
 - [ ] **SEO de contenido:** 2 guías útiles en `sitio/guias/` (por ejemplo "Cómo reducir el pelo de tu mascota en casa" y "Verano con tu perro: guía práctica para Chile"), sin afirmaciones de salud, con enlaces internos a los kits y datos estructurados de artículo.
 - [ ] **FAQ y copy desde objeciones reales (creador-tienda):** agregar a las fichas "¿Qué tamaño tiene?" (cm), "¿Cómo se carga y cuánto dura?" (por confirmar con proveedor) y "¿Qué talla elijo?"; describir el vapor como bruma fina sin sobreprometer. Fuente: `investigacion/cliente-objeciones.md`.
 - [ ] **Plantilla de confirmación por WhatsApp (borrador, no enviar):** producto, foto, total a pagar al recibir, fecha estimada y cómo reprogramar. → `datos/plantillas_whatsapp.md`
+- [ ] **Oferta por kit con la ecuación de valor (Hormozi):** resultado, probabilidad (guía, cambio, pago al recibir), demora (plazo visible), esfuerzo; bonos de bajo costo (guía PDF). Sin escasez ni testimonios inventados. → `datos/ofertas.md`
+- [ ] **Plazo de entrega y resumen de cambios junto al botón de pedido** (Baymard: envío lento 21 % y devoluciones 15 % de abandonos); plazos "por confirmar con Dropi".
+- [ ] **Página de gracias con upsell de un clic** del complemento (sacarlo del formulario previo si baja fricción).
+- [ ] **Consentimiento expreso para recordatorios por WhatsApp** (Ley 21.719, vigente 1-dic-2026): casilla opcional, desmarcada, en el formulario.
 - [ ] **Rendimiento:** medir peso total por página y tiempos con Chromium; bajar lo que sobre (fuentes, imágenes, CSS no usado).
 
 ## Prioridad 4 — Adquisición
 - [ ] **Calendario de contenido orgánico de 30 días** (Reels/TikTok) con guiones, ganchos y textos, alineado con `datos/plan_ads.json`. → `datos/contenido_organico.md`
-- [ ] **Creativos para anuncios:** 10 variaciones de gancho por kit (texto en pantalla, primera línea del texto), cumpliendo políticas de Meta. Actualizar `datos/plan_ads.json`.
+- [ ] **Creativos para anuncios:** 4-5 conceptos realmente distintos por kit (persona × ángulo × formato, ver `investigacion/playbook-referentes.md`), cada uno con 2-3 ganchos (texto en pantalla, primera línea del texto), cumpliendo políticas de Meta. Actualizar `datos/plan_ads.json`.
 - [ ] **Plan de lanzamiento consolidado para el dueño:** checklist día a día de los primeros 14 días, con lo que hace él y lo que hace el sistema. → `investigacion/plan-lanzamiento.md`
 
 ## Cierre de cada turno

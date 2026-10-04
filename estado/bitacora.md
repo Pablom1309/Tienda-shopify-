@@ -29,3 +29,8 @@ Cada ciclo agrega una entrada al final: fecha, nodos ejecutados, decisiones del 
 - Hallazgos: quejas por tamaño vs foto, vapor que "casi no se nota", falta de instructivo de carga, deshilachado; fuente de gatos: filtros/hongos y bomba. Lenguaje: "regalón/a", "pelo muerto".
 - Dos públicos: familia con perro (principal) y dueño/a de gato en hogar pequeño.
 - Nuevas tareas: FAQ/copy desde objeciones y plantilla de confirmación por WhatsApp. Mercado Libre sigue bloqueado.
+
+## Turno 2026-10-04 05:55 UTC — referentes mundiales
+- Tarea: Chewy (Autoship 83,3 % de ventas FY2025), Wild One/Fable (kits con 15-20 % de descuento), Baymard (abandono: costos extra 39 %, envío lento 21 %), Hormozi (ecuación de valor), Meta Andromeda (diversidad creativa) y operadores COD → `investigacion/playbook-referentes.md`.
+- Decisión: creativos pasan de "10 ganchos" a 4-5 conceptos distintos por kit.
+- Nuevas tareas P3: oferta por kit, plazo y cambios junto al botón, página de gracias con upsell, consentimiento WhatsApp (Ley 21.719).
