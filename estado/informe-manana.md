@@ -2,6 +2,12 @@
 
 Se actualiza al final de cada turno autónomo. Lo más reciente arriba.
 
+## 2026-10-04 ~02:00 (Chile) — turno: cliente y objeciones
+- Hecho: perfil de cliente y objeciones desde reseñas reales de Falabella → `investigacion/cliente-objeciones.md`.
+- Clave: lo que más molesta es "más chico que la foto", "el vapor casi no se nota" y "no trae instrucciones de carga". Conviene mostrar medidas en cm y una mini-guía de uso.
+- Clave: los compradores dicen "mi regalón/a" y "pelo muerto": úsalo en anuncios.
+- Para ti: cuando tengas la muestra física, toma fotos con la mano como referencia de tamaño y anota el tiempo de carga.
+
 ## 2026-10-04 ~01:00 (Chile) — turno: competencia con precios
 - Hecho: precios reales de Falabella y Paris por componente → `investigacion/competencia-precios.md`.
 - Clave: el cepillo a vapor se vende a $4.990-$7.445 en Falabella; la suma de piezas de Kit Pelo Cero es ~$17.000 vs nuestro $26.990 (+55 %). Kit Verano queda mejor (+41 %).

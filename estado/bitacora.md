@@ -23,3 +23,9 @@ Cada ciclo agrega una entrada al final: fecha, nodos ejecutados, decisiones del 
 - Hallazgo: cepillo a vapor mediana $7.445 (Falabella), con reseñas desde $4.990; manta refrescante mediana ~$14.500; Kit Pelo Cero cobra +55 % sobre la suma de piezas, Kit Verano +41 %.
 - Decisión: no se toca el catálogo; nueva tarea para que el validador revalúe el precio de Kit Pelo Cero.
 - Bloqueo: Mercado Libre CL (anti-bots y API 403) → anotado en Bloqueadas.
+
+## Turno 2026-10-04 04:55 UTC — cliente ideal y objeciones
+- Tarea: reseñas públicas de 9 productos en Falabella (45 reseñas, ~25 con texto) → `investigacion/cliente-objeciones.md` (+ `datos-competencia/resenas_falabella.json`).
+- Hallazgos: quejas por tamaño vs foto, vapor que "casi no se nota", falta de instructivo de carga, deshilachado; fuente de gatos: filtros/hongos y bomba. Lenguaje: "regalón/a", "pelo muerto".
+- Dos públicos: familia con perro (principal) y dueño/a de gato en hogar pequeño.
+- Nuevas tareas: FAQ/copy desde objeciones y plantilla de confirmación por WhatsApp. Mercado Libre sigue bloqueado.

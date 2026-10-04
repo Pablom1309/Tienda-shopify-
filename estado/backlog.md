@@ -6,7 +6,7 @@ Tareas que requieren al dueño van en "Bloqueadas (portón humano)": nunca se ej
 ## Prioridad 1 — Conocer el mercado y el negocio
 - [x] (2026-10-04) → `investigacion/mercado-mascotas-chile.md` · **Mercado objetivo Chile (mascotas):** tamaño del mercado, % de hogares con perros/gatos, gasto promedio, crecimiento, canales de compra online, estacionalidad, regiones. Fuentes con URL. → `investigacion/mercado-mascotas-chile.md`
 - [x] (2026-10-04) → `investigacion/competencia-precios.md` · **Competencia real con precios:** leer Mercado Libre Chile, Falabella, Paris y tiendas de mascotas online (Petco, SuperZoo, Club de Perros y Gatos u otras) para los componentes de nuestros kits: precio mínimo/mediano/máximo, envío, reseñas, cómo se presentan. Actualizar `evidencia` en `datos/candidatos.json` sin inventar. → `investigacion/competencia-precios.md`
-- [ ] **Cliente ideal (buyer persona) y objeciones:** a partir de reseñas y preguntas públicas de compradores en Mercado Libre/Falabella: dolores, palabras que usan, objeciones, motivos de devolución. → `investigacion/cliente-objeciones.md`
+- [x] (2026-10-04) → `investigacion/cliente-objeciones.md` · **Cliente ideal (buyer persona) y objeciones:** a partir de reseñas y preguntas públicas de compradores en Mercado Libre/Falabella: dolores, palabras que usan, objeciones, motivos de devolución. → `investigacion/cliente-objeciones.md`
 - [ ] **Referentes mundiales:** cómo venden online los mejores (marcas DTC de mascotas como Chewy, BarkBox, Wild One, Fable; operadores de contra entrega LATAM; guías de conversión de Baymard Institute; marcos de oferta tipo "Grand Slam Offer"; estrategia creativa en Meta). Extraer solo lo aplicable a nuestra tienda, con fuente, y convertirlo en tareas concretas al final de este backlog. → `investigacion/playbook-referentes.md`
 - [ ] **Estacionalidad con Google Trends CL:** descargar curvas semanales 5 años de "cepillo para perros", "cama refrescante perro", "fuente de agua gatos" y confirmar las ventanas del calendario. → `investigacion/estacionalidad-trends.md`
 
@@ -21,6 +21,8 @@ Tareas que requieren al dueño van en "Bloqueadas (portón humano)": nunca se ej
 - [ ] **Página "Nosotros" honesta** (quiénes somos, cómo elegimos los kits, cómo funciona el servicio) sin inventar historia, cifras ni testimonios.
 - [ ] **Guía de tallas** para la alfombra (qué talla según peso/tamaño del perro) y especificaciones claras; marcar como "por confirmar con proveedor" lo no verificado.
 - [ ] **SEO de contenido:** 2 guías útiles en `sitio/guias/` (por ejemplo "Cómo reducir el pelo de tu mascota en casa" y "Verano con tu perro: guía práctica para Chile"), sin afirmaciones de salud, con enlaces internos a los kits y datos estructurados de artículo.
+- [ ] **FAQ y copy desde objeciones reales (creador-tienda):** agregar a las fichas "¿Qué tamaño tiene?" (cm), "¿Cómo se carga y cuánto dura?" (por confirmar con proveedor) y "¿Qué talla elijo?"; describir el vapor como bruma fina sin sobreprometer. Fuente: `investigacion/cliente-objeciones.md`.
+- [ ] **Plantilla de confirmación por WhatsApp (borrador, no enviar):** producto, foto, total a pagar al recibir, fecha estimada y cómo reprogramar. → `datos/plantillas_whatsapp.md`
 - [ ] **Rendimiento:** medir peso total por página y tiempos con Chromium; bajar lo que sobre (fuentes, imágenes, CSS no usado).
 
 ## Prioridad 4 — Adquisición
