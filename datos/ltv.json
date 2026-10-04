@@ -1,0 +1,47 @@
+{
+  "supuestos": {
+    "tasa_confirmacion_recompra": 0.95,
+    "entrega_recompra": 0.9,
+    "horizonte_meses": 6,
+    "escenarios": {
+      "pesimista": {
+        "tasa_recompra": 0.15,
+        "pedidos_por_recomprador": 1.0
+      },
+      "base": {
+        "tasa_recompra": 0.3,
+        "pedidos_por_recomprador": 1.5
+      },
+      "optimista": {
+        "tasa_recompra": 0.45,
+        "pedidos_por_recomprador": 2.0
+      }
+    }
+  },
+  "productos": [
+    {
+      "id": "kit-gato-hidratacion-filtros",
+      "G_primer_pedido": 10865,
+      "aov": 42490,
+      "pedido_recompra": "pack 6 filtros",
+      "G_por_recompra": 5209,
+      "escenarios": {
+        "pesimista": {
+          "ganancia_recompra": 465,
+          "ltv": 11330,
+          "roas_equilibrio_ltv": 3.75
+        },
+        "base": {
+          "ganancia_recompra": 1395,
+          "ltv": 12260,
+          "roas_equilibrio_ltv": 3.47
+        },
+        "optimista": {
+          "ganancia_recompra": 2789,
+          "ltv": 13654,
+          "roas_equilibrio_ltv": 3.11
+        }
+      }
+    }
+  ]
+}

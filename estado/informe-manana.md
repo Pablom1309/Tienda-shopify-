@@ -2,6 +2,11 @@
 
 Se actualiza al final de cada turno autónomo. Lo más reciente arriba.
 
+## 2026-10-04 ~06:00 (Chile) — turno: producto con recompra
+- Hecho: valor de vida del cliente para fuente de gatos + filtros → `investigacion/recompra-fuente-gatos.md`; nueva herramienta `herramientas/ltv.py` (gratis, en el grafo).
+- Clave: la recompra de filtros deja ~$5.200 por pedido (sin anuncios) y sube el valor del cliente ~13 % a 6 meses; el ROAS de equilibrio baja de 3,91 a 3,47. Ayuda, pero no supera al kit de gatos ni justifica cambiar los activos.
+- Para ti: en Dropi, confirma que la fuente y sus filtros sean del mismo proveedor y compatibles.
+
 ## 2026-10-04 ~05:00 (Chile) — turno: ciclo 2 de productos
 - Hecho: 8 candidatos nuevos (7 kits + piscina), economía, puntaje y portón del validador → `datos/catalogo.json`.
 - Activos sin cambios: Kit Pelo Cero ($26.990) y Kit Verano Fresco ($32.990, 16-nov a 31-ene).

@@ -52,3 +52,8 @@ Cada ciclo agrega una entrada al final: fecha, nodos ejecutados, decisiones del 
 ## Turno 2026-10-04 07:55 UTC — ciclo 2 de productos (orquestador)
 - Nodos: cazador-productos (sonnet) → economia → puntaje → validador (opus). 8 nuevos, 7 pasan el filtro determinista; medianas de Falabella medidas por el orquestador (el cazador no tiene Bash).
 - Portón: activos sin cambio; 7 en observación con prioridad (Kit Gato Sin Pelusas primero); 2 descartados.
+
+## Turno 2026-10-04 08:55 UTC — segundo producto con recompra
+- Tarea: LTV de kit hidratación gatos + filtros → `investigacion/recompra-fuente-gatos.md`; nodo determinista nuevo `ltv` (`herramientas/ltv.py`, `datos/ltv.json`, bloque `recompra` en supuestos).
+- Resultado: G por recompra $5.209; LTV base $12.260 (+13 %); ROAS eq. 3,91 → 3,47.
+- Decisión: sigue en observación; requisito: filtros compatibles del mismo proveedor en Dropi + WhatsApp con consentimiento.
