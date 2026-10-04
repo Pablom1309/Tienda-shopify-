@@ -12,6 +12,14 @@
   f.addEventListener('change', pintar);
   f.addEventListener('submit', function (ev) {
     ev.preventDefault();
+    // Marca los campos incompletos sin perder lo escrito.
+    var primero = null;
+    f.querySelectorAll('[required]').forEach(function (el) {
+      var ok = el.checkValidity();
+      el.closest('.campo') && el.closest('.campo').classList.toggle('error', !ok);
+      if (!ok && !primero) primero = el;
+    });
+    if (primero) { primero.focus(); return; }
     var d = new FormData(f);
     var c = f.querySelector('input[name=complemento]');
     var lineas = [
