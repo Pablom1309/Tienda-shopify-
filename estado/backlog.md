@@ -45,6 +45,6 @@ Tareas que requieren al dueño van en "Bloqueadas (portón humano)": nunca se ej
 - Aprobación de presupuesto de anuncios y creación de campañas.
 - Plan pagado de Shopify e importación del CSV.
 - Fotos reales del producto (requiere muestra física).
-- Verificar en Dropi comisión por pedido, flete de devolución y días de liquidación (mueven el CPA de equilibrio ~$1.700).
+- Verificar en Dropi comisión por pedido, flete de devolución y días de liquidación (mueven el CPA de equilibrio ~$1.700). Preguntas a soporte en `investigacion/dropi-facturacion.md` (quién factura flete/comisión/producto).
 - Confirmar en Dropi fuente + filtros compatibles del mismo proveedor (sin eso no hay recompra).
 - Precios de Mercado Libre Chile: la búsqueda pide verificación anti-bots y la API exige credenciales (revisar a mano o con la cuenta del dueño).
