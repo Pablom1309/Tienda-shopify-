@@ -10,6 +10,7 @@ y lo envía por WhatsApp al número configurado en datos/tienda.json.
 import csv
 import html
 import json
+import re
 import shutil
 import subprocess
 from pathlib import Path
@@ -89,11 +90,10 @@ def imagen(nombre, alt, base, clase="foto", referencial=True, sizes="(min-width:
 
 
 def ilustracion(pid):
-    if pid == "kit-pelo-cero":
-        figura = '<rect x="60" y="70" width="120" height="60" rx="30" fill="var(--primario)"/><rect x="170" y="88" width="70" height="24" rx="12" fill="var(--primario)" opacity=".7"/>'
-    else:
-        figura = '<rect x="40" y="110" width="220" height="50" rx="14" fill="var(--primario)" opacity=".85"/><rect x="200" y="40" width="34" height="70" rx="10" fill="var(--acento)"/>'
-    return f'<svg viewBox="0 0 300 200" role="img" aria-label="Ilustración del producto">{figura}</svg>'
+    """Imagen provisional de marca para productos sin foto (no inventa cómo se ve el producto)."""
+    iso = (PLANTILLA / "isotipo.svg").read_text(encoding="utf-8").strip()
+    iso = iso.replace("<svg ", '<svg class="ilus-iso" aria-hidden="true" ', 1).replace(' role="img" aria-label="Kuchiwau"', "")
+    return f'{iso}<span class="ilus-txt">Foto real muy pronto</span>'
 
 
 def ld(datos):
@@ -311,6 +311,13 @@ def pagina_producto(prod, ficha, marca, tienda):
                   canonica=f"productos/{ficha['handle']}.html", imagen_og=og, extra_ld=(producto_ld, migas_ld, ld_faq(preguntas)))
 
 
+def etiqueta_publica(p):
+    """Etiqueta corta para la tarjeta: 'etiqueta' explícita o el comienzo del rol sin notas internas."""
+    if p.get("etiqueta"):
+        return p["etiqueta"]
+    return re.split(r"[:(;,.]", p.get("rol", ""))[0].strip().capitalize()
+
+
 def portada(productos, marca, tienda):
     def mascota(p):
         if p.get("mascota"):
@@ -318,7 +325,7 @@ def portada(productos, marca, tienda):
         t = (p["id"] + " " + p.get("rol", "")).lower()
         return "gato" if "gato" in t else ("perro" if "perro" in t or "paseo" in t else "ambos")
     tarjetas = "".join(f"""<a class="tarjeta revelar" data-mascota="{mascota(p)}" href="productos/{e(f['handle'])}.html">{imagen(p['id'], f['alt_imagenes'][0], '', 'foto foto-tarjeta', sizes='(min-width:900px) 50vw, 100vw')}
-<div class="tarjeta-cuerpo"><span class="etiqueta">{e(p['rol'].split('(')[0].strip().capitalize())}</span><h3>{e(f['titulo_seo'].split(':')[0])}</h3><p>{e(f['subtitular'])}</p>
+<div class="tarjeta-cuerpo"><span class="etiqueta">{e(etiqueta_publica(p))}</span><h3>{e(f['titulo_seo'].split(':')[0])}</h3><p>{e(f['subtitular'])}</p>
 <ul class="tarjeta-incluye">{''.join(f"<li>{icono('check', 'ico ico-s')}{e(i)}</li>" for i in f['incluye'][:2])}</ul>
 <div class="tarjeta-pie"><div><strong>{clp(p['precio'])}</strong><small>o 2 por {clp(p['oferta_2'])}</small></div><span class="boton boton-chico">Ver kit {icono('flecha', 'ico ico-s')}</span></div></div></a>"""
                        for p, f in productos)

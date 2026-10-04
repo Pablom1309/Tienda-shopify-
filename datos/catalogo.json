@@ -25,7 +25,8 @@
       "criterio_matar": "Gasto ≥ $20.000 (≈3 CPA de equilibrio) sin pedidos, o CPA > $9.000 sostenido 3 días con CTR < 1 %.",
       "criterio_escalar": "CPA ≤ $4.900 (objetivo) por 3 días y entrega real ≥ 70 %.",
       "nota_ciclo_2": "Se mantiene: único activo con ficha, página y CSV listos; el reemplazo por el kit de gatos se basaría solo en costos estimados. Incluir ángulo dueño/a de gato (pico 'cepillo gato' en octubre).",
-      "mascota": "perro"
+      "mascota": "perro",
+      "etiqueta": "Pelo de perro"
     },
     {
       "id": "kit-verano-fresco",
@@ -47,7 +48,8 @@
       ],
       "criterio_matar": "Gasto ≥ $25.000 sin pedidos, o CPA > $11.000 sostenido 3 días.",
       "criterio_escalar": "CPA ≤ $6.500 por 3 días y entrega real ≥ 70 %.",
-      "mascota": "perro"
+      "mascota": "perro",
+      "etiqueta": "Verano"
     },
     {
       "id": "kit-gato-sin-pelusas",
@@ -67,7 +69,8 @@
       "criterio_matar": "Gasto ≥ $25.000 (≈3 CPA de equilibrio) sin pedidos, o CPA > $10.700 sostenido 3 días con CTR < 1 %.",
       "criterio_escalar": "CPA ≤ $6.200 (objetivo) por 3 días y entrega real ≥ 70 %.",
       "nota_activacion": "Activado el 2026-10-04 por instrucción directa del dueño (límite subido a 6). Costos estimados: verificar en Dropi antes de pautar.",
-      "mascota": "gato"
+      "mascota": "gato",
+      "etiqueta": "Pelo de gato"
     },
     {
       "id": "kit-enriquecimiento-perro",
@@ -87,7 +90,8 @@
       "criterio_matar": "Gasto ≥ $26.000 (≈3 CPA de equilibrio) sin pedidos, o CPA > $11.500 sostenido 3 días con CTR < 1 %.",
       "criterio_escalar": "CPA ≤ $6.800 (objetivo) por 3 días y entrega real ≥ 70 %.",
       "nota_activacion": "Activado el 2026-10-04 por instrucción directa del dueño (límite subido a 6). Costos estimados: verificar en Dropi antes de pautar.",
-      "mascota": "perro"
+      "mascota": "perro",
+      "etiqueta": "Juego tranquilo"
     },
     {
       "id": "kit-paseo-hogar-limpio",
@@ -106,7 +110,8 @@
       "criterio_matar": "Gasto ≥ $22.000 (≈3 CPA de equilibrio) sin pedidos, o CPA > $9.500 sostenido 3 días con CTR < 1 %.",
       "criterio_escalar": "CPA ≤ $5.300 (objetivo) por 3 días y entrega real ≥ 70 %.",
       "nota_activacion": "Activado el 2026-10-04 por instrucción directa del dueño (límite subido a 6). Costos estimados: verificar en Dropi antes de pautar.",
-      "mascota": "perro"
+      "mascota": "perro",
+      "etiqueta": "Paseo"
     },
     {
       "id": "kit-bano-secado-perro",
@@ -125,7 +130,8 @@
       "criterio_matar": "Gasto ≥ $28.000 (≈3 CPA de equilibrio) sin pedidos, o CPA > $12.200 sostenido 3 días con CTR < 1 %.",
       "criterio_escalar": "CPA ≤ $7.400 (objetivo) por 3 días y entrega real ≥ 70 %.",
       "nota_activacion": "Activado el 2026-10-04 por instrucción directa del dueño (límite subido a 6). Costos estimados: verificar en Dropi antes de pautar.",
-      "mascota": "perro"
+      "mascota": "perro",
+      "etiqueta": "Baño en casa"
     },
     {
       "id": "kit-caja-regalo-navidad",
@@ -148,7 +154,8 @@
       "criterio_matar": "Gasto ≥ $22.500 (≈3 CPA de equilibrio) sin pedidos, o CPA > $9.900 sostenido 3 días con CTR < 1 %.",
       "criterio_escalar": "CPA ≤ $5.600 (objetivo) por 3 días y entrega real ≥ 70 %.",
       "nota_activacion": "Aprobado en el portón del ciclo 3 (2026-10-04) por crecimiento de catálogo pedido por el dueño (máx. 20 activos). Costos estimados: verificar en Dropi antes de pautar. Activo en tienda no implica pauta simultánea: el orden de pauta lo fija estratega-ads (máx. 2 en test).",
-      "nota_porton": "Comparte piezas (cuerda, pelota) con kits de juego, pero se vende presentación y fecha: no duplica."
+      "nota_porton": "Comparte piezas (cuerda, pelota) con kits de juego, pero se vende presentación y fecha: no duplica.",
+      "etiqueta": "Regalo de Navidad"
     },
     {
       "id": "kit-paseo-nocturno-led",
@@ -169,7 +176,8 @@
       ],
       "criterio_matar": "Gasto ≥ $27.000 (≈3 CPA de equilibrio) sin pedidos, o CPA > $11.800 sostenido 3 días con CTR < 1 %.",
       "criterio_escalar": "CPA ≤ $7.100 (objetivo) por 3 días y entrega real ≥ 70 %.",
-      "nota_activacion": "Aprobado en el portón del ciclo 3 (2026-10-04) por crecimiento de catálogo pedido por el dueño (máx. 20 activos). Costos estimados: verificar en Dropi antes de pautar. Activo en tienda no implica pauta simultánea: el orden de pauta lo fija estratega-ads (máx. 2 en test)."
+      "nota_activacion": "Aprobado en el portón del ciclo 3 (2026-10-04) por crecimiento de catálogo pedido por el dueño (máx. 20 activos). Costos estimados: verificar en Dropi antes de pautar. Activo en tienda no implica pauta simultánea: el orden de pauta lo fija estratega-ads (máx. 2 en test).",
+      "etiqueta": "Paseo de noche"
     },
     {
       "id": "kit-juegos-interactivos-perro",
@@ -192,7 +200,8 @@
       "criterio_matar": "Gasto ≥ $28.000 (≈3 CPA de equilibrio) sin pedidos, o CPA > $12.200 sostenido 3 días con CTR < 1 %.",
       "criterio_escalar": "CPA ≤ $7.400 (objetivo) por 3 días y entrega real ≥ 70 %.",
       "nota_activacion": "Aprobado en el portón del ciclo 3 (2026-10-04) por crecimiento de catálogo pedido por el dueño (máx. 20 activos). Costos estimados: verificar en Dropi antes de pautar. Activo en tienda no implica pauta simultánea: el orden de pauta lo fija estratega-ads (máx. 2 en test).",
-      "nota_porton": "Se aprueba sobre kit-mordedores-cepillo-dedal porque ambos son juguetes de perro con cuerda; este tiene mejor puntaje (4,03 vs 3,59) y sin riesgo de salud."
+      "nota_porton": "Se aprueba sobre kit-mordedores-cepillo-dedal porque ambos son juguetes de perro con cuerda; este tiene mejor puntaje (4,03 vs 3,59) y sin riesgo de salud.",
+      "etiqueta": "Juego activo"
     },
     {
       "id": "kit-gato-arenero-limpio",
@@ -214,7 +223,8 @@
       ],
       "criterio_matar": "Gasto ≥ $25.000 (≈3 CPA de equilibrio) sin pedidos, o CPA > $10.800 sostenido 3 días con CTR < 1 %.",
       "criterio_escalar": "CPA ≤ $6.300 (objetivo) por 3 días y entrega real ≥ 70 %.",
-      "nota_activacion": "Aprobado en el portón del ciclo 3 (2026-10-04) por crecimiento de catálogo pedido por el dueño (máx. 20 activos). Costos estimados: verificar en Dropi antes de pautar. Activo en tienda no implica pauta simultánea: el orden de pauta lo fija estratega-ads (máx. 2 en test)."
+      "nota_activacion": "Aprobado en el portón del ciclo 3 (2026-10-04) por crecimiento de catálogo pedido por el dueño (máx. 20 activos). Costos estimados: verificar en Dropi antes de pautar. Activo en tienda no implica pauta simultánea: el orden de pauta lo fija estratega-ads (máx. 2 en test).",
+      "etiqueta": "Arenero"
     },
     {
       "id": "kit-gato-rascador-pared",
@@ -236,7 +246,8 @@
       "criterio_matar": "Gasto ≥ $23.000 (≈3 CPA de equilibrio) sin pedidos, o CPA > $9.900 sostenido 3 días con CTR < 1 %.",
       "criterio_escalar": "CPA ≤ $5.600 (objetivo) por 3 días y entrega real ≥ 70 %.",
       "nota_activacion": "Aprobado en el portón del ciclo 3 (2026-10-04) por crecimiento de catálogo pedido por el dueño (máx. 20 activos). Costos estimados: verificar en Dropi antes de pautar. Activo en tienda no implica pauta simultánea: el orden de pauta lo fija estratega-ads (máx. 2 en test).",
-      "nota_porton": "Elegido sobre kit-gato-juego-rascado (mismo uso: rascado + juego). Este es liviano (logística 4 vs 3), ROAS eq. mezcla 3,11 vs 3,74 y sirve en departamentos chicos."
+      "nota_porton": "Elegido sobre kit-gato-juego-rascado (mismo uso: rascado + juego). Este es liviano (logística 4 vs 3), ROAS eq. mezcla 3,11 vs 3,74 y sirve en departamentos chicos.",
+      "etiqueta": "Rascador"
     },
     {
       "id": "kit-cachorro-entrenamiento",
@@ -258,7 +269,8 @@
       ],
       "criterio_matar": "Gasto ≥ $25.500 (≈3 CPA de equilibrio) sin pedidos, o CPA > $11.100 sostenido 3 días con CTR < 1 %.",
       "criterio_escalar": "CPA ≤ $6.500 (objetivo) por 3 días y entrega real ≥ 70 %.",
-      "nota_activacion": "Aprobado en el portón del ciclo 3 (2026-10-04) por crecimiento de catálogo pedido por el dueño (máx. 20 activos). Costos estimados: verificar en Dropi antes de pautar. Activo en tienda no implica pauta simultánea: el orden de pauta lo fija estratega-ads (máx. 2 en test)."
+      "nota_activacion": "Aprobado en el portón del ciclo 3 (2026-10-04) por crecimiento de catálogo pedido por el dueño (máx. 20 activos). Costos estimados: verificar en Dropi antes de pautar. Activo en tienda no implica pauta simultánea: el orden de pauta lo fija estratega-ads (máx. 2 en test).",
+      "etiqueta": "Cachorros"
     },
     {
       "id": "piscina-plegable-perros-120",
@@ -280,7 +292,8 @@
       ],
       "criterio_matar": "Gasto ≥ $23.000 (≈3 CPA de equilibrio) sin pedidos, o CPA > $9.900 sostenido 3 días con CTR < 1 %.",
       "criterio_escalar": "CPA ≤ $5.600 (objetivo) por 3 días y entrega real ≥ 70 %.",
-      "nota_activacion": "Aprobada en el portón del ciclo 3 (2026-10-04) desde en_observacion: el dueño pidió crecer el catálogo y aceptar estacionales en tienda. Riesgo principal: volumen y flete (logística 2). Costos estimados."
+      "nota_activacion": "Aprobada en el portón del ciclo 3 (2026-10-04) desde en_observacion: el dueño pidió crecer el catálogo y aceptar estacionales en tienda. Riesgo principal: volumen y flete (logística 2). Costos estimados.",
+      "etiqueta": "Verano"
     }
   ],
   "en_observacion": [

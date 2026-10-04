@@ -118,8 +118,9 @@ p{margin:0 0 1em;text-wrap:pretty}
 .foto figcaption{position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.5);backdrop-filter:blur(6px);color:#fff;font-size:.7rem;font-weight:700;padding:4px 9px;border-radius:999px}
 .foto-tarjeta{aspect-ratio:4/5}
 .foto-producto{aspect-ratio:4/5;border-radius:var(--radio);box-shadow:var(--sombra)}
-.ilus{display:grid;place-items:center;padding:24px}
-.ilus svg{width:80%}
+.ilus{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px;background:var(--suave)}
+.ilus-iso{width:34%;max-width:140px;height:auto;opacity:.9}
+.ilus-txt{font-weight:800;font-size:.9rem;color:var(--gris)}
 
 /* Cómo funciona */
 .tres-pasos{list-style:none;padding:0;margin:36px 0 0;display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}

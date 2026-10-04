@@ -108,3 +108,9 @@ Cada ciclo agrega una entrada al final: fecha, nodos ejecutados, decisiones del 
 - En observación: kit-gato-hidratacion-filtros (ROAS eq. 3,91 al borde), kit-gato-juego-rascado (duplica rascador de pared, peor economía y logística), kit-mordedores-cepillo-dedal (cepillo de dedal insinúa higiene bucal = salud; duplica cuerda con otros kits).
 - Descartados (no pasan portón duro): kit-auto-viaje-perro, kit-comedero-elevado-ajustable, kit-descanso-cojin-lavable, kit-abrigo-invierno-perro (reevaluar en marzo), kit-orden-alimento.
 - Pendiente: fichas de los 7 nuevos (creador-tienda); todos con costos estimados, verificar en Dropi antes de pautar. Próximo cazador: priorizar kits para gato o ambos.
+
+## Ciclo 3 — 2026-10-04 (pedido del dueño: autónomo, límite 20)
+- max_activos 20. cazador (sonnet): 12 candidatos; 7 pasan el filtro. validador (opus): aprueba 7 → 13 activos (10 perro, 3 gato); descarta 5; mordedores/dedal a observación (riesgo de salud bucal). creador-tienda: 7 fichas.
+- Portada: filtro Todos/Perros/Gatos; etiquetas públicas cortas (`etiqueta` en catálogo) para no mostrar notas internas.
+- Fotos Canva: 2 nuevas (Navidad, Paseo nocturno). Juegos y Arenero descartadas porque mostraban piezas no incluidas; Canva sin créditos para el resto → imagen provisional de marca "Foto real muy pronto".
+- Próximo: buscar kits de gato/ambos para equilibrar (7 cupos libres).
