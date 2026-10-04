@@ -1,6 +1,6 @@
 {
   "generado": "2026-10-04",
-  "ciclo": 3,
+  "ciclo": 4,
   "nicho_objetivo": "mascotas (verano y cuidado en casa) — evaluado contra candidatos de otros nichos",
   "escala": "criterios de 0 a 5; riesgo_politica 0 = sin riesgo, 5 = prohibido",
   "candidatos": [
@@ -694,6 +694,188 @@
         "https://www.noticiasnqn.com.ar/noticias/2025/12/25/325599-cajas-navidenas-para-perros-y-gatos-que-traen-y-cuanto-cuestan-los-regalos-que-son-furor-en-las-fiestas"
       ],
       "ciclo": 3
+    },
+    {
+      "id": "kit-gato-ventana-mirador",
+      "nombre": "Kit Gato Mirador: hamaca de ventana con ventosas + varita con plumas (para gatos)",
+      "nicho": "mascotas",
+      "componentes": ["hamaca de ventana con ventosas", "varita de juguete con plumas"],
+      "precio": 34990,
+      "precio_2u": 61990,
+      "costo_estimado": 11000,
+      "flete_estimado": 4200,
+      "criterios": {"demanda": 4, "estacionalidad": 3, "demostrable": 5, "baja_comparabilidad": 4, "logistica": 3, "ajuste_nicho": 5, "recompra": 1},
+      "riesgo_politica": 0,
+      "evidencia": "Gato mirando por la ventana desde su hamaca: demostración visual inmediata, sirve en departamento (público gato en hogares pequeños, ver investigacion/mercado-mascotas-chile.md). Competencia 2026-10-04 (WebSearch, puntos de precio, NO mediana; sin curl): hamacas de ventana con ventosas en Lider CL entre $47.990 y $91.990 (Amosijoy $47.990, Zoratoo plegable $81.990; vendedores marketplace); el kit queda bajo todas ellas. Cuidado: los avisos de retail son de marcas de importación con precios altos que pueden no reflejar el precio real de venta. No se prometen cargas máximas sin verificarlas con el proveedor: pedir una unidad y probar ventosas en vidrio. Sin promesas de salud ni de conducta. Costo y flete estimados, por verificar en Dropi.",
+      "fuentes": [
+        "https://www.lider.cl/ip/accesorios/hamaca-para-ventana-para-gatos-amosijoy-sin-cables-con-ventosas-y-estructura/00629402060601",
+        "https://www.lider.cl/ip/accesorios/hamaca-plegable-zoratoo-con-marco-de-metal-para-ventanas-con-forma-de-gato/00073017119199"
+      ],
+      "ciclo": 4
+    },
+    {
+      "id": "kit-gato-tunel-juego",
+      "nombre": "Kit Gato Cazador: túnel plegable de 3 vías + 3 ratones y pelotas + varita (para gatos)",
+      "nicho": "mascotas",
+      "componentes": ["túnel plegable de 3 vías", "set de ratones y pelotas", "varita de juguete con plumas"],
+      "precio": 24990,
+      "precio_2u": 43990,
+      "costo_estimado": 6500,
+      "flete_estimado": 3800,
+      "criterios": {"demanda": 4, "estacionalidad": 3, "demostrable": 5, "baja_comparabilidad": 2, "logistica": 4, "ajuste_nicho": 5, "recompra": 2},
+      "riesgo_politica": 0,
+      "evidencia": "Túnel plegable: el gato entrando y saliendo es video de 3 s; plegable ocupa poco en el despacho. Competencia 2026-10-04 (WebSearch, puntos de precio, NO mediana; sin curl): Paris y Easy venden 'túnel plegable gato 3 vías + 20 piezas de juguetes' a $8.990 (lista $16.990) y Lider un túnel 3 vías con pelota a $30.990. Hay un set más completo y mucho más barato en Paris: comparabilidad alta, el kit solo se sostiene por pago contra entrega y presentación. Candidato débil en precio. Sin promesas de ejercicio o conducta. Costo y flete estimados, por verificar en Dropi.",
+      "fuentes": [
+        "https://www.paris.cl/tunel-plegable-gato-3-vias-20-pzs-juguetes-mascota-MK7KK9KHBT.html",
+        "https://www.easy.cl/tunel-plegable-gato-3-vias-20-pzs-juguetes-mascota-mk7kk9khbt/p",
+        "https://www.lider.cl/ip/accesorios/tubo-plegable-de-tunel-para-gatos-de-3-vias-con-pelota-de-juego-para-gatos-conejos-cobayas/00078729063870"
+      ],
+      "ciclo": 4
+    },
+    {
+      "id": "kit-gato-laser-varitas",
+      "nombre": "Kit Gato Persecución: puntero de luz recargable USB + 2 varitas con plumas + ratón de juguete (para gatos)",
+      "nicho": "mascotas",
+      "componentes": ["puntero de luz recargable USB para gatos", "2 varitas con plumas", "ratón de juguete"],
+      "precio": 24990,
+      "precio_2u": 43990,
+      "costo_estimado": 5500,
+      "flete_estimado": 3500,
+      "criterios": {"demanda": 4, "estacionalidad": 3, "demostrable": 5, "baja_comparabilidad": 2, "logistica": 5, "ajuste_nicho": 5, "recompra": 2},
+      "riesgo_politica": 2,
+      "evidencia": "Muy liviano y demostrable (gato siguiendo la luz o la pluma). Competencia 2026-10-04 (WebSearch, puntos de precio, NO mediana; sin curl): punteros láser para gatos en Falabella CL desde $5.990 (collar láser automático) y entre $7.990 y $15.990; puntero láser verde recargable en Sodimac $6.990 (lista $28.990, no es producto para gato). Varita con plumas: mediana $3.990 en Falabella (ciclo 2). Piezas sueltas baratas: comparabilidad alta. Riesgo 2: los punteros láser pueden tener restricciones de anuncios y de despacho; usar luz de baja potencia, indicar no apuntar a los ojos y no hablar de ejercicio, ansiedad ni conducta. Se pide una unidad para verificar clase de seguridad. Costo y flete estimados, por verificar en Dropi.",
+      "fuentes": [
+        "https://www.falabella.com/falabella-cl/shop/laser-para-gatos",
+        "https://www.sodimac.cl/sodimac-cl/b/puntero-laser"
+      ],
+      "ciclo": 4
+    },
+    {
+      "id": "kit-gato-aseo-unas-pelo",
+      "nombre": "Kit Aseo de Gato: cortaúñas con protector + lima + guante deslanador (para gatos)",
+      "nicho": "mascotas",
+      "componentes": ["cortaúñas con protector de seguridad", "lima de uñas manual", "guante deslanador de silicona"],
+      "precio": 24990,
+      "precio_2u": 43990,
+      "costo_estimado": 5500,
+      "flete_estimado": 3500,
+      "criterios": {"demanda": 3, "estacionalidad": 4, "demostrable": 4, "baja_comparabilidad": 3, "logistica": 5, "ajuste_nicho": 5, "recompra": 2},
+      "riesgo_politica": 1,
+      "evidencia": "Rutina de aseo en casa con accesorios, sin productos químicos ni cosméticos; el guante se une a la muda de pelo de primavera (pico 'cepillo gato' en octubre, Trends CL). Competencia 2026-10-04 (WebSearch, puntos de precio, NO mediana; sin curl): Sodimac CL cortaúñas para mascotas desde $2.990 (Petizoos), cortaúñas con luz LED y lima $14.665-$14.990; lima eléctrica $2.490; Falabella CL cepillos deslanadores desde $3.690 y kits de 8 piezas $14.990. Piezas sueltas baratas: el kit es de conveniencia. Riesgo 1: copy solo de rutina y comodidad, sin salud de uñas, sin promesas de que 'evita arañazos', y con instrucción de no cortar cerca de la parte rosada. Costo y flete estimados, por verificar en Dropi.",
+      "fuentes": [
+        "https://www.sodimac.cl/sodimac-cl/lista/CATG34780/Cortaunas-para-perros",
+        "https://www.falabella.com/falabella-cl/shop/deslanador-para-perros"
+      ],
+      "ciclo": 4
+    },
+    {
+      "id": "kit-gato-arnes-paseo",
+      "nombre": "Kit Paseo de Gato: arnés ajustable talla única + correa + campanita (para gatos)",
+      "nicho": "mascotas",
+      "componentes": ["arnés ajustable de malla talla única", "correa de 1,5 m", "campanita de collar"],
+      "precio": 24990,
+      "precio_2u": 43990,
+      "costo_estimado": 6000,
+      "flete_estimado": 3500,
+      "criterios": {"demanda": 3, "estacionalidad": 4, "demostrable": 4, "baja_comparabilidad": 3, "logistica": 5, "ajuste_nicho": 5, "recompra": 1},
+      "riesgo_politica": 1,
+      "evidencia": "Gatos de departamento que salen al balcón o a la plaza en primavera-verano; liviano, sin tallas fijas (ajustable). Competencia 2026-10-04 (WebSearch, puntos de precio, NO mediana; sin curl): set arnés y correa Pidan en Lider $32.990 (lista $35.448); arnés pechera + correa para gato talla XS en Lider $8.490 (vendedor Guau Wow); Falabella CL no mostró precio en la búsqueda. Rango $8.490-$32.990: el kit queda al medio. Riesgo: los arneses tienen cambios por ajuste; no prometer 'antiescape' ni seguridad. Probar ajuste con una unidad. Costo y flete estimados, por verificar en Dropi.",
+      "fuentes": [
+        "https://www.lider.cl/ip/accesorios/set-de-arnes-y-correa-para-gatos-pidan-ajustable/00001607106848",
+        "https://www.lider.cl/ip/accesorios/arnes-pechera-correa-para-gatos-mascota-pequenas-xs-rojo-conejos-/00046693495826"
+      ],
+      "ciclo": 4
+    },
+    {
+      "id": "kit-gato-transporte-mochila",
+      "nombre": "Kit Viaje con Gato: mochila transportadora plegable + manta polar (para gatos)",
+      "nicho": "mascotas",
+      "componentes": ["mochila transportadora plegable ventilada", "manta polar 100x70"],
+      "precio": 34990,
+      "precio_2u": 61990,
+      "costo_estimado": 13000,
+      "flete_estimado": 4500,
+      "criterios": {"demanda": 3, "estacionalidad": 3, "demostrable": 4, "baja_comparabilidad": 3, "logistica": 2, "ajuste_nicho": 5, "recompra": 1},
+      "riesgo_politica": 0,
+      "evidencia": "Cubre traslados al veterinario y vacaciones, necesidad de viaje que ningún activo atiende para gato. Competencia 2026-10-04 (WebSearch, puntos de precio, NO mediana; sin curl): mochila transportadora respirable Lider $28.590 (lista $45.990); Sodimac Koba $13.990, Crusec $12.990 y Tatee plegable $35.990; set 3 mantas polares 100x70 Lider $23.990. Voluminoso (logística 2) y alta comparabilidad: candidato débil, solo se deja para que lo evalúe economia.py. Sin afirmaciones de seguridad ni de calma durante el viaje. Costo y flete estimados, por verificar en Dropi.",
+      "fuentes": [
+        "https://www.lider.cl/ip/accesorios/mochila-para-mascota-perro-y-gato-transportador-respirable-gris/00046014484955",
+        "https://www.sodimac.cl/sodimac-cl/lista/CATG33805/Muebles de Terraza",
+        "https://www.lider.cl/ip/accesorios/set-3-mantas-polar-para-mascotas-perros-gatos-100x70cm-lau/00462702790761"
+      ],
+      "ciclo": 4
+    },
+    {
+      "id": "kit-gato-navidad",
+      "nombre": "Kit Navidad del Gato: gorro y bufanda navideños + varita + 3 ratones de juguete (para gatos)",
+      "nicho": "mascotas",
+      "componentes": ["gorro y bufanda navideños ajustables", "varita con plumas", "3 ratones de juguete"],
+      "precio": 24990,
+      "precio_2u": 43990,
+      "costo_estimado": 6000,
+      "flete_estimado": 3500,
+      "criterios": {"demanda": 4, "estacionalidad": 5, "demostrable": 4, "baja_comparabilidad": 3, "logistica": 5, "ajuste_nicho": 5, "recompra": 1},
+      "riesgo_politica": 0,
+      "evidencia": "Versión gato de la caja regalo navideña (el activo kit-caja-regalo-navidad es de perro): foto navideña y juego para el gato. Ventana: tienda desde ~15-nov, corte ~15-dic. Competencia 2026-10-04 (WebSearch, puntos de precio, NO mediana; sin curl): traje navideño de Santa con gorro para perros y gatos en Lider $30.990 (lista $33.351); bandana mascota Lider $4.000; corbata para gato Pidan $13.990; sin precio CL de gorro+bufanda encontrado. Sin comestibles. Prueba de ajuste: el gato debe tolerar el gorro, no se promete que le guste. Costo y flete estimados, por verificar en Dropi.",
+      "fuentes": [
+        "https://www.lider.cl/ip/gatos/traje-navideno-para-mascotas-lindos-disfraces-navidenos-de-papa-noel-para-perros-y-gatos-con-gorro-de-papa-noel-ropa-navidena-para-mascotas-para-l-l/00078732630847",
+        "https://www.lider.cl/ip/perros/bandana-mascota-cupido-talla-m/00045007046763"
+      ],
+      "ciclo": 4
+    },
+    {
+      "id": "kit-id-collar-placa",
+      "nombre": "Kit Identificación: collar ajustable reflectante + placa de acero con grabado (perros y gatos)",
+      "nicho": "mascotas",
+      "componentes": ["collar ajustable reflectante con cierre de seguridad", "placa de acero inoxidable con grabado de nombre y teléfono"],
+      "precio": 24990,
+      "precio_2u": 43990,
+      "costo_estimado": 5500,
+      "flete_estimado": 3500,
+      "criterios": {"demanda": 3, "estacionalidad": 3, "demostrable": 3, "baja_comparabilidad": 3, "logistica": 5, "ajuste_nicho": 5, "recompra": 1},
+      "riesgo_politica": 1,
+      "evidencia": "Útil para ambas especies y liviano. Competencia 2026-10-04 (WebSearch, puntos de precio, NO mediana; sin curl): placa de identificación inteligente Street Dogs en Lider $17.290; en Falabella Perú hay collares con placa (referencia no Chile); el grabado láser personalizado se vende sobre todo en Mercado Libre (bloqueado, no medido). Condición dura: el grabado exige que el cliente envíe nombre y teléfono y que el proveedor Dropi lo grabe; si Dropi no ofrece grabado, el candidato cae. No prometer recuperar mascotas perdidas. Costo y flete estimados, por verificar en Dropi.",
+      "fuentes": [
+        "https://www.lider.cl/ip/accesorios/street-dogs-placa-identificacion-inteligente-colgante-perros-rosa/00079396989789",
+        "https://www.falabella.com.pe/falabella-pe/shop/collar-con-placa-para-perros"
+      ],
+      "ciclo": 4
+    },
+    {
+      "id": "kit-manta-viaje-premios",
+      "nombre": "Kit Manta de Viaje: manta polar reversible 100x70 + bolsa porta-golosinas con clip (perros y gatos)",
+      "nicho": "mascotas",
+      "componentes": ["manta polar reversible 100x70", "bolsa porta-golosinas con clip (sin golosinas)"],
+      "precio": 29990,
+      "precio_2u": 52990,
+      "costo_estimado": 9000,
+      "flete_estimado": 4000,
+      "criterios": {"demanda": 3, "estacionalidad": 3, "demostrable": 3, "baja_comparabilidad": 3, "logistica": 3, "ajuste_nicho": 5, "recompra": 1},
+      "riesgo_politica": 0,
+      "evidencia": "Manta para el auto, el sillón o la plaza, más porta-golosinas para el paseo; sirve a perros y gatos. Competencia 2026-10-04 (WebSearch, puntos de precio, NO mediana; sin curl): set de 3 mantas polares 100x70 en Lider $23.990; mantas refrescantes de Falabella $9.990-$58.990 (otra función); bolsa para premios con dispensador en Lider (precio no visible, ciclo 3). No se encontró manta impermeable en tiendas de Chile con la búsqueda. La manta sola en set de 3 ya cuesta $23.990: comparabilidad alta. Sin comestibles. Costo y flete estimados, por verificar en Dropi.",
+      "fuentes": [
+        "https://www.lider.cl/ip/accesorios/set-3-mantas-polar-para-mascotas-perros-gatos-100x70cm-lau/00462702790761",
+        "https://www.falabella.com/falabella-cl/shop/manta-refrescante-para-perros"
+      ],
+      "ciclo": 4
+    },
+    {
+      "id": "kit-bandanas-fotos",
+      "nombre": "Kit Fotos y Regalo: 3 bandanas reversibles + 2 pajaritas ajustables (perros y gatos)",
+      "nicho": "mascotas",
+      "componentes": ["3 bandanas reversibles ajustables", "2 pajaritas ajustables"],
+      "precio": 24990,
+      "precio_2u": 43990,
+      "costo_estimado": 5000,
+      "flete_estimado": 3500,
+      "criterios": {"demanda": 3, "estacionalidad": 3, "demostrable": 4, "baja_comparabilidad": 2, "logistica": 5, "ajuste_nicho": 5, "recompra": 1},
+      "riesgo_politica": 0,
+      "evidencia": "Accesorio de foto y regalo, muy liviano, sirve a ambas especies. Competencia 2026-10-04 (WebSearch, puntos de precio, NO mediana; sin curl): bandana mascota Lider $4.000 (tallas XS a M); corbata para gato Pidan Lider $13.990; no se encontró set de bandanas con precio en Chile. Bandana suelta a $4.000: 3 bandanas ya suman $12.000 y el kit queda con prima alta. Candidato débil (talla y demanda moderada); solo se sostiene como regalo. Costo y flete estimados, por verificar en Dropi.",
+      "fuentes": [
+        "https://www.lider.cl/ip/perros/bandana-mascota-cupido-talla-m/00045007046763",
+        "https://www.lider.cl/browse/mascotas/gatos/ropa/92129034_70005573_92091867"
+      ],
+      "ciclo": 4
     }
   ],
   "reintento": 1,

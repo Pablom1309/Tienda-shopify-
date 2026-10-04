@@ -1363,6 +1363,416 @@
         "G_base": 14719,
         "roas_equilibrio": 2.99
       }
+    },
+    {
+      "id": "kit-gato-ventana-mirador",
+      "precio": 34990,
+      "margen_bruto": 0.686,
+      "escenarios": {
+        "pesimista": {
+          "entrega": 0.6,
+          "G": 8515,
+          "G_con_iva": 6561,
+          "cpa_equilibrio": 8515,
+          "roas_equilibrio": 4.11,
+          "cpa_objetivo": 6515
+        },
+        "base": {
+          "entrega": 0.7,
+          "G": 10554,
+          "G_con_iva": 8275,
+          "cpa_equilibrio": 10554,
+          "roas_equilibrio": 3.32,
+          "cpa_objetivo": 8554
+        },
+        "optimista": {
+          "entrega": 0.8,
+          "G": 12593,
+          "G_con_iva": 9989,
+          "cpa_equilibrio": 12593,
+          "roas_equilibrio": 2.78,
+          "cpa_objetivo": 10593
+        }
+      },
+      "mezcla_base": {
+        "aov": 43090,
+        "G": 13410,
+        "roas_equilibrio": 3.21
+      },
+      "oferta_2u": {
+        "precio": 61990,
+        "G_base": 20074,
+        "roas_equilibrio": 3.09
+      }
+    },
+    {
+      "id": "kit-gato-tunel-juego",
+      "precio": 24990,
+      "margen_bruto": 0.74,
+      "escenarios": {
+        "pesimista": {
+          "entrega": 0.6,
+          "G": 6050,
+          "G_con_iva": 4544,
+          "cpa_equilibrio": 6050,
+          "roas_equilibrio": 4.13,
+          "cpa_objetivo": 4050
+        },
+        "base": {
+          "entrega": 0.7,
+          "G": 7622,
+          "G_con_iva": 5865,
+          "cpa_equilibrio": 7622,
+          "roas_equilibrio": 3.28,
+          "cpa_objetivo": 5622
+        },
+        "optimista": {
+          "entrega": 0.8,
+          "G": 9193,
+          "G_con_iva": 7186,
+          "cpa_equilibrio": 9193,
+          "roas_equilibrio": 2.72,
+          "cpa_objetivo": 7193
+        }
+      },
+      "mezcla_base": {
+        "aov": 30690,
+        "G": 9853,
+        "roas_equilibrio": 3.11
+      },
+      "oferta_2u": {
+        "precio": 43990,
+        "G_base": 15059,
+        "roas_equilibrio": 2.92
+      }
+    },
+    {
+      "id": "kit-gato-laser-varitas",
+      "precio": 24990,
+      "margen_bruto": 0.78,
+      "escenarios": {
+        "pesimista": {
+          "entrega": 0.6,
+          "G": 6815,
+          "G_con_iva": 5228,
+          "cpa_equilibrio": 6815,
+          "roas_equilibrio": 3.67,
+          "cpa_objetivo": 4815
+        },
+        "base": {
+          "entrega": 0.7,
+          "G": 8472,
+          "G_con_iva": 6620,
+          "cpa_equilibrio": 8472,
+          "roas_equilibrio": 2.95,
+          "cpa_objetivo": 6472
+        },
+        "optimista": {
+          "entrega": 0.8,
+          "G": 10128,
+          "G_con_iva": 8012,
+          "cpa_equilibrio": 10128,
+          "roas_equilibrio": 2.47,
+          "cpa_objetivo": 8128
+        }
+      },
+      "mezcla_base": {
+        "aov": 30690,
+        "G": 10882,
+        "roas_equilibrio": 2.82
+      },
+      "oferta_2u": {
+        "precio": 43990,
+        "G_base": 16504,
+        "roas_equilibrio": 2.67
+      }
+    },
+    {
+      "id": "kit-gato-aseo-unas-pelo",
+      "precio": 24990,
+      "margen_bruto": 0.78,
+      "escenarios": {
+        "pesimista": {
+          "entrega": 0.6,
+          "G": 6815,
+          "G_con_iva": 5228,
+          "cpa_equilibrio": 6815,
+          "roas_equilibrio": 3.67,
+          "cpa_objetivo": 4815
+        },
+        "base": {
+          "entrega": 0.7,
+          "G": 8472,
+          "G_con_iva": 6620,
+          "cpa_equilibrio": 8472,
+          "roas_equilibrio": 2.95,
+          "cpa_objetivo": 6472
+        },
+        "optimista": {
+          "entrega": 0.8,
+          "G": 10128,
+          "G_con_iva": 8012,
+          "cpa_equilibrio": 10128,
+          "roas_equilibrio": 2.47,
+          "cpa_objetivo": 8128
+        }
+      },
+      "mezcla_base": {
+        "aov": 30690,
+        "G": 10882,
+        "roas_equilibrio": 2.82
+      },
+      "oferta_2u": {
+        "precio": 43990,
+        "G_base": 16504,
+        "roas_equilibrio": 2.67
+      }
+    },
+    {
+      "id": "kit-gato-arnes-paseo",
+      "precio": 24990,
+      "margen_bruto": 0.76,
+      "escenarios": {
+        "pesimista": {
+          "entrega": 0.6,
+          "G": 6560,
+          "G_con_iva": 5014,
+          "cpa_equilibrio": 6560,
+          "roas_equilibrio": 3.81,
+          "cpa_objetivo": 4560
+        },
+        "base": {
+          "entrega": 0.7,
+          "G": 8174,
+          "G_con_iva": 6370,
+          "cpa_equilibrio": 8174,
+          "roas_equilibrio": 3.06,
+          "cpa_objetivo": 6174
+        },
+        "optimista": {
+          "entrega": 0.8,
+          "G": 9788,
+          "G_con_iva": 7726,
+          "cpa_equilibrio": 9788,
+          "roas_equilibrio": 2.55,
+          "cpa_objetivo": 7788
+        }
+      },
+      "mezcla_base": {
+        "aov": 30690,
+        "G": 10495,
+        "roas_equilibrio": 2.92
+      },
+      "oferta_2u": {
+        "precio": 43990,
+        "G_base": 15909,
+        "roas_equilibrio": 2.77
+      }
+    },
+    {
+      "id": "kit-gato-transporte-mochila",
+      "precio": 34990,
+      "margen_bruto": 0.628,
+      "escenarios": {
+        "pesimista": {
+          "entrega": 0.6,
+          "G": 7240,
+          "G_con_iva": 5449,
+          "cpa_equilibrio": 7240,
+          "roas_equilibrio": 4.83,
+          "cpa_objetivo": 5240
+        },
+        "base": {
+          "entrega": 0.7,
+          "G": 9109,
+          "G_con_iva": 7020,
+          "cpa_equilibrio": 9109,
+          "roas_equilibrio": 3.84,
+          "cpa_objetivo": 7109
+        },
+        "optimista": {
+          "entrega": 0.8,
+          "G": 10978,
+          "G_con_iva": 8591,
+          "cpa_equilibrio": 10978,
+          "roas_equilibrio": 3.19,
+          "cpa_objetivo": 8978
+        }
+      },
+      "mezcla_base": {
+        "aov": 43090,
+        "G": 11608,
+        "roas_equilibrio": 3.71
+      },
+      "oferta_2u": {
+        "precio": 61990,
+        "G_base": 17439,
+        "roas_equilibrio": 3.55
+      }
+    },
+    {
+      "id": "kit-gato-navidad",
+      "precio": 24990,
+      "margen_bruto": 0.76,
+      "escenarios": {
+        "pesimista": {
+          "entrega": 0.6,
+          "G": 6560,
+          "G_con_iva": 5014,
+          "cpa_equilibrio": 6560,
+          "roas_equilibrio": 3.81,
+          "cpa_objetivo": 4560
+        },
+        "base": {
+          "entrega": 0.7,
+          "G": 8174,
+          "G_con_iva": 6370,
+          "cpa_equilibrio": 8174,
+          "roas_equilibrio": 3.06,
+          "cpa_objetivo": 6174
+        },
+        "optimista": {
+          "entrega": 0.8,
+          "G": 9788,
+          "G_con_iva": 7726,
+          "cpa_equilibrio": 9788,
+          "roas_equilibrio": 2.55,
+          "cpa_objetivo": 7788
+        }
+      },
+      "mezcla_base": {
+        "aov": 30690,
+        "G": 10495,
+        "roas_equilibrio": 2.92
+      },
+      "oferta_2u": {
+        "precio": 43990,
+        "G_base": 15909,
+        "roas_equilibrio": 2.77
+      }
+    },
+    {
+      "id": "kit-id-collar-placa",
+      "precio": 24990,
+      "margen_bruto": 0.78,
+      "escenarios": {
+        "pesimista": {
+          "entrega": 0.6,
+          "G": 6815,
+          "G_con_iva": 5228,
+          "cpa_equilibrio": 6815,
+          "roas_equilibrio": 3.67,
+          "cpa_objetivo": 4815
+        },
+        "base": {
+          "entrega": 0.7,
+          "G": 8472,
+          "G_con_iva": 6620,
+          "cpa_equilibrio": 8472,
+          "roas_equilibrio": 2.95,
+          "cpa_objetivo": 6472
+        },
+        "optimista": {
+          "entrega": 0.8,
+          "G": 10128,
+          "G_con_iva": 8012,
+          "cpa_equilibrio": 10128,
+          "roas_equilibrio": 2.47,
+          "cpa_objetivo": 8128
+        }
+      },
+      "mezcla_base": {
+        "aov": 30690,
+        "G": 10882,
+        "roas_equilibrio": 2.82
+      },
+      "oferta_2u": {
+        "precio": 43990,
+        "G_base": 16504,
+        "roas_equilibrio": 2.67
+      }
+    },
+    {
+      "id": "kit-manta-viaje-premios",
+      "precio": 29990,
+      "margen_bruto": 0.7,
+      "escenarios": {
+        "pesimista": {
+          "entrega": 0.6,
+          "G": 7155,
+          "G_con_iva": 5446,
+          "cpa_equilibrio": 7155,
+          "roas_equilibrio": 4.19,
+          "cpa_objetivo": 5155
+        },
+        "base": {
+          "entrega": 0.7,
+          "G": 8939,
+          "G_con_iva": 6945,
+          "cpa_equilibrio": 8939,
+          "roas_equilibrio": 3.35,
+          "cpa_objetivo": 6939
+        },
+        "optimista": {
+          "entrega": 0.8,
+          "G": 10723,
+          "G_con_iva": 8444,
+          "cpa_equilibrio": 10723,
+          "roas_equilibrio": 2.8,
+          "cpa_objetivo": 8723
+        }
+      },
+      "mezcla_base": {
+        "aov": 36890,
+        "G": 11438,
+        "roas_equilibrio": 3.23
+      },
+      "oferta_2u": {
+        "precio": 52990,
+        "G_base": 17269,
+        "roas_equilibrio": 3.07
+      }
+    },
+    {
+      "id": "kit-bandanas-fotos",
+      "precio": 24990,
+      "margen_bruto": 0.8,
+      "escenarios": {
+        "pesimista": {
+          "entrega": 0.6,
+          "G": 7070,
+          "G_con_iva": 5442,
+          "cpa_equilibrio": 7070,
+          "roas_equilibrio": 3.53,
+          "cpa_objetivo": 5070
+        },
+        "base": {
+          "entrega": 0.7,
+          "G": 8769,
+          "G_con_iva": 6870,
+          "cpa_equilibrio": 8769,
+          "roas_equilibrio": 2.85,
+          "cpa_objetivo": 6769
+        },
+        "optimista": {
+          "entrega": 0.8,
+          "G": 10468,
+          "G_con_iva": 8298,
+          "cpa_equilibrio": 10468,
+          "roas_equilibrio": 2.39,
+          "cpa_objetivo": 8468
+        }
+      },
+      "mezcla_base": {
+        "aov": 30690,
+        "G": 11268,
+        "roas_equilibrio": 2.72
+      },
+      "oferta_2u": {
+        "precio": 43990,
+        "G_base": 17099,
+        "roas_equilibrio": 2.57
+      }
     }
   ]
 }

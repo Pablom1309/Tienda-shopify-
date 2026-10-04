@@ -65,6 +65,24 @@
       }
     },
     {
+      "id": "kit-gato-navidad",
+      "nombre": "Kit Navidad del Gato: gorro y bufanda navideños + varita + 3 ratones de juguete (para gatos)",
+      "nicho": "mascotas",
+      "puntaje": 4.15,
+      "pasa_porton": true,
+      "motivos_rechazo": [],
+      "notas": {
+        "demanda": 4,
+        "estacionalidad": 5,
+        "demostrable": 4,
+        "baja_comparabilidad": 3,
+        "logistica": 5,
+        "ajuste_nicho": 5,
+        "recompra": 1,
+        "economia": 5.0
+      }
+    },
+    {
       "id": "kit-gato-sin-pelusas",
       "nombre": "Kit Gato Sin Pelusas: cepillo autolimpiante + removedor de pelos reutilizable + varita de juguete",
       "nicho": "mascotas",
@@ -155,6 +173,42 @@
       }
     },
     {
+      "id": "kit-gato-ventana-mirador",
+      "nombre": "Kit Gato Mirador: hamaca de ventana con ventosas + varita con plumas (para gatos)",
+      "nicho": "mascotas",
+      "puntaje": 3.9,
+      "pasa_porton": true,
+      "motivos_rechazo": [],
+      "notas": {
+        "demanda": 4,
+        "estacionalidad": 3,
+        "demostrable": 5,
+        "baja_comparabilidad": 4,
+        "logistica": 3,
+        "ajuste_nicho": 5,
+        "recompra": 1,
+        "economia": 4.47
+      }
+    },
+    {
+      "id": "kit-gato-laser-varitas",
+      "nombre": "Kit Gato Persecución: puntero de luz recargable USB + 2 varitas con plumas + ratón de juguete (para gatos)",
+      "nicho": "mascotas",
+      "puntaje": 3.9,
+      "pasa_porton": true,
+      "motivos_rechazo": [],
+      "notas": {
+        "demanda": 4,
+        "estacionalidad": 3,
+        "demostrable": 5,
+        "baja_comparabilidad": 2,
+        "logistica": 5,
+        "ajuste_nicho": 5,
+        "recompra": 2,
+        "economia": 5.0
+      }
+    },
+    {
       "id": "kit-paseo-hogar-limpio",
       "nombre": "Kit Paseo Limpio: limpiador de patas portátil + dispensador con bolsas (8 rollos) + comedero plegable",
       "nicho": "mascotas",
@@ -170,6 +224,24 @@
         "ajuste_nicho": 5,
         "recompra": 4,
         "economia": 3.97
+      }
+    },
+    {
+      "id": "kit-gato-aseo-unas-pelo",
+      "nombre": "Kit Aseo de Gato: cortaúñas con protector + lima + guante deslanador (para gatos)",
+      "nicho": "mascotas",
+      "puntaje": 3.85,
+      "pasa_porton": true,
+      "motivos_rechazo": [],
+      "notas": {
+        "demanda": 3,
+        "estacionalidad": 4,
+        "demostrable": 4,
+        "baja_comparabilidad": 3,
+        "logistica": 5,
+        "ajuste_nicho": 5,
+        "recompra": 2,
+        "economia": 5.0
       }
     },
     {
@@ -206,6 +278,42 @@
         "ajuste_nicho": 5,
         "recompra": 3,
         "economia": 4.53
+      }
+    },
+    {
+      "id": "kit-gato-arnes-paseo",
+      "nombre": "Kit Paseo de Gato: arnés ajustable talla única + correa + campanita (para gatos)",
+      "nicho": "mascotas",
+      "puntaje": 3.8,
+      "pasa_porton": true,
+      "motivos_rechazo": [],
+      "notas": {
+        "demanda": 3,
+        "estacionalidad": 4,
+        "demostrable": 4,
+        "baja_comparabilidad": 3,
+        "logistica": 5,
+        "ajuste_nicho": 5,
+        "recompra": 1,
+        "economia": 5.0
+      }
+    },
+    {
+      "id": "kit-gato-tunel-juego",
+      "nombre": "Kit Gato Cazador: túnel plegable de 3 vías + 3 ratones y pelotas + varita (para gatos)",
+      "nicho": "mascotas",
+      "puntaje": 3.77,
+      "pasa_porton": true,
+      "motivos_rechazo": [],
+      "notas": {
+        "demanda": 4,
+        "estacionalidad": 3,
+        "demostrable": 5,
+        "baja_comparabilidad": 2,
+        "logistica": 4,
+        "ajuste_nicho": 5,
+        "recompra": 2,
+        "economia": 4.73
       }
     },
     {
@@ -278,6 +386,42 @@
         "ajuste_nicho": 5,
         "recompra": 2,
         "economia": 3.15
+      }
+    },
+    {
+      "id": "kit-id-collar-placa",
+      "nombre": "Kit Identificación: collar ajustable reflectante + placa de acero con grabado (perros y gatos)",
+      "nicho": "mascotas",
+      "puntaje": 3.5,
+      "pasa_porton": true,
+      "motivos_rechazo": [],
+      "notas": {
+        "demanda": 3,
+        "estacionalidad": 3,
+        "demostrable": 3,
+        "baja_comparabilidad": 3,
+        "logistica": 5,
+        "ajuste_nicho": 5,
+        "recompra": 1,
+        "economia": 5.0
+      }
+    },
+    {
+      "id": "kit-bandanas-fotos",
+      "nombre": "Kit Fotos y Regalo: 3 bandanas reversibles + 2 pajaritas ajustables (perros y gatos)",
+      "nicho": "mascotas",
+      "puntaje": 3.5,
+      "pasa_porton": true,
+      "motivos_rechazo": [],
+      "notas": {
+        "demanda": 3,
+        "estacionalidad": 3,
+        "demostrable": 4,
+        "baja_comparabilidad": 2,
+        "logistica": 5,
+        "ajuste_nicho": 5,
+        "recompra": 1,
+        "economia": 5.0
       }
     },
     {
@@ -442,6 +586,26 @@
       }
     },
     {
+      "id": "kit-manta-viaje-premios",
+      "nombre": "Kit Manta de Viaje: manta polar reversible 100x70 + bolsa porta-golosinas con clip (perros y gatos)",
+      "nicho": "mascotas",
+      "puntaje": 3.24,
+      "pasa_porton": false,
+      "motivos_rechazo": [
+        "puntaje 3.24 < 3.4"
+      ],
+      "notas": {
+        "demanda": 3,
+        "estacionalidad": 3,
+        "demostrable": 3,
+        "baja_comparabilidad": 3,
+        "logistica": 3,
+        "ajuste_nicho": 5,
+        "recompra": 1,
+        "economia": 4.42
+      }
+    },
+    {
       "id": "kit-comedero-elevado-ajustable",
       "nombre": "Kit Comedor Elevado: comedero elevado de 5 alturas con 2 pocillos de acero + tapete de silicona",
       "nicho": "mascotas",
@@ -459,6 +623,26 @@
         "ajuste_nicho": 5,
         "recompra": 1,
         "economia": 4.02
+      }
+    },
+    {
+      "id": "kit-gato-transporte-mochila",
+      "nombre": "Kit Viaje con Gato: mochila transportadora plegable + manta polar (para gatos)",
+      "nicho": "mascotas",
+      "puntaje": 3.17,
+      "pasa_porton": false,
+      "motivos_rechazo": [
+        "puntaje 3.17 < 3.4"
+      ],
+      "notas": {
+        "demanda": 3,
+        "estacionalidad": 3,
+        "demostrable": 4,
+        "baja_comparabilidad": 3,
+        "logistica": 2,
+        "ajuste_nicho": 5,
+        "recompra": 1,
+        "economia": 3.23
       }
     },
     {
