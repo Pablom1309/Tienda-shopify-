@@ -6,7 +6,7 @@
   "direccion_comercial": null,
   "razon_social": null,
   "rut": null,
-  "url_sitio": null,
+  "url_sitio": "https://pablom1309.github.io/Tienda-shopify-/",
   "plazos_despacho": {"RM": "2 a 4 días hábiles", "regiones": "3 a 7 días hábiles", "zonas_extremas": "consultar por WhatsApp"},
   "comunas_sin_cobertura": []
 }
