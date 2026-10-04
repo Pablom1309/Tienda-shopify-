@@ -40,3 +40,15 @@ Cada ciclo agrega una entrada al final: fecha, nodos ejecutados, decisiones del 
 - Hallazgos: verano concentrado (manta refrescante dic ×4,9, ene ×3,3); pelo/cepillado parejo todo el año; cepillo gato pico en oct; fuente para gatos estable.
 - Decisión: Kit Verano del 16-nov al 31-ene; guía SEO de verano antes del 15-nov (agregado al calendario).
 - Bloqueo menor: Google Trends devolvió 429 en la comparación de volumen entre términos; queda pendiente.
+
+## Ciclo 2 — 2026-10-04 — validador (portón de productos)
+- **Entrada:** 7 kits nuevos pasan el portón duro (gato sin pelusas 4,13; enriquecimiento perro 4,04; piscina 3,92; paseo limpio 3,85; baño y secado 3,83; gato hidratación 3,62; gato juego 3,51). Sin resultados reales (`estado/decisiones.md` no existe).
+- **Activos sin cambio (2/2):** Kit Pelo Cero (principal) y Kit Verano Fresco (temporada 16-nov a 31-ene). No se reemplaza Pelo Cero: todos los costos son estimados y es el único con ficha, sitio y CSV listos.
+- **Precio Pelo Cero:** se mantiene $26.990. Bajar a $24.990 solo si Dropi confirma cepillo + removedor ≤ $8.000 (con el supuesto de $9.700 el ROAS eq. mezcla sube a ~4,1 y no pasa). Alternativa: 3.ª pieza barata sin bajar precio.
+- **En observación (con condiciones y criterios):** 1) kit-gato-sin-pelusas = reemplazo preferente de Pelo Cero (prima +8 % vs +55 %, ROAS eq. 3,26), no en paralelo; 2) kit-enriquecimiento-perro = principal post-verano, sin lenguaje de ansiedad; 3) piscina = solo sustituto de Kit Verano (canibaliza, voluminosa); 4-7) paseo limpio, baño y secado, gato hidratación (ROAS 3,91, frágil), gato juego (voluminoso).
+- **Descartados:** fuente-agua-gatos (reemplazada por kit con filtros), kit-bienvenida-cachorro (puntaje 3,36).
+- **Pendiente humano:** costos reales y flete en Dropi CL de Pelo Cero y del kit de gatos para decidir precio o reemplazo.
+
+## Turno 2026-10-04 07:55 UTC — ciclo 2 de productos (orquestador)
+- Nodos: cazador-productos (sonnet) → economia → puntaje → validador (opus). 8 nuevos, 7 pasan el filtro determinista; medianas de Falabella medidas por el orquestador (el cazador no tiene Bash).
+- Portón: activos sin cambio; 7 en observación con prioridad (Kit Gato Sin Pelusas primero); 2 descartados.

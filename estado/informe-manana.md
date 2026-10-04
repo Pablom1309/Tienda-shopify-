@@ -2,6 +2,13 @@
 
 Se actualiza al final de cada turno autónomo. Lo más reciente arriba.
 
+## 2026-10-04 ~05:00 (Chile) — turno: ciclo 2 de productos
+- Hecho: 8 candidatos nuevos (7 kits + piscina), economía, puntaje y portón del validador → `datos/catalogo.json`.
+- Activos sin cambios: Kit Pelo Cero ($26.990) y Kit Verano Fresco ($32.990, 16-nov a 31-ene).
+- En observación (listos para reemplazo): Kit Gato Sin Pelusas (mejor economía y solo +8 % sobre piezas; reemplazo de Pelo Cero si su costo no cierra), Kit Enriquecimiento Perro (para después del verano), piscina (sustituto del Kit Verano) y 4 más.
+- Descartados: fuente de agua suelta (la reemplaza el kit con filtros) y kit cachorro.
+- Para ti: en Dropi, cotiza también cepillo autolimpiante de gato + removedor + varita, y alfombra olfativa + tapete para lamer.
+
 ## 2026-10-04 ~04:00 (Chile) — turno: estacionalidad (Google Trends)
 - Hecho: curvas de 10 años de Google Trends Chile → `investigacion/estacionalidad-trends.md`.
 - Clave: "manta refrescante" y "piscina para perros" se multiplican ×4-5 en diciembre y ×3 en enero; casi cero de abril a septiembre. Ventana del Kit Verano: mediados de nov a fines de ene.
