@@ -11,3 +11,9 @@ Cada ciclo agrega una entrada al final: fecha, nodos ejecutados, decisiones del 
 - **Sitio:** generado en `sitio/` con formulario contra entrega por WhatsApp; CSV para Shopify en `shopify/productos.csv` (en borrador).
 - **Publicado:** https://pablom1309.github.io/Tienda-shopify-/ (GitHub Pages, despliegue automático desde la rama).
 - **Pendiente humano (bloquea ventas):** cuenta Dropi CL validada, costos reales de los 4 componentes y que un mismo proveedor despache cada kit, WhatsApp de atención, datos legales de contacto.
+
+## Turno 2026-10-04 03:00 UTC — mercado objetivo
+- Tarea: mercado de mascotas Chile → `investigacion/mercado-mascotas-chile.md` (CNC/INE, Kantar, censo UC, CCS; con URL).
+- Hallazgos: 70 % de hogares con perro o gato; gasto $60.100/mes; accesorios sube a 7,8 % del gasto; ecommerce mascotas US$650-670 M en 2026; conversión de referencia 1,72 %.
+- Decisión: no pautar en CyberMonday (5-7 oct) ni Black Friday (27-30 nov); separar anuncios familias con perro vs dueños de gato.
+- Nueva tarea: estacionalidad con Google Trends CL. Sin bloqueos del guardián.

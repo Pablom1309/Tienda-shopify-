@@ -4,10 +4,11 @@ Cada sesión del turno toma la **primera tarea `[ ]`** (o dos si son cortas), la
 Tareas que requieren al dueño van en "Bloqueadas (portón humano)": nunca se ejecutan, se saltan.
 
 ## Prioridad 1 — Conocer el mercado y el negocio
-- [ ] **Mercado objetivo Chile (mascotas):** tamaño del mercado, % de hogares con perros/gatos, gasto promedio, crecimiento, canales de compra online, estacionalidad, regiones. Fuentes con URL. → `investigacion/mercado-mascotas-chile.md`
+- [x] (2026-10-04) → `investigacion/mercado-mascotas-chile.md` · **Mercado objetivo Chile (mascotas):** tamaño del mercado, % de hogares con perros/gatos, gasto promedio, crecimiento, canales de compra online, estacionalidad, regiones. Fuentes con URL. → `investigacion/mercado-mascotas-chile.md`
 - [ ] **Competencia real con precios:** leer Mercado Libre Chile, Falabella, Paris y tiendas de mascotas online (Petco, SuperZoo, Club de Perros y Gatos u otras) para los componentes de nuestros kits: precio mínimo/mediano/máximo, envío, reseñas, cómo se presentan. Actualizar `evidencia` en `datos/candidatos.json` sin inventar. → `investigacion/competencia-precios.md`
 - [ ] **Cliente ideal (buyer persona) y objeciones:** a partir de reseñas y preguntas públicas de compradores en Mercado Libre/Falabella: dolores, palabras que usan, objeciones, motivos de devolución. → `investigacion/cliente-objeciones.md`
 - [ ] **Referentes mundiales:** cómo venden online los mejores (marcas DTC de mascotas como Chewy, BarkBox, Wild One, Fable; operadores de contra entrega LATAM; guías de conversión de Baymard Institute; marcos de oferta tipo "Grand Slam Offer"; estrategia creativa en Meta). Extraer solo lo aplicable a nuestra tienda, con fuente, y convertirlo en tareas concretas al final de este backlog. → `investigacion/playbook-referentes.md`
+- [ ] **Estacionalidad con Google Trends CL:** descargar curvas semanales 5 años de "cepillo para perros", "cama refrescante perro", "fuente de agua gatos" y confirmar las ventanas del calendario. → `investigacion/estacionalidad-trends.md`
 
 ## Prioridad 2 — Más productos rentables
 - [ ] **Ciclo 2 de productos:** 8–10 candidatos nuevos del nicho (con Google Trends Chile, más vendidos de Mercado Libre, tendencias de TikTok), correr `economia.py` y `puntaje.py`, y pasar por el validador. Mantener máximo 2 activos; los demás que pasen el portón quedan `en_observacion` con su ficha lista para reemplazo.

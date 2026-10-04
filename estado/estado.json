@@ -1,30 +1,96 @@
 {
-  "ciclo": {"numero": 1, "fecha": "2026-10-04", "reintentos": 1, "fase": "listo_para_test", "proximo_foco": "Cumplir portón humano 'cuentas' y verificar costos reales en Dropi CL."},
+  "ciclo": {
+    "numero": 1,
+    "fecha": "2026-10-04",
+    "reintentos": 1,
+    "fase": "listo_para_test",
+    "proximo_foco": "Cumplir portón humano 'cuentas' y verificar costos reales en Dropi CL."
+  },
   "nicho": "mascotas: kits de cuidado en casa (pelo y verano)",
   "nodos": {
-    "investigador-mercado": {"ultima_ejecucion": "2026-10-04", "ttl_dias": 7},
-    "cazador-productos": {"ultima_ejecucion": "2026-10-04", "ttl_dias": 7},
-    "economia": {"ultima_ejecucion": "2026-10-04", "ttl_dias": 0},
-    "puntaje": {"ultima_ejecucion": "2026-10-04", "ttl_dias": 0},
-    "validador": {"ultima_ejecucion": "2026-10-04", "ttl_dias": 7},
-    "creador-tienda": {"ultima_ejecucion": "2026-10-04", "ttl_dias": 14},
-    "construir-sitio": {"ultima_ejecucion": "2026-10-04", "ttl_dias": 0},
-    "estratega-ads": {"ultima_ejecucion": "2026-10-04", "ttl_dias": 14},
-    "auditor": {"ultima_ejecucion": "2026-10-04", "ttl_dias": 0},
-    "analista-resultados": {"ultima_ejecucion": null, "ttl_dias": 1}
+    "investigador-mercado": {
+      "ultima_ejecucion": "2026-10-04",
+      "ttl_dias": 7
+    },
+    "cazador-productos": {
+      "ultima_ejecucion": "2026-10-04",
+      "ttl_dias": 7
+    },
+    "economia": {
+      "ultima_ejecucion": "2026-10-04",
+      "ttl_dias": 0
+    },
+    "puntaje": {
+      "ultima_ejecucion": "2026-10-04",
+      "ttl_dias": 0
+    },
+    "validador": {
+      "ultima_ejecucion": "2026-10-04",
+      "ttl_dias": 7
+    },
+    "creador-tienda": {
+      "ultima_ejecucion": "2026-10-04",
+      "ttl_dias": 14
+    },
+    "construir-sitio": {
+      "ultima_ejecucion": "2026-10-04",
+      "ttl_dias": 0
+    },
+    "estratega-ads": {
+      "ultima_ejecucion": "2026-10-04",
+      "ttl_dias": 14
+    },
+    "auditor": {
+      "ultima_ejecucion": "2026-10-04",
+      "ttl_dias": 0
+    },
+    "analista-resultados": {
+      "ultima_ejecucion": null,
+      "ttl_dias": 1
+    }
   },
   "mercado": {
     "fecha": "2026-10-04",
     "resumen": "Q4 en Chile: primavera (muda de pelo), Black Friday 27-30 nov, Navidad y verano desde diciembre. Mascotas, hogar y tecnología lideran en Mercado Libre CL. En contra entrega con flete de $3.500-$6.000, tickets bajo $25.000 no cierran: hay que vender kits u ofertas por cantidad.",
-    "oportunidades": ["Kits de mascotas no comparables 1:1 en marketplaces", "Temporada de calor dic-feb para productos de frescura", "Regalos para dueños de mascotas en Navidad"],
-    "riesgos": ["Saturación del cepillo a vapor en anuncios (revisar Biblioteca de anuncios)", "Costos reales de Dropi CL no verificados", "Flete de devolución no confirmado"],
-    "fuentes": ["investigacion/mercado-2026-10-04.md"]
+    "oportunidades": [
+      "Kits de mascotas no comparables 1:1 en marketplaces",
+      "Temporada de calor dic-feb para productos de frescura",
+      "Regalos para dueños de mascotas en Navidad"
+    ],
+    "riesgos": [
+      "Saturación del cepillo a vapor en anuncios (revisar Biblioteca de anuncios)",
+      "Costos reales de Dropi CL no verificados",
+      "Flete de devolución no confirmado"
+    ],
+    "fuentes": [
+      "investigacion/mercado-2026-10-04.md",
+      "investigacion/mercado-mascotas-chile.md"
+    ]
   },
   "calendario": [
-    {"fecha": "2026-11-16", "evento": "Inicio test Kit Verano Fresco"},
-    {"fecha": "2026-11-27", "evento": "Black Friday Chile (27-30 nov)"},
-    {"fecha": "2026-12-01", "evento": "Ley 21.719 de datos personales vigente; ángulos de Navidad"},
-    {"fecha": "2026-12-25", "evento": "Navidad"}
+    {
+      "fecha": "2026-10-05",
+      "evento": "CyberMonday Chile (5-7 oct): no pautar"
+    },
+    {
+      "fecha": "2026-11-16",
+      "evento": "Inicio test Kit Verano Fresco"
+    },
+    {
+      "fecha": "2026-11-27",
+      "evento": "Black Friday Chile (27-30 nov)"
+    },
+    {
+      "fecha": "2026-12-01",
+      "evento": "Ley 21.719 de datos personales vigente; ángulos de Navidad"
+    },
+    {
+      "fecha": "2026-12-25",
+      "evento": "Navidad"
+    }
   ],
-  "portones_humanos_pendientes": ["cuentas", "gasto"]
+  "portones_humanos_pendientes": [
+    "cuentas",
+    "gasto"
+  ]
 }
