@@ -2,6 +2,12 @@
 
 Se actualiza al final de cada turno autónomo. Lo más reciente arriba.
 
+## 2026-10-04 ~08:00 (Chile) — turno: auditoría de conversión
+- Hecho: auditoría de la tienda → `investigacion/auditoria-conversion.md`; revisada en Chromium (móvil y escritorio) sin errores propios.
+- Cambios en la tienda: plazo de entrega junto al precio, enlaces a retracto y privacidad junto al botón, y casilla opcional de consentimiento para WhatsApp (Ley 21.719).
+- Lo que más falta: fotos reales con escala y medidas exactas (requieren tu muestra y la ficha de Dropi).
+- Ojo técnico: el formulario marca "compra" al abrir WhatsApp; cuando instalemos el píxel debe ser "lead" y la compra solo al confirmar.
+
 ## 2026-10-04 ~07:00 (Chile) — turno: plan financiero
 - Hecho: equilibrio, sensibilidad y caja a 30/60/90 días → `investigacion/plan-financiero.md` (herramienta nueva `herramientas/finanzas.py`).
 - Clave: necesitas ~$300.000-$400.000 de capital de trabajo aunque funcione (el anuncio se paga hoy, Dropi paga ~14 días después).

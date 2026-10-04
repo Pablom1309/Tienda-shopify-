@@ -17,17 +17,18 @@ Tareas que requieren al dueño van en "Bloqueadas (portón humano)": nunca se ej
 - [ ] **Revalidar precio de Kit Pelo Cero (validador) — avance 2026-10-04: se mantiene $26.990; bajar a $24.990 solo si Dropi confirma cepillo+removedor ≤ $8.000; alternativa: Kit Gato Sin Pelusas en observación como reemplazo:** con la competencia leída (cepillo a vapor mediana $7.445 en Falabella), evaluar bajar a $22.990-$24.990 o sumar una tercera pieza barata; recalcular economía. Requiere costo real para decidir el precio final.
 
 ## Prioridad 3 — Tienda que convierte y genera confianza
-- [ ] **Auditoría de conversión** de `sitio/` contra las guías de Baymard (página de producto, formulario, confianza, móvil), con lista priorizada de cambios; implementar los de bajo riesgo en `herramientas/construir_sitio.py` y la plantilla. Verificar en Chromium (móvil y escritorio) antes del commit.
+- [x] (2026-10-04) → `investigacion/auditoria-conversion.md` · **Auditoría de conversión** de `sitio/` contra las guías de Baymard (página de producto, formulario, confianza, móvil), con lista priorizada de cambios; implementar los de bajo riesgo en `herramientas/construir_sitio.py` y la plantilla. Verificar en Chromium (móvil y escritorio) antes del commit.
 - [ ] **Página "Nosotros" honesta** (quiénes somos, cómo elegimos los kits, cómo funciona el servicio) sin inventar historia, cifras ni testimonios.
 - [ ] **Guía de tallas** para la alfombra (qué talla según peso/tamaño del perro) y especificaciones claras; marcar como "por confirmar con proveedor" lo no verificado.
 - [ ] **SEO de contenido (publicar "Verano con tu perro" antes del 15-nov, ver `investigacion/estacionalidad-trends.md`):** 2 guías útiles en `sitio/guias/` (por ejemplo "Cómo reducir el pelo de tu mascota en casa" y "Verano con tu perro: guía práctica para Chile"), sin afirmaciones de salud, con enlaces internos a los kits y datos estructurados de artículo.
 - [ ] **FAQ y copy desde objeciones reales (creador-tienda):** agregar a las fichas "¿Qué tamaño tiene?" (cm), "¿Cómo se carga y cuánto dura?" (por confirmar con proveedor) y "¿Qué talla elijo?"; describir el vapor como bruma fina sin sobreprometer. Fuente: `investigacion/cliente-objeciones.md`.
 - [ ] **Plantilla de confirmación por WhatsApp (borrador, no enviar):** producto, foto, total a pagar al recibir, fecha estimada y cómo reprogramar. → `datos/plantillas_whatsapp.md`
 - [ ] **Oferta por kit con la ecuación de valor (Hormozi):** resultado, probabilidad (guía, cambio, pago al recibir), demora (plazo visible), esfuerzo; bonos de bajo costo (guía PDF). Sin escasez ni testimonios inventados. → `datos/ofertas.md`
-- [ ] **Plazo de entrega y resumen de cambios junto al botón de pedido** (Baymard: envío lento 21 % y devoluciones 15 % de abandonos); plazos "por confirmar con Dropi".
+- [x] (2026-10-04) → plazo junto al precio + enlaces a cambios/privacidad · **Plazo de entrega y resumen de cambios junto al botón de pedido** (Baymard: envío lento 21 % y devoluciones 15 % de abandonos); plazos "por confirmar con Dropi".
 - [ ] **Página de gracias con upsell de un clic** del complemento (sacarlo del formulario previo si baja fricción).
-- [ ] **Consentimiento expreso para recordatorios por WhatsApp** (Ley 21.719, vigente 1-dic-2026): casilla opcional, desmarcada, en el formulario.
+- [x] (2026-10-04) → formulario de producto · **Consentimiento expreso para recordatorios por WhatsApp** (Ley 21.719, vigente 1-dic-2026): casilla opcional, desmarcada, en el formulario.
 - [ ] **Rendimiento:** medir peso total por página y tiempos con Chromium; bajar lo que sobre (fuentes, imágenes, CSS no usado).
+- [ ] **Evento del píxel:** cambiar `Purchase` al abrir WhatsApp por `Lead`, y `Purchase` solo con pedido confirmado (CAPI) cuando exista el píxel. Ver `investigacion/auditoria-conversion.md`.
 
 ## Prioridad 4 — Adquisición
 - [ ] **Calendario de contenido orgánico de 30 días** (Reels/TikTok) con guiones, ganchos y textos, alineado con `datos/plan_ads.json`. → `datos/contenido_organico.md`

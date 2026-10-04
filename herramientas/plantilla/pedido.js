@@ -105,7 +105,8 @@
       '• Total: ' + clp(total()),
       '• Nombre: ' + d.get('nombre'),
       '• Teléfono: ' + d.get('telefono'),
-      '• Dirección: ' + d.get('direccion') + ', ' + d.get('comuna') + ', ' + d.get('region')
+      '• Dirección: ' + d.get('direccion') + ', ' + d.get('comuna') + ', ' + d.get('region'),
+      '• Acepto recordatorios y novedades por WhatsApp: ' + (d.get('consentimiento') ? 'Sí' : 'No')
     ].filter(Boolean);
     if (!f.dataset.wa) { alert('La tienda aún no tiene WhatsApp configurado. Vuelve pronto.'); return; }
     if (window.fbq) { window.fbq('track', 'Purchase', { value: total(), currency: 'CLP' }); }

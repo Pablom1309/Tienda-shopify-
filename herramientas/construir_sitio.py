@@ -235,7 +235,8 @@ def formulario(prod, ficha, tienda):
 <div class="total"><span>Total a pagar al recibir</span><strong id="total">{clp(prod['precio'])}</strong></div>
 <button type="submit" class="boton boton-grande">{icono('chat')} Confirmar pedido por WhatsApp</button>
 {aviso}
-<ul class="garantias-form"><li>{icono('pago', 'ico ico-s')} No pagas nada ahora</li><li>{icono('retracto', 'ico ico-s')} 10 días de retracto</li><li>{icono('garantia', 'ico ico-s')} Datos protegidos</li></ul>
+<label class="consentimiento"><input type="checkbox" name="consentimiento" value="si"><span>Quiero recibir por WhatsApp recordatorios y novedades de Huella Sur (opcional; puedes darte de baja cuando quieras).</span></label>
+<ul class="garantias-form"><li>{icono('pago', 'ico ico-s')} No pagas nada ahora</li><li><a href="../cambios.html">{icono('retracto', 'ico ico-s')} 10 días de retracto</a></li><li><a href="../privacidad.html">{icono('garantia', 'ico ico-s')} Cómo usamos tus datos</a></li></ul>
 </form>"""
 
 
@@ -286,6 +287,7 @@ def pagina_producto(prod, ficha, marca, tienda):
 <p class="sub">{e(ficha['subtitular'])}</p>
 <div class="precio"><strong>{clp(prod['precio'])}</strong><span class="chip">Lleva 2 y ahorra {clp(ahorro)}</span></div>
 <p class="iva">IVA incluido · Pagas al recibir</p>
+<p class="plazo">{icono('envio', 'ico ico-s')} Llega en {e(tienda['plazos_despacho']['RM'])} en la RM y {e(tienda['plazos_despacho']['regiones'])} en regiones</p>
 {formulario(prod, ficha, tienda)}
 </div>
 </section>

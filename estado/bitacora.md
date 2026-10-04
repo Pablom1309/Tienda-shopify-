@@ -62,3 +62,9 @@ Cada ciclo agrega una entrada al final: fecha, nodos ejecutados, decisiones del 
 - Tarea: equilibrio, sensibilidad (entrega × CPA × comisión/devolución) y caja diaria a 90 días → `investigacion/plan-financiero.md`; nodo determinista nuevo `finanzas` (`herramientas/finanzas.py`, `datos/finanzas.json`, bloque `finanzas` en supuestos).
 - Resultado: capital de trabajo necesario $270.000-$400.000; pérdida máxima si nada funciona ~$180.000; CPA de equilibrio Pelo Cero $8.925 ($7.262 con comisión + devolución).
 - Se omitió "Revalidar precio Pelo Cero": depende de costo real (portón humano).
+
+## Turno 2026-10-04 10:55 UTC — auditoría de conversión
+- Tarea: auditoría vs Baymard y objeciones → `investigacion/auditoria-conversion.md`.
+- Implementado (plantilla + construir_sitio.py): plazo junto al precio, retracto/privacidad enlazados, consentimiento WhatsApp opcional (cierra 2 tareas P3).
+- Chromium 390/1366 px: sin scroll horizontal; solo error de Google Fonts por certificado del proxy del entorno.
+- Nueva tarea: corregir evento del píxel (Purchase → Lead).

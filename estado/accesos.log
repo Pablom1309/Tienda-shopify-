@@ -121,3 +121,7 @@
 2026-10-04 09:57:42Z	bash-url	https://claude.ai/code/session_01RkFE79hJtzNuY27Mr4KkRc
 2026-10-04 10:56:08Z	bash-url	https://claude.ai/code/session_01RkFE79hJtzNuY27Mr4KkRc
 2026-10-04 10:56:08Z	bash-url	https://claude.ai/code/session_01RkFE79hJtzNuY27Mr4KkRc
+2026-10-04 10:56:50Z	bash-url	http://localhost:8765/
+2026-10-04 10:57:03Z	bash-url	https://[a-z.]*googleapis[^
+2026-10-04 10:57:03Z	bash-url	https://fonts[^
+2026-10-04 10:57:54Z	bash-url	https://claude.ai/code/session_01RkFE79hJtzNuY27Mr4KkRc
