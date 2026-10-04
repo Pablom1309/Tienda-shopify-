@@ -101,3 +101,10 @@ Cada ciclo agrega una entrada al final: fecha, nodos ejecutados, decisiones del 
 - Nuevo nombre **Kuchiwau** (idea del dueño; "cuchi cuchi" + "wau"). Dueño verificó en INAPI que no hay marcas "Kuchi"; kuchiwau.cl libre. Cambiado en marca, fichas, plan de anuncios, plantilla, logo (estrella como punto de la i), SKU KW-.
 - 2026-10-04 ~14:15 UTC: por pedido del dueño, Kit Baño y Secado primero en la portada (`orden_vitrina` en datos/tienda.json).
 - 2026-10-04 ~14:30 UTC: pedido del dueño, quitar mensajes repetidos. Regla 'un mensaje, un lugar': barra superior = resumen de confianza; 'Cómo funciona' = pago contra entrega; 'Compra sin riesgo' = retracto y garantía; FAQ = plazos. Eliminados: sellos del hero, franja de sellos (portada y kit), pilar 'Compra sin riesgo', sello del pie, sellos bajo la foto del kit, filas repetidas de la tabla y FAQs '¿Cómo pago?'/'¿Y si no me sirve?'.
+
+## Ciclo 3 — 2026-10-04 — validador (portón, crecimiento de catálogo a máx. 20)
+- Aprobados nuevos (7): kit-caja-regalo-navidad (temporada 15-nov a ~15-dic), kit-paseo-nocturno-led, kit-juegos-interactivos-perro (juego activo, diferenciado del kit de enriquecimiento: olfato/lamer), kit-gato-arenero-limpio, kit-gato-rascador-pared, kit-cachorro-entrenamiento, piscina-plegable-perros-120 (16-nov a 28-feb; en tienda junto a Kit Verano, nunca en pauta simultánea). Total activos: 13/20.
+- Campo `mascota` agregado a los 13 activos (10 perro, 3 gato): falta oferta para gatos.
+- En observación: kit-gato-hidratacion-filtros (ROAS eq. 3,91 al borde), kit-gato-juego-rascado (duplica rascador de pared, peor economía y logística), kit-mordedores-cepillo-dedal (cepillo de dedal insinúa higiene bucal = salud; duplica cuerda con otros kits).
+- Descartados (no pasan portón duro): kit-auto-viaje-perro, kit-comedero-elevado-ajustable, kit-descanso-cojin-lavable, kit-abrigo-invierno-perro (reevaluar en marzo), kit-orden-alimento.
+- Pendiente: fichas de los 7 nuevos (creador-tienda); todos con costos estimados, verificar en Dropi antes de pautar. Próximo cazador: priorizar kits para gato o ambos.
