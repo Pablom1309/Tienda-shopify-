@@ -5,57 +5,57 @@
       "agente": "director-estrategia",
       "ttl_horas": 24,
       "ultima": "2026-10-05T03:44:58Z",
-      "prioridad": 2,
-      "foco": "Ordenar prioridades del pre-lanzamiento"
+      "prioridad": 6,
+      "foco": "Diseño primero: secuenciar insumos hacia diseño y cerrar con el dueño la política de envío (A incluido recomendada) y los datos legales"
     },
     "diseno": {
       "agente": "disenador-web",
       "ttl_horas": 2,
       "ultima": "2026-10-05T12:30:49Z",
       "prioridad": 1,
-      "foco": "Diseño y mejoras de la tienda web primero (dueño 2026-10-05): integrar propuestas de SEO, legal y competencia; una mejora coherente por ronda, verificada en móvil"
+      "foco": "Fichas de los 3 kits de partida y páginas de confianza (despacho, cambios, contacto, privacidad) terminadas en móvil: integrar textos de legal tras aviso interno y bloque de despacho A/B por dato; una mejora coherente por ronda, verificada en 390 px"
     },
     "legal": {
       "agente": "legal-cumplimiento",
       "ttl_horas": 48,
       "ultima": "2026-10-05T03:44:58Z",
-      "prioridad": 3,
-      "foco": "privacidad.html (Ley 21.719) y cambios/contacto/fichas (Ley 19.496) sin brechas; datos del dueño como campos marcados"
+      "prioridad": 2,
+      "foco": "Entregar a diseño textos finales listos para pegar de C1, C3 (variantes A y B) e I1; revisar conceptos de ads"
     },
     "operaciones": {
       "agente": "operaciones-cx",
       "ttl_horas": 48,
       "ultima": "2026-10-05T03:44:58Z",
-      "prioridad": 4,
-      "foco": "datos/operaciones.md: flujo COD de punta a punta con plan B manual Dropi y tablero semanal"
+      "prioridad": 3,
+      "foco": "Tabla de medidas y materiales de los 3 kits para las fichas; columnas de flete por zona y cobertura en verificacion_dropi.csv"
     },
     "seo": {
       "agente": "seo-contenido",
       "ttl_horas": 24,
       "ultima": "2026-10-05T03:55:51Z",
-      "prioridad": 8,
-      "foco": "SEO técnico de los 3 kits de partida; guía de verano para la semana siguiente (plazo 15-nov)"
+      "prioridad": 4,
+      "foco": "Verificar HTML regenerado de los 3 kits (título, meta, canónica, Product coherente con precio y despacho); guía de verano desde el 12-oct (plazo 15-nov)"
     },
     "competencia": {
       "agente": "analista-competencia",
       "ttl_horas": 72,
       "ultima": "2026-10-05T03:55:51Z",
-      "prioridad": 6,
-      "foco": "Precio, envío y confianza de los 3 kits de partida vs Petco CL, TusMascotas y Shopify locales"
+      "prioridad": 7,
+      "foco": "Benchmark de diseño de fichas de tiendas chilenas (despacho, cambios, confianza) con URL y fecha, para diseño"
     },
     "marca": {
       "agente": "marca-redes",
       "ttl_horas": 48,
       "ultima": "2026-10-05T07:52:14Z",
-      "prioridad": 9,
-      "foco": "Calendario orgánico de 30 días centrado en los 3 kits de partida (sin grilla de 9)"
+      "prioridad": 5,
+      "foco": "Textos de fichas.json (Pelo Cero con bruma) e íconos e ilustraciones de marca para diseño; sin publicar"
     },
     "ads": {
       "agente": "estratega-ads",
       "ttl_horas": 72,
       "ultima": "2026-10-05T03:55:51Z",
-      "prioridad": 7,
-      "foco": "Conceptos creativos de Gato Sin Pelusas, Pelo Cero y Baño y Secado; sin presupuesto ni campañas"
+      "prioridad": 8,
+      "foco": "Coherencia gancho-ficha de los 3 kits de partida; sin presupuesto ni campañas"
     }
   }
 }

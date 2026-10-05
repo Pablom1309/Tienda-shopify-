@@ -2,63 +2,74 @@
 
 Agente: `director-estrategia`. Lo actualiza el propio agente en cada ronda.
 
-## Objetivo de la semana (5 al 11 de octubre de 2026)
-**Al domingo 11 de octubre, la tienda queda lista para recibir su primer pedido contra entrega, salvo los portones del dueño: 0 brechas legales abiertas en privacidad, cambios y contacto (los datos del dueño quedan como campos marcados), el proceso de pedido documentado de punta a punta y los 3 kits de partida con ficha y verificación Dropi listas para completar.**
+## Objetivo de la semana (5 al 11 de octubre de 2026), actualizado el 2026-10-05 a las 17:35 UTC
+**Al domingo 11 de octubre, las fichas de los 3 kits de partida y las 4 páginas de confianza (despacho, cambios, contacto y privacidad) quedan terminadas en móvil con los textos de legal integrados. Así, las 3 brechas críticas (C1 a C3) se cierran solo con cargar los datos del dueño y su decisión sobre el envío. Se verifica en 390 px y `verificar.py` debe dar 0.**
 
-Etapa: validación, antes del lanzamiento (0 ventas, 0 pauta). Del 5 al 7 de octubre es CyberMonday: no se pauta (decisión vigente).
+Etapa: validación, antes del lanzamiento (0 ventas, 0 pauta). Del 5 al 7 de octubre es CyberMonday y no se pauta. Prioridad vigente del dueño: **diseño de la web primero**. Las demás áreas trabajan para alimentar a diseño.
 
 ## Prioridades (en orden)
-1. **Confianza y cumplimiento (legal):** privacidad conforme a la Ley 21.719 (vigente desde el 1 de diciembre), y en cambios, contacto y fichas la información obligatoria de la Ley 19.496. Sin esto no se puede vender ni pautar (Meta y Merchant Center también revisan estas páginas).
-2. **Operación COD de punta a punta (operaciones):** pedido, confirmación por WhatsApp, despacho, novedad y devolución, con el tablero mínimo. En contra entrega, la tasa de entrega pesa más que el CPA: según `datos/finanzas.json`, en Pelo Cero G va de $8.925 (base) a $5.281 (pesimista, con comisión y flete de devolución).
-3. **Tienda profesional en lo que convierte (diseño):** ficha de producto y formulario en móvil para los 3 kits de partida; la vitrina no debe parecer inacabada.
+1. **Diseño: tienda profesional donde se convierte.** Fichas de Baño y Secado, Gato Sin Pelusas y Pelo Cero, más las páginas de confianza. Cada mensaje va en un solo lugar y las piezas que no tienen dato muestran "por confirmar con proveedor". Lo cosmético (animaciones, transiciones) va después de esto.
+2. **Legal y operaciones entregan a diseño el contenido que falta.** Legal aporta los textos finales de C1, C3 e I1 y operaciones las medidas y materiales "por confirmar", porque una ficha bonita sin datos obligatorios no se puede publicar.
+3. **Dejar lista la decisión de envío al cliente** (abajo) para que diseño la muestre apenas el dueño elija y la brecha C3 se cierre.
 
 ## Decisiones tomadas
-- **Los 3 kits de partida son Kit Baño y Secado, Kit Gato Sin Pelusas y Kit Pelo Cero.** Por qué: el dueño fijó Baño y Secado como primero en la vitrina; Gato Sin Pelusas y Pelo Cero son los dos del plan de test de `datos/plan_ads.json` (Gato Sin Pelusas tiene la mejor economía del catálogo). Concentrar el trabajo de ficha, verificación y creativos en 3 kits, y no en 19, es lo que acerca la primera venta.
-- **El orden de las áreas es legal, operaciones, diseño, competencia, ads, SEO y marca.** Por qué: primero va lo obligatorio y lo que protege la entrega, y después lo cosmético o de largo plazo. SEO tiene plazo el 15 de noviembre y marca no tiene urgencia mientras no haya cuentas creadas.
-- **Ads trabaja solo en conceptos y guiones, sin presupuesto ni campañas.** Por qué: ningún kit se pauta sin verificación en Dropi (decisión del dueño), y la pauta es un portón humano.
-- **Diseño no rediseña la marca ni la portada completa esta semana.** Por qué: lo prioritario es la ficha y el formulario de los 3 kits de partida; el resto es cosmético en esta etapa.
-- **No se tocan los precios hasta tener costos reales de Dropi.** Por qué: no se inventan costos. Pelo Cero se mantiene en $26.990 hasta que el dueño confirme el costo (regla del backlog: baja a $24.990 solo si cepillo más removedor cuestan ≤ $8.000).
+- **El orden de áreas pasa a ser diseño, legal, operaciones, SEO, marca, dirección, competencia y ads.** Por qué: el dueño fijó "diseño primero". Legal y operaciones van detrás porque aportan contenido obligatorio a las fichas, SEO y marca aportan títulos, microcopys e íconos, y competencia y ads ya entregaron lo suyo y no tienen nada urgente hasta que exista la verificación de Dropi.
+- **Diseño no rehace la marca ni la paleta.** Mejora sobre Fraunces y Nunito con tinta, mandarina y crema. Por qué: la base ya obtuvo 31 de 40 en la revisión heurística, así que el siguiente salto está en el contenido y en la confianza, no en un rediseño.
+- **Diseño deja preparado el lugar del despacho con las dos variantes (A incluido, B aparte), controladas por un dato, y no publica ninguna mientras el dueño no decida.** Por qué: así la decisión del dueño se aplica en minutos y no se inventa un costo.
+- **Se mantienen los 3 kits de partida y los precios actuales** hasta tener costos reales de Dropi. Pelo Cero sigue en $26.990.
+- **Ads sigue sin presupuesto ni campañas.** Pelo Cero sigue bloqueado hasta confirmar la certificación SEC y la bruma fría.
+
+## Política de envío al cliente: propuesta (la decisión es del dueño)
+Datos de `datos/economia.json` y `datos/supuestos.json`. Todos los costos son **estimados**, no están verificados en Dropi. El flete implícito en la economía es de unos **$3.800 por paquete (estimado)** en los 3 kits. Se pudo reconstruir con G = c·e·(P − Cp) − c·F − 150, con c = 0,85 y e base = 0,70.
+
+| Kit | Precio | Flete ÷ precio | G base con envío incluido (A) | G base cobrando $3.800 aparte (B) |
+|---|---|---|---|---|
+| Baño y Secado | $29.990 | 12,7 % | $9.407 | ≈ $11.668 |
+| Gato Sin Pelusas | $27.990 | 13,6 % | $8.217 | ≈ $10.478 |
+| Pelo Cero | $26.990 | 14,1 % | $6.908 | ≈ $9.169 |
+
+- **Con B se ganan unos $2.261 por pedido generado (0,595 × 3.800), o cerca de $1.900 si se descuenta el IVA.** El costo es que el total que se paga en la puerta sube a $30.790–$33.790, por encima del umbral de envío gratis de Petco ($29.990). En contra entrega eso arriesga confirmación y entrega. No hay datos propios para medir ese efecto.
+- **Sensibilidad:** cada $1.000 de flete real por sobre lo estimado le quita a G unos $850 por pedido generado (c × 1.000). Pelo Cero es el más expuesto.
+- **Recomendación de dirección: opción A, "Despacho incluido en el precio, sin cargos al recibir",** con dos condiciones. (1) El flete real en Dropi debe ser ≤ $4.500 (es el umbral que ya usa el catálogo). (2) Las comunas sin cobertura se excluyen en el formulario en vez de cobrarse aparte. Si el flete real supera $4.500 en alguna zona, se usa B solo para esa zona y el monto se declara en la ficha. Razones: la economía actual ya absorbe el flete, el total a pagar queda simple (un número, sin sorpresas en la puerta, que es la causa de C3) y se compite con Petco sin bajar el precio. La oferta de 2 kits reparte el flete, que es fijo por paquete.
 
 ## Conflictos resueltos entre áreas
-- **Vitrina (dueño: Baño y Secado primero) frente al plan de ads (Gato Sin Pelusas y Pelo Cero primero):** no se contradicen. La vitrina sigue la decisión del dueño y el test de anuncios parte con los kits que cierren mejor con el costo real de Dropi. Si Baño y Secado se verifica primero, entra al test.
-- **Paso 5.6 de `LANZAMIENTO.md` (publicar la grilla de 9) frente a la decisión del dueño de no hacer la grilla:** manda el dueño. El orquestador debe corregir 5.6 en la próxima pasada de `LANZAMIENTO.md`; marca la reemplaza con 3 a 6 publicaciones reales del calendario orgánico.
-- **Mensajes de confianza repetidos (diseño y legal quieren mostrar envío, pago al recibir y retracto):** se aplica "un mensaje, un lugar" (decisión del dueño). Legal define el texto y diseño decide un único lugar por mensaje.
-- **Costo fijo de Shopify inconsistente:** `datos/finanzas.json` usa US$39/mes y `LANZAMIENTO.md` dice US$25/mes (US$19 anual). Se marca para conciliar en el próximo ciclo financiero con el precio vigente en shopify.com/cl, sin elegir una cifra a ciegas.
+- **Diseño ya ejecuta propuestas de SEO, marca y legal, y cada área sigue anotando su versión:** las tareas duplicadas se dan por cerradas cuando diseño las marca como HECHO (por ejemplo, el evento Lead en vez de Purchase y el alt de Baño y Secado). Cada área revisa en `diseno.md` antes de volver a proponer.
+- **Títulos y metadescripciones SEO de las fichas:** el dueño del dato es `datos/fichas.json`. Marca aplica los textos de `datos/seo/auditoria.md`, el generador los toma y diseño no los escribe a mano en el HTML.
+- **Píxel con aviso de cookies (legal) frente a medición (ads):** no se carga el píxel hasta que el dueño decida si lo activa. Diseño prepara el aviso con la opción de rechazar.
+- **Grilla de 9 en `LANZAMIENTO.md` 5.6:** ya está corregida (calendario orgánico). Queda cerrado.
+- **Costo de Shopify:** `LANZAMIENTO.md` ya anota que se usan US$25 y que US$39 en finanzas es un supuesto conservador. Se mantiene así hasta que el dueño contrate.
 
 ## Riesgos
-- **Todo depende de los costos reales de Dropi:** costos, comisión, flete de devolución y días de pago no están verificados, y G puede caer cerca de un 40 % en el escenario pesimista. Mitigación: la hoja de verificación queda lista para que el dueño solo la complete.
-- **La integración Dropi y Shopify en Chile no está confirmada** (Dropify no menciona Chile). Si falla, los pedidos se pasan a mano. Operaciones debe dejar diseñado ese plan B.
-- **9 de 19 kits tienen imagen provisional:** una vitrina con "Foto real muy pronto" baja la confianza. Mitigación: priorizar visualmente los kits con foto y los 3 de partida.
-- **Ley 21.719 desde el 1 de diciembre:** el consentimiento para WhatsApp y la política de privacidad tienen que estar listos antes.
-- **Capital de trabajo:** el plan financiero estima un mínimo de caja de entre -$180.000 y -$400.000 según el CPA. No se aprueba pauta sin esa reserva.
-- **Dependencia del dueño:** casi toda la ruta crítica (SII, dominio, Dropi, Shopify) es un portón humano. Si el dueño no avanza, el sistema solo puede preparar.
+- **Todos los textos legales dependen de los datos del dueño** (razón social, RUT, domicilio, correo). Sin ellos, ni la mejor ficha se puede publicar.
+- **Costos y flete sin verificar:** si el flete real es de $5.000, G base de Pelo Cero baja de $6.908 a unos $5.890 (estimado).
+- **Pulido sin fin:** diseño corre cada 2 horas y puede caer en lo cosmético. La regla es una mejora coherente por ronda y siempre primero lo que cierra C1 a C3 o la ficha de los 3 kits.
+- **Fotos referenciales:** sin muestra física no hay fotos reales ni medidas, y eso limita la confianza y el diseño de la galería.
+- **Ley 21.719 desde el 1 de diciembre** y **capital de trabajo** ($300.000 a $400.000 estimados) siguen vigentes como requisitos antes de pautar.
 
 ## Próximas tareas
-- (competencia 2026-10-05) [direccion] Mantener Baño y Secado primero (menor prima, +5 % sobre piezas sueltas); no tocar precio de Pelo Cero hasta tener costo Dropi.
-- (competencia 2026-10-05) [direccion] Decidir y fijar el costo de envío al cliente (hoy no declarado; Petco: gratis desde $29.990, $2.500 en RM bajo ese monto). Opción a evaluar con G real: envío incluido en el precio del kit.
-- (operaciones 2026-10-05) Dirección: Dropi/Dropify y la verificación de los 3 kits de partida (muestra, stock, costo real) son requisito antes de pautar.
-- En la próxima ronda, revisar si legal y operaciones cerraron sus entregables y reordenar.
-- Cuando el dueño cargue los costos de Dropi, decidir los 2 kits del primer test con G real.
+- Cuando el dueño decida el envío (A o B), fijarlo en `datos/tienda.json` a través del orquestador y avisar a diseño y legal.
+- Cuando el dueño cargue los costos de Dropi, recalcular G de los 3 kits y elegir los 2 del primer test con G real.
+- Próxima ronda: revisar si diseño integró los textos de legal (detrás del aviso interno) y si operaciones entregó la tabla de medidas.
 
 ## Hecho
 - 2026-10-05: primera ronda. Fijé el objetivo de la semana, las 3 prioridades, los kits de partida y el orden de áreas en `estado/areas.json`.
+- 2026-10-05 17:35 UTC (sesión del equipo pedida por el dueño): objetivo semanal reorientado a "diseño primero", nuevo orden de áreas y propuesta de política de envío con su efecto en el margen (decisión del dueño). Cerré la propuesta de competencia sobre el envío y la de mantener Baño y Secado primero.
 
 ## Propuestas para otras áreas
-- [legal] Reescribir `privacidad.html` según la Ley 21.719 (finalidades, base de licitud, derechos de acceso, rectificación, eliminación y portabilidad, canal para ejercerlos, consentimiento separado para marketing), dejando como campos marcados razón social, RUT, dirección y correo del dueño.
-- [legal] Revisar `cambios.html`, la página de contacto y las fichas de los 3 kits de partida contra la Ley 19.496: garantía legal de 6 meses, retracto de 10 días, precio final, costo y plazo de despacho, datos del proveedor. Entregar una lista de brechas con el texto propuesto.
-- [operaciones] Escribir `datos/operaciones.md` con el flujo COD diario: pedido, confirmación por WhatsApp (usar `datos/plantillas_whatsapp.md`), carga en Dropi (plan B manual si no hay integración en Chile), despacho, novedades el mismo día, devoluciones con evidencia y rutina de retiro de saldo.
-- [operaciones] Definir el tablero semanal mínimo (generados, confirmados, despachados, entregados y devueltos, por kit y región) en `datos/resultados/` y la regla para no despachar pedidos sin confirmar.
-- [diseno] Ficha y formulario en móvil de Kit Baño y Secado, Gato Sin Pelusas y Pelo Cero: precio, "pagas al recibir", plazo y botón visibles sin desplazarse, bloque "Qué incluye" con medidas "por confirmar con proveedor" y cada mensaje de confianza en un solo lugar.
-- [diseno] Vitrina: ordenar primero los kits con foto (Baño y Secado al inicio) para que las imágenes provisionales no queden arriba.
-- [competencia] Comparar precio, envío, confianza y oferta de los 3 kits de partida frente a Petco CL, TusMascotas y tiendas Shopify chilenas, con URL y fecha. Sin inventar precios; lo que no se pueda leer queda como "no verificado".
-- [ads] Preparar 4 o 5 conceptos realmente distintos (ángulo, persona y formato) para Gato Sin Pelusas y Pelo Cero, más 2 para Baño y Secado, con ganchos y texto conformes a las políticas de Meta. Sin presupuesto ni campañas; anotar qué tomas reales necesita el dueño.
-- [seo] Auditoría SEO técnica breve (títulos, meta, canónicas, sitemap, datos estructurados `Product` coherentes con la página) enfocada en los 3 kits de partida; la guía "Verano con tu perro" puede esperar a la semana siguiente (plazo 15 de noviembre).
-- [marca] Calendario orgánico de 30 días centrado en los 3 kits de partida, que reemplace la grilla de 9 (descartada por el dueño); listo para cuando existan las cuentas, sin publicar nada.
+- [diseno] Preparar el bloque de despacho de la ficha y de `despacho.html` con las variantes A ("Despacho incluido en el precio. Sin cargos adicionales al recibir.") y B (monto por zona sumado al "Total a pagar al recibir"), elegidas por un dato en `datos/tienda.json`. Mientras ese dato sea null no se muestra ninguna y queda el aviso interno. Va en un solo lugar, bajo el precio.
+- [diseno] Integrar en las plantillas los textos de `datos/legal/` (C1 en contacto y pie, I1 en cambios, privacidad y el enlace "Cómo usamos tus datos" en la casilla) detrás del aviso interno mientras los datos del dueño sean null. Después, `404.html` con enlaces a los kits.
+- [legal] Entregar a diseño la versión final y breve de C3 (A y B) y de I1, lista para pegar, y confirmar que "Pagas al recibir" junto al retracto del formulario cubre lo exigible.
+- [operaciones] Dejar en `datos/` una tabla de medidas y materiales por pieza de los 3 kits ("por confirmar con proveedor" donde falte) y agregar a `datos/verificacion_dropi.csv` las columnas de flete por zona y comunas sin cobertura, para que el dueño las complete.
+- [seo] Revisar el HTML regenerado de los 3 kits (título, meta, canónica, `Product` coherente con el precio visible y el despacho) apenas diseño integre los cambios. Sumar a "Qué incluye" las palabras de pieza suelta.
+- [marca] Aplicar en `datos/fichas.json` los textos SEO de Pelo Cero (bruma, solo perros) y entregar a diseño el set de íconos (trazo de 2 px, tinta con estrella mandarina) y las ilustraciones para los 9 kits sin foto.
+- [competencia] Hacer un benchmark de diseño de 3 fichas de tiendas chilenas de mascotas o DTC (cómo muestran despacho, cambios, contacto y confianza), con URL y fecha, para diseño. Lo que no se pueda leer queda como "no verificado".
+- [ads] Revisar la coherencia entre ganchos y fichas: que el titular de cada ficha de los 3 kits responda al gancho de sus conceptos (`datos/conceptos_ads.md`). Sin presupuesto ni campañas.
 
 ## Pendientes del dueño
-- Fase 0 de `LANZAMIENTO.md`: búsqueda de Kuchiwau en INAPI, registro de kuchiwau.cl, correo de la marca y reserva de @kuchiwau.
-- Inicio de actividades en el SII y envío de razón social, RUT, dirección comercial y correo (los exige la Ley del Consumidor en la tienda).
-- Cuenta Dropi Chile validada y `datos/verificacion_dropi.csv` completo, empezando por Baño y Secado, Gato Sin Pelusas y Pelo Cero: costo, flete, comisión, flete de devolución, días de pago y mismo proveedor por kit.
-- Preguntar a Dropi Chile qué app de integración con Shopify usar.
-- Muestras físicas y fotos o videos reales de los 3 kits de partida.
-- Reservar capital de trabajo antes de aprobar cualquier pauta (el plan financiero estima entre $300.000 y $400.000).
+- **Decidir la política de envío al cliente.** Dirección recomienda A (incluido) si el flete real en Dropi es ≤ $4.500, y B solo por zona si lo supera. Esto cierra C3.
+- Entregar razón social, RUT, domicilio comercial, correo y horario (`datos/tienda.json`).
+- Cuenta Dropi Chile validada y `datos/verificacion_dropi.csv` de los 3 kits de partida: costo, flete real por zona, comisión, flete de devolución, días de pago, un solo paquete por kit.
+- Certificación SEC y bruma fría del cepillo de Pelo Cero.
+- Fase 0 de `LANZAMIENTO.md` (INAPI, kuchiwau.cl, correo, @kuchiwau) e inicio de actividades en el SII. Confirmar el dominio definitivo.
+- Muestras físicas y fotos o videos reales de los 3 kits.
+- Reservar capital de trabajo antes de aprobar cualquier pauta ($300.000 a $400.000, estimado).
