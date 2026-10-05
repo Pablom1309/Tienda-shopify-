@@ -62,7 +62,7 @@ Vigencia 10 años; renovación 6 UTM.
 | 4.8 ⬜ | Preguntar a soporte Shopify si el 2 % aplica al pago contra entrega manual | Shopify | — |
 
 ## Fase 5 — Instagram, Facebook y WhatsApp (semana 2)
-Todo el texto listo en `investigacion/lanzamiento-instagram-meta.md` (bios, plantillas, grilla de 9, plan de 14 días).
+Todo el texto listo en `investigacion/lanzamiento-instagram-meta.md` (bios, plantillas, plan de 14 días; la grilla de 9 quedó descartada).
 
 | # | Paso |
 |---|---|
@@ -71,7 +71,7 @@ Todo el texto listo en `investigacion/lanzamiento-instagram-meta.md` (bios, plan
 | 5.3 ⬜ | **WhatsApp Business** con +56979814797: perfil, catálogo, mensaje de bienvenida y ausencia, respuestas rápidas (plantillas en el archivo) |
 | 5.4 ⬜ | Página de Facebook + **portfolio comercial** en Meta Business Suite; vincular Instagram y WhatsApp |
 | 5.5 ⬜ | Verificar dominio kuchiwau.cl en Meta (requiere fase 0.2) |
-| 5.6 ⬜ | Publicar las 9 piezas de la grilla antes de cualquier anuncio (Instagram Shopping no está disponible en Chile: se vende por enlace y WhatsApp) |
+| 5.6 ⬜ | Publicar las primeras piezas del calendario orgánico de 30 días (la grilla de 9 fue descartada por el dueño el 2026-10-05) antes de cualquier anuncio (Instagram Shopping no está disponible en Chile: se vende por enlace y WhatsApp) |
 
 ## Fase 6 — Lanzar anuncios (cuando 3.x y 4.x estén listos)
 | # | Paso | Costo |
@@ -89,7 +89,7 @@ Todo el texto listo en `investigacion/lanzamiento-instagram-meta.md` (bios, plan
 | Dominio kuchiwau.cl | $9.990/año |
 | Marca INAPI clase 35 | 3 UTM ≈ $216.453 + publicación |
 | Patente (si la exigen) | ≥ $72.151/año |
-| Shopify primeros 3 meses | ~US$3 en total; luego US$25/mes |
+| Shopify primeros 3 meses | ~US$3 en total; luego US$25/mes según shopify.com/cl/precios (por confirmar al contratar; `datos/finanzas.json` usa US$39 como supuesto conservador) |
 | SII, boleta, cuenta Dropi, Instagram, WhatsApp, Zoho | $0 |
 | **Total aproximado** | **~$230.000–$300.000** + anuncios |
 
