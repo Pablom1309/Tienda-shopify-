@@ -130,3 +130,4 @@ Cada ciclo agrega una entrada al final: fecha, nodos ejecutados, decisiones del 
 - 2026-10-04 13:20 — Portada: "Cómo funciona" + "Compra sin riesgo" fusionados (3 pasos compactos + 1 línea de retracto); fuera "Cómo trabajamos". CSS/JS con ?v=huella para que el celular no use caché vieja.
 - 2026-10-04 17:10 — Lanzamiento: 3 investigaciones (legal, pagos/Shopify/Dropi, Instagram/Meta) y guía maestra `LANZAMIENTO.md` por fases con costos (UTM oct = $72.151). Backlog P0 de redes y privacidad para el loop.
 - 2026-10-04 17:30 — Turno: kit de perfil para redes (`marca/redes/`) y plantillas de WhatsApp Business (`datos/plantillas_whatsapp.md`). Controles OK.
+- 2026-10-05 03:00 — Dueño: grilla de Instagram "no es necesario" → tarea descartada. Turno cada 2 h todo el día (rutina actualizada).

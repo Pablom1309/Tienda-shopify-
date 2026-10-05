@@ -5,7 +5,7 @@ Tareas que requieren al dueño van en "Bloqueadas (portón humano)": nunca se ej
 
 ## Prioridad 0 — Lanzamiento (pasos del dueño en `LANZAMIENTO.md`)
 - [x] (2026-10-04) → `marca/redes/` · **Kit de perfil para redes:** exportar el isotipo a PNG 1080x1080 (foto de perfil, se ve bien en círculo a 110 px) y 5 portadas de destacados (Kits, Cómo comprar, Envíos, Cambios, Preguntas) en la paleta de marca. → `marca/redes/`
-- [ ] **Grilla inicial de Instagram (9 piezas 1080x1350):** usar fotos existentes de `herramientas/plantilla/img/` + textos de `investigacion/lanzamiento-instagram-meta.md`; pie de foto listo para copiar en `marca/redes/grilla.md`. Sin reseñas, escasez ni afirmaciones de salud.
+- [x] (2026-10-05) descartada por el dueño ("no es necesario") · **Grilla inicial de Instagram (9 piezas 1080x1350):** usar fotos existentes de `herramientas/plantilla/img/` + textos de `investigacion/lanzamiento-instagram-meta.md`; pie de foto listo para copiar en `marca/redes/grilla.md`. Sin reseñas, escasez ni afirmaciones de salud.
 - [ ] **Política de privacidad para la Ley 21.719 (vigente 1-dic-2026):** revisar `privacidad.html` contra el contenido sugerido en `investigacion/lanzamiento-legal.md`; datos del dueño como pendientes.
 - [x] (2026-10-04) → `datos/plantillas_whatsapp.md` · **Plantillas WhatsApp Business:** pasar las 4 plantillas de `investigacion/lanzamiento-instagram-meta.md` a `datos/plantillas_whatsapp.md` junto con la confirmación de pedido (cierra la tarea de P3).
 
