@@ -2,6 +2,14 @@
 
 Se actualiza al final de cada turno autónomo. Lo más reciente arriba.
 
+## 2026-10-05 noche — primera ronda del equipo de expertos
+- **Objetivo de la semana (dirección):** al domingo 11-oct, tienda lista para el primer pedido contra entrega con 3 kits: Baño y Secado, Gato Sin Pelusas y Pelo Cero.
+- **Diseño:** en el celular la ficha muestra precio, "Pagas al recibir", plazo y botón sin desplazarse. Auditor OK.
+- **Operaciones:** flujo diario de pedido contra entrega en `datos/operaciones.md` (confirmación, Dropi con plan B manual, novedades, devoluciones, retiro de saldo).
+- **Legal:** política de privacidad nueva (`datos/legal/privacidad.md`) y brechas (`datos/legal/brechas.md`). No se publica hasta tener tus datos.
+- **Necesito de ti:** (1) razón social, RUT, domicilio y correo en `datos/tienda.json`; (2) confirmar en Dropi si el flete va incluido y el plazo real; (3) verificar en Dropi los 3 kits de partida; (4) certificación SEC del cepillo de Pelo Cero.
+- Costo de Shopify: `LANZAMIENTO.md` dice US$25/mes y `finanzas.json` US$39; confírmalo al contratar.
+
 ## 2026-10-04 tarde — lanzamiento y redes
 - **Guía de lanzamiento `LANZAMIENTO.md`**: 6 fases con dónde, cuánto y en qué orden (nombre y dominio → SII → INAPI → Dropi → Shopify y pagos → Instagram/WhatsApp → anuncios). Arranque ≈ $230.000–$300.000 sin anuncios (UTM oct = $72.151).
 - **Kit de perfil para redes** en `marca/redes/`: foto de perfil 1080 y 5 portadas de destacados.

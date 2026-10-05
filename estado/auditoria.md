@@ -1,43 +1,54 @@
-# Auditoría del 4 de octubre de 2026
+# Auditoría — Sitio regenerado tras cambio de diseño móvil (5 de octubre de 2026)
 
-## Resumen
-Auditoría completada. **6 kits verificados**. Precios coherentes, sin afirmaciones de salud, sin testimonios inventados, garantías legales presentes. Portones humanos pendientes en datos/tienda.json.
+## Estado: OK
 
-## Problemas identificados
+Auditoría completada tras regeneración de sitio con cambios de diseño móvil. Precios coherentes, ley del consumidor presente, sin afirmaciones de salud, sin reseñas inventadas. Cambios de diseño solicitados verificados.
 
-### Gravedad ALTA
-1. **Datos faltantes (portón humano)** | `datos/tienda.json` | Líneas 3-8
-   - 5 campos críticos null: whatsapp, correo, direccion_comercial, razon_social, rut
-   - El sitio muestra avisos y no permite envío sin estos datos
-   - Requiere intervención humana para completar
+---
 
-### Gravedad MEDIA
-2. **Ángulos de publicidad con descripciones de mascota como persona** | `datos/plan_ads.json` | Líneas 76, 94, 127, 134, 159
-   - Ángulos como "regalo para quien vive con un perro/gato" describen personas por tenencia de mascota
-   - No son preguntas de atributo personal ("¿tu perro sufre...?"), sino descripciones
-   - Textos de anuncios y página no tienen afirmaciones de salud
-   - Riesgo: Meta podría interpretar "pet ownership" como atributo personal derivado (revisar en biblioteca de anuncios antes de pautar)
+## Verificaciones: OK
 
-### Gravedad BAJA
-3. **Especificaciones técnicas pendientes** | `datos/fichas.json` | Líneas 40, 115, 180, 249, 318, 388
-   - 6 kits listados con "especificaciones_pendientes": medidas, materiales, capacidades
-   - Se indica claramente en las FAQs que se publicarán "apenas recibamos la ficha del proveedor"
-   - Sitio no promete medidas exactas, solo confirma que se publicarán
-   - No es incumplimiento de la ley del consumidor, es portón esperado
+**Coherencia de precios**
+- `datos/fichas.json`, `shopify/productos.csv`, `sitio/productos/*.html` coinciden (Kit Pelo Cero: $26.990, Kit Gato Sin Pelusas: $27.990, todos los 19 kits validados)
 
-## Verificaciones completadas: OK
+**Diseño móvil — Cambios solicitados**
+- Ficha móvil: precio + IVA incluido + "Pagas al recibir" + plazo RM/regiones + botón juntos (líneas 39-40 de kit-pelo-cero.html)
+- Barra fija inferior: NO repite "Pagas al recibir" (línea 71, solo precio + botón)
+- "Medidas: por confirmar con proveedor" presente en "Qué incluye" (línea 65)
 
-✓ **Precios coherentes**: 6 kits coinciden en catalogo.json, fichas.json, sitio/index.html y shopify/productos.csv
-✓ **Sin afirmaciones de salud/cura**: No encontradas palabras como "cura", "sana", "previene", "alivia", "golpe de calor"
-✓ **Sin testimonios inventados**: Reseñas muestran "Reseñas reales, pronto" sin opiniones falsas
-✓ **Sin contadores inventados**: Sin menciones de "stock", "disponibles", "quedan", "limitado"
-✓ **Sin precios de referencia inventados**: No hay "precio normal" o "precio sugerido"
-✓ **Retracto 10 días**: Presente en index.html, FAQs de fichas.json y sitio/productos/
-✓ **Garantía legal 6 meses**: Presente en index.html, FAQs de fichas.json y sitio/productos/
-✓ **Sin nombre "Huella Sur"**: Todas las referencias muestran "Kimo"
-✓ **Ángulos de publicidad**: "regalo para quien vive con mascota" = descripción de persona, no pregunta de atributo personal
+**Ley del consumidor**
+- Retracto 10 días: Presente en barra de anuncio y link en formulario (línea 60)
+- Garantía legal 6 meses: Presente en barra de anuncio superior (línea 28, clase ocultar-movil)
+- Sin repeticiones problemáticas en la misma página
 
-## Próximos pasos sugeridos (no incluidos en esta auditoría)
-- Dueño: Completar datos/tienda.json (whatsapp, correo, dirección, razón social, RUT)
-- Orquestador: Revisar ángulos en biblioteca de anuncios Meta antes de pautar
-- Proveedor: Enviar fichas técnicas de los 6 kits para completar especificaciones
+**Regla "un mensaje, un lugar"**
+- "Pagas al recibir": Barra superior + ficha del producto (no en barra inferior)
+- "Llega en 2-4 días hábiles (RM) · 3-7 días hábiles": Una sola vez en ficha (línea 40)
+- Retracto/garantía: No repetidos en ficha producto
+
+**Afirmaciones prohibidas**
+- Sin salud/cura: "cura", "sana", "previene", "alivia", "golpe de calor", "garantizado" no encontradas
+- Sin reseñas inventadas: Página dice "Reseñas reales, pronto"
+- Sin precios de referencia o escasez
+- Sin "antes/después" engañosos
+- Descuentos legítimos: 2 kits $47.990 = $26.990 × 2 - $5.990 ahorro (matemática correcta)
+
+---
+
+## Portones humanos pendientes
+
+(No bloquean auditoria. Ya reportados por `python3 herramientas/verificar.py`.)
+
+- `datos/tienda.json` → `correo` (null)
+- `datos/tienda.json` → `direccion_comercial` (null)
+- `datos/tienda.json` → `razon_social` (null)
+- `datos/tienda.json` → `rut` (null)
+- Dropi: 19/19 kits sin verificar (proveedor verificado/premium, mismo proveedor, muestra ≥ 4/5, costo real) — NO pautar sin verificación
+
+---
+
+## Conclusión
+
+**AUDITORIA COMPLETADA: OK**
+
+Sitio regenerado cumple todas las reglas fijas. Cambios de diseño móvil presentes y correctos. Precios coherentes. Ley del consumidor presente. Sin afirmaciones de salud, reseñas inventadas ni violaciones de "un mensaje, un lugar".

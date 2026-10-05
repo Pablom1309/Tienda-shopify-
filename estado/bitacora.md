@@ -132,3 +132,5 @@ Cada ciclo agrega una entrada al final: fecha, nodos ejecutados, decisiones del 
 - 2026-10-04 17:30 — Turno: kit de perfil para redes (`marca/redes/`) y plantillas de WhatsApp Business (`datos/plantillas_whatsapp.md`). Controles OK.
 - 2026-10-05 03:00 — Dueño: grilla de Instagram "no es necesario" → tarea descartada. Turno cada 2 h todo el día (rutina actualizada).
 - 2026-10-05 — Equipo de expertos: 7 agentes nuevos (dirección, diseño, legal, operaciones, SEO, competencia, marca) + ads; comando `/equipo`, registro `estado/areas.json`. Decisiones del dueño copiadas al buzón.
+- 2026-10-05 04:00 UTC — Equipo ronda 1 (dirección, legal, operaciones, diseño). Objetivo semana: listos para el 1er pedido COD al 11-oct con 3 kits (Baño y Secado, Gato Sin Pelusas, Pelo Cero).
+  Legal: `datos/legal/privacidad.md` (Ley 21.719) y `brechas.md` (3 críticas: datos del proveedor, privacidad, costo de despacho). Operaciones: `datos/operaciones.md` + plantilla de tablero. Diseño: ficha móvil con precio, pago al recibir, plazo y botón sin desplazarse (auditor OK). LANZAMIENTO 5.6 sin grilla.
