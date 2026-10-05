@@ -11,4 +11,4 @@ Ejemplos: "2026-10-10 Ya tengo cuenta Dropi: costo cepillo $7.200, removedor $2.
 - [vigente] No repetir mensajes de confianza (envío, pago al recibir, retracto): "un mensaje, un lugar".
 - [vigente] No hacer la grilla de 9 publicaciones de Instagram.
 - [vigente] Ningún kit se pauta sin verificación en Dropi (`datos/verificacion_dropi.csv`).
-- [vigente] Trabajo continuo con el equipo de expertos (`/equipo`) cada 3 horas.
+- [vigente] Horario del dueño 08:30–18:30 (Chile): ahí no corren rutinas automáticas. Equipo de expertos a las 18:47, 21:47 y 00:47; ciclo de productos a las 02:17. Todo debe terminar antes de las ~05:30.
