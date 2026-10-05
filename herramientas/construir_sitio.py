@@ -270,7 +270,7 @@ def como_funciona():
              ("chat", "Te confirmamos por WhatsApp", "Revisamos dirección y plazo contigo antes de despachar."),
              ("pago", "Pagas cuando llega", "Recibes el kit en tu puerta y pagas al repartidor.")]
     items = "".join(f'<li class="revelar"><span class="paso-num">{i}</span>{icono(ic)}<h3>{e(t)}</h3><p>{e(d)}</p></li>' for i, (ic, t, d) in enumerate(pasos, 1))
-    return f'<section class="seccion contenedor" id="como-funciona"><p class="sobretitulo">Cómo funciona</p><h2>Comprar es así de simple</h2><ol class="tres-pasos">{items}</ol><p class="nota-cambios">{icono("retracto", "ico ico-s")} ¿No te convenció? Tienes 10 días de retracto desde que lo recibes. <a href="cambios.html">Ver cambios y garantía</a></p></section>'
+    return f'<section class="seccion seccion-suave" id="como-funciona"><div class="contenedor"><p class="sobretitulo">Cómo funciona</p><h2>Comprar es así de simple</h2><ol class="tres-pasos">{items}</ol><p class="nota-cambios">{icono("retracto", "ico ico-s")} ¿No te convenció? Tienes 10 días de retracto desde que lo recibes. <a href="cambios.html">Ver cambios y garantía</a></p></div></section>'
 
 
 def faq_general(tienda):
@@ -325,7 +325,7 @@ def formulario(prod, ficha, tienda):
 <label class="campo">Dirección y referencias<input name="direccion" required placeholder="Calle, número, depto, referencia" autocomplete="street-address"><small class="error-txt">Escribe tu dirección.</small></label>
 <p class="entrega" id="entrega" hidden>{icono('calendario', 'ico ico-s')} <span></span></p>
 <div class="total"><span>Total a pagar al recibir</span><strong id="total">{clp(prod['precio'])}</strong></div>
-<button type="submit" class="boton boton-grande">{icono('chat')} Confirmar pedido por WhatsApp</button>
+<button type="submit" class="boton boton-grande">{icono('chat')} Confirmar por WhatsApp</button>
 {aviso}
 <label class="consentimiento"><input type="checkbox" name="consentimiento" value="si"><span>Quiero recibir por WhatsApp recordatorios y novedades de Kuchiwau (opcional; puedes darte de baja cuando quieras).</span></label>
 <ul class="garantias-form"><li><a href="../cambios.html">{icono('retracto', 'ico ico-s')} 10 días de retracto</a></li><li><a href="../privacidad.html">{icono('garantia', 'ico ico-s')} Cómo usamos tus datos</a></li></ul>
@@ -416,10 +416,12 @@ def etiqueta_publica(p):
     return re.split(r"[:(;,.]", p.get("rol", ""))[0].strip().capitalize()
 
 
-def tarjeta(p, f, mascota, base):
-    img = imagen(p['id'], alt_principal(p, f), base, 'foto foto-tarjeta', sizes='(min-width:1100px) 25vw, (min-width:700px) 33vw, 50vw')
+def tarjeta(p, f, mascota, base, referencial=False):
+    """Tarjeta de kit. La nota "Imagen referencial" va una sola vez sobre la grilla (portada); en otras listas se deja en la foto."""
+    img = imagen(p['id'], alt_principal(p, f), base, 'foto foto-tarjeta', referencial=referencial, sizes='(min-width:1100px) 25vw, (min-width:700px) 33vw, 50vw')
+    piezas = len(f.get("incluye") or [])
     return f"""<a class="tarjeta revelar" data-mascota="{mascota}" href="{base}productos/{e(f['handle'])}.html"><div class="tarjeta-img">{img}<span class="etiqueta">{e(etiqueta_publica(p))}</span></div>
-<div class="tarjeta-cuerpo"><h3>{e(f['titulo_seo'].split(':')[0])}</h3>
+<div class="tarjeta-cuerpo"><h3>{e(f['titulo_seo'].split(':')[0])}</h3>{f'<p class="tarjeta-meta">Kit de {piezas} piezas</p>' if piezas else ''}
 <div class="tarjeta-pie"><div><strong>{clp(p['precio'])}</strong><small>2 por {clp(p['oferta_2'])}</small></div><span class="tarjeta-ir" aria-hidden="true">{icono('flecha', 'ico ico-s')}</span></div></div></a>"""
 
 
@@ -435,7 +437,7 @@ def otros_kits(prod, productos):
     elegidos = [por_id[i] for i in ids[:2]]
     if not elegidos:
         return ""
-    cards = "".join(tarjeta(p, f, "", "../").replace(" revelar", "") for p, f in elegidos)
+    cards = "".join(tarjeta(p, f, "", "../", referencial=True).replace(" revelar", "") for p, f in elegidos)
     return f'<section class="seccion contenedor" id="otros-kits"><p class="sobretitulo">Otros kits</p><h2>También te puede servir</h2><div class="grilla grilla-otros">{cards}</div></section>'
 
 
@@ -457,7 +459,7 @@ def portada(productos, marca, tienda):
 <h1>Menos pelo en tu casa. Más frescura para tu mascota.</h1>
 <p class="hero-sub">Soluciones completas para el pelo y el calor, pensadas para la vida en casa.</p>
 <div class="hero-acciones"><a class="boton boton-grande" href="#kits">Ver los kits {icono('flecha', 'ico ico-s')}</a><a class="boton boton-fantasma" href="#como-funciona">¿Cómo funciona?</a></div></div></section>
-<section class="seccion contenedor" id="kits"><p class="sobretitulo">Nuestros kits</p><h2>Elige el que necesita tu casa</h2>{filtros}<div class="grilla" id="grilla">{tarjetas}</div><nav class="paginas" id="paginas" aria-label="Páginas de kits" hidden></nav></section>
+<section class="seccion contenedor" id="kits"><p class="sobretitulo">Nuestros kits</p><h2>Elige el que necesita tu casa</h2><p class="nota-fotos">Las fotos son referenciales hasta que tengamos las reales de cada kit.</p>{filtros}<div class="grilla" id="grilla">{tarjetas}</div><nav class="paginas" id="paginas" aria-label="Páginas de kits" hidden></nav></section>
 {como_funciona()}
 {bloque_faq(preguntas)}
 <section class="cta-final"><div class="contenedor"><h2>¿Dudas antes de pedir?</h2><p>Escríbenos y te ayudamos a elegir el kit para tu mascota.</p><div class="cta-botones"><a class="boton boton-grande boton-auto boton-wa" href="{e(wa_url(tienda, 'Hola Kuchiwau, necesito ayuda para elegir un kit'))}" target="_blank" rel="noopener noreferrer">{icono('whatsapp')} Escríbenos por WhatsApp</a><a class="boton boton-grande boton-auto boton-fantasma-claro" href="contacto.html">Ver contacto</a></div></div></section>"""
@@ -486,7 +488,7 @@ def pagina_contacto(marca, tienda):
         principal = f"""<div class="contacto-wa"><div class="contacto-wa-txt"><span class="contacto-wa-ico">{icono('whatsapp', 'ico ico-tile ico-xl')}</span>
 <h2>Escríbenos por WhatsApp</h2><p>Es nuestro canal principal: respondemos por ahí tus consultas y confirmamos tu pedido antes de despachar.</p>
 <a class="contacto-num" href="{e(wa_url(tienda))}" target="_blank" rel="noopener noreferrer">{e(wa_numero(tienda))}</a></div>
-<a class="boton boton-grande boton-wa" href="{e(wa_url(tienda))}" target="_blank" rel="noopener noreferrer">{icono('whatsapp')} Escríbenos por WhatsApp</a></div>"""
+<a class="boton boton-grande boton-wa" href="{e(wa_url(tienda))}" target="_blank" rel="noopener noreferrer">{icono('whatsapp')} Abrir WhatsApp</a></div>"""
     else:
         principal = '<p class="aviso">Estamos completando nuestros datos de contacto. Muy pronto podrás escribirnos desde aquí.</p>'
     ayuda = [("envio", "Despacho", "Plazos por región y cómo coordinamos la entrega.", "despacho.html"),

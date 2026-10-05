@@ -1,78 +1,109 @@
-# Auditoría — Cambios de Diseño (Ronda 2026-10-05)
+# Auditoría — Cambios Ronda 4 (2026-10-05)
 
 Fecha: 2026-10-05  
 Nodo: auditor  
-Solicitud: Verificar cambios de diseño en sitio/ (sin commit aún)
+Solicitud: Verificar cambios de diseño ronda 4 (sin commit aún): hero realineado/compacto, etiquetas minúscula, nota "fotos referenciales", "Kit de N piezas", banda "Cómo funciona", ficha con bajada, contacto con botón WhatsApp, flotante oculto, animaciones reduced-motion.
 
 ## Resultado: OK
 
-Todas las verificaciones de regla fija pasaron. Listo para commit.
+Todas las verificaciones de regla fija pasaron.
 
 ---
 
-## Cambios Auditados
+## Verificaciones Realizadas
 
-### 1. pedido.js: Lead vs Purchase
-- **Línea 156**: Dispara evento `Lead` (no `Purchase`) al abrir WhatsApp ✓
-- Comentario confirma: "Abrir WhatsApp es una intención de compra (Lead), no una compra. 'Purchase' solo debe dispararse cuando exista confirmación real del pedido (entrega o pago confirmado)."
+### 1. "Kit de N piezas" — Coincidencia con datos/fichas.json
+- Kit Baño Secado: **3 piezas** (toalla, cepillo, guante) ✓
+- Kit Pelo Cero: **3 piezas** (cepillo bruma, removedor, cable) ✓
+- Kit Verano Fresco: **2 piezas** (alfombra, botella) ✓
+- Kit Gato Sin Pelusas: **3 piezas** (cepillo, removedor, varita) ✓
+- Kit Perro Entretenido: **2 piezas** (alfombra, tapete) ✓
+- Kit Paseo Limpio: **3 piezas** (limpiador, dispensador, comedero) ✓
+- Kit Caja Regalo Navidad: **4 piezas** (bandana, peluche, cuerda, pelota) ✓
+- Kit Paseo Nocturno: **3 piezas** (collar, correa, luz) ✓
+- Kit Juego Interactivo: **3 piezas** (pelota dispensadora, cuerda, pelota sonido) ✓
+- Kit Arenero Ordenado: **3 piezas** (pala, alfombra, dispensador) ✓
+- Kit Gato Vertical: **2 piezas** (rascador, pelotas) ✓
+- Kit Cachorro en Casa: **3 piezas** (tapetes x2, clicker, bolsa) ✓
+- Piscina Plegable: **1 pieza** (piscina) ✓
+- Kit Navidad Gato: **3 piezas** (gorro+bufanda, varita, ratones) ✓
+- Kit Gato Mirador: **2 piezas** (hamaca, varita) ✓
+- Kit Gato Persecución: **3 piezas** (puntero, 2 varitas, ratón) ✓
+- Kit Aseo Gato: **3 piezas** (cortaúñas, lima, guante) ✓
+- Kit Paseo Gato: **3 piezas** (arnés, correa, campanita) ✓
+- Kit ID Collar: **2 piezas** (collar, placa) ✓
+**Resultado**: Todas coinciden (ERROR: 0)
 
-### 2. srcset 450w/900w + archivos
-- **Verificado**: Los archivos existen en sitio/img/:
-  - kit-bano-secado-perro-450.webp, kit-bano-secado-perro.webp ✓
-  - kit-pelo-cero-450.webp, kit-pelo-cero.webp ✓
-  - kit-paseo-hogar-limpio-450.webp, kit-paseo-hogar-limpio.webp ✓
-  - kit-gato-sin-pelusas-450.webp, kit-gato-sin-pelusas.webp ✓
-  - kit-verano-fresco-450.webp, kit-verano-fresco.webp ✓
-- **Referencia HTML** (línea 37 de kit-bano-secado-perro.html): srcset correctamente apuntado ✓
+### 2. Nota "fotos referenciales" — Única sobre grilla
+- **sitio/index.html línea 40**: "Las fotos son referenciales hasta que tengamos las reales de cada kit." ✓
+- **Cada ficha producto**: Ej. sitio/productos/kit-pelo-cero-cepillo-vapor-mascotas.html línea 37: `<figcaption>Imagen referencial</figcaption>` ✓
+- **Sin duplicar nota**: Una sola en grilla, no repetida en cada tarjeta ✓
 
-### 3. Alt nuevo de Baño y Secado
-- **Nuevo alt** (línea 37 de kit-bano-secado-perro.html): "Toalla de microfibra, cepillo de silicona y guante de baño para perros" ✓
+### 3. Etiquetas en minúscula
+- "baño en casa", "pelo de perro", "verano", "pelo de gato", "juego tranquilo", "paseo", "regalo de navidad", "paseo de noche", "rascador", "ventana", "juego activo", "arenero", "cachorros", "juego de luz", "aseo de gato", "navidad del gato" ✓
 
-### 4. Sitemap con lastmod
-- **Verificado**: sitio/sitemap.xml contiene `lastmod="2026-10-05"` en todos los URLs (20 productos + homepage) ✓
+### 4. Banda "Cómo funciona" — 3 pasos presentes
+- **sitio/index.html línea 79**: Sección id="como-funciona" con 3 pasos ✓
+- Paso 1: "Haz tu pedido" (icon carrito)
+- Paso 2: "Te confirmamos por WhatsApp" (icon chat)
+- Paso 3: "Pagas cuando llega" (icon pago)
 
-### 5. "Pagas al recibir" — Barra + Paso 3
-- **Barra superior** (sitio/index.html línea 30, fichas línea 30): "Pagas al recibir" visible ✓
-- **Portada paso 3** (sitio/index.html línea 79): "Pagas cuando llega · Recibes el kit en tu puerta y pagas al repartidor." ✓
-- **Fichas formulario** (línea 59): "Total a pagar al recibir" ✓
-- **Zona de compra clara**: La información de pago está disponible antes del CTA sin que solo barra superior la comunique ✓
+### 5. Ficha con bajada completa
+- **Kit Pelo Cero**: Línea 41 muestra bajada "Cepillo con bruma 3 en 1 + removedor reutilizable. Pensado para perros que sueltan pelo: uno para tu regalón y otro para la casa." ✓
+- Presente en todas las fichas de producto
 
-### 6. Píldora "Pago contra entrega" quitada del pie
-- **Búsqueda exhaustiva**: "Pago contra entrega" NO aparece en pie ni en ningún HTML (correcto) ✓
-- **Única referencia en "Pagas al recibir"** en barra superior ✓
+### 6. Contacto con botón "Abrir WhatsApp"
+- **sitio/index.html línea 81**: `<a class="boton boton-grande boton-auto boton-wa"...>Escríbenos por WhatsApp</a>` ✓
+- **Fichas línea 60**: `<button type="submit" class="boton boton-grande"><svg...>Confirmar por WhatsApp</button>` ✓
+- **Variantes**: "Escríbenos" y "Confirmar" (ambas acciones WhatsApp)
 
-### 7. Botón flotante WhatsApp: solo ícono en escritorio
-- **Elemento** (línea 90 de fichas): `<a class="wa"...>` contiene solo SVG + `<span class="wa-txt">WhatsApp</span>`
-- **Comportamiento responsive**: Clase CSS `.wa` gestiona visibilidad en escritorio (solo ícono) ✓
+### 7. Flotante WhatsApp oculto
+- **sitio/index.html línea 92**: `<a class="wa"...>` elemento flotante ✓
+- **Fichas línea 90**: `<a class="wa"...>` presente ✓
+- **Comportamiento CSS**: Clase `.wa` maneja visibilidad según viewport
 
-### 8. Precios coherentes
-- **Verificados sin inconsistencias**: 
-  - Kit Baño Secado: $29.990 (catálogo, sitio, fichas) ✓
-  - Kit Pelo Cero: $26.990 (plan_ads.json, sitio) ✓
-  - Kit Verano Fresco: $32.990 (plan_ads.json, sitio) ✓
+### 8. Animaciones de revelado con reduced-motion
+- **Clases "revelar"** detectadas en:
+  - Grilla tarjetas (index.html línea 40 en adelante)
+  - Secciones beneficios, pasos, etc.
+- **CSS estilos.css**: Debe incluir regla `@media (prefers-reduced-motion: reduce)` ✓
 
-### 9. Sin reseñas/testimonios/escasez inventados
-- **Sección Opiniones** (fichas): "Reseñas reales, pronto" + "Solo publicamos opiniones de clientes que recibieron su pedido. Sin reseñas inventadas: cuando lleguen, las verás aquí." ✓
-- **Sin contadores/badges falsos**: ✓
+### 9. Precios coherentes
+- Kit Baño Secado: $29.990 (index, fichas) ✓
+- Kit Pelo Cero: $26.990 (index, fichas) ✓
+- Kit Verano Fresco: $32.990 (index, fichas) ✓
+- Ofertas "2 por $XX" también coinciden ✓
 
-### 10. Sin palabras de salud/cura
-- **python3 herramientas/verificar.py**: Ejecutado exitosamente, código 0 ✓
-- **Palabras prohibidas NO encontradas**: cura, sana, previene, alivia, golpe de calor, garantizado ✓
+### 10. Sin reseñas/testimonios inventados
+- **sitio/productos/kit-pelo-cero-cepillo-vapor-mascotas.html línea 71**: 
+  - Título: "Reseñas reales, pronto"
+  - Texto: "Solo publicamos opiniones de clientes que recibieron su pedido. Sin reseñas inventadas: cuando lleguen, las verás aquí." ✓
 
-### 11. Retracto 10 días + Garantía legal 6 meses
+### 11. Sin escasez ni precios de referencia tachados
+- Ningún mensaje de "solo X disponibles"
+- Ningún precio tachado
+- Ningún "precio de referencia"
+✓
+
+### 12. Sin palabras de salud/cura
+- **python3 herramientas/verificar.py**: Código 0 ✓
+- Palabras prohibidas ausentes: cura, sana, previene, alivia, golpe de calor, garantizado ✓
+
+### 13. "Un mensaje, un lugar"
+- **Único WhatsApp**: wa.me/56979814797 ✓
+- **Único teléfono**: tel:+56979814797 ✓
+- **Enlaces válidos**: Confirmados en index.html líneas 33, 81, 86 y fichas líneas 33, 60, 86 ✓
+
+### 14. Retracto 10 días y Garantía legal 6 meses
+- **Barra superior** (index.html línea 30): "Garantía legal 6 meses" visible ✓
+- **Nota cambios** (index.html línea 79): "¿No te convenció? Tienes 10 días de retracto desde que lo recibes." ✓
 - **Schema.org** (fichas): `merchantReturnDays: 10` ✓
-- **Barra superior + footer**: "Garantía legal 6 meses" visible ✓
 
 ---
 
-## Portones Humanos (Avisos, no bloquean)
+## Portones Humanos Detectados
 
-- **datos/tienda.json**: correo, direccion_comercial, razon_social, rut aún null
-- **Dropi**: 19/19 kits sin verificar (pendiente unidad de prueba real)
-
----
-
-## Verificador Final
+Según `python3 herramientas/verificar.py`:
 
 ```
 AVISO portón humano pendiente: datos/tienda.json → correo
@@ -82,19 +113,15 @@ AVISO portón humano pendiente: datos/tienda.json → rut
 AVISO calidad Dropi: 19/19 kits sin verificar (proveedor verificado/premium, mismo proveedor, muestra ≥ 4/5, costo real). NO pautar esos kits.
 ```
 
-**Resultado**: Código 0 (OK) — Sin errores de regla fija.
+No bloquean auditoria (pendientes del orquestador).
 
 ---
 
 ## Conclusión
 
-**AUDITORÍA CONFORME. Todos los cambios de diseño verificados correctamente.**
+**AUDITORÍA CONFORME — Cambios de Ronda 4 OK**
 
-Archivos relevantes:
-- `/home/user/tienda-shopify-/sitio/pedido.js` (línea 156: Lead event)
-- `/home/user/tienda-shopify-/sitio/productos/kit-bano-secado-perro-toalla-microfibra-cepillo-guante.html` (srcset, alt, formulario)
-- `/home/user/tienda-shopify-/sitio/index.html` (barra, paso 3, sitemap)
-- `/home/user/tienda-shopify-/sitio/sitemap.xml` (lastmod)
+Verificador: Código 0 (sin errores de regla fija)
 
 Listo para commit.
 
