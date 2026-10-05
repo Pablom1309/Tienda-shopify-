@@ -6,6 +6,7 @@ La sesión principal es siempre el **orquestador**. Conocimiento experto: skill 
 ## Mapa
 - `grafo/pipeline.yaml` — nodos, aristas, portones, TTL y modelo de cada nodo. Fuente de verdad del flujo.
 - `.claude/agents/*.md` — un subagente por nodo LLM. `herramientas/*.py` — nodos deterministas (gratis).
+- Equipo de expertos: `/equipo` (dirección, diseño, legal, operaciones, SEO, competencia, marca, ads); registro y TTL en `estado/areas.json`, tareas por área en `estado/areas/*.md`. Pasos del dueño: `LANZAMIENTO.md`.
 - `estado/estado.json` — pizarra compartida. `estado/bitacora.md` — historial de ciclos. `estado/instrucciones.md` — buzón del dueño.
 - `datos/` — candidatos, economía, ranking, catálogo, fichas, marca, tienda, plan de anuncios, resultados reales.
 - `sitio/` — tienda estática generada (no editar a mano). `shopify/productos.csv` — importación a Shopify.

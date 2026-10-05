@@ -1,0 +1,13 @@
+{
+  "_nota": "Registro del equipo de expertos. El comando /equipo elige hasta 3 áreas vencidas (ahora - ultima >= ttl_horas) por prioridad. Solo la dirección cambia prioridad y foco.",
+  "areas": {
+    "direccion":   {"agente": "director-estrategia",  "ttl_horas": 24, "ultima": null, "prioridad": 1, "foco": "Ordenar prioridades del pre-lanzamiento"},
+    "diseno":      {"agente": "disenador-web",        "ttl_horas": 3,  "ultima": null, "prioridad": 2, "foco": "Que la tienda se vea profesional en móvil"},
+    "legal":       {"agente": "legal-cumplimiento",   "ttl_horas": 48, "ultima": null, "prioridad": 3, "foco": "Ley 21.719 y requisitos de la Ley del Consumidor"},
+    "operaciones": {"agente": "operaciones-cx",       "ttl_horas": 48, "ultima": null, "prioridad": 4, "foco": "Proceso de pedido contra entrega de punta a punta"},
+    "seo":         {"agente": "seo-contenido",        "ttl_horas": 24, "ultima": null, "prioridad": 5, "foco": "SEO técnico y guía de verano antes del 15-nov"},
+    "competencia": {"agente": "analista-competencia", "ttl_horas": 72, "ultima": null, "prioridad": 6, "foco": "Tiendas especializadas de Chile (Petco, TusMascotas, Shopify locales)"},
+    "marca":       {"agente": "marca-redes",          "ttl_horas": 48, "ultima": null, "prioridad": 7, "foco": "Calendario de contenido orgánico de 30 días"},
+    "ads":         {"agente": "estratega-ads",        "ttl_horas": 72, "ultima": null, "prioridad": 8, "foco": "4-5 conceptos creativos distintos por kit prioritario"}
+  }
+}

@@ -121,6 +121,21 @@ nodos:
     escribe: [decisiones]
     salida: estado/decisiones.md
 
+# Equipo de expertos (comando /equipo): áreas con TTL en horas, registro en estado/areas.json.
+# Corren en paralelo; cada área escribe solo sus archivos; solo disenador-web toca el generador del sitio.
+equipo:
+  registro: estado/areas.json
+  max_areas_por_ronda: 3
+  areas:
+    direccion:   {agente: .claude/agents/director-estrategia.md, modelo: opus,   escribe: [estado/areas/direccion.md, estado/areas.json]}
+    diseno:      {agente: .claude/agents/disenador-web.md,       modelo: sonnet, escribe: [herramientas/construir_sitio.py, herramientas/plantilla/]}
+    legal:       {agente: .claude/agents/legal-cumplimiento.md,  modelo: sonnet, escribe: [estado/areas/legal.md, investigacion/legal-*.md]}
+    operaciones: {agente: .claude/agents/operaciones-cx.md,      modelo: sonnet, escribe: [datos/operaciones.md]}
+    seo:         {agente: .claude/agents/seo-contenido.md,       modelo: sonnet, escribe: [datos/guias/]}
+    competencia: {agente: .claude/agents/analista-competencia.md, modelo: sonnet, escribe: [investigacion/competencia-*.md]}
+    marca:       {agente: .claude/agents/marca-redes.md,         modelo: sonnet, escribe: [datos/contenido_organico.md, marca/redes/]}
+    ads:         {agente: .claude/agents/estratega-ads.md,       modelo: sonnet, escribe: [datos/plan_ads.json]}
+
 aristas:
   - [investigador-mercado, cazador-productos]
   - [cazador-productos, economia]
