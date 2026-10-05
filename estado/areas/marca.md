@@ -8,11 +8,16 @@ Agente: `marca-redes`. Lo actualiza el propio agente en cada ronda.
 - (ads 2026-10-05) [marca] Revisar que cajas y piezas se vean con la marca Kuchiwau en las tomas (G4, P5).
 - (competencia 2026-10-05) [marca] Posicionar como "el kit que resuelve el problema, pagas al recibir, atiende por WhatsApp" frente a tiendas de pieza suelta por marca.
 - (diseno 2026-10-05) Marca: fotos reales del kit y una segunda toma de contenido; hoy son referenciales.
-- (dirección 2026-10-05) Calendario orgánico de 30 días centrado en los 3 kits de partida, que reemplace la grilla de 9 (descartada por el dueño); listo para cuando existan las cuentas, sin publicar nada.
-- Calendario de contenido orgánico de 30 días (backlog P4). Sin grilla de 9 piezas (descartada por el dueño).
 
 ## Hecho
+- 2026-10-05: `datos/contenido_organico.md` entregado: calendario de 30 días (Gato, Pelo Cero, Baño y Secado + marca), cada pieza con gancho, guion, texto, toma y kit; 4 sesiones de grabación que reutilizan las tomas G/P/B de `datos/conceptos_ads.md`; plan B si Pelo Cero no se puede mostrar (I4); hashtags y bios sugeridas para Instagram y TikTok. Sin grilla de 9. Nada publicado ni cuentas creadas.
+- Pelo Cero en el calendario usa "bruma/niebla de agua" y solo perros, alineado con la propuesta de SEO; piezas PC condicionadas a unidad real e I4.
 
 ## Propuestas para otras áreas
+- [diseno] Íconos de la web en trazo redondeado de 2 px (como la huella del isotipo), azul tinta #24316B con un solo detalle mandarina #FF8A4C (la estrella de 4 puntas del isotipo) en el elemento clave de cada ícono; mismo set para "qué incluye", pasos de uso y pie.
+- [diseno] En lugar de fotos de stock, ilustraciones planas simples (huella, cepillo, toalla, varita) sobre fondo crema #FFF8F0 o #FCEFE3 para los espacios sin foto real; se reemplazan por la foto real de la unidad apenas exista. Nunca ilustrar antes/después ni mascotas "sufriendo".
+- [diseno] Microcopys cercanos, prácticos y sobrios: verbos cortos ("Pide el tuyo", "Mira qué trae", "Escríbenos por WhatsApp"), sin mayúsculas gritonas, sin urgencia; "Pagas al recibir" solo en el botón/zona de compra (un mensaje, un lugar). Estrella #FFC845 solo en detalles, no como calificación (no hay reseñas).
 
 ## Pendientes del dueño
+- Crear @kuchiwau en Instagram y TikTok (paso 0.4) y pegar las bios de `datos/contenido_organico.md`.
+- Grabar las 4 sesiones con unidades reales (Pelo Cero solo tras confirmar niebla fría y SEC); decidir cuándo parte el día 1.
