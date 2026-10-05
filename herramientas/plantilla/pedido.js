@@ -45,6 +45,8 @@
       pintarCatalogo(false);
     };
     filtros.forEach(function (b) { b.addEventListener('click', function () { elegir(b.dataset.filtro); }); });
+    // Tiles de mascota (portada): aplican el filtro y el ancla #kits hace el desplazamiento. Sin JS solo llevan a la grilla.
+    document.querySelectorAll('[data-filtro-ir]').forEach(function (a) { a.addEventListener('click', function () { elegir(a.dataset.filtroIr); }); });
     var todos = document.querySelector('[data-filtro-todos]');
     if (todos) todos.addEventListener('click', function () { elegir('todos'); });
     pintarCatalogo(false);

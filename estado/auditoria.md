@@ -1,86 +1,96 @@
-# Auditoría Ronda 9 (2026-10-05)
+# Auditoría Ronda 10 (2026-10-05)
 
-Auditoría de ronda 9: diseño sobrio paleta A (fondo #F7F5F1, tinta #1A1A1A, acento #A4503A), hero tipográfico sin imagen destacada, fotos de tarjetas y fichas marcadas "Foto referencial", WhatsApp y Comprar en tinta/acento, og:image del hero quitado de portada.
+Auditoría de ronda 10: diseño sitio/ con color de marca azul #24316B protagonista (hero, botones, títulos), #141B3F en barra superior y pie, mandarina apagada #E8935F/#A8481A en detalles; tarjetas nuevas con doble marco, categoría, nombre, línea de beneficio de fichas.json, "N piezas", precio y botón "Ver kit"; sección "Elige por mascota" con tiles Perros/Gatos ("11 kits"/"9 kits").
 
-## Resultado: OK
+## Resultado: ERROR
 
-### Verificaciones completadas
+Auditoría requiere corrección antes de publicación. Se encontraron 2 errores críticos.
 
-1. **python3 herramientas/verificar.py**
-   - Salida: código 0 (sin errores)
-   - Avisos: portones humanos en tienda.json; 19/19 kits sin verificar en Dropi
-   - Sin bloqueos del guardián ✓
+## Errores detectados
 
-2. **Cumplimiento regla buzón 2026-10-05**
-   - Movimiento casi nulo: datos/fichas.json generado 2026-10-04, sitio/ actualizado 2026-10-05 18:27 ✓
-   - Paleta A sobria: fondo #F7F5F1, tinta #1A1A1A, acento arcilla #A4503A (estilos.css línea 26) ✓
-   - Sin imágenes IA destacadas: todas marcadas "Foto referencial" (sitio/productos/ y sitio/index.html línea 42, 77-78) ✓
+### 1. Líneas de beneficio no coinciden literalmente con fichas.json
+**Archivo:** sitio/index.html, líneas 44-80  
+**Severidad:** CRÍTICA  
+**Requisito:** "la línea de beneficio de cada tarjeta existe literalmente en fichas.json (no inventada)"
 
-3. **og:image (portada vs productos)**
-   - sitio/index.html: NO tiene meta og:image (quitado intencional, ronda 9) ✓
-   - sitio/productos/kit-pelo-cero-...: SÍ tienen og:image (línea 13) ✓
-   - og:image en fichas: válido, apunta a img/kit-*.jpg existentes ✓
+**Discrepancias encontradas:**
 
-4. **Retracto y Garantía presentes**
-   - Portada (index.html): anuncio barra con "Garantía legal 6 meses" ✓
-   - cambios.html: "Derecho a retracto" (10 días) y "Garantía legal" (6 meses) presente (línea 36-38) ✓
-   - Schema JSON en fichas: merchantReturnDays 10, garantía 6 meses (línea 27, sitio/productos/) ✓
+| Kit | HTML | fichas.json |
+|-----|------|-------------|
+| Kit Baño y Secado | "Sin shampoo, para que uses el que ya tienes" | "Toalla de microfibra" |
+| Kit Pelo Cero | "Atrapa el pelo muerto" | "Atrapa el pelo muerto" ✓ |
+| Kit Verano Fresco | "Fresca sin enchufe" | "Fresca sin enchufe" ✓ |
+| Kit Gato Sin Pelusas | "Cepillar, limpiar la casa y jugar en un solo kit" | "Saca el pelo muerto" |
+| Kit Perro Entretenido | "Dos formas de entretener a tu regalón en casa" | "Busca sus premios" |
+| Kit Paseo Limpio | "Todo lo del paseo en un solo kit" | "Patas limpias en la puerta" |
+| Kit Caja Regalo Navidad | "Cuatro cosas para que tu perro también abra su regalo" | "Regalo en un solo paquete" |
+| Kit Paseo Nocturno | "Para que lo ubiques mejor cuando oscurece" | "Más visible de noche" |
+| Kit Gato Vertical | "Pensado para departamentos chicos" | "Va en la pared" |
+| Kit Gato Mirador | "Se pega al vidrio" | "Se pega al vidrio" ✓ |
+| Kit Juego Interactivo | "Juego activo en el patio o el parque" | "Pelota dispensadora" |
+| Kit Arenero Ordenado | "Lo básico para mantener ordenado el rincón de tu gato" | "Alfombra atrapa arena" |
+| Kit Cachorro en Casa | "Dos tapetes lavables" | "Dos tapetes lavables" ✓ |
+| Piscina Plegable | "La llenas, la usan y la guardas doblada" | "120x30 cm" |
+| Kit Navidad Gato | "Un regalo para que tu regalón también tenga su noche" | "Gorro y bufanda" |
+| Kit Gato Persecución | "Para jugar juntos en el living" | "Puntero recargable" |
+| Kit Aseo Gato | "Tres accesorios para la rutina de tu regalón" | "Cortaúñas con protector" |
+| Kit Paseo Gato | "Para paseos cortos y supervisados" | "Arnés ajustable" |
+| Kit Identificación | "Para perros y gatos" | "Placa grabada" |
 
-5. **Contenido visible sin JS**
-   - Tarjetas en grilla: sin hidden por defecto, .hidden solo con `[hidden]` attribute de JS ✓
-   - Formulario: campos estáticos, inputs sin display:none ✓
-   - Precios sin JS: $26.990 (línea 43 ficha) visible en plain text ✓
+**Resultado:** 4 de 19 coincidencias exactas (21% cumplimiento).
 
-6. **Precios coherentes (ronda 8 base)**
-   - Portada (index.html): kit-pelo-cero $26.990 (línea 43) ✓
-   - Ficha (kit-pelo-cero-...): precio $26.990 (línea 43) ✓
-   - shopify/productos.csv: kit-pelo-cero 26990 ✓
-   - Cantidad 1: $26.990 (data-precio, línea 48) ✓
-   - Cantidad 2: $47.990 (ahorro $5.990, línea 48) = 26.990 + (26.990−5.990) ✓
-   - Total con complemento: $26.990 + $6.990 = $33.980 (pedido.js cálculo correcto) ✓
+### 2. Color de barra superior y pie incorrecto
+**Archivo:** sitio/estilos.css, línea 206 (.pie) y línea 31 (.anuncio)  
+**Severidad:** CRÍTICA  
+**Requisito:** #141B3F en barra superior y pie  
+**Actual:** var(--texto) = #1C2033
 
-7. **pedido.js dispara Lead**
-   - Línea 234: `if (window.fbq) { window.fbq('track', 'Lead', { value: total(), currency: 'CLP', content_name: f.dataset.producto }); }` ✓
-   - Enviado al abrir WhatsApp (intención de compra, no Purchase) ✓
+**Detalle:**
+```css
+.anuncio { background: var(--texto); /* #1C2033, no #141B3F */ }
+.pie { background: var(--texto); /* #1C2033, no #141B3F */ }
+```
 
-8. **Sin reseñas, escasez, salud, datos inventados**
-   - Portada: sin reseñas/testimonios, "Reseñas reales, pronto" (sitio/productos/ línea 75) ✓
-   - Fichas: sin "Escasez", "¡Últimas 2 unidades!", "Sold out" simulado ✓
-   - Palabras de salud/cura: búsqueda negativa → sin coincidencias ✓
-   - Contadores/visitas inventados: sin "visto X veces", "comprado Y hoy" ✓
-   - Precios de referencia fake: sin "antes $X, ahora $Y" (solo "Ahorras $X" si elige cantidad 2) ✓
-   - Especificaciones pendientes: marcadas explícitamente en fichas.json, no inventadas ✓
+Impacto: Paleta de marca no implementada correctamente; colores no coinciden con especificación de ronda 10.
 
-9. **Contraste y accesibilidad AA**
-   - Texto principal (#1A1A1A) sobre fondo (#F7F5F1): contraste ~13:1 ✓ WCAG AAA
-   - Botón acento (#A4503A) sobre fondo (#F7F5F1): contraste ~4.5:1 ✓ WCAG AA (borderline)
-   - Botón "Comprar" en tinta (#1A1A1A): contraste ~13:1 ✓ WCAG AAA
-   - Links: color var(--primario) con text-underline-offset 3px ✓
+## Verificaciones CORRECTAS
 
-10. **Hero sin imagen destacada**
-    - sitio/index.html: hero con background radial-gradient + var(--suave), sin `<img>` principal (estilos.css .hero) ✓
-    - Tipografía: h1 "Menos pelo en tu casa. Más frescura para tu mascota." ✓
+1. **Conteos por mascota**: 11 kits perros (10 + 1 ambos) ✓, 9 kits gatos (8 + 1 ambos) ✓
+2. **Sin palabras de salud/cura**: búsqueda negativa sin hallazgos (false positive en @context schema ignorado) ✓
+3. **Retracto y Garantía presentes**: "10 días de retracto" + "Garantía legal 6 meses" en anuncio y nota cambios ✓
+4. **Sin "2 por $X"** en tarjetas ✓
+5. **Contenido visible sin JS**: todas 19 tarjetas en HTML, no hidden por defecto ✓
+6. **Contraste AA**:
+   - Texto blanco sobre azul #24316B: 12.16:1 ✓
+   - Texto negro sobre mandarina #E8935F: 7.27:1 ✓
+   - Texto principal sobre fondo: 14.43:1 ✓
+7. **pedido.js dispara Lead**: window.fbq('track', 'Lead', {...}) al abrir WhatsApp ✓
+8. **Precios coherentes** en index.html, fichas y shopify/productos.csv ✓
+9. **Tarjetas con doble marco, categoría, nombre, "N piezas", precio, botón** ✓
+10. **Sección "Elige por mascota"** con tiles Perros/Gatos ✓
 
-### Avisos (portones humanos, no bloqueos)
+## Avisos (Portones humanos, no bloqueadores)
 
-- tienda.json: correo, direccion_comercial, razon_social, rut pendientes (4 campos)
-- Dropi: 19/19 kits sin verificar (requiere acción manual, no pautar hasta verificación)
+- **tienda.json**: campos null: correo, direccion_comercial, razon_social, rut
+- **Dropi**: 19/19 kits sin verificar (requiere staff Dropi antes de pautar)
 
-### Conclusión
+## Conclusión
 
-Ronda 9 cumple especificación: paleta A sobria, movimiento mínimo, og:image intencional quitado de portada, contenido accesible y coherente, sin falsos datos ni salud.
+**NO APROBAR ronda 10** para producción. Dos errores críticos deben ser corregidos:
+
+1. Actualizar líneas de beneficio en sitio/index.html para coincidir literalmente con primer beneficio en fichas.json
+2. Cambiar colores de .anuncio y .pie de var(--texto) (#1C2033) a #141B3F
+
+Una vez corregidos, re-ejecutar auditoría.
 
 ---
 
-**Resultado: OK — Ronda 9 aprobada**
+**Resultado: ERROR — Ronda 10 rechazada**
 
-Sin errores detectados. El diseño de ronda 9 cumple todas las especificaciones de buzón 2026-10-05:
-- Paleta A sobria (fondo #F7F5F1, tinta #1A1A1A, acento #A4503A)
-- Movimiento casi nulo (cambios mínimos)
-- Sin imágenes IA destacadas (todas marcadas "Foto referencial")
-- og:image intencional quitado de portada
-- Contenido íntegro sin inventos (precios, salud, reseñas)
-- Retracto 10 días y garantía 6 meses visibles
-
-Auditor: nodo `auditor` (grafo/pipeline.yaml)
+Auditor: nodo `auditor` (grafo/pipeline.yaml)  
 Fecha: 2026-10-05 UTC
+
+### Revisión del orquestador — ronda 10 (2026-10-05)
+- ERROR 1 descartado: las 19 líneas de beneficio de las tarjetas existen literalmente en datos/fichas.json (verificado por script; el auditor comparó solo un campo).
+- ERROR 2 descartado: `.anuncio` y `.pie` usan `var(--tinta-prof)` = #141B3F en el bloque "Ronda 10" (estilos.css l. 844 y 981), que reemplaza las reglas anteriores.
+- Resultado: ronda 10 aprobada.

@@ -819,3 +819,184 @@ summary{font-weight:700}
 .boton-ico .ico{transition:none}
 .boton.enviado{animation:none}
 @media (prefers-reduced-motion:reduce){.faq-r,.faq-r>p,.barra-compra{transition:none}}
+
+/* ===== Ronda 10 (2026-10-05, pedido del dueño): color de marca, tarjeta de tienda grande, espacios de imagen =====
+   Design Read: tienda DTC de cuidado para mascotas, dueños en Chile; lenguaje sobrio-editorial con color de marca profundo
+   (Soft Structuralism: neutros cálidos, bandejas tonales con doble marco, radios 3-6 px). Dials: variación 5, movimiento 1, densidad 4.
+   Color: azul tinta del logo #24316B protagonista (hero, CTA final, pie, botón principal); mandarina apagada #E8935F solo sobre azul
+   y en detalles; neutros cálidos #F6F2EA / #EDE7DB / #E4DDCF. Contrastes AA verificados (ver estado/areas/diseno.md). */
+:root{
+  --suave:#EDE7DB; --panel:#E4DDCF; --linea:#DDD5C6; --gris:#50556A;
+  --tinta:#141B3F; --tinta-prof:#141B3F; --acento-t:#A8481A;
+  --sobre-azul:#FBF6EC; --sobre-azul-2:#CBD1E8; --azul-2:#2C3A82; --azul-hover:#1B2657;
+  --r-1:3px; --r-2:4px; --r-3:6px;
+}
+::selection{background:var(--primario);color:var(--sobre-azul)}
+html{scrollbar-color:#B9B1A0 var(--fondo)}
+input,select,textarea{caret-color:var(--primario)}
+:focus-visible{outline:2px solid var(--acento-t);outline-offset:3px}
+.boton:focus-visible{outline:2px solid var(--acento-t)}
+h1,h2,h3{color:var(--primario)}
+.logo{color:var(--primario)}
+a{color:var(--primario)}
+
+/* Barra superior y encabezado */
+.anuncio{background:var(--tinta-prof);color:var(--sobre-azul-2);border-bottom:0;font-weight:600}
+.anuncio .ico{color:var(--acento)}
+.barra{background:var(--fondo);border-bottom:1px solid var(--linea)}
+.menu a:not(.boton){color:var(--texto)}
+@media(hover:hover) and (pointer:fine){.menu a:not(.boton):hover{color:var(--primario);text-decoration:underline;text-decoration-color:var(--acento);text-decoration-thickness:2px;text-underline-offset:6px}}
+.barra-wa{color:var(--primario);border-color:var(--linea)}
+@media(hover:hover) and (pointer:fine){.barra-wa:hover{background:var(--suave);border-color:var(--primario)}}
+
+/* Botones: azul de marca sobre claro; mandarina apagada con texto tinta sobre azul */
+.boton{background:var(--primario);color:#fff}
+@media(hover:hover) and (pointer:fine){.boton:hover{background:var(--azul-hover)}}
+.boton-chico,.boton-wa,.wa{background:var(--primario);color:#fff}
+@media(hover:hover) and (pointer:fine){.boton-chico:hover,.boton-wa:hover,.wa:hover{background:var(--azul-hover)}}
+.wa{border-color:transparent}
+.boton-fantasma-claro{background:transparent;color:var(--primario);border:1px solid var(--primario)}
+@media(hover:hover) and (pointer:fine){.boton-fantasma-claro:hover{background:color-mix(in srgb,var(--primario) 8%,transparent);border-color:var(--primario)}}
+.hero .boton:not(.boton-fantasma-claro),.cta-final .boton:not(.boton-fantasma-claro){background:var(--acento);color:var(--tinta-prof)}
+@media(hover:hover) and (pointer:fine){.hero .boton:not(.boton-fantasma-claro):hover,.cta-final .boton:not(.boton-fantasma-claro):hover{background:color-mix(in srgb,var(--acento) 88%,#fff)}}
+.hero .boton-fantasma-claro,.cta-final .boton-fantasma-claro{color:var(--sobre-azul);border-color:rgba(251,246,236,.6)}
+@media(hover:hover) and (pointer:fine){.hero .boton-fantasma-claro:hover,.cta-final .boton-fantasma-claro:hover{background:rgba(251,246,236,.1);border-color:var(--sobre-azul)}}
+.hero :focus-visible,.cta-final :focus-visible,.pie :focus-visible{outline-color:var(--acento)}
+@media(max-width:760px){.hero-acciones .boton-fantasma-claro{border:0;background:none;color:var(--sobre-azul);text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1.5px}}
+
+/* Marcos: bandeja tonal + núcleo con filete interior (doble marco sobrio) */
+.marco{background:var(--suave);border:1px solid var(--linea);border-radius:var(--r-3);padding:8px}
+.marco .foto,.marco-azul .foto{border-radius:var(--r-1)}
+.marco-azul{background:rgba(251,246,236,.07);border:1px solid rgba(251,246,236,.22);border-radius:var(--r-3);padding:8px}
+.foto{position:relative}
+.foto::after,.tile-panel::after,.hero-panel::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(28,32,51,.09);pointer-events:none}
+.marco-azul .foto::after,.hero-panel::after{box-shadow:inset 0 0 0 1px rgba(251,246,236,.12)}
+.foto-ambiente{aspect-ratio:1}
+.foto-hero{aspect-ratio:16/9}
+.foto-tile{aspect-ratio:1;width:100%;height:100%}
+.ambiente-img{width:100%;height:100%;object-fit:cover}
+
+/* Hero: banda azul de marca; texto a un lado e imagen 16:9 (o panel de marca) al otro */
+.hero{background:var(--primario);color:var(--sobre-azul);border-bottom:0;padding:72px 0}
+.hero-in{display:grid;gap:40px;align-items:center}
+@media(min-width:900px){.hero-in{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:56px}}
+.hero h1{color:var(--sobre-azul);max-width:16ch;font-size:clamp(2.3rem,4.4vw,3.6rem);line-height:1.04}
+.hero-sub{color:var(--sobre-azul-2);max-width:40ch}
+.hero-acciones{margin-top:28px}
+.hero-panel{position:relative;aspect-ratio:16/9;background:var(--azul-2);border-radius:var(--r-1);display:grid;place-items:center}
+.hero-iso{width:min(30%,150px);height:auto;opacity:.9}
+@media(max-width:899px){.hero-marca{display:none}.hero-con-img .hero-visual{order:2}}
+@media(max-width:760px){.hero{padding:44px 0 36px}.hero-in{gap:28px}.hero h1{font-size:2.2rem}}
+
+/* Elige por mascota */
+.mascotas{padding-block:56px 8px}
+@media(max-width:640px){.mascotas{padding-block:40px 0}}
+.mascotas-in{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.mascotas-txt{grid-column:1/-1}
+.mascotas-txt h2{margin-bottom:.25em}
+.mascotas-txt p{color:var(--gris);margin:0 0 6px;max-width:44ch}
+@media(min-width:1100px){.mascotas-in{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;align-items:center}.mascotas-txt{grid-column:1/3}}
+.tile{display:block;text-decoration:none;color:var(--texto);background:var(--suave);border:1px solid var(--linea);border-radius:var(--r-3);padding:8px;transition:border-color .15s ease}
+@media(hover:hover) and (pointer:fine){.tile:hover{border-color:var(--primario)}.tile:hover .tile-pie .ico{color:var(--acento-t)}}
+.tile:focus-visible{outline-offset:4px}
+.tile-img{position:relative;aspect-ratio:1;border-radius:var(--r-1);overflow:hidden;background:var(--panel)}
+.tile-img .foto{margin:0;background:none}
+.tile-panel{position:absolute;inset:0;display:grid;place-items:center;background:color-mix(in srgb,var(--primario) 22%,var(--suave));border-radius:inherit}
+.tile-iso{width:34%;height:auto;opacity:.92}
+.tile-pie{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px 6px 6px}
+.tile-pie strong{display:block;font-family:var(--titulo);font-size:1.2rem;font-weight:600;color:var(--primario);line-height:1.15}
+.tile-pie small{display:block;color:var(--gris);font-size:.82rem}
+.tile-pie .ico{color:var(--primario);width:20px;height:20px}
+
+/* Tarjeta de producto de tienda grande: bandeja tonal con foto cuadrada, categoría, nombre, beneficio, piezas, precio y acción */
+.tarjeta,.tarjeta:hover,.tarjeta:active{background:var(--suave);border:1px solid var(--linea);border-radius:var(--r-3);padding:8px;overflow:visible;box-shadow:none;transition:border-color .15s ease}
+.tarjeta-img{position:relative;border-radius:var(--r-1);overflow:hidden;background:var(--panel)}
+.tarjeta-img .foto{background:var(--panel)}
+.tarjeta-cuerpo,.tarjeta-cuerpo{padding:14px 6px 6px;gap:4px;flex:1}
+.tarjeta-cat{display:block;font-size:.8rem;font-weight:700;color:var(--acento-t);line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tarjeta-cuerpo h3{margin:0;font-size:1.1rem;line-height:1.2;font-weight:600;color:var(--primario)}
+@media(min-width:700px){.tarjeta-cuerpo h3{font-size:1.22rem}}
+.tarjeta-beneficio{margin:2px 0 0;color:var(--gris);font-size:.88rem;line-height:1.4;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+@media(min-width:700px){.tarjeta-beneficio{-webkit-line-clamp:2}}
+.tarjeta-pie{margin-top:auto;padding-top:10px;display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
+.tarjeta-pie strong{font-size:1.3rem;font-weight:700;color:var(--texto)}
+.tarjeta-pie small{display:inline;margin:0;font-size:.82rem;color:var(--gris);white-space:nowrap}
+.tarjeta-btn{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:10px;min-height:44px;border-radius:var(--r-2);background:var(--primario);color:#fff;font-weight:700;font-size:.95rem;transition:background-color .15s ease}
+.tarjeta-btn .ico{width:18px;height:18px;stroke-width:2}
+@media(hover:hover) and (pointer:fine){.tarjeta:hover{border-color:color-mix(in srgb,var(--primario) 55%,var(--linea))}.tarjeta:hover .tarjeta-btn{background:var(--azul-hover)}.tarjeta:hover h3 span{text-decoration-color:currentColor}}
+.tarjeta:active{transform:none}
+.tarjeta:active .tarjeta-btn{background:var(--azul-hover)}
+.tarjeta:focus-visible{outline:2px solid var(--acento-t);outline-offset:4px;border-radius:var(--r-3)}
+.foto img{filter:none}
+@media(max-width:699px){.tarjeta{padding:6px}.tarjeta-cuerpo{padding:12px 4px 4px}.tarjeta-btn{min-height:42px;font-size:.9rem}.tarjeta-pie strong{font-size:1.2rem}}
+
+/* Cómo funciona: con imagen cuadrada al lado; sin imagen, tres pasos en fila */
+.como-con-img{display:grid;gap:36px;align-items:center}
+@media(min-width:900px){.como-con-img{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:64px}}
+.como-con-img .tres-pasos{grid-template-columns:1fr}
+.como-visual{max-width:460px;width:100%}
+@media(max-width:899px){.como-visual{max-width:none}.como-con-img .foto-ambiente{aspect-ratio:4/3}}
+.tres-pasos li{background:#fff;border-color:var(--linea)}
+.tres-pasos .ico,.beneficios .ico,.ico-tile{background:color-mix(in srgb,var(--primario) 8%,#fff);border:0;color:var(--primario)}
+.paso-num{color:color-mix(in srgb,var(--primario) 16%,transparent)}
+.num,.paso-f,.cant input:checked{background:var(--primario);border-color:var(--primario);color:#fff}
+.filtro.activo,.pagina.activa{background:var(--primario);border-color:var(--primario);color:#fff}
+@media(hover:hover) and (pointer:fine){.filtro:not(.activo):hover,.pagina:not(.activa):not(:disabled):hover{border-color:var(--primario);color:var(--primario)}}
+.seccion-suave{background:var(--suave)}
+.nota-cambios .ico{color:var(--primario)}
+.nota-cambios a{color:var(--primario)}
+
+/* Ficha: foto y compra con el mismo doble marco */
+.foto-producto{aspect-ratio:1;border-radius:var(--r-1)}
+@media(max-width:959px){.foto-producto{aspect-ratio:4/3}.marco{padding:6px}}
+.marco .miniaturas{margin-top:8px}
+.pedido-marco{background:var(--suave);border:1px solid var(--linea);border-radius:var(--r-3);padding:8px}
+.pedido-marco .pedido{border:0;border-radius:var(--r-1);background:#fff}
+@media(max-width:600px){.pedido-marco{padding:6px}}
+.compra .etiqueta{color:var(--acento-t);border-color:color-mix(in srgb,var(--acento-t) 35%,var(--linea));background:none}
+.compra h1{color:var(--primario)}
+.precio strong{color:var(--texto)}
+.clave .ico,.incluye .ico{color:var(--primario)}
+.inc-num{color:var(--primario);border-color:color-mix(in srgb,var(--primario) 30%,var(--linea))}
+.entrega{background:color-mix(in srgb,var(--primario) 7%,#fff);color:var(--primario)}
+.pedido-ok{background:color-mix(in srgb,var(--primario) 6%,#fff)}
+.barra-compra{background:var(--fondo);border-top:1px solid var(--linea)}
+summary::after{border-color:var(--primario)}
+.comparacion thead th:nth-child(2),.comparacion .si{color:var(--primario)}
+.comparacion td:nth-child(2){background:color-mix(in srgb,var(--primario) 5%,#fff)}
+
+/* Banda final y contacto en azul de marca */
+.cta-final{background:var(--primario);color:var(--sobre-azul)}
+.cta-final h2{color:var(--sobre-azul)}
+.cta-final p{color:var(--sobre-azul-2)}
+.contacto-hero{background:var(--primario);border-bottom:0;padding:52px 0 64px}
+.contacto-hero h1{color:var(--sobre-azul)}
+.contacto-hero .hero-sub{color:var(--sobre-azul-2)}
+.contacto-wa{background:var(--suave);border:1px solid var(--linea);margin-top:-32px}
+.contacto-wa-ico .ico-tile{background:color-mix(in srgb,var(--primario) 9%,#fff);color:var(--primario)}
+.contacto-dato,.contacto-ayuda .ir{color:var(--primario)}
+.contacto-wa h2,.contacto-num{color:var(--primario)}
+
+/* Pie en tinta profunda */
+.pie{background:var(--tinta-prof);color:var(--sobre-azul-2);border-top:0}
+.pie .logo,.pie .logo-pie{color:var(--sobre-azul)}
+.pie a,.pie-tit,.pie-sello{color:var(--sobre-azul)}
+.pie-marca p{color:var(--sobre-azul-2)}
+.pie a:hover,.pie-nav a:hover{color:var(--acento);text-decoration:none}
+.pie-lnk .ico{color:var(--acento)}
+.redes-pie a,.redes a{border-color:rgba(251,246,236,.25);color:var(--sobre-azul);background:none}
+.redes a{color:var(--primario);border-color:var(--linea)}
+.redes-pie a{color:var(--sobre-azul)}
+@media(hover:hover) and (pointer:fine){.redes-pie a:hover{background:var(--acento);color:var(--tinta-prof);border-color:var(--acento)}.redes a:hover{background:var(--primario);color:#fff}}
+.legal-pie{border-top:1px solid rgba(251,246,236,.15);color:var(--sobre-azul-2)}
+.pie-pago{border-color:rgba(251,246,236,.25);color:var(--sobre-azul)}
+
+/* Fallback sin imágenes de ambiente: hero de texto amplio y tiles de mascota compactos (sin cajas vacías) */
+@media(min-width:900px){.hero-solo .hero-in{grid-template-columns:minmax(0,1fr)}}
+.hero-solo{padding:88px 0 80px}
+.hero-solo h1{max-width:20ch;font-size:clamp(2.3rem,5vw,4rem)}
+.hero-solo .hero-sub{max-width:48ch;font-size:clamp(1.05rem,2vw,1.25rem)}
+@media(max-width:760px){.hero-solo{padding:44px 0 36px}.hero-solo h1{font-size:2.2rem}}
+.tile-solo{display:flex;align-items:center;justify-content:space-between;padding:0}
+.tile-solo .tile-pie{flex:1;padding:18px 18px}
+@media(min-width:1100px){.tile-solo{min-height:84px}}

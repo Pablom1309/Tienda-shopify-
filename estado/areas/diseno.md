@@ -49,3 +49,19 @@ Ronda 6 (2026-10-05) agrupó y resolvió o descartó las ~47 propuestas anterior
 - Legal: confirmar que la línea "Pagas al recibir" más el retracto del formulario cubren lo exigible.
 
 ## Pendientes del dueño
+
+## Ronda 10 (2026-10-05, pedido directo del dueño): color de marca, tarjeta de tienda grande, espacios de imagen
+Skills leídas con Read: impeccable (SKILL, craft-floor, colorize, bolder, layout, typeset, polish), design-taste-frontend (0 a 4), high-end-visual-design, redesign-existing-projects, minimalist-ui (contraste). Modo "Launcher unavailable".
+- Design Read: tienda DTC de cuidado de mascotas para dueños en Chile, lenguaje sobrio-editorial con color de marca profundo. Arquetipo: Soft Structuralism (bandejas tonales con doble marco, radios 3-6 px, sin píldoras). Diales: variación 5, movimiento 1, densidad 4.
+- Color (HECHO): azul tinta #24316B protagonista (banda del hero, CTA final, botón principal, títulos), tinta profunda #141B3F (barra superior y pie), mandarina apagada #E8935F solo sobre azul (botón del hero/CTA, detalles del pie) y #A8481A como texto de categoría sobre claro; neutros cálidos #F6F2EA / #EDE7DB / #E4DDCF, texto #1C2033. Contrastes: azul/crema 11.3, mandarina/tinta 7.0, #A8481A/#EDE7DB 4.7, gris #50556A/#F6F2EA 6.6. Variante descartada: hero claro con barra azul (r10-color-2.png); la elegida es r10-color-1.png.
+- Tarjeta (HECHO): bandeja tonal con filete + foto cuadrada con filete interior; categoría, nombre, 1 línea de beneficio (2.ª frase del subtítulo de la ficha si <= 56 caracteres; si no, 1.er beneficio), "N piezas", precio y botón "Ver kit" a lo ancho. Hover: solo borde y color. Mismo doble marco en "Otros kits", galería de la ficha y formulario de compra.
+- Espacios de imagen (HECHO): `herramientas/plantilla/img/ambiente-hero.jpg` (16:9, al lado del texto), `ambiente-perros.jpg` y `ambiente-gatos.jpg` (tiles cuadrados que aplican el filtro de la grilla), `ambiente-entrega.jpg` (cuadrada en "Cómo funciona"). Sin archivo: panel de marca con isotipo / tres pasos en fila. Probado con archivos temporales (retirados). Alt vacío (decorativas): al subir fotos reales, definir alt si muestran algo informativo.
+- Verificación: verificar.py = 0, sin scroll horizontal ni errores de consola a 390 y 1366 (portada, grilla, ficha Baño y Secado, contacto).
+## Próximas 5 tareas
+1. [espera fotos] Subir las 4 imágenes de ambiente y revisar recorte (objeto 16:9 y cuadrados).
+2. Revisar la tarjeta con textos largos de fichas nuevas (beneficio a 3 líneas en móvil).
+3. Página 404 y legales: confirmar con el dueño si quiere banda azul también ahí.
+4. Fuentes autoalojadas (Fraunces/Nunito) para evitar el cambio de tipografía al cargar.
+5. Probar envío real del formulario en iPhone/Android.
+## Propuestas para otras áreas
+- Marca: validar #E8935F (mandarina apagada) y #141B3F como derivados oficiales de la paleta; hoy `datos/marca.json` conserva #FF8A4C.
