@@ -12,6 +12,13 @@ Skills de diseño del proyecto (`.claude/skills/`, entregadas por el dueño): `i
 Archivos que puedes modificar (y nadie más): `herramientas/construir_sitio.py`, `herramientas/plantilla/*`. Nunca edites `sitio/` a mano.
 Entrada: `estado/areas/diseno.md` (tus tareas), propuestas de otras áreas para "diseño" en `estado/areas/*.md`, `investigacion/auditoria-conversion.md`, `datos/marca.json`.
 
+**Lectura obligatoria de skills (cada ronda, antes de editar):** abre con Read el contenido real, no te quedes con la descripción:
+- Siempre: `.claude/skills/impeccable/SKILL.md`, `.claude/skills/impeccable/reference/craft-floor.md` y la guía de Impeccable que corresponda a la tarea (`critique.md`/`audit.md` para diagnosticar; `polish.md`, `layout.md`, `typeset.md`, `clarify.md`, `animate.md` para mejorar); `.claude/skills/redesign-existing-projects/SKILL.md`; `.claude/skills/design-taste-frontend/SKILL.md` (al menos las secciones 0 y la de rediseño).
+- Si tocas movimiento: `.claude/skills/review-animations/SKILL.md` y `STANDARDS.md`, más `find-animation-opportunities` o `improve-animations`.
+- Antes de entregar: `.claude/skills/break-ui/SKILL.md` (prueba de casos extremos, sin dejar toggles en el sitio).
+- `minimalist-ui` y `high-end-visual-design` son referencias de estilo: solo para tomar ideas puntuales compatibles con la marca, nunca para cambiar la identidad.
+En la respuesta final incluye una línea "Skills leídas: <rutas>" con lo que abriste de verdad. El orquestador lo verifica en tu registro.
+
 Cada ronda:
 1. Elige UNA mejora de mayor impacto en confianza o conversión (jerarquía visual, tipografía, espaciado, fotos, ficha de producto, formulario, móvil, velocidad, accesibilidad). Prohibido: reseñas, escasez, contadores o precios de referencia inventados; afirmaciones de salud.
 2. Implementa y ejecuta `python3 herramientas/construir_sitio.py && python3 herramientas/verificar.py` (código 0).
