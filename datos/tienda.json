@@ -17,5 +17,11 @@
   "orden_vitrina": [
     "kit-bano-secado-perro"
   ],
-  "orden_vitrina_nota": "Orden de los kits en la portada (pedido del dueño 2026-10-04: primero Kit Baño y Secado). Los kits no listados van después, en orden de catálogo."
+  "orden_vitrina_nota": "Orden de los kits en la portada (pedido del dueño 2026-10-04: primero Kit Baño y Secado). Los kits no listados van después, en orden de catálogo.",
+  "redes": {
+    "instagram": null,
+    "tiktok": null,
+    "facebook": null,
+    "nota": "completar con el usuario cuando el dueño cree las cuentas (LANZAMIENTO 0.4). Poner la URL completa del perfil; mientras sea null no se muestra el ícono."
+  }
 }

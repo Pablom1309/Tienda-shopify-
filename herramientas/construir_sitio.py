@@ -14,6 +14,7 @@ import json
 import re
 import shutil
 import subprocess
+from urllib.parse import quote
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
@@ -42,7 +43,41 @@ ICONOS = {
     "carro": '<circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.5 12h11L21 7H6.5"/>',
     "calendario": '<path d="M4 6h16v14H4zM4 10h16M8 3v5M16 3v5"/>',
     "flecha": '<path d="M5 12h14M13 6l6 6-6 6"/>',
+    "whatsapp": '<path d="M3 21l1.65-4.9A8.5 8.5 0 1 1 8 19.4z"/><path d="M9 8.8c.2 3 2.9 5.9 6 6.3l1.2-1.5-2.1-1.1-1 .8c-.9-.4-1.9-1.4-2.3-2.4l.8-1-1.1-2.1z"/>',
+    "telefono": '<path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/>',
+    "correo": '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/>',
+    "mapa": '<path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/>',
+    "ayuda": '<circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/>',
+    "instagram": '<rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.4A4 4 0 1 1 12.6 8 4 4 0 0 1 16 11.4zM17.5 6.5h.01"/>',
+    "tiktok": '<path d="M9 12a4 4 0 1 0 4 4V3a5 5 0 0 0 5 5"/>',
+    "facebook": '<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>',
 }
+
+REDES = {"instagram": "Instagram", "tiktok": "TikTok", "facebook": "Facebook"}
+
+
+def wa_numero(tienda):
+    """'56979814797' -> '+56 9 7981 4797' (formato legible; el enlace usa el número limpio)."""
+    n = re.sub(r"\D", "", tienda.get("whatsapp") or "")
+    return f"+{n[:2]} {n[2]} {n[3:7]} {n[7:]}" if len(n) == 11 else (f"+{n}" if n else "")
+
+
+def wa_url(tienda, texto="Hola Kuchiwau, tengo una consulta"):
+    n = re.sub(r"\D", "", tienda["whatsapp"])
+    return f"https://wa.me/{n}?text={quote(texto)}"
+
+
+def redes_html(tienda, marca, clase="redes"):
+    """Íconos de contacto/redes. WhatsApp siempre (cuenta real); el resto solo si hay URL en datos/tienda.json."""
+    items = []
+    if tienda.get("whatsapp"):
+        items.append(("whatsapp", "WhatsApp", wa_url(tienda)))
+    for k, nombre in REDES.items():
+        if (tienda.get("redes") or {}).get(k):
+            items.append((k, nombre, tienda["redes"][k]))
+    return f'<ul class="{clase}">' + "".join(
+        f'<li><a href="{e(u)}" target="_blank" rel="noopener noreferrer" aria-label="{nombre} de {e(marca["nombre"])} (se abre en otra pestaña)" title="{nombre}">{icono(i)}</a></li>'
+        for i, nombre, u in items) + "</ul>"
 
 
 def icono(nombre, clase="ico"):
@@ -116,7 +151,7 @@ def logo_svg(pie=False):
     return iso + palabra
 
 
-def pagina(marca, tienda, titulo, descripcion, cuerpo, base="", canonica=None, imagen_og=None, precarga=None, extra_ld=(), tipo_og="website"):
+def pagina(marca, tienda, titulo, descripcion, cuerpo, base="", canonica=None, imagen_og=None, precarga=None, extra_ld=(), tipo_og="website", clase_body=""):
     c = marca["colores"]
     url = (tienda.get("url_sitio") or "").rstrip("/")
     can = f'<link rel="canonical" href="{e(url + "/" + canonica)}">' if url and canonica is not None else ""
@@ -128,12 +163,25 @@ def pagina(marca, tienda, titulo, descripcion, cuerpo, base="", canonica=None, i
         og += f'<meta property="og:url" content="{e(url + "/" + canonica)}">'
     pre = f'<link rel="preload" as="image" href="{base}{precarga}" fetchpriority="high">' if precarga else ""
     wa = tienda.get("whatsapp")
-    flotante_wa = f'<a class="wa" href="https://wa.me/{e(wa)}" aria-label="Escríbenos por WhatsApp">{icono("chat")}</a>' if wa else ""
+    flotante_wa = f'<a class="wa" href="{e(wa_url(tienda))}" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">{icono("whatsapp")}<span class="wa-txt">WhatsApp</span></a>' if wa else ""
+    hdr_wa = f'<a class="barra-wa" href="{e(wa_url(tienda))}" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">{icono("whatsapp")}</a>' if wa else ""
+    if wa:
+        pie_contacto = (f'<a class="pie-lnk" href="{e(wa_url(tienda))}" target="_blank" rel="noopener noreferrer">{icono("whatsapp", "ico ico-s")} {e(wa_numero(tienda))}</a>'
+                        f'<a class="pie-lnk" href="tel:+{e(wa)}">{icono("telefono", "ico ico-s")} Llamar</a>')
+    else:
+        pie_contacto = ""
+    if tienda.get("correo"):
+        pie_contacto += f'<a class="pie-lnk" href="mailto:{e(tienda["correo"])}">{icono("correo", "ico ico-s")} {e(tienda["correo"])}</a>'
+    if tienda.get("direccion_comercial"):
+        pie_contacto += f'<span class="pie-lnk">{icono("mapa", "ico ico-s")} {e(tienda["direccion_comercial"])}</span>'
     org = {"@context": "https://schema.org", "@type": "Organization", "name": marca["nombre"], "slogan": marca["promesa"]}
     if url:
         org["url"] = url + "/"
     if tienda.get("correo"):
         org["email"] = tienda["correo"]
+    sociales = [u for u in (tienda.get("redes") or {}).values() if isinstance(u, str) and u.startswith("http")]
+    if sociales:
+        org["sameAs"] = sociales
     scripts = "".join(ld(x) for x in (org, *extra_ld))
     return f"""<!doctype html>
 <html lang="es-CL">
@@ -162,19 +210,21 @@ def pagina(marca, tienda, titulo, descripcion, cuerpo, base="", canonica=None, i
 <style>:root{{--primario:{c['primario']};--acento:{c['acento']};--fondo:{c['fondo']};--texto:{c['texto']}}}</style>
 {scripts}
 </head>
-<body>
+<body class="{clase_body}">
 <a class="saltar" href="#contenido">Saltar al contenido</a>
 <div class="anuncio"><span>{icono('pago', 'ico ico-s')} Pagas al recibir</span><span class="sep" aria-hidden="true">·</span><span>{icono('envio', 'ico ico-s')} Despacho a todo Chile</span><span class="sep ocultar-movil" aria-hidden="true">·</span><span class="ocultar-movil">{icono('garantia', 'ico ico-s')} Garantía legal 6 meses</span></div>
 <header class="barra"><div class="contenedor barra-in"><a class="logo" href="{base}index.html" aria-label="{e(marca['nombre'])}, inicio">{logo_svg()}</a>
-<nav class="menu" aria-label="Principal"><a href="{base}index.html#kits">Kits</a><a href="{base}index.html#como-funciona">Cómo funciona</a><a href="{base}index.html#preguntas">Preguntas</a><a class="boton boton-chico" href="{base}index.html#kits">{icono('carro', 'ico ico-s')} Comprar</a></nav></div></header>
+<nav class="menu" aria-label="Principal"><a href="{base}index.html#kits">Kits</a><a href="{base}index.html#como-funciona">Cómo funciona</a><a href="{base}index.html#preguntas">Preguntas</a><a href="{base}contacto.html">Contacto</a></nav>
+<div class="barra-acc">{hdr_wa}<a class="boton boton-chico" href="{base}index.html#kits">{icono('carro', 'ico ico-s')} Comprar</a></div></div></header>
 <main id="contenido">
 {cuerpo}
 </main>
 <footer class="pie">
 <div class="contenedor pie-in">
-<div class="pie-marca"><p class="logo logo-pie" aria-label="{e(marca['nombre'])}">{logo_svg(pie=True)}</p><p>{e(marca['promesa'])}</p></div>
+<div class="pie-marca"><p class="logo logo-pie" aria-label="{e(marca['nombre'])}">{logo_svg(pie=True)}</p><p>{e(marca['promesa'])}</p>{redes_html(tienda, marca, "redes redes-pie")}</div>
 <div><p class="pie-tit">Tienda</p><nav class="pie-nav"><a href="{base}index.html#kits">Kits</a><a href="{base}index.html#como-funciona">Cómo funciona</a><a href="{base}index.html#preguntas">Preguntas frecuentes</a></nav></div>
 <div><p class="pie-tit">Ayuda</p><nav class="pie-nav"><a href="{base}despacho.html">Despacho</a><a href="{base}cambios.html">Cambios, retracto y garantía</a><a href="{base}privacidad.html">Privacidad</a><a href="{base}contacto.html">Contacto</a></nav></div>
+<div><p class="pie-tit">Escríbenos</p><nav class="pie-nav">{pie_contacto}<span class="pie-lnk pie-pago">{icono('pago', 'ico ico-s')} Pago contra entrega</span></nav></div>
 </div>
 <p class="legal-pie">© {e(tienda.get('razon_social') or marca['nombre'])}{' · RUT ' + e(tienda['rut']) if tienda.get('rut') else ''}{' · ' + e(tienda['direccion_comercial']) if tienda.get('direccion_comercial') else ''} · Precios en pesos chilenos, IVA incluido.</p>
 </footer>
@@ -328,7 +378,7 @@ def pagina_producto(prod, ficha, marca, tienda, productos=()):
 <div class="barra-compra" id="barra-compra"><div><strong>{clp(prod['precio'])}</strong></div><a class="boton" href="#pedido">Pedir ahora</a></div>"""
     og = f"img/{prod['id']}.jpg" if (PLANTILLA / "img" / f"{prod['id']}.jpg").exists() else None
     return pagina(marca, tienda, ficha["titulo_seo"], ficha["meta_descripcion"], cuerpo, base="../",
-                  canonica=f"productos/{ficha['handle']}.html", imagen_og=og, extra_ld=(producto_ld, migas_ld, ld_faq(preguntas)), tipo_og="product")
+                  canonica=f"productos/{ficha['handle']}.html", imagen_og=og, extra_ld=(producto_ld, migas_ld, ld_faq(preguntas)), tipo_og="product", clase_body="ficha")
 
 
 def etiqueta_publica(p):
@@ -340,9 +390,9 @@ def etiqueta_publica(p):
 
 def tarjeta(p, f, mascota, base):
     img = imagen(p['id'], f['alt_imagenes'][0], base, 'foto foto-tarjeta', sizes='(min-width:1100px) 25vw, (min-width:700px) 33vw, 50vw')
-    return f"""<a class="tarjeta revelar" data-mascota="{mascota}" href="{base}productos/{e(f['handle'])}.html">{img}
-<div class="tarjeta-cuerpo"><span class="etiqueta">{e(etiqueta_publica(p))}</span><h3>{e(f['titulo_seo'].split(':')[0])}</h3>
-<div class="tarjeta-pie"><div><strong>{clp(p['precio'])}</strong><small>2 por {clp(p['oferta_2'])}</small></div><span class="boton boton-chico" aria-hidden="true">Ver {icono('flecha', 'ico ico-s')}</span></div></div></a>"""
+    return f"""<a class="tarjeta revelar" data-mascota="{mascota}" href="{base}productos/{e(f['handle'])}.html"><div class="tarjeta-img">{img}<span class="etiqueta">{e(etiqueta_publica(p))}</span></div>
+<div class="tarjeta-cuerpo"><h3>{e(f['titulo_seo'].split(':')[0])}</h3>
+<div class="tarjeta-pie"><div><strong>{clp(p['precio'])}</strong><small>2 por {clp(p['oferta_2'])}</small></div><span class="tarjeta-ir" aria-hidden="true">{icono('flecha', 'ico ico-s')}</span></div></div></a>"""
 
 
 RELACIONADOS = {"kit-bano-secado-perro": ["kit-pelo-cero", "kit-verano-fresco"],
@@ -378,11 +428,11 @@ def portada(productos, marca, tienda):
 <div class="contenedor hero-in"><p class="sobretitulo">Kits de cuidado para perros y gatos</p>
 <h1>Menos pelo en tu casa. Más frescura para tu mascota.</h1>
 <p class="hero-sub">Soluciones completas para el pelo y el calor, pensadas para la vida en casa.</p>
-<div class="hero-acciones"><a class="boton boton-grande" href="#kits">Ver los kits {icono('flecha', 'ico ico-s')}</a><a class="boton-texto" href="#como-funciona">¿Cómo funciona?</a></div></div></section>
+<div class="hero-acciones"><a class="boton boton-grande" href="#kits">Ver los kits {icono('flecha', 'ico ico-s')}</a><a class="boton boton-fantasma" href="#como-funciona">¿Cómo funciona?</a></div></div></section>
 <section class="seccion contenedor" id="kits"><p class="sobretitulo">Nuestros kits</p><h2>Elige el que necesita tu casa</h2>{filtros}<div class="grilla" id="grilla">{tarjetas}</div><nav class="paginas" id="paginas" aria-label="Páginas de kits" hidden></nav></section>
 {como_funciona()}
 {bloque_faq(preguntas)}
-<section class="cta-final"><div class="contenedor"><h2>¿Dudas antes de pedir?</h2><p>Escríbenos y te ayudamos a elegir el kit para tu mascota.</p><a class="boton boton-grande boton-auto" href="contacto.html">Contáctanos</a></div></section>"""
+<section class="cta-final"><div class="contenedor"><h2>¿Dudas antes de pedir?</h2><p>Escríbenos y te ayudamos a elegir el kit para tu mascota.</p><div class="cta-botones"><a class="boton boton-grande boton-auto boton-wa" href="{e(wa_url(tienda, 'Hola Kuchiwau, necesito ayuda para elegir un kit'))}" target="_blank" rel="noopener noreferrer">{icono('whatsapp')} Escríbenos por WhatsApp</a><a class="boton boton-grande boton-auto boton-fantasma-claro" href="contacto.html">Ver contacto</a></div></div></section>"""
     url = (tienda.get("url_sitio") or "").rstrip("/")
     web_ld = {"@context": "https://schema.org", "@type": "WebSite", "name": marca["nombre"], **({"url": url + "/"} if url else {})}
     return pagina(marca, tienda, f"{marca['nombre']} — kits de cuidado para mascotas con pago al recibir", marca["promesa"],
@@ -391,10 +441,38 @@ def portada(productos, marca, tienda):
                   extra_ld=(web_ld, ld_faq(preguntas)))
 
 
+def pagina_contacto(marca, tienda):
+    wa = tienda.get("whatsapp")
+    tarjetas = []
+    if wa:
+        tarjetas.append(("telefono", "Llámanos", f'<a class="contacto-dato" href="tel:+{e(wa)}">{e(wa_numero(tienda))}</a>', "Toca el número para llamar desde tu teléfono."))
+    if tienda.get("correo"):
+        tarjetas.append(("correo", "Correo", f'<a class="contacto-dato" href="mailto:{e(tienda["correo"])}">{e(tienda["correo"])}</a>', "Para consultas con detalle o adjuntos."))
+    if tienda.get("direccion_comercial"):
+        tarjetas.append(("mapa", "Dirección", f'<span class="contacto-dato">{e(tienda["direccion_comercial"])}</span>', "Domicilio comercial."))
+    hay_redes = any((tienda.get("redes") or {}).get(k) for k in REDES)
+    if hay_redes:
+        tarjetas.append(("instagram", "Síguenos", redes_html(tienda, marca, "redes redes-contacto"), "Nuestras cuentas oficiales."))
+    cards = "".join(f'<li class="contacto-card revelar">{icono(i, "ico ico-tile")}<h3>{t}</h3><p>{d}</p><p class="contacto-nota">{n}</p></li>' for i, t, d, n in tarjetas)
+    if wa:
+        principal = f"""<div class="contacto-wa"><div class="contacto-wa-txt"><span class="contacto-wa-ico">{icono('whatsapp', 'ico ico-tile ico-xl')}</span>
+<h2>Escríbenos por WhatsApp</h2><p>Es nuestro canal principal: respondemos por ahí tus consultas y confirmamos tu pedido antes de despachar.</p>
+<a class="contacto-num" href="{e(wa_url(tienda))}" target="_blank" rel="noopener noreferrer">{e(wa_numero(tienda))}</a></div>
+<a class="boton boton-grande boton-wa" href="{e(wa_url(tienda))}" target="_blank" rel="noopener noreferrer">{icono('whatsapp')} Escríbenos por WhatsApp</a></div>"""
+    else:
+        principal = '<p class="aviso">Estamos completando nuestros datos de contacto. Muy pronto podrás escribirnos desde aquí.</p>'
+    ayuda = [("envio", "Despacho", "Plazos por región y cómo coordinamos la entrega.", "despacho.html"),
+             ("retracto", "Cambios y garantía", "Retracto de 10 días y garantía legal de 6 meses.", "cambios.html"),
+             ("ayuda", "Preguntas frecuentes", "Las dudas más comunes antes de pedir.", "index.html#preguntas")]
+    ayuda_html = "".join(f'<li><a class="contacto-ayuda" href="{h}">{icono(i, "ico ico-tile")}<span><strong>{t}</strong><small>{d}</small></span>{icono("flecha", "ico ico-s ir")}</a></li>' for i, t, d, h in ayuda)
+    return f"""<section class="contacto-hero"><div class="contenedor estrecho"><p class="sobretitulo">Contacto</p><h1>Hablemos</h1><p class="hero-sub">¿Dudas sobre un kit, tu pedido o el despacho? Escríbenos y te ayudamos.</p></div></section>
+<section class="contenedor estrecho contacto">{principal}
+{f'<ul class="contacto-grid">{cards}</ul>' if cards else ''}
+<h2 class="contacto-sub">Ayuda rápida</h2><ul class="contacto-ayudas">{ayuda_html}</ul></section>"""
+
+
 def legales(marca, tienda):
     pl = tienda["plazos_despacho"]
-    falta = '<p class="aviso">Estamos completando nuestros datos de contacto. Mientras tanto, escríbenos desde el formulario de pedido.</p>'
-    contacto = "".join(f"<li><strong>{k}:</strong> {e(v)}</li>" for k, v in (("WhatsApp", tienda.get("whatsapp")), ("Correo", tienda.get("correo")), ("Dirección", tienda.get("direccion_comercial"))) if v) or ""
     paginas = {
         "despacho.html": ("Despacho", f"""<h1>Despacho</h1><p>Despachamos a todo Chile con pago contra entrega. Antes de enviar, confirmamos cada pedido por WhatsApp.</p>
 <ul><li>Región Metropolitana: {e(pl['RM'])}.</li><li>Otras regiones: {e(pl['regiones'])}.</li><li>Zonas extremas: {e(pl['zonas_extremas'])}.</li></ul>
@@ -402,14 +480,15 @@ def legales(marca, tienda):
         "cambios.html": ("Cambios, retracto y garantía", """<h1>Cambios, retracto y garantía</h1>
 <h2>Derecho a retracto</h2><p>Tienes 10 días desde que recibes el producto para retractarte de la compra, con el producto sin uso y en su empaque (Ley 19.496).</p>
 <h2>Garantía legal</h2><p>Si el producto presenta una falla, tienes 6 meses desde la recepción para elegir entre cambio, reparación o devolución del dinero.</p>
-<h2>Cómo solicitarlo</h2><p>Escríbenos por WhatsApp o correo con tu número de pedido y una foto del producto. Te respondemos en un máximo de 2 días hábiles.</p>"""),
+<h2>Cómo solicitarlo</h2><p>Escríbenos desde la <a href="contacto.html">página de contacto</a> con tu número de pedido y una foto del producto. Te respondemos en un máximo de 2 días hábiles.</p>"""),
         "privacidad.html": ("Privacidad", """<h1>Política de privacidad</h1><p>Usamos tu nombre, teléfono y dirección solo para confirmar, despachar y dar soporte a tu pedido. Los compartimos únicamente con el proveedor y la transportadora que lo entregan.</p>
 <p>No enviamos mensajes promocionales sin tu consentimiento expreso. Puedes pedir acceso, corrección o eliminación de tus datos escribiéndonos (Ley 19.628 y Ley 21.719).</p>"""),
-        "contacto.html": ("Contacto", f"<h1>Contacto</h1><ul>{contacto}</ul>{'' if contacto else falta}"),
     }
     for archivo, (titulo, cuerpo) in paginas.items():
         (SITIO / archivo).write_text(pagina(marca, tienda, f"{titulo} | {marca['nombre']}", f"{titulo} de {marca['nombre']}",
                                             f'<section class="seccion contenedor estrecho legal">{cuerpo}</section>', canonica=archivo), encoding="utf-8")
+    (SITIO / "contacto.html").write_text(pagina(marca, tienda, f"Contacto | {marca['nombre']}", f"Contacto de {marca['nombre']}: escríbenos por WhatsApp.",
+                                                pagina_contacto(marca, tienda), canonica="contacto.html", clase_body="pg-contacto"), encoding="utf-8")
 
 
 def csv_shopify(productos, marca):
