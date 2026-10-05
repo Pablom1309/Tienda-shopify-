@@ -82,7 +82,7 @@ def redes_html(tienda, marca, clase="redes"):
 
 
 def isla(nombre="flecha"):
-    """Ícono dentro de su propio círculo, al borde derecho del botón (se desplaza en hover)."""
+    """Flecha (o ícono) simple al final del botón; se desplaza en hover. Sin círculo ni burbuja."""
     return f'<span class="boton-ico" aria-hidden="true">{icono(nombre, "ico")}</span>'
 
 
@@ -177,8 +177,13 @@ def logo_svg(pie=False):
     return iso + palabra
 
 
+# Paleta sobria vigente (decisión del dueño 2026-10-05: nada de colores "de PowerPoint"). Opción A: hueso + tinta + arcilla.
+# El acento se usa solo en el botón principal y el foco; el logo conserva su azul.
+PALETA_TIENDA = {"primario": "#1A1A1A", "acento": "#A4503A", "fondo": "#F7F5F1", "texto": "#1A1A1A"}
+
+
 def pagina(marca, tienda, titulo, descripcion, cuerpo, base="", canonica=None, imagen_og=None, precarga=None, extra_ld=(), tipo_og="website", clase_body="", pago_en_anuncio=True):
-    c = marca["colores"]
+    c = {**marca["colores"], **PALETA_TIENDA}
     url = (tienda.get("url_sitio") or "").rstrip("/")
     can = f'<link rel="canonical" href="{e(url + "/" + canonica)}">' if url and canonica is not None else ""
     og = f'<meta property="og:image" content="{e(url + "/" + imagen_og)}">' if url and imagen_og else ""
@@ -228,7 +233,7 @@ def pagina(marca, tienda, titulo, descripcion, cuerpo, base="", canonica=None, i
 <meta name="twitter:title" content="{e(titulo)}">
 <meta name="twitter:description" content="{e(descripcion)}">
 {can}
-<meta name="theme-color" content="{c['primario']}">
+<meta name="theme-color" content="{c['fondo']}">
 <link rel="icon" href="{base}favicon.svg" type="image/svg+xml">
 {pre}
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -302,14 +307,11 @@ def ld_faq(preguntas):
 
 
 def formulario(prod, ficha, tienda):
-    unidad2 = round(prod["oferta_2"] / 2)
-    opciones = [(1, prod["precio"], "1 kit", "", ""),
-                (2, prod["oferta_2"], "2 kits", f"{clp(unidad2)} c/u · ahorras {clp(2 * prod['precio'] - prod['oferta_2'])}", "Pack de 2")]
+    ahorro2 = max(0, 2 * prod["precio"] - prod["oferta_2"])
+    opciones = [(1, prod["precio"], 0, "1 unidad"), (2, prod["oferta_2"], ahorro2, "2 unidades")]
     radios = "".join(
-        f'<label class="opcion"><input type="radio" name="cantidad" value="{n}" data-precio="{p}" {"checked" if n == 1 else ""}>'
-        f'<span class="opcion-txt"><strong>{e(t)}</strong>{f"<em>{e(a)}</em>" if a else ""}</span>'
-        f'{f"<span class=insignia>{e(b)}</span>" if b else ""}<span class="opcion-precio">{clp(p)}</span></label>'
-        for n, p, t, a, b in opciones)
+        f'<label class="cant"><input type="radio" name="cantidad" value="{n}" data-precio="{p}" data-ahorro="{a}" aria-label="{t}" {"checked" if n == 1 else ""}><span>{n}</span></label>'
+        for n, p, a, t in opciones)
     tallas = ""
     if ficha.get("tallas"):
         tallas = '<label class="campo">Talla de alfombra<select name="talla" required>' + "".join(
@@ -319,8 +321,8 @@ def formulario(prod, ficha, tienda):
     regiones = "".join(f'<option data-zona="{"extrema" if r in REGIONES_EXTREMAS else ("rm" if r == "Metropolitana" else "regiones")}">{e(r)}</option>' for r in REGIONES)
     aviso = "" if tienda.get("whatsapp") else '<p class="aviso">Estamos preparando la tienda: muy pronto podrás pedir aquí.</p>'
     return f"""<form class="pedido" id="pedido" data-producto="{e(ficha['titulo_seo'].split(':')[0])}" data-id="{e(prod['id'])}" data-wa="{e(tienda.get('whatsapp') or '')}" novalidate>
-<p class="pedido-tit"><span class="paso-f">1</span>Elige tu oferta</p>
-<div class="opciones">{radios}</div>
+<p class="pedido-tit"><span class="paso-f">1</span>Cantidad</p>
+<div class="cantidad" role="radiogroup" aria-label="Cantidad">{radios}</div>
 {tallas}
 {extra}
 <p class="pedido-tit"><span class="paso-f">2</span>Datos de entrega</p>
@@ -333,7 +335,7 @@ def formulario(prod, ficha, tienda):
 <label class="campo">Calle y número<input name="direccion" id="f-direccion" required autocomplete="address-line1" maxlength="120" placeholder="Ej: Av. Irarrázaval 1234" aria-describedby="e-direccion"><small class="error-txt" id="e-direccion">Escribe tu calle y número.</small></label>
 <label class="campo">Depto, casa o referencia <span class="opcional">(opcional)</span><input name="referencia" id="f-referencia" autocomplete="address-line2" maxlength="120" placeholder="Ej: depto 502, portón negro"></label>
 <p class="entrega" id="entrega" hidden>{icono('calendario', 'ico ico-s')} <span></span></p>
-<div class="total"><span>Total a pagar al recibir</span><strong id="total">{clp(prod['precio'])}</strong></div>
+<div class="total"><div><span>Total a pagar al recibir</span><small class="total-nota" id="total-nota" hidden></small></div><strong id="total">{clp(prod['precio'])}</strong></div>
 <p class="form-aviso" id="form-aviso" role="alert" hidden></p>
 <button type="submit" class="boton boton-grande"><span class="boton-txt">Confirmar por WhatsApp</span> {isla('whatsapp')}</button>
 {aviso}
@@ -362,7 +364,6 @@ def pagina_producto(prod, ficha, marca, tienda, productos=()):
     # Medidas: solo se muestran si el dato ya está en la ficha; si no, se declara "por confirmar con proveedor".
     tiene_medida = lambda t: re.search(r"\d\s*(x|cm|mm|ml|\bm\b)|\d,\d\s*m\b", t) is not None
     incluye = "".join(f'<li><span class="inc-num" aria-hidden="true">{i}</span><span>{e(t)}</span></li>' for i, t in enumerate(ficha["incluye"], 1))
-    ahorro = 2 * prod["precio"] - prod["oferta_2"]
     tag_contenido = img_tag(f"{prod['id']}-contenido", "Piezas del " + ficha["titulo_seo"].split(":")[0] + ": " + "; ".join(ficha["incluye"])[:120], "../", sizes="(min-width:900px) 40vw, 100vw")
     contenido = f'<figure class="foto-contenido">{tag_contenido}</figure>' if tag_contenido else ""
     nombre = ficha["titulo_seo"].split(":")[0]
@@ -392,7 +393,7 @@ def pagina_producto(prod, ficha, marca, tienda, productos=()):
 <span class="etiqueta">{icono('kit', 'ico ico-s')} Kit completo · {len(ficha['incluye'])} {'pieza' if len(ficha['incluye']) == 1 else 'piezas'}</span>
 <h1>{e(ficha['titular'])}</h1>
 <p class="sub">{e(ficha['subtitular'])}</p>
-<div class="precio"><strong>{clp(prod['precio'])}</strong><span class="iva">IVA incluido</span><span class="chip">2 kits, {clp(ahorro)} menos que por separado</span></div>
+<div class="precio"><strong>{clp(prod['precio'])}</strong><span class="iva">IVA incluido</span></div>
 <ul class="clave"><li>{icono('pago', 'ico ico-s')} <span><strong>Pagas al recibir.</strong> Llega en {e(tienda['plazos_despacho']['RM'])} en RM; {e(tienda['plazos_despacho']['regiones'])} en regiones.</span></li></ul>
 <a class="boton boton-grande cta-ficha" href="#pedido">Pide el tuyo {isla()}</a>
 {formulario(prod, ficha, tienda)}
@@ -404,7 +405,7 @@ def pagina_producto(prod, ficha, marca, tienda, productos=()):
 <section class="contenedor estrecho seccion-corta"><p class="resenas-vacio">{icono('estrella')}<span><strong>Reseñas reales, pronto.</strong> Solo publicamos opiniones de clientes que recibieron su pedido.</span></p></section>
 {bloque_faq(preguntas, id_="preguntas-producto")}
 {otros_kits(prod, productos)}
-<section class="cta-final"><div class="contenedor"><h2>¿Listo para probarlo?</h2><p>Elige tu oferta y deja tus datos: toma menos de un minuto.</p><a class="boton boton-grande boton-auto" href="#pedido">Pide el tuyo · {clp(prod['precio'])} {isla()}</a></div></section>
+<section class="cta-final"><div class="contenedor"><h2>¿Listo para probarlo?</h2><p>Elige la cantidad y deja tus datos: toma menos de un minuto.</p><a class="boton boton-grande boton-auto" href="#pedido">Pide el tuyo · {clp(prod['precio'])} {isla()}</a></div></section>
 <div class="barra-compra" id="barra-compra"><div><strong>{clp(prod['precio'])}</strong></div><a class="boton" href="#pedido">Pide el tuyo {isla()}</a></div>"""
     og = f"img/{prod['id']}.jpg" if (PLANTILLA / "img" / f"{prod['id']}.jpg").exists() else None
     return pagina(marca, tienda, titulo_web(ficha, marca), meta_web(ficha), cuerpo, base="../",
@@ -481,9 +482,9 @@ def tarjeta(p, f, mascota, base, referencial=False):
     """Tarjeta de kit. La nota "Imagen referencial" va una sola vez sobre la grilla (portada); en otras listas se deja en la foto."""
     img = imagen(p['id'], alt_principal(p, f), base, 'foto foto-tarjeta', referencial=referencial, sizes='(min-width:1100px) 25vw, (min-width:700px) 33vw, 50vw')
     piezas = len(f.get("incluye") or [])
-    return f"""<a class="tarjeta revelar" data-mascota="{mascota}" href="{base}productos/{e(f['handle'])}.html"><div class="tarjeta-img">{img}<span class="etiqueta">{e(etiqueta_publica(p))}</span><span class="tarjeta-ver" aria-hidden="true">Ver kit {icono('flecha', 'ico ico-s')}</span></div>
-<div class="tarjeta-cuerpo"><h3>{e(f['titulo_seo'].split(':')[0])}</h3>{f'<p class="tarjeta-meta">Kit de {piezas} {"pieza" if piezas == 1 else "piezas"}</p>' if piezas else ''}
-<div class="tarjeta-pie"><div><strong>{clp(p['precio'])}</strong><small>2 por {clp(p['oferta_2'])}</small></div><span class="tarjeta-ir" aria-hidden="true">{icono('flecha', 'ico ico-s')}</span></div></div></a>"""
+    return f"""<a class="tarjeta" data-mascota="{mascota}" href="{base}productos/{e(f['handle'])}.html"><div class="tarjeta-img">{img}<span class="etiqueta">{e(etiqueta_publica(p))}</span></div>
+<div class="tarjeta-cuerpo"><h3><span>{e(f['titulo_seo'].split(':')[0])}</span></h3>{f'<p class="tarjeta-meta">Kit de {piezas} {"pieza" if piezas == 1 else "piezas"}</p>' if piezas else ''}
+<div class="tarjeta-pie"><strong>{clp(p['precio'])}</strong><span class="tarjeta-ir" aria-hidden="true">{icono('flecha', 'ico ico-s')}</span></div></div></a>"""
 
 
 RELACIONADOS = {"kit-bano-secado-perro": ["kit-pelo-cero", "kit-verano-fresco"],
@@ -509,17 +510,17 @@ def portada(productos, marca, tienda):
         t = (p["id"] + " " + p.get("rol", "")).lower()
         return "gato" if "gato" in t else ("perro" if "perro" in t or "paseo" in t else "ambos")
     tarjetas = "".join(tarjeta(p, f, mascota(p), "") for p, f in productos)
-    hero = img_tag("hero", "Perro y gato descansando juntos en un sillón de un living luminoso", "", "hero-img", carga="eager", prioridad=True)
+    hero = None  # hero tipográfico: sin imagen generada (decisión del dueño 2026-10-05)
     preguntas = faq_general(tienda)
     filtros = ('<div class="filtros" role="group" aria-label="Filtrar kits">'
                '<button type="button" class="filtro activo" data-filtro="todos" aria-pressed="true">Todos</button>'
                '<button type="button" class="filtro" data-filtro="perro" aria-pressed="false">Perros</button>'
                '<button type="button" class="filtro" data-filtro="gato" aria-pressed="false">Gatos</button></div>') if len(productos) > 6 else ""
     cuerpo = f"""<section class="hero{' hero-con-img' if hero else ''}">{hero or ''}
-<div class="contenedor hero-in"><p class="sobretitulo">Kits de cuidado para perros y gatos</p>
+<div class="contenedor hero-in">
 <h1>Menos pelo en tu casa. Más frescura para tu mascota.</h1>
 <p class="hero-sub">Soluciones completas para el pelo y el calor, pensadas para la vida en casa.</p>
-<div class="hero-acciones"><a class="boton boton-grande" href="#kits">Mira los kits {isla()}</a><a class="boton boton-fantasma" href="#como-funciona">¿Cómo funciona?</a></div></div></section>
+<div class="hero-acciones"><a class="boton boton-grande" href="#kits">Mira los kits {isla()}</a><a class="boton boton-fantasma-claro" href="#como-funciona">¿Cómo funciona?</a></div></div></section>
 <section class="seccion contenedor" id="kits"><h2>Elige el que necesita tu casa</h2><p class="nota-fotos">Algunas fotos son referenciales hasta que lleguen las reales.</p>{filtros}<p class="sr" id="conteo" role="status" aria-live="polite"></p><div class="grilla" id="grilla">{tarjetas}</div><div class="vacio" id="vacio" hidden><p><strong>Todavía no tenemos kits para esta mascota.</strong> Mira todos los que sí tenemos.</p><button type="button" class="boton boton-fantasma-claro boton-auto" data-filtro-todos>Ver todos los kits</button></div><nav class="paginas" id="paginas" aria-label="Páginas de kits" hidden></nav></section>
 {como_funciona()}
 {bloque_faq(preguntas)}
@@ -528,7 +529,6 @@ def portada(productos, marca, tienda):
     web_ld = {"@context": "https://schema.org", "@type": "WebSite", "name": marca["nombre"], **({"url": url + "/"} if url else {})}
     return pagina(marca, tienda, f"{marca['nombre']}: kits para perros y gatos con pago al recibir", marca["promesa"],
                   cuerpo, canonica="", imagen_og="img/hero.jpg" if hero else None,
-                  precarga="img/hero-900.webp" if (PLANTILLA / "img" / "hero-900.webp").exists() else None,
                   extra_ld=(web_ld, ld_faq(preguntas)))
 
 

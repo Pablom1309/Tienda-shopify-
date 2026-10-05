@@ -2,35 +2,7 @@
 (function () {
   document.documentElement.classList.add('js');
 
-  // Encabezado: gana sombra y se compacta al pasar los primeros píxeles (solo clase; el movimiento es CSS).
-  var cab = document.querySelector('.barra');
-  if (cab) {
-    var enScroll = false;
-    var marcar = function () { enScroll = false; cab.classList.toggle('compacta', window.scrollY > 8); };
-    window.addEventListener('scroll', function () { if (!enScroll) { enScroll = true; requestAnimationFrame(marcar); } }, { passive: true });
-    marcar();
-  }
-
-  // Bloques que entran al hacer scroll (el contenido queda visible si falla el script). El hero no se toca.
-  document.querySelectorAll('main .seccion > h2, main .seccion .contenedor > h2, .seccion .nota-fotos, .filtros, .tres-pasos li, .riesgo > div:first-child, .riesgo-lista li, .beneficios li, .pilares li, .caja, .dos-col > div, .tabla-envoltura, .cta-final .contenedor, .contacto-wa, .contacto-card, .contacto-ayuda, .faq details').forEach(function (el) {
-    if (!el.classList.contains('revelar')) el.classList.add('revelar');
-  });
-
-  // Revelado suave al hacer scroll; si el usuario pidió menos movimiento, se muestra todo de inmediato.
-  var reveladores = document.querySelectorAll('.revelar');
   var menosMovimiento = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!('IntersectionObserver' in window) || menosMovimiento) {
-    reveladores.forEach(function (el) { el.classList.add('visible'); });
-  } else {
-    var io = new IntersectionObserver(function (entradas) {
-      entradas.forEach(function (en, i) {
-        if (!en.isIntersecting) return;
-        setTimeout(function () { en.target.classList.add('visible'); }, Math.min(i, 4) * 70);
-        io.unobserve(en.target);
-      });
-    }, { rootMargin: '0px 0px -60px 0px' });
-    reveladores.forEach(function (el) { io.observe(el); });
-  }
 
   // Catálogo: filtro por mascota + paginación (8 kits por página). Sin JS se ven todos.
   var grilla = document.getElementById('grilla');
@@ -64,7 +36,7 @@
         for (var i = 1; i <= total; i++) paginas.appendChild(boton(String(i), i, 'Página ' + i, i === pagina, false));
         paginas.appendChild(boton('›', pagina + 1, 'Página siguiente', false, pagina === total));
       }
-      if (desplazar) document.getElementById('kits').scrollIntoView({ behavior: menosMovimiento ? 'auto' : 'smooth', block: 'start' });
+      if (desplazar) document.getElementById('kits').scrollIntoView({ behavior: 'auto', block: 'start' });
     };
     var filtros = document.querySelectorAll('.filtro');
     var elegir = function (valor) {
@@ -175,8 +147,10 @@
     var t = document.getElementById('total'), nuevo = clp(total());
     if (t.textContent !== nuevo) {
       t.textContent = nuevo;
-      if (!menosMovimiento) { t.classList.remove('tick'); void t.offsetWidth; t.classList.add('tick'); }
     }
+    var r = f.querySelector('input[name=cantidad]:checked'), nota = document.getElementById('total-nota');
+    var ahorro = r ? Number(r.dataset.ahorro || 0) : 0;
+    if (nota) { nota.hidden = ahorro <= 0; nota.textContent = ahorro > 0 ? 'Ahorras ' + clp(ahorro) + ' por llevar 2' : ''; }
     pintarEntrega();
   };
   f.addEventListener('change', function () { pintar(); guardar(); });
@@ -236,6 +210,7 @@
     if (!f.dataset.wa) { mostrarAviso('Todavía no podemos recibir pedidos aquí. Vuelve en unos días.'); return; }
     var d = new FormData(f);
     var c = f.querySelector('input[name=complemento]');
+    var rq = f.querySelector('input[name=cantidad]:checked');
     if (!f.dataset.pedido) f.dataset.pedido = numeroPedido();
     var num = f.dataset.pedido;
     var ref = (d.get('referencia') || '').toString().trim();
@@ -243,8 +218,9 @@
       'Hola, quiero hacer este pedido (pago contra entrega):',
       '• Pedido: ' + num,
       '• Producto: ' + f.dataset.producto,
-      '• Cantidad: ' + d.get('cantidad') + (d.get('talla') ? ' · Talla ' + d.get('talla') : ''),
+      '• Cantidad: ' + d.get('cantidad') + (d.get('cantidad') === '1' ? ' unidad' : ' unidades') + (d.get('talla') ? ' · Talla ' + d.get('talla') : ''),
       c && c.checked ? '• Agregar: ' + c.dataset.nombre : null,
+      Number(rq.dataset.ahorro || 0) > 0 ? '• Ahorro por llevar 2: ' + clp(rq.dataset.ahorro) : null,
       '• Total: ' + clp(total()),
       '• Nombre: ' + d.get('nombre').toString().trim(),
       '• Teléfono: ' + d.get('telefono').toString().trim(),
@@ -261,7 +237,6 @@
     document.getElementById('ok-num').textContent = num;
     document.getElementById('ok-enlace').href = url;
     ok.hidden = false;
-    boton.classList.remove('enviado'); void boton.offsetWidth; boton.classList.add('enviado');
     var w = window.open(url, '_blank');
     if (!w) window.location.href = url;
     setTimeout(function () { boton.disabled = false; boton.removeAttribute('aria-busy'); botonTxt.textContent = 'Confirmar por WhatsApp'; }, 4000);
