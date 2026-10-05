@@ -112,6 +112,9 @@ Plantilla: `datos/resultados/plantilla_tablero_semanal.csv.ejemplo` (la extensi�
 Lectura: cortar por kit, región y transportadora; región con entrega muy baja se excluye de la pauta. Con datos reales, recalcular G de la economía (`datos/supuestos.json`).
 Nota técnica: el tablero semanal tiene columnas distintas de `PLANTILLA.csv` (que analiza `resultados.py`). Si el analista debe leer este tablero, propongo ajuste de columnas (ver estado/areas/operaciones.md).
 
+## 9b. Prevención de pedidos falsos o rechazados desde el formulario (revisión 2026-10-05)
+Hallazgos del flujo actual (`herramientas/plantilla/pedido.js`, solo lectura): comuna es texto libre; dirección es un solo campo; no hay campo de referencia separado ni número de depto; el teléfono acepta 8 a 15 caracteres con espacios y "+" sin normalizar; no hay paso de confirmación visible en pantalla antes de abrir WhatsApp; el pedido solo existe si el cliente envía el mensaje de WhatsApp (el formulario no guarda nada en servidor). Propuestas concretas a diseño en `estado/areas/operaciones.md`. Preguntas a Dropi para la cobertura por comuna: `datos/preguntas_dropi.md`.
+
 ## 10. Rutina por día (resumen para el dueño)
 - Mañana: novedades y seguimiento; responder mensajes pendientes; cargar confirmados.
 - Durante el día: /confirmar a pedidos nuevos, reintentos, avisos de despacho.

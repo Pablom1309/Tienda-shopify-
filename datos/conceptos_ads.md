@@ -4,12 +4,12 @@ Autor: estratega-ads. Fecha: 2026-10-05. Solo conceptos: SIN presupuesto, SIN ca
 
 ## Estado de pauta (portones)
 - **Los 3 kits: pauta BLOQUEADA** hasta (a) resolver C1, C2, C3 e I5 de `datos/legal/brechas.md` (identidad del proveedor, privacidad, costo de despacho declarado, evento Purchase no debe dispararse al abrir WhatsApp) y (b) verificación en Dropi (`datos/verificacion_dropi.csv`, regla del dueño). Además I3: medidas y materiales publicados.
-- **Pelo Cero: BLOQUEADO también por I4**: confirmar certificación eléctrica/SEC de la batería USB y qué hace realmente la función de niebla. Hasta entonces el material de este kit no se produce con gasto ni se pauta.
+- **Pelo Cero: BLOQUEADO también por I4**: confirmar certificación eléctrica/SEC de la batería USB y qué hace realmente la función de bruma. Hasta entonces el material de este kit no se produce con gasto ni se pauta.
 - `requiere_aprobacion: true`. El gasto real y la publicación son del dueño.
 
 ## Reglas de copy (todos los conceptos)
 - Prohibido: atributos personales ("¿tu perro/gato sufre...?", "si tienes alergia..."), salud, comportamiento, ansiedad, piel, pelaje sano, "limpieza profunda"; antes/después corporales; testimonios, reseñas, escasez, cuenta regresiva o precios de referencia inventados.
-- Pelo Cero: decir "cepillo con niebla de agua" o "niebla fina a temperatura ambiente". NUNCA "vapor caliente" ni "a vapor" en el anuncio mientras no se vea la unidad real. Sin "elimina todo el pelo", "adiós al pelo" ni promesas absolutas; usar "ayuda a juntar el pelo suelto".
+- Pelo Cero: decir "cepillo con bruma de agua" o "bruma fina a temperatura ambiente". NUNCA "vapor caliente" ni "a vapor" en el anuncio mientras no se vea la unidad real. Sin "elimina todo el pelo", "adiós al pelo" ni promesas absolutas; usar "ayuda a juntar el pelo suelto".
 - Baño y Secado: decir siempre "no incluye shampoo".
 - Mostrar solo lo que la unidad real hace, en plano continuo. Oferta real: "Pagas al recibir" y 2 kits = precio de pack ya publicado (Gato $27.990 / 2 por $49.990; Pelo Cero $26.990 / 2 por $47.990; Baño $29.990 / 2 por $52.990). El despacho se dice según lo que resuelva C3 (no decir "despacho gratis" hasta que sea verdad).
 - Un mensaje, un lugar: "Pagas al recibir" una vez por anuncio, sin repetir envío/retracto en el texto principal.
@@ -21,7 +21,7 @@ Autor: estratega-ads. Fecha: 2026-10-05. Solo conceptos: SIN presupuesto, SIN ca
 
 ### G1. Camisa oscura antes de salir (persona: trabajador/a de ropa oscura · ángulo: problema-solución · formato: video vertical POV sin rostro, 20-25 s)
 - Gancho A. Pantalla: "El pelo suelto, en el cepillo y no en tu ropa". Primera línea: "Camisa negra, 8:10 de la mañana."
-- Gancho B. Pantalla: "Salir sin pelusas, en 1 minuto". Primera línea: "Antes de salir, pasa esto por la ropa."
+- Gancho B. Pantalla: "Pelusas fuera de la ropa, sin repuestos". Primera línea: "Antes de salir, pasa esto por la ropa." (ajustado 2026-10-05: la página no promete "1 minuto"; solo usar tiempo si se ve un cronómetro)
 - Gancho C. Pantalla: "Ropa oscura + gato". Primera línea: "Mira lo que sale de este sillón."
 - Guion: 0-3 camisa con pelusa · 3-9 cepillado del gato en el sentido del pelo, pelo suelto en el cepillo · 9-15 removedor pasa por la camisa · 15-21 las 3 piezas del kit sobre la mesa · 21-27 "Pagas al recibir, $27.990" · CTA "Pide el tuyo".
 - Tomas del dueño: camisa/chaleco oscuro con pelusa real; gato real siendo cepillado (si tolera; si no, mano sobre peluche NO sirve, se necesita el gato real); removedor pasando por la prenda; depósito abierto con pelo; las 3 piezas.
@@ -33,13 +33,13 @@ Autor: estratega-ads. Fecha: 2026-10-05. Solo conceptos: SIN presupuesto, SIN ca
 - Tomas del dueño: macro del botón con el cepillo cargado de pelo (grabar varias veces, mejor toma); cámara fija durante el cepillado; audio ambiente limpio; depósito del removedor vaciándose.
 
 ### G3. Departamento chico, rutina de 3 piezas (persona: quien vive con su gato en departamento · ángulo: ritual todo-en-uno · formato: video con persona, dueño real, 25-30 s)
-- Gancho A. Pantalla: "Cepillar, limpiar y jugar. Un solo kit". Primera línea: "Tres cosas, una caja, cero espacio."
+- Gancho A. Pantalla: "Cepillar, limpiar y jugar. Un solo kit". Primera línea: "Tres piezas, un solo pedido." (ajustado: "cero espacio" no se puede sostener sin medidas publicadas; la página promete "cepillar, limpiar la casa y jugar en un solo kit")
 - Gancho B. Pantalla: "Después del cepillado, el juego". Primera línea: "Así termina la rutina en mi living."
 - Guion: 0-3 las 3 piezas en la caja · 3-10 cepillado · 10-16 removedor en el sillón · 16-22 juego con la varita (con supervisión, se guarda después) · 22-28 "Pagas al recibir" · CTA.
 - Tomas del dueño: persona real (voz o manos) con su gato; living real; varita en uso y guardada después; caja Kuchiwau cerrada y abierta. Sin decir que el gato "se calma" ni "se relaja".
 
 ### G4. Regalo para quien vive con un gato (persona: quien busca regalo · ángulo: regalo/unboxing · formato: carrusel de 4 imágenes + imagen estática)
-- Gancho A. Pantalla: "Un regalo útil para quien vive con un gato". Primera línea: "Abre la caja: cepillo, removedor y varita."
+- Gancho A. Pantalla: "Un regalo útil para quien vive con un gato". Primera línea: "Abre la caja: cepillo, removedor y varita." (solo si la ficha tiene bloque o línea de regalo, ver propuesta [diseno]; hoy la página no menciona regalo, así que mientras tanto usar el Gancho B)
 - Gancho B. Pantalla: "3 piezas, 1 caja". Primera línea: "Qué trae el Kit Gato Sin Pelusas."
 - Guion/lámina: 1 caja cerrada · 2 caja abierta con las 3 piezas · 3 uso del cepillo · 4 "2 kits $49.990, pagas al recibir" y CTA.
 - Tomas del dueño: fotos de la caja real (cerrada, abierta, en mesa de madera/neutral), cada pieza con una mano para dar escala, foto del cepillo en uso. No usar el nombre de ninguna persona ni "el gato de mi mamá" como si fuera testimonio.
@@ -54,13 +54,13 @@ Autor: estratega-ads. Fecha: 2026-10-05. Solo conceptos: SIN presupuesto, SIN ca
 
 ## KIT PELO CERO (5 conceptos; PAUTA BLOQUEADA hasta SEC/I4)
 
-Nombre en el anuncio: "Kit Pelo Cero: cepillo con niebla de agua + removedor". Aplica a perros.
+Nombre en el anuncio: "Kit Pelo Cero: cepillo con bruma de agua + removedor". Aplica a perros.
 
 ### P1. Sillón oscuro lleno de pelo (persona: quien tiene sillones oscuros · ángulo: problema-solución · formato: video vertical sin rostro, 20-25 s)
 - Gancho A. Pantalla: "Si el pelo está en el sillón, no está en el cepillo". Primera línea: "Pasa la mano por este sillón."
 - Gancho B. Pantalla: "Sillón oscuro, pelo claro". Primera línea: "Esto se junta en una semana."  (solo si es real y se muestra la semana; si no, usar "Esto se junta en un sillón.")
-- Guion: 0-3 sillón con pelo · 3-8 cepillado con niebla fina, el pelo suelto se pega a las cerdas · 8-12 botón suelta la mota · 12-18 removedor por el sillón · 18-24 kit sobre la mesa · 24-28 "Pagas al recibir, $26.990" · CTA.
-- Tomas del dueño: sillón real con pelo (sin limpiar antes); perro real siendo cepillado con la niebla encendida; mota saliendo al apretar el botón; removedor en el sillón en plano continuo.
+- Guion: 0-3 sillón con pelo · 3-8 cepillado con bruma fina, el pelo suelto se pega a las cerdas · 8-12 botón suelta la mota · 12-18 removedor por el sillón · 18-24 kit sobre la mesa · 24-28 "Pagas al recibir, $26.990" · CTA.
+- Tomas del dueño: sillón real con pelo (sin limpiar antes); perro real siendo cepillado con la bruma encendida; mota saliendo al apretar el botón; removedor en el sillón en plano continuo.
 
 ### P2. La mota completa, en un plano (persona: quien quiere ver funcionar el producto antes de decidir · ángulo: demostración · formato: video corto primer plano, 15-20 s)
 - Gancho A. Pantalla: "Esto salió en 5 minutos" (solo si el cronómetro se ve en pantalla). Primera línea: "Mira lo que sale al apretar el botón."
@@ -80,12 +80,12 @@ Nombre en el anuncio: "Kit Pelo Cero: cepillo con niebla de agua + removedor". A
 - Guion: 0-3 pila de hojas adhesivas usadas · 3-12 removedor en el sillón y se vacía el depósito · 12-18 cepillado · 18-22 oferta y CTA. Sin precios de referencia.
 - Tomas del dueño: hojas adhesivas usadas reales (sin marca); removedor en uso.
 
-### P5. Cómo funciona la niebla, en 3 pasos (persona: curioso o desconfiado del producto · ángulo: explicación honesta · formato: carrusel de 4 láminas)
-- Gancho A. Pantalla: "Niebla de agua, no vapor caliente". Primera línea: "Esto es lo que sale del cepillo."
+### P5. Cómo funciona la bruma, en 3 pasos (persona: curioso o desconfiado del producto · ángulo: explicación honesta · formato: carrusel de 4 láminas)
+- Gancho A. Pantalla: "Bruma de agua, no vapor caliente". Primera línea: "Esto es lo que sale del cepillo."
 - Gancho B. Pantalla: "3 pasos, 5 minutos". Primera línea: "Llena, cepilla, presiona."
 - Lámina: 1 depósito con agua de la llave · 2 cepillado en el sentido del pelo · 3 botón suelta el pelo juntado · 4 qué incluye (cepillo, removedor, cable USB) y "Pagas al recibir".
-- IMPORTANTE: solo producir cuando la unidad real confirme que la niebla es fría y el proveedor declare la carga USB y certificación. Si la unidad hace otra cosa, el concepto se descarta.
-- Tomas del dueño: foto de la niebla saliendo (fondo oscuro para que se vea), mano bajo la niebla para mostrar que no quema (solo si es cierto), depósito, cable USB, caja.
+- IMPORTANTE: solo producir cuando la unidad real confirme que la bruma es fría y el proveedor declare la carga USB y certificación. Si la unidad hace otra cosa, el concepto se descarta.
+- Tomas del dueño: foto de la bruma saliendo (fondo oscuro para que se vea), mano bajo la bruma para mostrar que no quema (solo si es cierto), depósito, cable USB, caja.
 - Reserva: concepto regalo (carrusel, desde 1 dic), según `plan_ads.json`.
 
 ---
@@ -93,7 +93,7 @@ Nombre en el anuncio: "Kit Pelo Cero: cepillo con niebla de agua + removedor". A
 ## KIT BAÑO Y SECADO (2 conceptos; costos estimados; pauta planificada desde 26 oct, bloqueada igual)
 
 ### B1. Del baño a la toalla (persona: quien baña a su perro en la ducha de casa · ángulo: rutina paso a paso · formato: video vertical con persona, 25-28 s)
-- Gancho A. Pantalla: "Del baño a la toalla, sin mojar todo el piso". Primera línea: "Así seco a mi perro al salir de la ducha."
+- Gancho A. Pantalla: "Del baño a la toalla, en tres piezas". Primera línea: "Así seco a mi perro al salir de la ducha." (ajustado: "sin mojar todo el piso" no está en la página y no se puede demostrar; la página dice "enjabonar y secar con lo justo")
 - Gancho B. Pantalla: "Toalla de microfibra". Primera línea: "Mira cuánta agua absorbe."
 - Guion: 0-3 perro mojado y toalla abierta · 3-10 se envuelve · 10-17 se escurre el agua de la toalla (agua real, sin exagerar) · 17-23 las 3 piezas y "No incluye shampoo: usas el tuyo" · 23-28 "Pagas al recibir, $29.990" · CTA.
 - Tomas del dueño: perro real recién bañado (el dueño debe tener perro o pedir uno a un familiar con permiso), ducha o tina, toalla abierta y envuelta, escurrir la toalla en plano cerrado, las 3 piezas con escala.
@@ -104,6 +104,17 @@ Nombre en el anuncio: "Kit Pelo Cero: cepillo con niebla de agua + removedor". A
 - Guion: 0-3 guante con espuma · 3-12 enjabonado con guante y cepillo de silicona · 12-18 enjuague · 18-22 "No incluye shampoo" dicho/subtitulado · 22-24 "2 kits $52.990, pagas al recibir" · CTA.
 - Tomas del dueño: macro del guante con espuma; cepillo de silicona en uso; frasco de shampoo propio sin marca visible junto a las 3 piezas; audio ambiente.
 - Sin comparaciones con el "pelaje antes y después".
+
+---
+
+## Revisión de aterrizaje: ficha rediseñada como destino de anuncio (2026-10-05)
+Revisadas las 3 fichas en `sitio/productos/` (solo lectura). Regla: mensaje del anuncio = titular de la página.
+- Texto de la página (fuente de verdad): Gato "El pelo muerto de tu gato, en el cepillo y no en tu ropa"; Pelo Cero "El pelo suelto, en el cepillo y no en tu sillón"; Baño "Día de baño más simple: enjabonar y secar con lo justo". El texto en pantalla de G1, P1 y B1 debe repetir esas frases casi literales.
+- Término único: la página dice "bruma de agua" (no "niebla" ni "vapor"). Este archivo usa ahora "bruma". El slug de Pelo Cero aún contiene "vapor" (`kit-pelo-cero-cepillo-vapor-mascotas`): riesgo de revisión de destino (propuesta a diseño).
+- Primer pantallazo móvil: banner "Pagas al recibir · Despacho a todo Chile", foto 4:5 de proveedor con "Imagen referencial" y, bajo la foto, titular, precio y botón. Con la foto a todo el ancho, titular y botón quedan casi fuera del primer pantallazo. Quien llega desde un video de la unidad real ve una foto fija: hay quiebre de mensaje. Cumple la promesa solo en texto de banner y precio.
+- "Pagas al recibir": aparece en banner, meta y "Total a pagar al recibir"; claro, pero fuera del bloque titular/precio. "Kit completo en un pedido": aparece 3 veces (etiqueta "Kit completo · 3 piezas", H2 "en un solo pedido", fila "Un solo despacho"): redundante, y el ángulo "una entrega" no está en el primer pantallazo. En el anuncio cada mensaje se dice una sola vez.
+- Ángulos sin respaldo en la página: regalo (G4), comparación con rodillo adhesivo (G5, solo una línea bajo el pliegue), "departamento chico" (G3). Ajustados arriba.
+- Pelo Cero sigue BLOQUEADO (I4, SEC). La ficha además tiene la frase de mascotas "nerviosas" en la FAQ (conducta): no usarla en anuncios.
 
 ---
 
