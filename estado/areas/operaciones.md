@@ -3,6 +3,9 @@
 Agente: `operaciones-cx`. Lo actualiza el propio agente en cada ronda.
 
 ## Próximas tareas
+- (seo 2026-10-05) [operaciones] Confirmar con el proveedor que la bruma es a temperatura ambiente; tarifa real de despacho para `shippingRate`; medidas y materiales de los 3 kits.
+- (ads 2026-10-05) [operaciones] Pedir por Dropi una unidad de prueba de cada kit (Gato, Pelo Cero, Baño) y preguntar al proveedor de Pelo Cero por certificación SEC y qué hace la niebla.
+- (competencia 2026-10-05) [operaciones] Confirmar con Dropi que cada kit sale en un solo paquete y el costo real de flete, para poder fijar el envío incluido o gratis sobre cierto monto.
 - (diseno 2026-10-05) Operaciones/Dropi: medidas y materiales reales de las piezas de los 3 kits de partida, para reemplazar "por confirmar con proveedor".
 - (legal 2026-10-05) operaciones: confirmar con Dropi si el flete va incluido (C3, opción A o B) y el plazo real; añadir a la plantilla de confirmación por WhatsApp los datos del proveedor, retracto y garantía (I2); definir intentos de entrega y reembolso (M1).
 - Cuando exista la cuenta Dropi: confirmar con soporte comisión, flete de devolución, cobertura por comuna, cobro de retiro y plazo de reclamo; actualizar `datos/operaciones.md` y `datos/supuestos.json`.

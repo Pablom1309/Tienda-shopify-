@@ -12,3 +12,4 @@ Ejemplos: "2026-10-10 Ya tengo cuenta Dropi: costo cepillo $7.200, removedor $2.
 - [vigente] No hacer la grilla de 9 publicaciones de Instagram.
 - [vigente] Ningún kit se pauta sin verificación en Dropi (`datos/verificacion_dropi.csv`).
 - [vigente] Horario del dueño 08:30–18:30 (Chile): ahí no corren rutinas. Fuera de ese horario el equipo trabaja autónomo: rondas a las 18:47, 20:47, 22:47, 00:47, 02:47, 04:47 y ciclo de productos a las 06:17 (sesión de trabajo dedicada). Si el dueño pide reducir o detener, se hace de inmediato.
+- [vigente] 2026-10-05: Prioridad del equipo = **diseño de la página web y mejoras primero**. Diseño corre en cada ronda (TTL 2 h, prioridad 1); las demás áreas alimentan a diseño con propuestas concretas.

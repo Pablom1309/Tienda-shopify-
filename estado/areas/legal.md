@@ -3,6 +3,8 @@
 Agente: `legal-cumplimiento`. Lo actualiza el propio agente en cada ronda.
 
 ## Próximas tareas
+- (ads 2026-10-05) [legal] Revisar los conceptos de `datos/conceptos_ads.md` (P5 "niebla de agua, no vapor caliente"; "no incluye shampoo") antes de producir.
+- (competencia 2026-10-05) [legal] Completar razón social, RUT, dirección y correo (hoy null) y redactar garantía de 6 meses y retracto visibles; los competidores publican política de envío y de cambios completas (TusMascotas 30 días voluntarios).
 - (diseno 2026-10-05) Legal: confirmar que la línea "Pagas al recibir" más el retracto del formulario cubren lo exigible.
 - (operaciones 2026-10-05) Legal: revisar plazos de retracto/garantía y el texto de `sitio/cambios.html` contra el flujo de devoluciones; confirmar si los mensajes de confirmación califican como parte de la venta.
 - (dirección 2026-10-05) Revisar `cambios.html`, la página de contacto y las fichas de los 3 kits de partida contra la Ley 19.496: garantía legal de 6 meses, retracto de 10 días, precio final, costo y plazo de despacho, datos del proveedor. Entregar una lista de brechas con el texto propuesto. HECHO (ver Hecho).

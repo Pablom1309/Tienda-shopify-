@@ -5,56 +5,56 @@
       "agente": "director-estrategia",
       "ttl_horas": 24,
       "ultima": "2026-10-05T03:44:58Z",
-      "prioridad": 1,
+      "prioridad": 2,
       "foco": "Ordenar prioridades del pre-lanzamiento"
     },
     "diseno": {
       "agente": "disenador-web",
-      "ttl_horas": 3,
+      "ttl_horas": 2,
       "ultima": "2026-10-05T03:44:58Z",
-      "prioridad": 4,
-      "foco": "Ficha y formulario móvil de los 3 kits de partida (Baño y Secado, Gato Sin Pelusas, Pelo Cero); un mensaje, un lugar"
+      "prioridad": 1,
+      "foco": "Diseño y mejoras de la tienda web primero (dueño 2026-10-05): integrar propuestas de SEO, legal y competencia; una mejora coherente por ronda, verificada en móvil"
     },
     "legal": {
       "agente": "legal-cumplimiento",
       "ttl_horas": 48,
       "ultima": "2026-10-05T03:44:58Z",
-      "prioridad": 2,
+      "prioridad": 3,
       "foco": "privacidad.html (Ley 21.719) y cambios/contacto/fichas (Ley 19.496) sin brechas; datos del dueño como campos marcados"
     },
     "operaciones": {
       "agente": "operaciones-cx",
       "ttl_horas": 48,
       "ultima": "2026-10-05T03:44:58Z",
-      "prioridad": 3,
+      "prioridad": 4,
       "foco": "datos/operaciones.md: flujo COD de punta a punta con plan B manual Dropi y tablero semanal"
     },
     "seo": {
       "agente": "seo-contenido",
       "ttl_horas": 24,
       "ultima": null,
-      "prioridad": 7,
+      "prioridad": 8,
       "foco": "SEO técnico de los 3 kits de partida; guía de verano para la semana siguiente (plazo 15-nov)"
     },
     "competencia": {
       "agente": "analista-competencia",
       "ttl_horas": 72,
       "ultima": null,
-      "prioridad": 5,
+      "prioridad": 6,
       "foco": "Precio, envío y confianza de los 3 kits de partida vs Petco CL, TusMascotas y Shopify locales"
     },
     "marca": {
       "agente": "marca-redes",
       "ttl_horas": 48,
       "ultima": null,
-      "prioridad": 8,
+      "prioridad": 9,
       "foco": "Calendario orgánico de 30 días centrado en los 3 kits de partida (sin grilla de 9)"
     },
     "ads": {
       "agente": "estratega-ads",
       "ttl_horas": 72,
       "ultima": null,
-      "prioridad": 6,
+      "prioridad": 7,
       "foco": "Conceptos creativos de Gato Sin Pelusas, Pelo Cero y Baño y Secado; sin presupuesto ni campañas"
     }
   }

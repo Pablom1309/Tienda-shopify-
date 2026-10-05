@@ -3,6 +3,7 @@
 Agente: `estratega-ads`. Lo actualiza el propio agente en cada ronda.
 
 ## Próximas tareas
+- (competencia 2026-10-05) [ads] Ángulo "pagas al recibir" y "kit completo en un pedido" (un envío, una entrega); sin cifras de ahorro ni precios de referencia.
 - (legal 2026-10-05) ads: no pautar hasta resolver C1, C2, C3 y I5; el evento de compra no debe dispararse al abrir WhatsApp.
 - Producir los conceptos de `datos/conceptos_ads.md` como reels orgánicos cuando el dueño tenga la unidad real (validan ganchos gratis).
 - Otros kits prioritarios (verano, enriquecimiento, paseo): 4-5 conceptos cada uno, solo con proveedor verificado.

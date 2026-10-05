@@ -34,6 +34,8 @@ Etapa: validación, antes del lanzamiento (0 ventas, 0 pauta). Del 5 al 7 de oct
 - **Dependencia del dueño:** casi toda la ruta crítica (SII, dominio, Dropi, Shopify) es un portón humano. Si el dueño no avanza, el sistema solo puede preparar.
 
 ## Próximas tareas
+- (competencia 2026-10-05) [direccion] Mantener Baño y Secado primero (menor prima, +5 % sobre piezas sueltas); no tocar precio de Pelo Cero hasta tener costo Dropi.
+- (competencia 2026-10-05) [direccion] Decidir y fijar el costo de envío al cliente (hoy no declarado; Petco: gratis desde $29.990, $2.500 en RM bajo ese monto). Opción a evaluar con G real: envío incluido en el precio del kit.
 - (operaciones 2026-10-05) Dirección: Dropi/Dropify y la verificación de los 3 kits de partida (muestra, stock, costo real) son requisito antes de pautar.
 - En la próxima ronda, revisar si legal y operaciones cerraron sus entregables y reordenar.
 - Cuando el dueño cargue los costos de Dropi, decidir los 2 kits del primer test con G real.

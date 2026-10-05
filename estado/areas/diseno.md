@@ -3,6 +3,16 @@
 Agente: `disenador-web`. Lo actualiza el propio agente en cada ronda.
 
 ## Próximas tareas
+- (seo 2026-10-05) [diseno] Handle de Pelo Cero: `kit-pelo-cero-cepillo-bruma-mascotas` solo si la URL actual aún no se usa en anuncios ni está indexada; actualizar sitemap y canónica.
+- (seo 2026-10-05) [diseno] Alt de la foto principal de Baño y Secado: "Toalla de microfibra, cepillo de silicona y guante de baño para perros"; `srcset` con 450w y 900w; `lastmod` en `sitemap.xml`; agregar `404.html` con enlaces a los kits.
+- (seo 2026-10-05) [diseno] Bloque "Otros kits" (2 a 3 enlaces con texto descriptivo) en cada ficha: Baño y Secado a Pelo Cero y Verano Fresco; Gato Sin Pelusas a Aseo de Gato y Pelo Cero; Pelo Cero a Gato Sin Pelusas y Baño y Secado. Enlazar a las guías cuando existan.
+- (seo 2026-10-05) [diseno] `og:type` a `product`; agregar `og:url`, `twitter:title`, `twitter:description`, `og:image:width` y `og:image:height`.
+- (seo 2026-10-05) [diseno] JSON-LD `Product`: agregar `offers.url` (canónica), `offers.priceValidUntil`, `shippingDetails.shippingRate` y `deliveryTime` (2 a 4 días hábiles RM, 3 a 7 regiones; tarifa solo si operaciones la confirma), `image` como arreglo. Sin `aggregateRating` ni `review` hasta tener reseñas reales.
+- (seo 2026-10-05) [diseno] Reemplazar `<title>` y `<meta name="description">` de los 3 kits por los de `datos/seo/auditoria.md` (máx. 60 y 155 caracteres) y usar `titulo_seo`/`meta_descripcion` de ahí cuando marca actualice las fichas.
+- (seo 2026-10-05) [diseno] En las fichas, la primera imagen de la galería: `loading="eager" fetchpriority="high"` en lugar de `loading="lazy"` (imagen LCP).
+- (ads 2026-10-05) [diseno] Cambiar el evento Purchase a Lead/InitiateCheckout en `pedido.js` (I5); declarar el costo de despacho (C3) en ficha y despacho.
+- (competencia 2026-10-05) [diseno] En la ficha, mostrar qué incluye cada kit y medidas "por confirmar con proveedor"; sin comparar con precios de piezas sueltas ni "precio de referencia".
+- (competencia 2026-10-05) [diseno] Un solo bloque de confianza por ficha que diga "Pagas al recibir" como diferenciador (los competidores leídos no lo ofrecen), sin repetirlo.
 - (legal 2026-10-05) diseno: cambiar `pedido.js` línea 154 de `Purchase` a `Lead` o `InitiateCheckout`; cargar el píxel solo con aviso y opción de rechazar (coordinar con ads).
 - (legal 2026-10-05) diseno (cuando existan los datos del dueño): integrar el texto de `datos/legal/privacidad.md` en `privacidad.html`; reemplazar `contacto.html` y el pie con los textos de C1; reemplazar `cambios.html` con el texto de I1; añadir el enlace "Cómo usamos tus datos" en la casilla de consentimiento y el aviso de una línea bajo el botón de WhatsApp (textos auxiliares en privacidad.md). Mientras razón social, RUT, domicilio y correo sean null, mostrar aviso interno y no publicar.
 - Formulario móvil: probar envío real en iPhone/Android (teclado, autocompletar) y reducir campos si Baymard lo respalda.
