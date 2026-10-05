@@ -271,7 +271,11 @@ def comparacion(prod, ficha):
 def pagina_producto(prod, ficha, marca, tienda):
     benef = "".join(f'<li class="revelar">{icono("check")}<div><strong>{e(b["titulo"])}</strong><p>{e(b["texto"])}</p></div></li>' for b in ficha["beneficios"])
     pasos = "".join(f'<li><span class="num">{i}</span><p>{e(p)}</p></li>' for i, p in enumerate(ficha["como_usar"], 1))
-    incluye = "".join(f"<li>{icono('check', 'ico ico-s')}{e(i)}</li>" for i in ficha["incluye"])
+    # Medidas: solo se muestran si el dato ya está en la ficha; si no, se declara "por confirmar con proveedor".
+    tiene_medida = lambda t: re.search(r"\d\s*(x|cm|mm|ml|\bm\b)|\d,\d\s*m\b", t) is not None
+    incluye = "".join(f"<li>{icono('check', 'ico ico-s')}<span>{e(i)}"
+                      + ("" if tiene_medida(i) else '<small class="medida">Medidas: por confirmar con proveedor</small>')
+                      + "</span></li>" for i in ficha["incluye"])
     ahorro = 2 * prod["precio"] - prod["oferta_2"]
     tag_contenido = img_tag(f"{prod['id']}-contenido", "Todo lo que trae el " + ficha["titulo_seo"].split(":")[0], "../", sizes="(min-width:900px) 40vw, 100vw")
     contenido = f'<figure class="foto-contenido">{tag_contenido}</figure>' if tag_contenido else ""
@@ -299,19 +303,19 @@ def pagina_producto(prod, ficha, marca, tienda):
 <span class="etiqueta">{icono('kit', 'ico ico-s')} Kit completo · {len(ficha['incluye'])} piezas</span>
 <h1>{e(ficha['titular'])}</h1>
 <p class="sub">{e(ficha['subtitular'])}</p>
-<div class="precio"><strong>{clp(prod['precio'])}</strong><span class="chip">Lleva 2 y ahorra {clp(ahorro)}</span></div>
-<p class="iva">IVA incluido</p>
-<p class="plazo">{icono('envio', 'ico ico-s')} Llega en {e(tienda['plazos_despacho']['RM'])} en la RM y {e(tienda['plazos_despacho']['regiones'])} en regiones</p>
+<div class="precio"><strong>{clp(prod['precio'])}</strong><span class="iva">IVA incluido</span><span class="chip">Lleva 2 y ahorra {clp(ahorro)}</span></div>
+<ul class="clave"><li>{icono('pago', 'ico ico-s')} <strong>Pagas al recibir</strong></li><li>{icono('envio', 'ico ico-s')} Llega en {e(tienda['plazos_despacho']['RM'])} (RM) · {e(tienda['plazos_despacho']['regiones'])} (regiones)</li></ul>
+<a class="boton boton-grande cta-ficha" href="#pedido">Pedir este kit</a>
 {formulario(prod, ficha, tienda)}
 </div>
 </section>
 <section class="seccion contenedor"><p class="sobretitulo">Por qué funciona</p><h2>Todo lo que necesitas, en un solo pedido</h2><ul class="beneficios">{benef}</ul></section>
-<section class="seccion seccion-suave"><div class="contenedor dos-col"><div><p class="sobretitulo">Cómo se usa</p><h2>Listo en minutos</h2><ol class="pasos">{pasos}</ol></div><div class="caja revelar"><h3>Qué incluye</h3>{contenido}<ul class="incluye">{incluye}</ul><p class="nota-chica">Medidas y materiales exactos: los publicamos al recibir la ficha del proveedor.</p></div></div></section>
+<section class="seccion seccion-suave"><div class="contenedor dos-col"><div><p class="sobretitulo">Cómo se usa</p><h2>Listo en minutos</h2><ol class="pasos">{pasos}</ol></div><div class="caja revelar"><h3>Qué incluye</h3>{contenido}<ul class="incluye">{incluye}</ul><p class="nota-chica">Medidas y materiales exactos: por confirmar con proveedor. Los publicaremos apenas los tengamos.</p></div></div></section>
 {comparacion(prod, ficha)}
 <section class="seccion contenedor estrecho"><p class="sobretitulo">Opiniones</p><h2>Reseñas reales, pronto</h2><div class="resenas-vacio">{icono('estrella')}<p>Solo publicamos opiniones de clientes que recibieron su pedido. Sin reseñas inventadas: cuando lleguen, las verás aquí.</p></div></section>
 {bloque_faq(preguntas, id_="preguntas-producto")}
 <section class="cta-final"><div class="contenedor"><h2>¿Listo para probarlo?</h2><p>Elige tu oferta y deja tus datos: toma menos de un minuto.</p><a class="boton boton-grande boton-auto" href="#pedido">Pedir {e(nombre)} · {clp(prod['precio'])}</a></div></section>
-<div class="barra-compra" id="barra-compra"><div><strong>{clp(prod['precio'])}</strong><span>Pagas al recibir</span></div><a class="boton" href="#pedido">Pedir ahora</a></div>"""
+<div class="barra-compra" id="barra-compra"><div><strong>{clp(prod['precio'])}</strong></div><a class="boton" href="#pedido">Pedir ahora</a></div>"""
     og = f"img/{prod['id']}.jpg" if (PLANTILLA / "img" / f"{prod['id']}.jpg").exists() else None
     return pagina(marca, tienda, ficha["titulo_seo"], ficha["meta_descripcion"], cuerpo, base="../",
                   canonica=f"productos/{ficha['handle']}.html", imagen_og=og, extra_ld=(producto_ld, migas_ld, ld_faq(preguntas)))

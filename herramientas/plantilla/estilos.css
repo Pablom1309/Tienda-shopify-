@@ -174,9 +174,22 @@ p{margin:0 0 1em;text-wrap:pretty}
 .sub{font-size:1.1rem;color:var(--gris)}
 .precio{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:8px 0 2px}
 .precio strong{font-size:2.3rem;font-family:var(--titulo);line-height:1}
-.iva{font-size:.85rem;color:var(--gris);margin:0 0 6px}
-.plazo{display:flex;align-items:center;gap:6px;font-size:.88rem;font-weight:700;color:var(--texto,#1C2033);margin:0 0 20px}
-.plazo .ico{color:var(--primario)}
+.iva{font-size:.82rem;color:var(--gris)}
+.clave{list-style:none;padding:0;margin:8px 0 16px;display:grid;gap:4px;font-size:.9rem;font-weight:600}
+.clave li{display:flex;gap:8px;align-items:flex-start}
+.clave .ico{color:var(--primario);margin-top:3px}
+.cta-ficha{margin-bottom:20px}
+@media(min-width:960px){.cta-ficha{display:none}}
+.medida{display:block;font-size:.78rem;color:var(--gris);font-weight:400}
+@media(max-width:959px){
+  .migas{display:none}
+  .producto{gap:18px;padding-top:12px}
+  .foto-producto{aspect-ratio:4/3}
+  .foto-producto img{object-position:50% 55%}
+  .compra h1{font-size:1.65rem;margin:10px 0 6px}
+  .compra .sub{font-size:.95rem;margin:0 0 8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .precio{margin:4px 0 0;gap:4px 10px}.precio strong{font-size:2rem}
+}
 .consentimiento{display:flex;gap:10px;align-items:flex-start;font-size:.82rem;color:var(--gris);cursor:pointer}
 .consentimiento input{accent-color:var(--primario);width:18px;height:18px;margin:2px 0 0;flex:none}
 .garantias-form a{color:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:4px}
@@ -220,7 +233,8 @@ p{margin:0 0 1em;text-wrap:pretty}
 .num{flex:none;width:34px;height:34px;border-radius:50%;background:var(--primario);color:#fff;display:grid;place-items:center;font-weight:800}
 .caja{background:var(--blanco);border-radius:var(--radio);padding:26px;box-shadow:var(--sombra);border:1px solid var(--linea)}
 .incluye{list-style:none;padding:0;margin:0;display:grid;gap:10px}
-.incluye .ico{color:var(--primario);margin-right:8px}
+.incluye li{display:flex;gap:8px;align-items:flex-start}
+.incluye .ico{color:var(--primario);margin-top:4px}
 .nota-chica{font-size:.82rem;color:var(--gris);margin:16px 0 0}
 
 /* Comparación */
