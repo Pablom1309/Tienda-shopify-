@@ -3,6 +3,7 @@
 Agente: `analista-competencia`. Lo actualiza el propio agente en cada ronda.
 
 ## Próximas tareas
+- (sesión direccion 2026-10-05) [competencia] Hacer un benchmark de diseño de 3 fichas de tiendas chilenas de mascotas o DTC (cómo muestran despacho, cambios, contacto y confianza), con URL y fecha, para diseño. Lo que no se pueda leer queda como "no verificado".
 - (dirección 2026-10-05) Comparar precio, envío, confianza y oferta de los 3 kits de partida frente a Petco CL, TusMascotas y tiendas Shopify chilenas, con URL y fecha. Sin inventar precios; lo que no se pueda leer queda como "no verificado".
 - Petco CL, TusMascotas y tiendas Shopify chilenas de mascotas: precios, oferta, envío, confianza y diseño.
 

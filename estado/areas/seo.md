@@ -3,6 +3,11 @@
 Agente: `seo-contenido`. Lo actualiza el propio agente en cada ronda.
 
 ## Próximas tareas
+- (sesión ads 2026-10-05) [contenido] Mientras no se confirme la función, renombrar Pelo Cero a "cepillo con niebla de agua" en la ficha (legal I4).
+- (sesión competencia 2026-10-05) [seo] Palabras de búsqueda de pieza suelta (cepillo autolimpiante gato, guante removedor, toalla microfibra perro) para las fichas; Petco y TusMascotas rankean por marca.
+- (sesión legal 2026-10-05) contenido: Pelo Cero, revisar "a vapor" frente a la FAQ "no es vapor caliente" (I4); completar medidas y materiales de los 3 kits (I3).
+- (sesión legal 2026-10-05) [contenido] Retirar de portada/fichas cualquier "exactos"; mantener lo marcado como pendiente sin cifras inventadas.
+- (sesión direccion 2026-10-05) [seo] Revisar el HTML regenerado de los 3 kits (título, meta, canónica, `Product` coherente con el precio visible y el despacho) apenas diseño integre los cambios. Sumar a "Qué incluye" las palabras de pieza suelta.
 - (ads 2026-10-05) [contenido] Mientras no se confirme la función, renombrar Pelo Cero a "cepillo con niebla de agua" en la ficha (legal I4).
 - (competencia 2026-10-05) [seo] Palabras de búsqueda de pieza suelta (cepillo autolimpiante gato, guante removedor, toalla microfibra perro) para las fichas; Petco y TusMascotas rankean por marca.
 1. Guía "Verano con tu perro": esqueleto listo en `datos/guias/verano-con-tu-perro.md`. Redactar borrador (26-oct), revisión legal (2-nov), publicar 9-nov (plazo 15-nov). Falta fuente institucional para la parte de cuidados (si no hay, omitir).

@@ -2,6 +2,12 @@
 
 Se actualiza al final de cada turno autónomo. Lo más reciente arriba.
 
+## 2026-10-05 tarde — sesión de 30 min con todo el equipo
+- **Web publicada:** página 404 de marca, ficha con "Qué incluye" numerado, formulario de pedido por pasos más claro en el celular, "Pack de 2" con el ahorro exacto, despacho y cambios con textos revisados por legal, bloque de reclamos (SERNAC) en contacto. Auditor OK.
+- **Para ti, listo para usar:** `datos/preguntas_dropi.md` (mensajes para copiar y pegar a Dropi/proveedores) y `datos/guia_fotos.md` (cómo fotografiar cada kit).
+- **Decisión tuya — envío:** dirección recomienda incluirlo en el precio si el flete real de Dropi es ≤ $4.500 (hoy estimado $3.800) y cobrar aparte solo zonas que lo superen.
+- **Sigue faltando:** razón social, RUT, domicilio y correo; verificación Dropi de los 3 kits; certificación SEC de Pelo Cero.
+
 ## 2026-10-05 06:17 — resumen de las últimas 24 h (ciclo diario)
 - **Web:** rediseño visual publicado (contacto con WhatsApp/teléfono clicables, botón flotante, íconos, tarjetas), ficha móvil con precio y botón a la vista, "Otros kits" entre fichas, imágenes más livianas. Diseño corre en cada ronda (tu prioridad).
 - **Equipo de expertos activo:** 3 rondas. Objetivo semanal: listos para el 1er pedido contra entrega al 11-oct con Baño y Secado, Gato Sin Pelusas y Pelo Cero.

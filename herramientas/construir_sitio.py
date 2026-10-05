@@ -146,7 +146,7 @@ def img_tag(nombre, alt, base, clase="", carga="lazy", prioridad=False, sizes="1
 def imagen(nombre, alt, base, clase="foto", referencial=True, sizes="(min-width:900px) 50vw, 100vw", principal=False):
     tag = img_tag(nombre, alt, base, sizes=sizes, carga="eager" if principal else "lazy", prioridad=principal)
     if tag:
-        nota = '<figcaption>Imagen referencial</figcaption>' if referencial else ""
+        nota = '<figcaption>Foto referencial</figcaption>' if referencial else ""
         return f'<figure class="{clase}">{tag}{nota}</figure>'
     return f'<figure class="{clase} ilus">{ilustracion(nombre)}</figure>'
 
@@ -233,7 +233,7 @@ def pagina(marca, tienda, titulo, descripcion, cuerpo, base="", canonica=None, i
 </head>
 <body class="{clase_body}">
 <a class="saltar" href="#contenido">Saltar al contenido</a>
-<div class="anuncio"><span>{icono('pago', 'ico ico-s')} Pagas al recibir</span><span class="sep" aria-hidden="true">·</span><span>{icono('envio', 'ico ico-s')} Despacho a todo Chile</span><span class="sep ocultar-movil" aria-hidden="true">·</span><span class="ocultar-movil">{icono('garantia', 'ico ico-s')} Garantía legal 6 meses</span></div>
+<div class="anuncio"><span>{icono('pago', 'ico ico-s')} Pagas al recibir</span><span class="sep" aria-hidden="true">·</span><span>{icono('envio', 'ico ico-s')} Despachos a todo Chile, plazos por zona</span><span class="sep ocultar-movil" aria-hidden="true">·</span><span class="ocultar-movil">{icono('garantia', 'ico ico-s')} Garantía legal 6 meses</span></div>
 <header class="barra"><div class="contenedor barra-in"><a class="logo" href="{base}index.html" aria-label="{e(marca['nombre'])}, inicio">{logo_svg()}</a>
 <nav class="menu" aria-label="Principal"><a href="{base}index.html#kits">Kits</a><a href="{base}index.html#como-funciona">Cómo funciona</a><a href="{base}index.html#preguntas">Preguntas</a><a href="{base}contacto.html">Contacto</a></nav>
 <div class="barra-acc">{hdr_wa}<a class="boton boton-chico" href="{base}index.html#kits">{icono('carro', 'ico ico-s')} Comprar</a></div></div></header>
@@ -242,7 +242,7 @@ def pagina(marca, tienda, titulo, descripcion, cuerpo, base="", canonica=None, i
 </main>
 <footer class="pie">
 <div class="contenedor pie-in">
-<div class="pie-marca"><p class="logo logo-pie" aria-label="{e(marca['nombre'])}">{logo_svg(pie=True)}</p><p>{e(marca['promesa'])}</p>{redes_html(tienda, marca, "redes redes-pie")}</div>
+<div class="pie-marca"><p class="logo logo-pie" aria-label="{e(marca['nombre'])}">{logo_svg(pie=True)}</p><p>Kits de cuidado para perros y gatos.</p>{redes_html(tienda, marca, "redes redes-pie")}</div>
 <div><p class="pie-tit">Tienda</p><nav class="pie-nav"><a href="{base}index.html#kits">Kits</a><a href="{base}index.html#como-funciona">Cómo funciona</a><a href="{base}index.html#preguntas">Preguntas frecuentes</a></nav></div>
 <div><p class="pie-tit">Ayuda</p><nav class="pie-nav"><a href="{base}despacho.html">Despacho</a><a href="{base}cambios.html">Cambios, retracto y garantía</a><a href="{base}privacidad.html">Privacidad</a><a href="{base}contacto.html">Contacto</a></nav></div>
 <div><p class="pie-tit">Escríbenos</p><nav class="pie-nav">{pie_contacto}</nav></div>
@@ -278,7 +278,7 @@ def faq_general(tienda):
     preguntas = [
         ("¿Cuánto demora el despacho?", f"Región Metropolitana: {pl['RM']}. Otras regiones: {pl['regiones']}. Zonas extremas: {pl['zonas_extremas']}."),
         ("¿Por qué venden kits y no productos sueltos?", "Porque un problema casi nunca se resuelve con una sola pieza. El kit trae lo necesario para la mascota y para la casa, y te ahorra un segundo despacho."),
-        ("¿Las fotos son del producto real?", "Algunas imágenes son referenciales y lo indicamos en cada una. La descripción, lo que incluye y el precio son exactos."),
+        ("¿Las fotos son del producto real?", "Algunas imágenes son referenciales y lo indicamos en cada una. Las medidas y materiales de cada kit los confirmamos antes de despachar; escríbenos por WhatsApp si quieres saberlos antes de pedir."),
     ]
     return preguntas
 
@@ -296,7 +296,7 @@ def ld_faq(preguntas):
 def formulario(prod, ficha, tienda):
     unidad2 = round(prod["oferta_2"] / 2)
     opciones = [(1, prod["precio"], "1 kit", "", ""),
-                (2, prod["oferta_2"], "2 kits", f"{clp(unidad2)} c/u · ahorras {clp(2 * prod['precio'] - prod['oferta_2'])}", "Mejor precio")]
+                (2, prod["oferta_2"], "2 kits", f"{clp(unidad2)} c/u · ahorras {clp(2 * prod['precio'] - prod['oferta_2'])}", "Pack de 2")]
     radios = "".join(
         f'<label class="opcion"><input type="radio" name="cantidad" value="{n}" data-precio="{p}" {"checked" if n == 1 else ""}>'
         f'<span class="opcion-txt"><strong>{e(t)}</strong>{f"<em>{e(a)}</em>" if a else ""}</span>'
@@ -311,18 +311,18 @@ def formulario(prod, ficha, tienda):
     regiones = "".join(f'<option data-zona="{"extrema" if r in REGIONES_EXTREMAS else ("rm" if r == "Metropolitana" else "regiones")}">{e(r)}</option>' for r in REGIONES)
     aviso = "" if tienda.get("whatsapp") else '<p class="aviso">Estamos preparando la tienda: muy pronto podrás pedir aquí.</p>'
     return f"""<form class="pedido" id="pedido" data-producto="{e(ficha['titulo_seo'].split(':')[0])}" data-id="{e(prod['id'])}" data-wa="{e(tienda.get('whatsapp') or '')}" novalidate>
-<p class="pedido-tit">1. Elige tu oferta</p>
+<p class="pedido-tit"><span class="paso-f">1</span>Elige tu oferta</p>
 <div class="opciones">{radios}</div>
 {tallas}
 {extra}
-<p class="pedido-tit">2. Datos de entrega</p>
-<label class="campo">Nombre y apellido<input name="nombre" required autocomplete="name" placeholder="Ej: Camila Rojas"><small class="error-txt">Escribe tu nombre.</small></label>
-<label class="campo">Teléfono (WhatsApp)<input name="telefono" type="tel" required inputmode="tel" pattern="[0-9 +]{{8,15}}" placeholder="9 1234 5678" autocomplete="tel"><small class="error-txt">Revisa el número (8 a 15 dígitos).</small></label>
+<p class="pedido-tit"><span class="paso-f">2</span>Datos de entrega</p>
+<label class="campo">Nombre y apellido<input name="nombre" required autocomplete="name" placeholder="Ej: Camila Rojas"><small class="error-txt">Escribe tu nombre y apellido.</small></label>
+<label class="campo">Teléfono (WhatsApp)<input name="telefono" type="tel" required inputmode="tel" pattern="[0-9 +]{{8,15}}" placeholder="9 1234 5678" autocomplete="tel"><small class="error-txt">Revisa el número: 8 a 15 dígitos.</small></label>
 <div class="fila">
 <label class="campo">Región<select name="region" required><option value="">Elige</option>{regiones}</select><small class="error-txt">Elige tu región.</small></label>
 <label class="campo">Comuna<input name="comuna" required autocomplete="address-level2" placeholder="Ej: Ñuñoa"><small class="error-txt">Escribe tu comuna.</small></label>
 </div>
-<label class="campo">Dirección y referencias<input name="direccion" required placeholder="Calle, número, depto, referencia" autocomplete="street-address"><small class="error-txt">Escribe tu dirección.</small></label>
+<label class="campo">Dirección y referencias<input name="direccion" required placeholder="Calle, número, depto, referencia" autocomplete="street-address"><small class="error-txt">Escribe tu dirección con referencias.</small></label>
 <p class="entrega" id="entrega" hidden>{icono('calendario', 'ico ico-s')} <span></span></p>
 <div class="total"><span>Total a pagar al recibir</span><strong id="total">{clp(prod['precio'])}</strong></div>
 <button type="submit" class="boton boton-grande">{icono('chat')} Confirmar por WhatsApp</button>
@@ -351,9 +351,7 @@ def pagina_producto(prod, ficha, marca, tienda, productos=()):
     pasos = "".join(f'<li><span class="num">{i}</span><p>{e(p)}</p></li>' for i, p in enumerate(ficha["como_usar"], 1))
     # Medidas: solo se muestran si el dato ya está en la ficha; si no, se declara "por confirmar con proveedor".
     tiene_medida = lambda t: re.search(r"\d\s*(x|cm|mm|ml|\bm\b)|\d,\d\s*m\b", t) is not None
-    incluye = "".join(f"<li>{icono('check', 'ico ico-s')}<span>{e(i)}"
-                      + ("" if tiene_medida(i) else '<small class="medida">Medidas: por confirmar con proveedor</small>')
-                      + "</span></li>" for i in ficha["incluye"])
+    incluye = "".join(f'<li><span class="inc-num" aria-hidden="true">{i}</span><span>{e(t)}</span></li>' for i, t in enumerate(ficha["incluye"], 1))
     ahorro = 2 * prod["precio"] - prod["oferta_2"]
     tag_contenido = img_tag(f"{prod['id']}-contenido", "Todo lo que trae el " + ficha["titulo_seo"].split(":")[0], "../", sizes="(min-width:900px) 40vw, 100vw")
     contenido = f'<figure class="foto-contenido">{tag_contenido}</figure>' if tag_contenido else ""
@@ -380,19 +378,19 @@ def pagina_producto(prod, ficha, marca, tienda, productos=()):
 <section class="producto contenedor">
 <div class="galeria">{imagen(prod['id'], alt_principal(prod, ficha), '../', 'foto foto-producto', principal=True)}</div>
 <div class="compra">
-<span class="etiqueta">{icono('kit', 'ico ico-s')} Kit completo · {len(ficha['incluye'])} piezas</span>
+<span class="etiqueta">{icono('kit', 'ico ico-s')} Kit completo · {len(ficha['incluye'])} {'pieza' if len(ficha['incluye']) == 1 else 'piezas'}</span>
 <h1>{e(ficha['titular'])}</h1>
 <p class="sub">{e(ficha['subtitular'])}</p>
-<div class="precio"><strong>{clp(prod['precio'])}</strong><span class="iva">IVA incluido</span><span class="chip">Lleva 2 y ahorra {clp(ahorro)}</span></div>
+<div class="precio"><strong>{clp(prod['precio'])}</strong><span class="iva">IVA incluido</span><span class="chip">2 kits, {clp(ahorro)} menos que por separado</span></div>
 <ul class="clave"><li>{icono('envio', 'ico ico-s')} Llega en {e(tienda['plazos_despacho']['RM'])} (RM) · {e(tienda['plazos_despacho']['regiones'])} (regiones)</li></ul>
 <a class="boton boton-grande cta-ficha" href="#pedido">Pedir este kit</a>
 {formulario(prod, ficha, tienda)}
 </div>
 </section>
 <section class="seccion contenedor"><p class="sobretitulo">Por qué funciona</p><h2>Todo lo que necesitas, en un solo pedido</h2><ul class="beneficios">{benef}</ul></section>
-<section class="seccion seccion-suave"><div class="contenedor dos-col"><div><p class="sobretitulo">Cómo se usa</p><h2>Listo en minutos</h2><ol class="pasos">{pasos}</ol></div><div class="caja revelar"><h3>Qué incluye</h3>{contenido}<ul class="incluye">{incluye}</ul><p class="nota-chica">Medidas y materiales exactos: por confirmar con proveedor. Los publicaremos apenas los tengamos.</p></div></div></section>
+<section class="seccion seccion-suave"><div class="contenedor dos-col"><div><p class="sobretitulo">Cómo se usa</p><h2>Listo en minutos</h2><ol class="pasos">{pasos}</ol></div><div class="caja revelar"><h3>Qué incluye</h3><p class="caja-sub">{len(ficha['incluye'])} {'pieza' if len(ficha['incluye']) == 1 else 'piezas'} en un solo pedido</p>{contenido}<ul class="incluye">{incluye}</ul>{NOTA_NO_INCLUYE.get(prod['id'], '')}<p class="nota-chica">Medidas y materiales: te los confirmamos por WhatsApp antes de despachar.</p></div></div></section>
 {comparacion(prod, ficha)}
-<section class="seccion contenedor estrecho"><p class="sobretitulo">Opiniones</p><h2>Reseñas reales, pronto</h2><div class="resenas-vacio">{icono('estrella')}<p>Solo publicamos opiniones de clientes que recibieron su pedido. Sin reseñas inventadas: cuando lleguen, las verás aquí.</p></div></section>
+<section class="contenedor estrecho seccion-corta"><p class="resenas-vacio">{icono('estrella')}<span><strong>Reseñas reales, pronto.</strong> Solo publicamos opiniones de clientes que recibieron su pedido.</span></p></section>
 {bloque_faq(preguntas, id_="preguntas-producto")}
 {otros_kits(prod, productos)}
 <section class="cta-final"><div class="contenedor"><h2>¿Listo para probarlo?</h2><p>Elige tu oferta y deja tus datos: toma menos de un minuto.</p><a class="boton boton-grande boton-auto" href="#pedido">Pedir {e(nombre)} · {clp(prod['precio'])}</a></div></section>
@@ -402,6 +400,7 @@ def pagina_producto(prod, ficha, marca, tienda, productos=()):
                   canonica=f"productos/{ficha['handle']}.html", imagen_og=og, extra_ld=(producto_ld, migas_ld, ld_faq(preguntas)), tipo_og="product", clase_body="ficha")
 
 
+NOTA_NO_INCLUYE = {"kit-bano-secado-perro": '<p class="nota-chica"><strong>No incluye shampoo.</strong> Usas el que ya tienes.</p>'}
 ALT_PRINCIPAL = {"kit-bano-secado-perro": "Toalla de microfibra, cepillo de silicona y guante de baño para perros"}
 
 
@@ -421,7 +420,7 @@ def tarjeta(p, f, mascota, base, referencial=False):
     img = imagen(p['id'], alt_principal(p, f), base, 'foto foto-tarjeta', referencial=referencial, sizes='(min-width:1100px) 25vw, (min-width:700px) 33vw, 50vw')
     piezas = len(f.get("incluye") or [])
     return f"""<a class="tarjeta revelar" data-mascota="{mascota}" href="{base}productos/{e(f['handle'])}.html"><div class="tarjeta-img">{img}<span class="etiqueta">{e(etiqueta_publica(p))}</span></div>
-<div class="tarjeta-cuerpo"><h3>{e(f['titulo_seo'].split(':')[0])}</h3>{f'<p class="tarjeta-meta">Kit de {piezas} piezas</p>' if piezas else ''}
+<div class="tarjeta-cuerpo"><h3>{e(f['titulo_seo'].split(':')[0])}</h3>{f'<p class="tarjeta-meta">Kit de {piezas} {"pieza" if piezas == 1 else "piezas"}</p>' if piezas else ''}
 <div class="tarjeta-pie"><div><strong>{clp(p['precio'])}</strong><small>2 por {clp(p['oferta_2'])}</small></div><span class="tarjeta-ir" aria-hidden="true">{icono('flecha', 'ico ico-s')}</span></div></div></a>"""
 
 
@@ -459,7 +458,7 @@ def portada(productos, marca, tienda):
 <h1>Menos pelo en tu casa. Más frescura para tu mascota.</h1>
 <p class="hero-sub">Soluciones completas para el pelo y el calor, pensadas para la vida en casa.</p>
 <div class="hero-acciones"><a class="boton boton-grande" href="#kits">Ver los kits {icono('flecha', 'ico ico-s')}</a><a class="boton boton-fantasma" href="#como-funciona">¿Cómo funciona?</a></div></div></section>
-<section class="seccion contenedor" id="kits"><p class="sobretitulo">Nuestros kits</p><h2>Elige el que necesita tu casa</h2><p class="nota-fotos">Las fotos son referenciales hasta que tengamos las reales de cada kit.</p>{filtros}<div class="grilla" id="grilla">{tarjetas}</div><nav class="paginas" id="paginas" aria-label="Páginas de kits" hidden></nav></section>
+<section class="seccion contenedor" id="kits"><p class="sobretitulo">Nuestros kits</p><h2>Elige el que necesita tu casa</h2><p class="nota-fotos">Algunas fotos son referenciales hasta que lleguen las reales.</p>{filtros}<div class="grilla" id="grilla">{tarjetas}</div><nav class="paginas" id="paginas" aria-label="Páginas de kits" hidden></nav></section>
 {como_funciona()}
 {bloque_faq(preguntas)}
 <section class="cta-final"><div class="contenedor"><h2>¿Dudas antes de pedir?</h2><p>Escríbenos y te ayudamos a elegir el kit para tu mascota.</p><div class="cta-botones"><a class="boton boton-grande boton-auto boton-wa" href="{e(wa_url(tienda, 'Hola Kuchiwau, necesito ayuda para elegir un kit'))}" target="_blank" rel="noopener noreferrer">{icono('whatsapp')} Escríbenos por WhatsApp</a><a class="boton boton-grande boton-auto boton-fantasma-claro" href="contacto.html">Ver contacto</a></div></div></section>"""
@@ -498,7 +497,8 @@ def pagina_contacto(marca, tienda):
     return f"""<section class="contacto-hero"><div class="contenedor estrecho"><p class="sobretitulo">Contacto</p><h1>Hablemos</h1><p class="hero-sub">¿Dudas sobre un kit, tu pedido o el despacho? Escríbenos y te ayudamos.</p></div></section>
 <section class="contenedor estrecho contacto">{principal}
 {f'<ul class="contacto-grid">{cards}</ul>' if cards else ''}
-<h2 class="contacto-sub">Ayuda rápida</h2><ul class="contacto-ayudas">{ayuda_html}</ul></section>"""
+<h2 class="contacto-sub">Ayuda rápida</h2><ul class="contacto-ayudas">{ayuda_html}</ul>
+<div class="reclamos"><h2 class="contacto-sub">Reclamos</h2><p>Si no quedas conforme con la respuesta, puedes acudir al SERNAC (<a href="https://www.sernac.cl" target="_blank" rel="noopener noreferrer">www.sernac.cl</a>) o al Juzgado de Policía Local de tu comuna.</p></div></section>"""
 
 
 def legales(marca, tienda):
@@ -506,10 +506,10 @@ def legales(marca, tienda):
     paginas = {
         "despacho.html": ("Despacho", f"""<h1>Despacho</h1><p>Despachamos a todo Chile con pago contra entrega. Antes de enviar, confirmamos cada pedido por WhatsApp.</p>
 <ul><li>Región Metropolitana: {e(pl['RM'])}.</li><li>Otras regiones: {e(pl['regiones'])}.</li><li>Zonas extremas: {e(pl['zonas_extremas'])}.</li></ul>
-<p>El plazo corre desde la confirmación del pedido. Si la transportadora no puede entregar, te contactamos para coordinar un nuevo intento.</p>"""),
+<p>El plazo corre desde que confirmamos tu pedido por WhatsApp.</p><p>Si no estás en el domicilio, la transportadora coordina contigo un nuevo intento. Si finalmente no hay entrega, no se cobra nada: pagas solo al recibir.</p>"""),
         "cambios.html": ("Cambios, retracto y garantía", """<h1>Cambios, retracto y garantía</h1>
-<h2>Derecho a retracto</h2><p>Tienes 10 días desde que recibes el producto para retractarte de la compra, con el producto sin uso y en su empaque (Ley 19.496).</p>
-<h2>Garantía legal</h2><p>Si el producto presenta una falla, tienes 6 meses desde la recepción para elegir entre cambio, reparación o devolución del dinero.</p>
+<h2>Derecho a retracto</h2><p>Puedes arrepentirte de tu compra dentro de 10 días desde que recibes el producto (Ley 19.496, art. 3 bis). Escríbenos por WhatsApp con tu número de pedido y te indicamos cómo devolverlo.</p>
+<h2>Garantía legal</h2><p>Si el producto llega con una falla o no corresponde a lo que ofrecimos, tienes 6 meses desde que lo recibes para elegir entre reparación, cambio o devolución del dinero (Ley 19.496, modificada por la Ley 21.398).</p>
 <h2>Cómo solicitarlo</h2><p>Escríbenos desde la <a href="contacto.html">página de contacto</a> con tu número de pedido y una foto del producto. Te respondemos en un máximo de 2 días hábiles.</p>"""),
         "privacidad.html": ("Privacidad", """<h1>Política de privacidad</h1><p>Usamos tu nombre, teléfono y dirección solo para confirmar, despachar y dar soporte a tu pedido. Los compartimos únicamente con el proveedor y la transportadora que lo entregan.</p>
 <p>No enviamos mensajes promocionales sin tu consentimiento expreso. Puedes pedir acceso, corrección o eliminación de tus datos escribiéndonos (Ley 19.628 y Ley 21.719).</p>"""),
@@ -519,6 +519,18 @@ def legales(marca, tienda):
                                             f'<section class="seccion contenedor estrecho legal">{cuerpo}</section>', canonica=archivo), encoding="utf-8")
     (SITIO / "contacto.html").write_text(pagina(marca, tienda, f"Contacto | {marca['nombre']}", f"Contacto de {marca['nombre']}: escríbenos por WhatsApp.",
                                                 pagina_contacto(marca, tienda), canonica="contacto.html", clase_body="pg-contacto"), encoding="utf-8")
+
+
+def pagina_404(marca, tienda, productos):
+    """404 de marca: ruta absoluta al sitio (GitHub Pages la sirve desde cualquier ruta), sin canónica y con noindex."""
+    raiz = (tienda.get("url_sitio") or "").rstrip("/") + "/"
+    cards = "".join(tarjeta(p, f, "", raiz, referencial=True).replace(" revelar", "") for p, f in productos[:3])
+    cuerpo = f"""<section class="e404"><div class="contenedor estrecho"><p class="sobretitulo">Error 404</p><h1>No encontramos esa página</h1>
+<p class="hero-sub">Puede que el enlace haya cambiado. Vuelve al inicio o escríbenos y te ayudamos.</p>
+<div class="hero-acciones"><a class="boton boton-grande" href="{raiz}index.html">Ir al inicio {icono('flecha', 'ico ico-s')}</a><a class="boton boton-grande boton-fantasma-claro" href="{wa_url(tienda)}" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a></div></div>
+<div class="contenedor"><div class="grilla grilla-otros e404-kits">{cards}</div></div></section>"""
+    html_ = pagina(marca, tienda, f"Página no encontrada | {marca['nombre']}", f"Página no encontrada en {marca['nombre']}.", cuerpo, base=raiz)
+    return html_.replace("<head>", '<head>\n<meta name="robots" content="noindex">', 1)
 
 
 def csv_shopify(productos, marca):
@@ -561,6 +573,7 @@ def main():
     for p, f in productos:
         (SITIO / "productos" / f"{f['handle']}.html").write_text(pagina_producto(p, f, marca, tienda, productos), encoding="utf-8")
     legales(marca, tienda)
+    (SITIO / "404.html").write_text(pagina_404(marca, tienda, productos), encoding="utf-8")
     (SITIO / "robots.txt").write_text("User-agent: *\nAllow: /\n" + (f"Sitemap: {tienda['url_sitio'].rstrip('/')}/sitemap.xml\n" if tienda.get("url_sitio") else ""), encoding="utf-8")
     if tienda.get("url_sitio"):
         base = tienda["url_sitio"].rstrip("/")

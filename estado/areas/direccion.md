@@ -47,6 +47,10 @@ Datos de `datos/economia.json` y `datos/supuestos.json`. Todos los costos son **
 - **Ley 21.719 desde el 1 de diciembre** y **capital de trabajo** ($300.000 a $400.000 estimados) siguen vigentes como requisitos antes de pautar.
 
 ## Próximas tareas
+- (sesión competencia 2026-10-05) [direccion] Mantener Baño y Secado primero (menor prima, +5 % sobre piezas sueltas); no tocar precio de Pelo Cero hasta tener costo Dropi.
+- (sesión competencia 2026-10-05) [direccion] Decidir y fijar el costo de envío al cliente (hoy no declarado; Petco: gratis desde $29.990, $2.500 en RM bajo ese monto). Opción a evaluar con G real: envío incluido en el precio del kit.
+- (sesión competencia 2026-10-05) [direccion] Reconciliar umbral de envío gratis de Petco ($12.600 en Santiago según portada vs $29.990 en datos/competencia.md): no verificado cuál rige.
+- (sesión operaciones 2026-10-05) Dirección: Dropi/Dropify y la verificación de los 3 kits de partida (muestra, stock, costo real) son requisito antes de pautar.
 - Cuando el dueño decida el envío (A o B), fijarlo en `datos/tienda.json` a través del orquestador y avisar a diseño y legal.
 - Cuando el dueño cargue los costos de Dropi, recalcular G de los 3 kits y elegir los 2 del primer test con G real.
 - Próxima ronda: revisar si diseño integró los textos de legal (detrás del aviso interno) y si operaciones entregó la tabla de medidas.

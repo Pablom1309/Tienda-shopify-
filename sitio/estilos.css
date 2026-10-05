@@ -512,3 +512,37 @@ h2{line-height:1.08}
 /* Casos extremos: etiqueta larga en una sola línea, meta de tarjeta con especificidad suficiente */
 .tarjeta-img .etiqueta{display:block;max-width:calc(100% - 20px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .tarjeta-cuerpo .tarjeta-meta{font-size:.82rem;margin:-4px 0 0}
+
+/* Ronda 5, lote 1: ficha (Qué incluye numerado, reseñas en una línea), 404, foco */
+.caja-sub{margin:-4px 0 14px;color:var(--gris);font-size:.9rem}
+.incluye{gap:0}
+.incluye li{align-items:center;gap:12px;padding:11px 0;border-top:1px solid var(--linea)}
+.incluye li:first-child{border-top:0}
+.inc-num{flex:none;width:28px;height:28px;border-radius:50%;background:color-mix(in srgb,var(--acento) 22%,#fff);color:#9A3C0F;display:grid;place-items:center;font-weight:800;font-size:.85rem;font-variant-numeric:tabular-nums}
+.seccion-corta{padding-top:8px;padding-bottom:8px}
+.resenas-vacio{align-items:center;gap:12px;padding:14px 18px;margin:0;font-size:.92rem}
+.resenas-vacio .ico{width:22px;height:22px}
+.e404{padding:72px 0 64px;text-align:center}
+.e404 .hero-acciones{justify-content:center}
+.e404-kits{margin-top:48px;text-align:left}
+@media(max-width:600px){.e404{padding:48px 0}.e404-kits{margin-top:32px}}
+.opcion:has(input:focus-visible),.extra:has(input:focus-visible){outline:3px solid var(--acento);outline-offset:2px}
+.details summary:focus-visible,summary:focus-visible{outline:3px solid var(--acento);outline-offset:-3px}
+@media(hover:hover) and (pointer:fine){.opcion:not(:has(input:checked)):hover{border-color:color-mix(in srgb,var(--primario) 35%,var(--linea))}.extra:hover{background:color-mix(in srgb,var(--acento) 14%,var(--suave))}}
+.reclamos{margin-top:32px;color:var(--gris)}
+.reclamos .contacto-sub{margin-top:0}
+
+/* Lote 2: formulario con pasos claros */
+.pedido-tit{display:flex;align-items:center;gap:10px;font-family:var(--titulo);font-size:1.1rem;font-weight:600;letter-spacing:-.01em;margin:6px 0 0}
+.pedido-tit:not(:first-child){margin-top:12px;padding-top:18px;border-top:1px solid var(--linea)}
+.paso-f{flex:none;width:26px;height:26px;border-radius:50%;background:var(--primario);color:#fff;display:grid;place-items:center;font-family:var(--cuerpo);font-weight:800;font-size:.8rem}
+.campo{font-size:.9rem}
+.campo input,.campo select{padding:14px 14px;min-height:50px}
+.boton-grande[type=submit]{width:100%;justify-content:center}
+.consentimiento{font-size:.8rem}
+@media(max-width:600px){.pedido{padding:20px 16px}}
+.e404 .sobretitulo{justify-content:center}
+@media(min-width:900px){.e404-kits{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:700px){.e404-kits{max-width:none;grid-template-columns:repeat(3,minmax(0,1fr))}}
+.e404-kits .tarjeta:nth-child(3){display:none}
+@media(min-width:700px){.e404-kits .tarjeta:nth-child(3){display:block}}
