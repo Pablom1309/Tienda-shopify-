@@ -2,6 +2,14 @@
 
 Se actualiza al final de cada turno autónomo. Lo más reciente arriba.
 
+## 2026-10-05 madrugada — ronda 2 (diseño primero, como pediste)
+- **Tu pedido aplicado:** diseño de la página va primero; corre en cada ronda (cada 2 h) y las demás áreas le alimentan propuestas.
+- **Diseño:** foto principal carga primero, bloque "Otros kits" en cada ficha (enlaces entre kits), mejores vistas previas al compartir y datos para Google. Auditor OK.
+- **Pelo Cero:** ya no dice "a vapor" (contradecía su FAQ): ahora "cepillo con bruma". Compatibilidad con gatos "por confirmar con proveedor".
+- **Competencia** (`datos/competencia.md`): Petco y TusMascotas no ofrecen pago contra entrega (nuestro diferenciador); Petco regala envío desde $29.990. Falta definir si cobramos despacho.
+- **Ads:** 12 conceptos listos (`datos/conceptos_ads.md`), todos bloqueados hasta tus datos legales y la verificación Dropi. Incluye la lista de tomas reales que necesitarás grabar.
+- **Necesito de ti (además de lo anterior):** decidir si el despacho va incluido en el precio; confirmar el dominio (las canónicas apuntan a GitHub Pages).
+
 ## 2026-10-05 noche — primera ronda del equipo de expertos
 - **Objetivo de la semana (dirección):** al domingo 11-oct, tienda lista para el primer pedido contra entrega con 3 kits: Baño y Secado, Gato Sin Pelusas y Pelo Cero.
 - **Diseño:** en el celular la ficha muestra precio, "Pagas al recibir", plazo y botón sin desplazarse. Auditor OK.

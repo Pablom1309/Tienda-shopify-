@@ -11,7 +11,7 @@
     "diseno": {
       "agente": "disenador-web",
       "ttl_horas": 2,
-      "ultima": "2026-10-05T03:44:58Z",
+      "ultima": "2026-10-05T03:55:51Z",
       "prioridad": 1,
       "foco": "Diseño y mejoras de la tienda web primero (dueño 2026-10-05): integrar propuestas de SEO, legal y competencia; una mejora coherente por ronda, verificada en móvil"
     },
@@ -32,14 +32,14 @@
     "seo": {
       "agente": "seo-contenido",
       "ttl_horas": 24,
-      "ultima": null,
+      "ultima": "2026-10-05T03:55:51Z",
       "prioridad": 8,
       "foco": "SEO técnico de los 3 kits de partida; guía de verano para la semana siguiente (plazo 15-nov)"
     },
     "competencia": {
       "agente": "analista-competencia",
       "ttl_horas": 72,
-      "ultima": null,
+      "ultima": "2026-10-05T03:55:51Z",
       "prioridad": 6,
       "foco": "Precio, envío y confianza de los 3 kits de partida vs Petco CL, TusMascotas y Shopify locales"
     },
@@ -53,7 +53,7 @@
     "ads": {
       "agente": "estratega-ads",
       "ttl_horas": 72,
-      "ultima": null,
+      "ultima": "2026-10-05T03:55:51Z",
       "prioridad": 7,
       "foco": "Conceptos creativos de Gato Sin Pelusas, Pelo Cero y Baño y Secado; sin presupuesto ni campañas"
     }

@@ -87,8 +87,8 @@ def img_tag(nombre, alt, base, clase="", carga="lazy", prioridad=False, sizes="1
             f'loading="{carga}" decoding="async"{pr}></picture>')
 
 
-def imagen(nombre, alt, base, clase="foto", referencial=True, sizes="(min-width:900px) 50vw, 100vw"):
-    tag = img_tag(nombre, alt, base, sizes=sizes)
+def imagen(nombre, alt, base, clase="foto", referencial=True, sizes="(min-width:900px) 50vw, 100vw", principal=False):
+    tag = img_tag(nombre, alt, base, sizes=sizes, carga="eager" if principal else "lazy", prioridad=principal)
     if tag:
         nota = '<figcaption>Imagen referencial</figcaption>' if referencial else ""
         return f'<figure class="{clase}">{tag}{nota}</figure>'
@@ -116,11 +116,16 @@ def logo_svg(pie=False):
     return iso + palabra
 
 
-def pagina(marca, tienda, titulo, descripcion, cuerpo, base="", canonica=None, imagen_og=None, precarga=None, extra_ld=()):
+def pagina(marca, tienda, titulo, descripcion, cuerpo, base="", canonica=None, imagen_og=None, precarga=None, extra_ld=(), tipo_og="website"):
     c = marca["colores"]
     url = (tienda.get("url_sitio") or "").rstrip("/")
     can = f'<link rel="canonical" href="{e(url + "/" + canonica)}">' if url and canonica is not None else ""
     og = f'<meta property="og:image" content="{e(url + "/" + imagen_og)}">' if url and imagen_og else ""
+    if og and (PLANTILLA / imagen_og).exists() and tamano(PLANTILLA / imagen_og):
+        ow, oh = tamano(PLANTILLA / imagen_og)
+        og += f'<meta property="og:image:width" content="{ow}"><meta property="og:image:height" content="{oh}">'
+    if url and canonica is not None:
+        og += f'<meta property="og:url" content="{e(url + "/" + canonica)}">'
     pre = f'<link rel="preload" as="image" href="{base}{precarga}" fetchpriority="high">' if precarga else ""
     wa = tienda.get("whatsapp")
     flotante_wa = f'<a class="wa" href="https://wa.me/{e(wa)}" aria-label="Escríbenos por WhatsApp">{icono("chat")}</a>' if wa else ""
@@ -137,13 +142,15 @@ def pagina(marca, tienda, titulo, descripcion, cuerpo, base="", canonica=None, i
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{e(titulo)}</title>
 <meta name="description" content="{e(descripcion)}">
-<meta property="og:type" content="website">
+<meta property="og:type" content="{tipo_og}">
 <meta property="og:locale" content="es_CL">
 <meta property="og:site_name" content="{e(marca['nombre'])}">
 <meta property="og:title" content="{e(titulo)}">
 <meta property="og:description" content="{e(descripcion)}">
 {og}
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{e(titulo)}">
+<meta name="twitter:description" content="{e(descripcion)}">
 {can}
 <meta name="theme-color" content="{c['primario']}">
 <link rel="icon" href="{base}favicon.svg" type="image/svg+xml">
@@ -268,7 +275,7 @@ def comparacion(prod, ficha):
 <div class="tabla-envoltura"><table class="comparacion"><thead><tr><th></th><th scope="col">{e(ficha['titulo_seo'].split(':')[0])}</th><th scope="col">Piezas sueltas</th></tr></thead><tbody>{cuerpo}</tbody></table></div></section>"""
 
 
-def pagina_producto(prod, ficha, marca, tienda):
+def pagina_producto(prod, ficha, marca, tienda, productos=()):
     benef = "".join(f'<li class="revelar">{icono("check")}<div><strong>{e(b["titulo"])}</strong><p>{e(b["texto"])}</p></div></li>' for b in ficha["beneficios"])
     pasos = "".join(f'<li><span class="num">{i}</span><p>{e(p)}</p></li>' for i, p in enumerate(ficha["como_usar"], 1))
     # Medidas: solo se muestran si el dato ya está en la ficha; si no, se declara "por confirmar con proveedor".
@@ -285,20 +292,22 @@ def pagina_producto(prod, ficha, marca, tienda):
     producto_ld = {
         "@context": "https://schema.org", "@type": "Product", "name": ficha["titulo_seo"].split(" | ")[0],
         "description": ficha["meta_descripcion"], "brand": {"@type": "Brand", "name": marca["nombre"]}, "sku": f"KW-{prod['id'].upper()}",
-        "offers": {"@type": "Offer", "priceCurrency": "CLP", "price": prod["precio"], "availability": "https://schema.org/InStock",
+        "offers": {"@type": "Offer", **({"url": f"{url}/productos/{ficha['handle']}.html"} if url else {}), "priceCurrency": "CLP", "price": prod["precio"], "availability": "https://schema.org/InStock",
                    "itemCondition": "https://schema.org/NewCondition",
                    "hasMerchantReturnPolicy": {"@type": "MerchantReturnPolicy", "applicableCountry": "CL",
                                                "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow", "merchantReturnDays": 10},
-                   "shippingDetails": {"@type": "OfferShippingDetails", "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "CL"}}},
+                   "shippingDetails": {"@type": "OfferShippingDetails", "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "CL"},
+                                       "deliveryTime": {"@type": "ShippingDeliveryTime", "handlingTime": {"@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "DAY"},
+                                                        "transitTime": {"@type": "QuantitativeValue", "minValue": 2, "maxValue": 7, "unitCode": "DAY"}}}},
     }
     if url and (PLANTILLA / "img" / f"{prod['id']}.jpg").exists():
-        producto_ld["image"] = f"{url}/img/{prod['id']}.jpg"
+        producto_ld["image"] = [f"{url}/img/{prod['id']}.jpg"] + ([f"{url}/img/{prod['id']}-contenido.jpg"] if tag_contenido else [])
     migas_ld = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Inicio", **({"item": url + "/"} if url else {})},
         {"@type": "ListItem", "position": 2, "name": nombre}]}
     cuerpo = f"""<nav class="migas contenedor" aria-label="Migas de pan"><a href="../index.html">Inicio</a><span aria-hidden="true">/</span><a href="../index.html#kits">Kits</a><span aria-hidden="true">/</span><span aria-current="page">{e(nombre)}</span></nav>
 <section class="producto contenedor">
-<div class="galeria">{imagen(prod['id'], ficha['alt_imagenes'][0], '../', 'foto foto-producto')}</div>
+<div class="galeria">{imagen(prod['id'], ficha['alt_imagenes'][0], '../', 'foto foto-producto', principal=True)}</div>
 <div class="compra">
 <span class="etiqueta">{icono('kit', 'ico ico-s')} Kit completo · {len(ficha['incluye'])} piezas</span>
 <h1>{e(ficha['titular'])}</h1>
@@ -314,11 +323,12 @@ def pagina_producto(prod, ficha, marca, tienda):
 {comparacion(prod, ficha)}
 <section class="seccion contenedor estrecho"><p class="sobretitulo">Opiniones</p><h2>Reseñas reales, pronto</h2><div class="resenas-vacio">{icono('estrella')}<p>Solo publicamos opiniones de clientes que recibieron su pedido. Sin reseñas inventadas: cuando lleguen, las verás aquí.</p></div></section>
 {bloque_faq(preguntas, id_="preguntas-producto")}
+{otros_kits(prod, productos)}
 <section class="cta-final"><div class="contenedor"><h2>¿Listo para probarlo?</h2><p>Elige tu oferta y deja tus datos: toma menos de un minuto.</p><a class="boton boton-grande boton-auto" href="#pedido">Pedir {e(nombre)} · {clp(prod['precio'])}</a></div></section>
 <div class="barra-compra" id="barra-compra"><div><strong>{clp(prod['precio'])}</strong></div><a class="boton" href="#pedido">Pedir ahora</a></div>"""
     og = f"img/{prod['id']}.jpg" if (PLANTILLA / "img" / f"{prod['id']}.jpg").exists() else None
     return pagina(marca, tienda, ficha["titulo_seo"], ficha["meta_descripcion"], cuerpo, base="../",
-                  canonica=f"productos/{ficha['handle']}.html", imagen_og=og, extra_ld=(producto_ld, migas_ld, ld_faq(preguntas)))
+                  canonica=f"productos/{ficha['handle']}.html", imagen_og=og, extra_ld=(producto_ld, migas_ld, ld_faq(preguntas)), tipo_og="product")
 
 
 def etiqueta_publica(p):
@@ -328,16 +338,36 @@ def etiqueta_publica(p):
     return re.split(r"[:(;,.]", p.get("rol", ""))[0].strip().capitalize()
 
 
+def tarjeta(p, f, mascota, base):
+    img = imagen(p['id'], f['alt_imagenes'][0], base, 'foto foto-tarjeta', sizes='(min-width:1100px) 25vw, (min-width:700px) 33vw, 50vw')
+    return f"""<a class="tarjeta revelar" data-mascota="{mascota}" href="{base}productos/{e(f['handle'])}.html">{img}
+<div class="tarjeta-cuerpo"><span class="etiqueta">{e(etiqueta_publica(p))}</span><h3>{e(f['titulo_seo'].split(':')[0])}</h3>
+<div class="tarjeta-pie"><div><strong>{clp(p['precio'])}</strong><small>2 por {clp(p['oferta_2'])}</small></div><span class="boton boton-chico" aria-hidden="true">Ver {icono('flecha', 'ico ico-s')}</span></div></div></a>"""
+
+
+RELACIONADOS = {"kit-bano-secado-perro": ["kit-pelo-cero", "kit-verano-fresco"],
+                "kit-gato-sin-pelusas": ["kit-gato-aseo-unas-pelo", "kit-pelo-cero"],
+                "kit-pelo-cero": ["kit-gato-sin-pelusas", "kit-bano-secado-perro"]}
+
+
+def otros_kits(prod, productos):
+    por_id = {p["id"]: (p, f) for p, f in productos}
+    ids = [i for i in RELACIONADOS.get(prod["id"], []) if i in por_id]
+    ids += [p["id"] for p, _ in productos if p["id"] != prod["id"] and p["id"] not in ids]
+    elegidos = [por_id[i] for i in ids[:2]]
+    if not elegidos:
+        return ""
+    cards = "".join(tarjeta(p, f, "", "../").replace(" revelar", "") for p, f in elegidos)
+    return f'<section class="seccion contenedor" id="otros-kits"><p class="sobretitulo">Otros kits</p><h2>También te puede servir</h2><div class="grilla grilla-otros">{cards}</div></section>'
+
+
 def portada(productos, marca, tienda):
     def mascota(p):
         if p.get("mascota"):
             return p["mascota"]
         t = (p["id"] + " " + p.get("rol", "")).lower()
         return "gato" if "gato" in t else ("perro" if "perro" in t or "paseo" in t else "ambos")
-    tarjetas = "".join(f"""<a class="tarjeta revelar" data-mascota="{mascota(p)}" href="productos/{e(f['handle'])}.html">{imagen(p['id'], f['alt_imagenes'][0], '', 'foto foto-tarjeta', sizes='(min-width:1100px) 25vw, (min-width:700px) 33vw, 50vw')}
-<div class="tarjeta-cuerpo"><span class="etiqueta">{e(etiqueta_publica(p))}</span><h3>{e(f['titulo_seo'].split(':')[0])}</h3>
-<div class="tarjeta-pie"><div><strong>{clp(p['precio'])}</strong><small>2 por {clp(p['oferta_2'])}</small></div><span class="boton boton-chico" aria-hidden="true">Ver {icono('flecha', 'ico ico-s')}</span></div></div></a>"""
-                       for p, f in productos)
+    tarjetas = "".join(tarjeta(p, f, mascota(p), "") for p, f in productos)
     hero = img_tag("hero", "Perro y gato descansando juntos en un sillón de un living luminoso", "", "hero-img", carga="eager", prioridad=True)
     preguntas = faq_general(tienda)
     filtros = ('<div class="filtros" role="group" aria-label="Filtrar kits">'
@@ -419,7 +449,7 @@ def main():
         shutil.copytree(PLANTILLA / "img", SITIO / "img")
     (SITIO / "index.html").write_text(portada(productos, marca, tienda), encoding="utf-8")
     for p, f in productos:
-        (SITIO / "productos" / f"{f['handle']}.html").write_text(pagina_producto(p, f, marca, tienda), encoding="utf-8")
+        (SITIO / "productos" / f"{f['handle']}.html").write_text(pagina_producto(p, f, marca, tienda, productos), encoding="utf-8")
     legales(marca, tienda)
     (SITIO / "robots.txt").write_text("User-agent: *\nAllow: /\n" + (f"Sitemap: {tienda['url_sitio'].rstrip('/')}/sitemap.xml\n" if tienda.get("url_sitio") else ""), encoding="utf-8")
     if tienda.get("url_sitio"):
