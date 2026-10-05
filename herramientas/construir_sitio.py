@@ -8,6 +8,7 @@ El sitio funciona gratis en GitHub Pages: el formulario contra entrega arma el p
 y lo envía por WhatsApp al número configurado en datos/tienda.json.
 """
 import csv
+import datetime
 import hashlib
 import html
 import json
@@ -105,6 +106,25 @@ def tamano(ruta):
         return None
 
 
+def generar_variantes():
+    """Crea variantes webp de 450 px (y 900 si la original es mayor) con ImageMagick, si está disponible.
+    Se guardan en herramientas/plantilla/img; sin ImageMagick se omiten y la página usa solo la original."""
+    carpeta = PLANTILLA / "img"
+    for webp in sorted(carpeta.glob("*.webp")):
+        if re.search(r"-(450|900)\.webp$", webp.name):
+            continue
+        dim = tamano(webp)
+        if not dim:
+            return
+        for w in (450, 900):
+            destino = carpeta / f"{webp.stem}-{w}.webp"
+            if w < dim[0] and not destino.exists():
+                try:
+                    subprocess.run(["convert", str(webp), "-resize", f"{w}x", "-quality", "78", str(destino)], check=True, capture_output=True)
+                except (OSError, subprocess.CalledProcessError):
+                    return
+
+
 def img_tag(nombre, alt, base, clase="", carga="lazy", prioridad=False, sizes="100vw"):
     jpg = PLANTILLA / "img" / f"{nombre}.jpg"
     if not jpg.exists():
@@ -113,9 +133,10 @@ def img_tag(nombre, alt, base, clase="", carga="lazy", prioridad=False, sizes="1
     wh = f' width="{dim[0]}" height="{dim[1]}"' if dim else ""
     fuentes = []
     if (PLANTILLA / "img" / f"{nombre}.webp").exists():
-        srcset = f"{base}img/{nombre}.webp {dim[0] if dim else 1200}w"
-        if (PLANTILLA / "img" / f"{nombre}-900.webp").exists():
-            srcset = f"{base}img/{nombre}-900.webp 900w, " + srcset
+        ancho = dim[0] if dim else 1200
+        cand = [(w, f"{nombre}-{w}.webp") for w in (450, 900) if w < ancho and (PLANTILLA / "img" / f"{nombre}-{w}.webp").exists()]
+        cand.append((ancho, f"{nombre}.webp"))
+        srcset = ", ".join(f"{base}img/{n} {w}w" for w, n in cand)
         fuentes.append(f'<source type="image/webp" srcset="{srcset}" sizes="{sizes}">')
     pr = ' fetchpriority="high"' if prioridad else ""
     return (f'<picture>{"".join(fuentes)}<img class="{clase}" src="{base}img/{nombre}.jpg" alt="{e(alt)}"{wh} '
@@ -224,7 +245,7 @@ def pagina(marca, tienda, titulo, descripcion, cuerpo, base="", canonica=None, i
 <div class="pie-marca"><p class="logo logo-pie" aria-label="{e(marca['nombre'])}">{logo_svg(pie=True)}</p><p>{e(marca['promesa'])}</p>{redes_html(tienda, marca, "redes redes-pie")}</div>
 <div><p class="pie-tit">Tienda</p><nav class="pie-nav"><a href="{base}index.html#kits">Kits</a><a href="{base}index.html#como-funciona">Cómo funciona</a><a href="{base}index.html#preguntas">Preguntas frecuentes</a></nav></div>
 <div><p class="pie-tit">Ayuda</p><nav class="pie-nav"><a href="{base}despacho.html">Despacho</a><a href="{base}cambios.html">Cambios, retracto y garantía</a><a href="{base}privacidad.html">Privacidad</a><a href="{base}contacto.html">Contacto</a></nav></div>
-<div><p class="pie-tit">Escríbenos</p><nav class="pie-nav">{pie_contacto}<span class="pie-lnk pie-pago">{icono('pago', 'ico ico-s')} Pago contra entrega</span></nav></div>
+<div><p class="pie-tit">Escríbenos</p><nav class="pie-nav">{pie_contacto}</nav></div>
 </div>
 <p class="legal-pie">© {e(tienda.get('razon_social') or marca['nombre'])}{' · RUT ' + e(tienda['rut']) if tienda.get('rut') else ''}{' · ' + e(tienda['direccion_comercial']) if tienda.get('direccion_comercial') else ''} · Precios en pesos chilenos, IVA incluido.</p>
 </footer>
@@ -249,7 +270,7 @@ def como_funciona():
              ("chat", "Te confirmamos por WhatsApp", "Revisamos dirección y plazo contigo antes de despachar."),
              ("pago", "Pagas cuando llega", "Recibes el kit en tu puerta y pagas al repartidor.")]
     items = "".join(f'<li class="revelar"><span class="paso-num">{i}</span>{icono(ic)}<h3>{e(t)}</h3><p>{e(d)}</p></li>' for i, (ic, t, d) in enumerate(pasos, 1))
-    return f'<section class="seccion contenedor" id="como-funciona"><p class="sobretitulo">Cómo funciona</p><h2>Comprar con pago contra entrega es así de simple</h2><ol class="tres-pasos">{items}</ol><p class="nota-cambios">{icono("retracto", "ico ico-s")} ¿No te convenció? Tienes 10 días de retracto desde que lo recibes. <a href="cambios.html">Ver cambios y garantía</a></p></section>'
+    return f'<section class="seccion contenedor" id="como-funciona"><p class="sobretitulo">Cómo funciona</p><h2>Comprar es así de simple</h2><ol class="tres-pasos">{items}</ol><p class="nota-cambios">{icono("retracto", "ico ico-s")} ¿No te convenció? Tienes 10 días de retracto desde que lo recibes. <a href="cambios.html">Ver cambios y garantía</a></p></section>'
 
 
 def faq_general(tienda):
@@ -357,13 +378,13 @@ def pagina_producto(prod, ficha, marca, tienda, productos=()):
         {"@type": "ListItem", "position": 2, "name": nombre}]}
     cuerpo = f"""<nav class="migas contenedor" aria-label="Migas de pan"><a href="../index.html">Inicio</a><span aria-hidden="true">/</span><a href="../index.html#kits">Kits</a><span aria-hidden="true">/</span><span aria-current="page">{e(nombre)}</span></nav>
 <section class="producto contenedor">
-<div class="galeria">{imagen(prod['id'], ficha['alt_imagenes'][0], '../', 'foto foto-producto', principal=True)}</div>
+<div class="galeria">{imagen(prod['id'], alt_principal(prod, ficha), '../', 'foto foto-producto', principal=True)}</div>
 <div class="compra">
 <span class="etiqueta">{icono('kit', 'ico ico-s')} Kit completo · {len(ficha['incluye'])} piezas</span>
 <h1>{e(ficha['titular'])}</h1>
 <p class="sub">{e(ficha['subtitular'])}</p>
 <div class="precio"><strong>{clp(prod['precio'])}</strong><span class="iva">IVA incluido</span><span class="chip">Lleva 2 y ahorra {clp(ahorro)}</span></div>
-<ul class="clave"><li>{icono('pago', 'ico ico-s')} <strong>Pagas al recibir</strong></li><li>{icono('envio', 'ico ico-s')} Llega en {e(tienda['plazos_despacho']['RM'])} (RM) · {e(tienda['plazos_despacho']['regiones'])} (regiones)</li></ul>
+<ul class="clave"><li>{icono('envio', 'ico ico-s')} Llega en {e(tienda['plazos_despacho']['RM'])} (RM) · {e(tienda['plazos_despacho']['regiones'])} (regiones)</li></ul>
 <a class="boton boton-grande cta-ficha" href="#pedido">Pedir este kit</a>
 {formulario(prod, ficha, tienda)}
 </div>
@@ -381,6 +402,13 @@ def pagina_producto(prod, ficha, marca, tienda, productos=()):
                   canonica=f"productos/{ficha['handle']}.html", imagen_og=og, extra_ld=(producto_ld, migas_ld, ld_faq(preguntas)), tipo_og="product", clase_body="ficha")
 
 
+ALT_PRINCIPAL = {"kit-bano-secado-perro": "Toalla de microfibra, cepillo de silicona y guante de baño para perros"}
+
+
+def alt_principal(p, f):
+    return ALT_PRINCIPAL.get(p["id"], f["alt_imagenes"][0])
+
+
 def etiqueta_publica(p):
     """Etiqueta corta para la tarjeta: 'etiqueta' explícita o el comienzo del rol sin notas internas."""
     if p.get("etiqueta"):
@@ -389,7 +417,7 @@ def etiqueta_publica(p):
 
 
 def tarjeta(p, f, mascota, base):
-    img = imagen(p['id'], f['alt_imagenes'][0], base, 'foto foto-tarjeta', sizes='(min-width:1100px) 25vw, (min-width:700px) 33vw, 50vw')
+    img = imagen(p['id'], alt_principal(p, f), base, 'foto foto-tarjeta', sizes='(min-width:1100px) 25vw, (min-width:700px) 33vw, 50vw')
     return f"""<a class="tarjeta revelar" data-mascota="{mascota}" href="{base}productos/{e(f['handle'])}.html"><div class="tarjeta-img">{img}<span class="etiqueta">{e(etiqueta_publica(p))}</span></div>
 <div class="tarjeta-cuerpo"><h3>{e(f['titulo_seo'].split(':')[0])}</h3>
 <div class="tarjeta-pie"><div><strong>{clp(p['precio'])}</strong><small>2 por {clp(p['oferta_2'])}</small></div><span class="tarjeta-ir" aria-hidden="true">{icono('flecha', 'ico ico-s')}</span></div></div></a>"""
@@ -525,6 +553,7 @@ def main():
     for archivo in ("estilos.css", "pedido.js", "favicon.svg"):
         shutil.copy(PLANTILLA / archivo, SITIO / archivo)
     if (PLANTILLA / "img").exists():
+        generar_variantes()
         shutil.copytree(PLANTILLA / "img", SITIO / "img")
     (SITIO / "index.html").write_text(portada(productos, marca, tienda), encoding="utf-8")
     for p, f in productos:
@@ -533,8 +562,9 @@ def main():
     (SITIO / "robots.txt").write_text("User-agent: *\nAllow: /\n" + (f"Sitemap: {tienda['url_sitio'].rstrip('/')}/sitemap.xml\n" if tienda.get("url_sitio") else ""), encoding="utf-8")
     if tienda.get("url_sitio"):
         base = tienda["url_sitio"].rstrip("/")
+        hoy = datetime.date.today().isoformat()
         urls = [base + "/"] + [f"{base}/productos/{f['handle']}.html" for _, f in productos]
-        (SITIO / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + "".join(f"<url><loc>{u}</loc></url>" for u in urls) + "</urlset>\n", encoding="utf-8")
+        (SITIO / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + "".join(f"<url><loc>{u}</loc><lastmod>{hoy}</lastmod></url>" for u in urls) + "</urlset>\n", encoding="utf-8")
     csv_shopify(productos, marca)
     print(f"Sitio: {len(productos)} productos -> {SITIO.relative_to(RAIZ)}/ ; CSV Shopify -> shopify/productos.csv")
 

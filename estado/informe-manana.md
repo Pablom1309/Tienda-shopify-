@@ -2,6 +2,12 @@
 
 Se actualiza al final de cada turno autónomo. Lo más reciente arriba.
 
+## 2026-10-05 madrugada — rediseño publicado y ronda 3
+- **Rediseño visual publicado** (lo pediste): contacto con WhatsApp y teléfono que se tocan, botón flotante, íconos, tarjetas nuevas. Auditor OK.
+- **Ronda 3:** el píxel ya no marca "compra" al abrir WhatsApp (ahora "contacto"); imágenes más livianas en el celular; "Pagas al recibir" sin repetir.
+- **Redes:** calendario de 30 días y bios para @kuchiwau en `datos/contenido_organico.md`; grabas todo en 4 sesiones (lista de tomas incluida).
+- **Para ver íconos de Instagram/TikTok en la web:** crea las cuentas (LANZAMIENTO 0.4) y pásame los usuarios.
+
 ## 2026-10-05 madrugada — ronda 2 (diseño primero, como pediste)
 - **Tu pedido aplicado:** diseño de la página va primero; corre en cada ronda (cada 2 h) y las demás áreas le alimentan propuestas.
 - **Diseño:** foto principal carga primero, bloque "Otros kits" en cada ficha (enlaces entre kits), mejores vistas previas al compartir y datos para Google. Auditor OK.

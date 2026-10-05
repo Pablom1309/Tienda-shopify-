@@ -151,7 +151,9 @@
       '• Acepto recordatorios y novedades por WhatsApp: ' + (d.get('consentimiento') ? 'Sí' : 'No')
     ].filter(Boolean);
     if (!f.dataset.wa) { alert('La tienda aún no tiene WhatsApp configurado. Vuelve pronto.'); return; }
-    if (window.fbq) { window.fbq('track', 'Purchase', { value: total(), currency: 'CLP' }); }
+    // Abrir WhatsApp es una intención de compra (Lead), no una compra. 'Purchase' solo debe
+    // dispararse cuando exista confirmación real del pedido (entrega o pago confirmado).
+    if (window.fbq) { window.fbq('track', 'Lead', { value: total(), currency: 'CLP', content_name: f.dataset.producto }); }
     window.location.href = 'https://wa.me/' + f.dataset.wa + '?text=' + encodeURIComponent(lineas.join('\n'));
   });
 })();

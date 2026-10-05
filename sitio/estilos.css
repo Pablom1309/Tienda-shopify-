@@ -419,3 +419,5 @@ a.contacto-dato:hover{text-decoration:underline}
 /* En fichas (móvil) sube sobre la barra fija inferior */
 @media(max-width:959px){.ficha .wa{bottom:calc(84px + env(safe-area-inset-bottom));width:52px;height:52px;min-width:52px;padding:0}}
 @media(max-width:959px){.ficha{padding-bottom:0}}
+/* En fichas de escritorio el botón es solo ícono: no tapa el precio de las ofertas */
+@media(min-width:960px) and (max-width:1499px){.ficha .wa{padding:0;width:56px;right:16px}.ficha .wa-txt{display:none}}

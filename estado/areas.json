@@ -11,7 +11,7 @@
     "diseno": {
       "agente": "disenador-web",
       "ttl_horas": 2,
-      "ultima": "2026-10-05T03:55:51Z",
+      "ultima": "2026-10-05T07:52:14Z",
       "prioridad": 1,
       "foco": "Diseño y mejoras de la tienda web primero (dueño 2026-10-05): integrar propuestas de SEO, legal y competencia; una mejora coherente por ronda, verificada en móvil"
     },
@@ -46,7 +46,7 @@
     "marca": {
       "agente": "marca-redes",
       "ttl_horas": 48,
-      "ultima": null,
+      "ultima": "2026-10-05T07:52:14Z",
       "prioridad": 9,
       "foco": "Calendario orgánico de 30 días centrado en los 3 kits de partida (sin grilla de 9)"
     },
