@@ -546,3 +546,51 @@ h2{line-height:1.08}
 @media(min-width:700px){.e404-kits{max-width:none;grid-template-columns:repeat(3,minmax(0,1fr))}}
 .e404-kits .tarjeta:nth-child(3){display:none}
 @media(min-width:700px){.e404-kits .tarjeta:nth-child(3){display:block}}
+
+/* ===== Ronda 6 (2026-10-05): formulario con errores claros y confirmación, estado vacío, miniaturas, línea clave, ritmo sin sobretítulos ===== */
+/* Sin sobretítulo sobre cada sección: el titular lleva el mensaje; solo el hero conserva su línea */
+.seccion>h2:first-child,.seccion .contenedor>h2:first-child,.dos-col h2:first-child{margin-top:0}
+.faq{margin-top:20px}
+.tres-pasos{margin-top:28px}
+.compra .clave{margin:12px 0 18px;font-size:.95rem}
+.clave strong{font-weight:800}
+.clave .ico{margin-top:2px;color:var(--primario)}
+/* Formulario */
+.opcional{font-weight:400;color:var(--gris)}
+.campo input[aria-invalid=true],.campo select[aria-invalid=true]{border-color:var(--error);background:#FFF6F5}
+.error-txt{line-height:1.35}
+.form-aviso{margin:0;background:#FDECEA;color:#8C1D18;border-radius:var(--radio-s);padding:10px 12px;font-weight:700;font-size:.9rem}
+.form-aviso:not([hidden]){animation:aparecer .25s var(--ease-out) both}
+.pedido-ok{background:color-mix(in srgb,var(--primario) 6%,#fff);border:1px solid color-mix(in srgb,var(--primario) 22%,var(--linea));border-radius:var(--radio-s);padding:14px 16px;display:grid;gap:8px;justify-items:start}
+.pedido-ok:not([hidden]){animation:aparecer .3s var(--ease-out) both}
+.pedido-ok p{margin:0;color:var(--gris);font-size:.92rem}
+.pedido-ok strong{overflow-wrap:anywhere}
+#ok-num{font-family:var(--titulo);font-variant-numeric:tabular-nums;white-space:nowrap}
+.pedido-ok .boton{min-height:44px;font-size:.92rem}
+@keyframes aparecer{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.boton[disabled]{opacity:.7;cursor:progress}
+.opcion:active,.extra:active{transform:scale(.985)}
+.opcion,.extra{transition:border-color .15s ease,background-color .15s ease,transform .16s var(--ease-out)}
+@media(max-width:400px){.opcion{flex-wrap:wrap}.opcion-txt em{font-size:.76rem}}
+/* Estado vacío del filtro */
+.vacio{margin-top:24px;padding:28px 20px;border:1.5px dashed var(--linea);border-radius:var(--radio);text-align:center;display:grid;gap:14px;justify-items:center;background:var(--blanco)}
+.vacio:not([hidden]){animation:aparecer .25s var(--ease-out) both}
+.vacio p{margin:0;color:var(--gris)}
+/* Miniaturas de galería (aparecen solo con fotos extra reales) */
+.miniaturas{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.mini{width:72px;height:72px;padding:0;border:2px solid var(--linea);border-radius:var(--radio-s);overflow:hidden;background:var(--suave);cursor:pointer;transition:border-color .15s ease,transform .16s var(--ease-out)}
+.mini:active{transform:scale(.96)}
+.mini.activa{border-color:var(--primario)}
+.mini-img{width:100%;height:100%;object-fit:cover}
+@media(max-width:959px){.miniaturas{gap:8px;margin-top:8px}.mini{width:56px;height:56px}}
+/* Otros kits: tres en escritorio, dos en móvil */
+@media(min-width:700px){.grilla-otros{max-width:none;grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:699px){.grilla-otros .tarjeta:nth-child(3){display:none}}
+.foto img{transition:transform .4s var(--ease-out)}
+@media (prefers-reduced-motion:reduce){.form-aviso,.pedido-ok,.vacio{animation:none}.opcion:active,.extra:active{transform:none}}
+[hidden]{display:none!important}
+.clave li>span{font-weight:600}
+.clave strong{font-weight:800}
+.boton-grande[type=submit]{padding-inline:20px}
+@media(max-width:520px){.fila{grid-template-columns:1fr}}
+@media(max-width:959px){.compra .clave{margin:8px 0 14px;font-size:.9rem;line-height:1.4}.compra .sub{margin:0 0 6px}}
