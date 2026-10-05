@@ -3,6 +3,7 @@
 Agente: `estratega-ads`. Lo actualiza el propio agente en cada ronda.
 
 ## Próximas tareas
+- (legal 2026-10-05) ads: no pautar hasta resolver C1, C2, C3 y I5; el evento de compra no debe dispararse al abrir WhatsApp.
 - (dirección 2026-10-05) Preparar 4 o 5 conceptos realmente distintos (ángulo, persona y formato) para Gato Sin Pelusas y Pelo Cero, más 2 para Baño y Secado, con ganchos y texto conformes a las políticas de Meta. Sin presupuesto ni campañas; anotar qué tomas reales necesita el dueño.
 - 4-5 conceptos creativos realmente distintos por kit prioritario (backlog P4); solo kits con proveedor verificado se pautan.
 

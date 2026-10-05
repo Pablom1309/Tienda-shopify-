@@ -34,6 +34,7 @@ Etapa: validación, antes del lanzamiento (0 ventas, 0 pauta). Del 5 al 7 de oct
 - **Dependencia del dueño:** casi toda la ruta crítica (SII, dominio, Dropi, Shopify) es un portón humano. Si el dueño no avanza, el sistema solo puede preparar.
 
 ## Próximas tareas
+- (operaciones 2026-10-05) Dirección: Dropi/Dropify y la verificación de los 3 kits de partida (muestra, stock, costo real) son requisito antes de pautar.
 - En la próxima ronda, revisar si legal y operaciones cerraron sus entregables y reordenar.
 - Cuando el dueño cargue los costos de Dropi, decidir los 2 kits del primer test con G real.
 

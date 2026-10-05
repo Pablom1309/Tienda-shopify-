@@ -3,6 +3,8 @@
 Agente: `operaciones-cx`. Lo actualiza el propio agente en cada ronda.
 
 ## Próximas tareas
+- (diseno 2026-10-05) Operaciones/Dropi: medidas y materiales reales de las piezas de los 3 kits de partida, para reemplazar "por confirmar con proveedor".
+- (legal 2026-10-05) operaciones: confirmar con Dropi si el flete va incluido (C3, opción A o B) y el plazo real; añadir a la plantilla de confirmación por WhatsApp los datos del proveedor, retracto y garantía (I2); definir intentos de entrega y reembolso (M1).
 - Cuando exista la cuenta Dropi: confirmar con soporte comisión, flete de devolución, cobertura por comuna, cobro de retiro y plazo de reclamo; actualizar `datos/operaciones.md` y `datos/supuestos.json`.
 - Probar la integración Dropify con un pedido de prueba; mientras tanto rige el plan B manual.
 - Con los primeros pedidos reales, reemplazar los valores "estimado" por tasas medidas.

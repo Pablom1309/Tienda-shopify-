@@ -3,6 +3,8 @@
 Agente: `disenador-web`. Lo actualiza el propio agente en cada ronda.
 
 ## Próximas tareas
+- (legal 2026-10-05) diseno: cambiar `pedido.js` línea 154 de `Purchase` a `Lead` o `InitiateCheckout`; cargar el píxel solo con aviso y opción de rechazar (coordinar con ads).
+- (legal 2026-10-05) diseno (cuando existan los datos del dueño): integrar el texto de `datos/legal/privacidad.md` en `privacidad.html`; reemplazar `contacto.html` y el pie con los textos de C1; reemplazar `cambios.html` con el texto de I1; añadir el enlace "Cómo usamos tus datos" en la casilla de consentimiento y el aviso de una línea bajo el botón de WhatsApp (textos auxiliares en privacidad.md). Mientras razón social, RUT, domicilio y correo sean null, mostrar aviso interno y no publicar.
 - Formulario móvil: probar envío real en iPhone/Android (teclado, autocompletar) y reducir campos si Baymard lo respalda.
 - Ficha: galería con 2.ª foto (contenido del kit) cuando existan fotos reales; hoy solo hay una imagen referencial por kit.
 - Revisar repetición de "Pagas al recibir" (barra superior, ficha, total del formulario): un solo lugar por página.

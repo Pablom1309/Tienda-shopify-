@@ -34,9 +34,10 @@ Tareas que requieren al dueño van en "Bloqueadas (portón humano)": nunca se ej
 - [ ] **Página de gracias con upsell de un clic** del complemento (sacarlo del formulario previo si baja fricción).
 - [x] (2026-10-04) → formulario de producto · **Consentimiento expreso para recordatorios por WhatsApp** (Ley 21.719, vigente 1-dic-2026): casilla opcional, desmarcada, en el formulario.
 - [ ] **Rendimiento:** medir peso total por página y tiempos con Chromium; bajar lo que sobre (fuentes, imágenes, CSS no usado).
-- [ ] **Evento del píxel:** cambiar `Purchase` al abrir WhatsApp por `Lead`, y `Purchase` solo con pedido confirmado (CAPI) cuando exista el píxel. Ver `investigacion/auditoria-conversion.md`.
+- [ ] (legal 2026-10-05 lo reafirma; tarea en diseño) **Evento del píxel:** cambiar `Purchase` al abrir WhatsApp por `Lead`, y `Purchase` solo con pedido confirmado (CAPI) cuando exista el píxel. Ver `investigacion/auditoria-conversion.md`.
 
 ## Prioridad 4 — Adquisición
+- [ ] (analista-resultados) **Decidir si `resultados.py` lee `datos/resultados/plantilla_tablero_semanal.csv.ejemplo`** (columnas región, transportadora, novedades, saldo) o se sigue solo con `PLANTILLA.csv`.
 - [ ] **Calendario de contenido orgánico de 30 días** (Reels/TikTok) con guiones, ganchos y textos, alineado con `datos/plan_ads.json`. → `datos/contenido_organico.md`
 - [ ] **Creativos para anuncios:** 4-5 conceptos realmente distintos por kit (persona × ángulo × formato, ver `investigacion/playbook-referentes.md`), cada uno con 2-3 ganchos (texto en pantalla, primera línea del texto), cumpliendo políticas de Meta. Actualizar `datos/plan_ads.json`.
 - [x] (2026-10-04) → `LANZAMIENTO.md` · **Plan de lanzamiento consolidado para el dueño:** checklist día a día de los primeros 14 días, con lo que hace él y lo que hace el sistema. → `investigacion/plan-lanzamiento.md`
@@ -49,6 +50,9 @@ Tareas que requieren al dueño van en "Bloqueadas (portón humano)": nunca se ej
 - Registrar kuchiwau.cl (y kuchiguau.cl, cuchiguau.cl para redirigir) y solicitar la marca "Kuchiwau" en INAPI (clases 35, 18, 21, 28). Kimo descartado: registrado por Puratos S.A.
 - Datos legales en `datos/tienda.json` (correo, dirección, razón social, RUT). WhatsApp listo el 2026-10-04.
 - Verificación de calidad en Dropi de los 19 kits: completar `datos/verificacion_dropi.csv` (proveedor verificado/premium, mismo proveedor, muestra ≥ 4/5, costo y flete reales). Guía: `investigacion/guia-verificacion-dropi.md`.
+- Confirmar con Dropi si el flete va incluido en el precio (opción A/B de `datos/legal/brechas.md` C3) y el plazo real de despacho.
+- Confirmar certificación SEC del cepillo recargable de Pelo Cero antes de pautarlo.
+- Validar con SERNAC o un abogado el texto de cambios/retracto (`datos/legal/brechas.md` I1): quién paga la devolución y plazo de reembolso.
 - Aprobación de presupuesto de anuncios y creación de campañas.
 - Plan pagado de Shopify e importación del CSV.
 - Fotos reales del producto (requiere muestra física).
