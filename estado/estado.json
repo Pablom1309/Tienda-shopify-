@@ -1,10 +1,10 @@
 {
   "ciclo": {
     "numero": 4,
-    "fecha": "2026-10-04",
+    "fecha": "2026-10-05",
     "reintentos": 1,
     "fase": "listo_para_test",
-    "proximo_foco": "19/20 activos. Dueño: costos reales en Dropi (19 kits, mismo proveedor por kit), datos legales, kuchiwau.cl e INAPI. Fotos: 9 kits con imagen provisional (Canva sin créditos)."
+    "proximo_foco": "Diseño web primero (dueño). 19/20 activos. Dueño: datos legales, verificación Dropi de los 3 kits de partida, cuentas @kuchiwau, despacho incluido o no."
   },
   "nicho": "mascotas: kits de cuidado en casa (pelo y verano)",
   "nodos": {

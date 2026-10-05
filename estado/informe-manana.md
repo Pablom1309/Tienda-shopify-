@@ -2,6 +2,17 @@
 
 Se actualiza al final de cada turno autónomo. Lo más reciente arriba.
 
+## 2026-10-05 06:17 — resumen de las últimas 24 h (ciclo diario)
+- **Web:** rediseño visual publicado (contacto con WhatsApp/teléfono clicables, botón flotante, íconos, tarjetas), ficha móvil con precio y botón a la vista, "Otros kits" entre fichas, imágenes más livianas. Diseño corre en cada ronda (tu prioridad).
+- **Equipo de expertos activo:** 3 rondas. Objetivo semanal: listos para el 1er pedido contra entrega al 11-oct con Baño y Secado, Gato Sin Pelusas y Pelo Cero.
+- **Listos en el repo:** privacidad Ley 21.719 (`datos/legal/`), flujo de pedidos COD (`datos/operaciones.md`), competencia (`datos/competencia.md`), 12 conceptos de anuncios y calendario de 30 días con bios para @kuchiwau.
+- **Productos:** ciclo sin cambios (nada vencido; 19 kits activos). Pelo Cero ahora "cepillo con bruma".
+- **Necesito de ti (en orden):**
+  1. Razón social, RUT, domicilio y correo → `datos/tienda.json` (sin esto no se publican los textos legales).
+  2. Dropi: verificar los 3 kits de partida (costo, flete incluido o no, plazo real) y certificación SEC del cepillo de Pelo Cero.
+  3. Crear @kuchiwau en Instagram/TikTok y pasarme los usuarios (aparecerán en la web).
+  4. Decidir si el despacho va incluido en el precio; confirmar dominio (kuchiwau.cl).
+
 ## 2026-10-05 madrugada — rediseño publicado y ronda 3
 - **Rediseño visual publicado** (lo pediste): contacto con WhatsApp y teléfono que se tocan, botón flotante, íconos, tarjetas nuevas. Auditor OK.
 - **Ronda 3:** el píxel ya no marca "compra" al abrir WhatsApp (ahora "contacto"); imágenes más livianas en el celular; "Pagas al recibir" sin repetir.
