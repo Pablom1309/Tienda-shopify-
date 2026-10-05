@@ -69,6 +69,8 @@
     {
       "id": "kit-pelo-cero",
       "publico_mascota": "perros",
+      "pauta_bloqueada": "Bloqueada hasta confirmar certificación eléctrica/SEC de la batería USB y qué hace realmente la niebla (legal I4), además de C1-C3, I5 y verificación Dropi. En anuncios decir 'cepillo con niebla de agua', nunca 'vapor caliente'.",
+      "conceptos_creativos": {"archivo": "datos/conceptos_ads.md", "ids": ["P1 sillón oscuro (video sin rostro)", "P2 demostración botón (video corto)", "P3 muda de primavera (dueño real)", "P4 comparación rodillo adhesivo (estática+video)", "P5 cómo funciona la niebla en 3 pasos (carrusel)"], "nota": "Conceptos por persona x ángulo x formato; los 'angulos' de abajo son el borrador previo. Sin presupuesto nuevo."},
       "orden_lanzamiento": 2,
       "inicio_sugerido": "junto con el kit de gato, apenas se cumplan las condiciones del catálogo (octubre-noviembre; la muda de primavera es suave, el kit rinde todo el año)",
       "estructura": {
@@ -132,6 +134,8 @@
     {
       "id": "kit-gato-sin-pelusas",
       "publico_mascota": "gatos",
+      "pauta_bloqueada": "Bloqueada hasta resolver C1, C2, C3, I5 (legal) y verificación Dropi.",
+      "conceptos_creativos": {"archivo": "datos/conceptos_ads.md", "ids": ["G1 camisa oscura POV (video sin rostro)", "G2 un botón, todo el pelo (demostración primer plano)", "G3 departamento chico, rutina 3 piezas (dueño real)", "G4 regalo/unboxing (carrusel+estática)", "G5 sin repuestos adhesivos (comparación)"], "nota": "Sin presupuesto nuevo."},
       "orden_lanzamiento": 1,
       "inicio_sugerido": "apenas se apruebe el gasto (semana del 5 al 11 de octubre): el pico de búsqueda 'cepillo gato' es en octubre",
       "estado_costos": "estimados (sin verificar en Dropi)",
@@ -224,6 +228,8 @@
     {
       "id": "kit-bano-secado-perro",
       "publico_mascota": "perros",
+      "pauta_bloqueada": "Bloqueada hasta resolver C1, C2, C3, I5 (legal) y verificación Dropi (costos estimados).",
+      "conceptos_creativos": {"archivo": "datos/conceptos_ads.md", "ids": ["B1 del baño a la toalla (video con persona)", "B2 guante y cepillo, sonido real + 'usa tu shampoo' (video sin rostro)"], "nota": "Decir siempre 'no incluye shampoo'. Sin presupuesto nuevo."},
       "orden_lanzamiento": 3,
       "inicio_sugerido": "desde el 26 de octubre y antes del 16 de noviembre (primavera-verano)",
       "estado_costos": "estimados (sin verificar en Dropi)",
