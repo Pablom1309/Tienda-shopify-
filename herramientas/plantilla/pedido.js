@@ -2,6 +2,20 @@
 (function () {
   document.documentElement.classList.add('js');
 
+  // Encabezado: gana sombra y se compacta al pasar los primeros píxeles (solo clase; el movimiento es CSS).
+  var cab = document.querySelector('.barra');
+  if (cab) {
+    var enScroll = false;
+    var marcar = function () { enScroll = false; cab.classList.toggle('compacta', window.scrollY > 8); };
+    window.addEventListener('scroll', function () { if (!enScroll) { enScroll = true; requestAnimationFrame(marcar); } }, { passive: true });
+    marcar();
+  }
+
+  // Bloques que entran al hacer scroll (el contenido queda visible si falla el script). El hero no se toca.
+  document.querySelectorAll('main .seccion > h2, main .seccion .contenedor > h2, .seccion .nota-fotos, .filtros, .tres-pasos li, .riesgo > div:first-child, .riesgo-lista li, .beneficios li, .pilares li, .caja, .dos-col > div, .tabla-envoltura, .cta-final .contenedor, .contacto-wa, .contacto-card, .contacto-ayuda, .faq details').forEach(function (el) {
+    if (!el.classList.contains('revelar')) el.classList.add('revelar');
+  });
+
   // Revelado suave al hacer scroll; si el usuario pidió menos movimiento, se muestra todo de inmediato.
   var reveladores = document.querySelectorAll('.revelar');
   var menosMovimiento = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -11,7 +25,7 @@
     var io = new IntersectionObserver(function (entradas) {
       entradas.forEach(function (en, i) {
         if (!en.isIntersecting) return;
-        setTimeout(function () { en.target.classList.add('visible'); }, Math.min(i, 4) * 50);
+        setTimeout(function () { en.target.classList.add('visible'); }, Math.min(i, 4) * 70);
         io.unobserve(en.target);
       });
     }, { rootMargin: '0px 0px -60px 0px' });
@@ -81,6 +95,24 @@
     });
   }
 
+  // Preguntas: abrir y cerrar con altura suave (grid-template-rows 0fr/1fr); sin JS funciona el details nativo.
+  document.querySelectorAll('.faq details').forEach(function (d) {
+    var s = d.querySelector('summary'), r = d.querySelector('.faq-r');
+    if (d.open) d.classList.add('abierto');
+    s.addEventListener('click', function (ev) {
+      ev.preventDefault();
+      if (menosMovimiento) { d.open = !d.open; d.classList.toggle('abierto', d.open); return; }
+      if (d.classList.contains('abierto')) {
+        d.classList.remove('abierto');
+        var fin = function (e2) { if (e2.target !== r || e2.propertyName !== 'grid-template-rows') return; r.removeEventListener('transitionend', fin); if (!d.classList.contains('abierto')) d.open = false; };
+        r.addEventListener('transitionend', fin);
+      } else {
+        d.open = true;
+        requestAnimationFrame(function () { requestAnimationFrame(function () { d.classList.add('abierto'); }); });
+      }
+    });
+  });
+
   var f = document.getElementById('pedido');
   if (!f) return;
   var clp = function (n) { return '$' + Number(n).toLocaleString('es-CL'); };
@@ -139,7 +171,14 @@
     } catch (e) { /* sin almacenamiento */ }
   };
 
-  var pintar = function () { document.getElementById('total').textContent = clp(total()); pintarEntrega(); };
+  var pintar = function () {
+    var t = document.getElementById('total'), nuevo = clp(total());
+    if (t.textContent !== nuevo) {
+      t.textContent = nuevo;
+      if (!menosMovimiento) { t.classList.remove('tick'); void t.offsetWidth; t.classList.add('tick'); }
+    }
+    pintarEntrega();
+  };
   f.addEventListener('change', function () { pintar(); guardar(); });
   // Validación por campo con mensaje que dice qué corregir (Baymard / clarify: error junto al campo, sin culpar).
   var digitos = function (t) { return (t || '').replace(/\D/g, ''); };
@@ -222,6 +261,7 @@
     document.getElementById('ok-num').textContent = num;
     document.getElementById('ok-enlace').href = url;
     ok.hidden = false;
+    boton.classList.remove('enviado'); void boton.offsetWidth; boton.classList.add('enviado');
     var w = window.open(url, '_blank');
     if (!w) window.location.href = url;
     setTimeout(function () { boton.disabled = false; boton.removeAttribute('aria-busy'); botonTxt.textContent = 'Confirmar por WhatsApp'; }, 4000);

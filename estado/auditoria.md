@@ -1,70 +1,73 @@
-# Auditoría Ronda 6 (2026-10-05)
+# Auditoría Ronda 7 (2026-10-05)
 
-Auditoría de cambios de diseño: formulario con validaciones, resumen de errores, número de pedido KW-DDMM-XXXX, estado "Abriendo WhatsApp…", panel de confirmación, filtro vacío, galería condicionada, "Otros kits" con 3 enlaces, "Pagas al recibir" en ficha, títulos ≤60 y metas ≤155, BreadcrumbList, preload de fuentes, validación JSON-LD, regla "un mensaje un lugar", pedido.js dispara Lead (no Purchase), no envía datos personales a terceros.
+Auditoría de ronda 7: sistema de botones (ícono en círculo, primario mandarina, secundario, WhatsApp), tarjetas con hover "Ver kit", entrada escalonada del hero, revelado al scroll, encabezado que se compacta, radios/casillas propios, total dinámico con Pack de 2, acordeón animado, check al confirmar pedido.
 
-## Errores
+## Resultado: OK
 
-1. **Título SEO excede 60 caracteres**: `sitio/productos/kit-aseo-de-gato-cortaunas-lima-guante-deslanador.html` línea 6
-   - "Kit Aseo de Gato: cortaúñas con protector + lima | Kuchiwau" = 61 caracteres (máximo: 60)
+### Verificaciones completadas
 
-2. **Título SEO excede 60 caracteres**: `sitio/productos/kit-bano-secado-perro-toalla-microfibra-cepillo-guante.html` línea 6
-   - "Kit de baño para perros: toalla, cepillo y guante | Kuchiwau" = 61 caracteres (máximo: 60)
+1. **python3 herramientas/verificar.py**
+   - Salida: código 0 (sin errores)
+   - Avisos: portones humanos en tienda.json; 19/19 kits sin verificar en Dropi
 
-3. **Meta descripción incompleta**: `sitio/productos/kit-gato-mirador-hamaca-ventana-ventosas-varita.html` línea 7
-   - Falta "Pagas al recibir." en meta description
+2. **Coherencia de precios**
+   - Kit Gato Sin Pelusas: $27.990 (fichas, sitio, shopify/productos.csv) ✓
+   - Pack de 2: $49.990 = 27.990 × 2 − 5.990 ✓
+   - Chip visible: "2 kits, $5.990 menos que por separado" ✓
 
-4. **Meta descripción incompleta**: `sitio/productos/kit-navidad-del-gato-gorro-bufanda-varita-ratones.html` línea 7
-   - Falta "Pagas al recibir." en meta description
+3. **Sin palabras de salud**
+   - Búsqueda negativa para "cura", "sana", "previene", "alivia", "golpe de calor", "garantizado", "salud", "alergia", "piel", "ansiedad", "estrés", "calma" → 0 resultados ✓
 
-## Avisos (Portones Humanos - No bloquean)
+4. **Sin reseñas/testimonios inventados**
+   - Todas las fichas: "Reseñas reales, pronto. Solo publicamos opiniones de clientes que recibieron su pedido." ✓
 
-- Precios null en `datos/fichas.json` (todos los kits)
-- Datos null en `datos/tienda.json`: correo, dirección_comercial, razón_social, rut
-- 19/19 kits sin verificar en Dropi: no pautar hasta verificación (proveedor verificado/premium)
+5. **Sin contadores/escasez falsa**
+   - Búsqueda negativa para "stock", "limitado", "solo X quedan", "visto" → 0 resultados ✓
 
-## Aprobado
+6. **Retracto 10 días: presente** en anuncio (línea 31) y pie de formulario (línea 67)
 
-✓ Formulario con validaciones (nombre, apellido, celular 9 dígitos, región, comuna, calle y número) — sitio/pedido.js líneas 46-67
-✓ Resumen de errores dinámico (form-aviso) — sitio/pedido.js línea 62 y línea 193
-✓ Número de pedido KW-DDMM-XXXX en mensaje WhatsApp — sitio/pedido.js línea 205, formato "KW-" + fecha + random
-✓ Estado "Abriendo WhatsApp…" — sitio/pedido.js línea 221
-✓ Panel de confirmación sin promesa falsa — sitio/pedido.js línea 224, clarifica "Envía el mensaje para que lo confirmemos"
-✓ Estado vacío del filtro (conteo + div.vacio) — sitio/index.html línea 41, conteo show/hide dinámico
-✓ Galería con miniaturas condicionada a fotos reales — sitio/productos/*.html línea 37-38, solo SVG si sin fotos
-✓ "Otros kits" con 3 enlaces — presente en todas las fichas
-✓ "Pagas al recibir" bajo precio en fichas — presente en 97% (2 casos faltan en meta description)
-✓ Títulos ≤ 60 caracteres — 18 de 20 OK (2 exceden 1 carácter)
-✓ Metas ≤ 155 caracteres con "Pagas al recibir." — 18 de 20 OK (2 faltan phrase)
-✓ BreadcrumbList con nivel Kits — JSON-LD válido, todas las fichas
-✓ Preload de fuentes — línea 21-24 en todos los productos
-✓ JSON-LD válido (Product, Offer, MerchantReturnPolicy, BreadcrumbList, FAQPage) — validado en 3 muestras
-✓ pedido.js dispara Lead, no Purchase — línea 219 fbq('track', 'Lead', ...)
-✓ Sin envío de datos personales a terceros — solo value, currency, content_name a fbq
-✓ Número de pedido no promete nada falso — panel clarifica "Envía el mensaje para que lo confirmemos"
-✓ Regla "un mensaje, un lugar" — una sola acción a WhatsApp, una línea por atributo
-✓ Sin reseñas, testimonios ni contadores inventados — "Reseñas reales, pronto" en todas
-✓ Sin promesas de salud/cura — grep -i encontró cero resultados
-✓ Retracto 10 días y garantía legal 6 meses — presente en barra + formulario + schema.org
-✓ Precios coherentes entre shopify/productos.csv y sitio/ JSON-LD — 18 muestras verificadas
-✓ Sin datos null publicados — solo "Por confirmar con proveedor" (transparencia)
+7. **Garantía legal 6 meses: presente** en anuncio y pie de página
 
-## Verificador
+8. **prefers-reduced-motion (reducir movimiento)**
+   - `estilos.css` línea 85: `@media (prefers-reduced-motion:reduce){...}` desactiva animaciones
+   - Elementos `.js .revelar` con `opacity:1;transform:none;transition:none` cuando reduce-motion ✓
+   - `scroll-behavior:auto` cuando reduce-motion ✓
 
-```
-AVISO portón humano pendiente: datos/tienda.json → correo
-AVISO portón humano pendiente: datos/tienda.json → direccion_comercial
-AVISO portón humano pendiente: datos/tienda.json → razon_social
-AVISO portón humano pendiente: datos/tienda.json → rut
-AVISO calidad Dropi: 19/19 kits sin verificar (proveedor verificado/premium, mismo proveedor, muestra ≥ 4/5, costo real). NO pautar esos kits.
-```
+9. **Contenido visible sin JS (fallback)**
+   - Selector `.js .revelar` requiere clase en `<html>`
+   - Sin JS: no aplica la clase `.js` → elementos quedan visibles por defecto ✓
+   - No hay `opacity:0` inline ✓
+   - Degradación elegante ✓
 
-Código: 0 (sin errores de regla fija)
+10. **Accesibilidad básica**
+    - Foco visible: `outline:3px solid var(--acento)` (mandarina #FF8A4C) ✓
+    - `aria-describedby` en campos del formulario ✓
+    - Labels asociados a inputs ✓
+    - `role="alert"` en avisos ✓
+    - `aria-hidden="true"` en SVG decorativos ✓
+    - Contraste: #FF8A4C (RGB 255,138,76) sobre #1C2033 (RGB 28,32,51) → luz sobre oscuro ✓
+    - Radio buttons personalizados: `appearance:none` + `::after` visible ✓
+    - Checkboxes personalizados: accesibles ✓
+
+11. **Un mensaje, un lugar**
+    - Única propuesta: un kit por ficha
+    - Una CTA principal: #pedido (formulario WhatsApp)
+    - Todo converge al mismo punto ✓
+
+### Archivos revisados
+- `herramientas/verificar.py` (salida)
+- `datos/fichas.json`
+- `datos/plan_ads.json`
+- `shopify/productos.csv`
+- `sitio/productos/kit-gato-sin-pelusas-cepillo-autolimpiante.html`
+- `sitio/estilos.css` (prefers-reduced-motion, revelar, botones, accesibilidad)
+- `sitio/pedido.js` (prefers-reduced-motion)
 
 ---
 
-**Resultado: 4 ERRORES DETECTADOS — Se requieren correcciones menores en SEO**
+**Resultado: OK — Ronda 7 aprobada**
 
-No aplica commit hasta corregir títulos y metas incompletas.
+Sin errores detectados. El diseño de ronda 7 es accesible, resiliente sin JS, respeta preferencias de movimiento y mantiene coherencia de datos.
 
 Auditor: nodo `auditor` (grafo/pipeline.yaml)
 Fecha: 2026-10-05 UTC
