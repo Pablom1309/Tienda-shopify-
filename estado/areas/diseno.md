@@ -18,6 +18,7 @@ Top 10 problemas (P0 bloquea, P1 mayor, P2 menor):
 10. [P2] Cabecera desborda a 320 px (61 px de scroll horizontal) y títulos en peso 700 pesados. HECHO: cabecera compacta a <360 px; títulos Fraunces 600 con tracking -0.022em; cifras tabulares.
 
 ## Próximas tareas
+- (orquestador 2026-10-05) Limpiar CSS muerto de estilos.css: reglas antiguas (p. ej. border-radius:999px en .boton, .etiqueta, .chip, .insignia, figcaption) anuladas por los bloques de las rondas 8-12; consolidar en un solo sistema para que el archivo no confunda auditorías.
 Ronda 6 (2026-10-05) agrupó y resolvió o descartó las ~47 propuestas anteriores. Quedan solo estas, con su condición:
 - [espera datos del dueño] Integrar textos legales (C1 contacto/pie, privacidad, enlace "Cómo usamos tus datos") cuando razón social, RUT, domicilio y correo dejen de ser null; hoy no se publica nada con null.
 - [espera decisión dueño] Bloque de costo de despacho (variante A incluido / B por zona) bajo el precio, elegido por un dato en `datos/tienda.json`; mientras sea null no se muestra.
@@ -65,3 +66,10 @@ Skills leídas con Read: impeccable (SKILL, craft-floor, colorize, bolder, layou
 5. Probar envío real del formulario en iPhone/Android.
 ## Propuestas para otras áreas
 - Marca: validar #E8935F (mandarina apagada) y #141B3F como derivados oficiales de la paleta; hoy `datos/marca.json` conserva #FF8A4C.
+
+## Ronda 12 (2026-10-05, pedido del dueño): ficha de producto al nivel de la portada
+Skills leídas con Read: impeccable (SKILL, craft-floor, layout, typeset, polish), redesign-existing-projects, design-taste-frontend (0 a 3), break-ui. Modo "Launcher unavailable".
+- Hecho: bloque de compra con jerarquía de tienda grande (categoría en texto, nombre, beneficio, precio, fila de confianza "Pagas al recibir" + plazo entre filetes con íconos de línea, cantidad 1/2 discreta en una fila, botón azul); galería cuadrada también en móvil con doble marco; "Qué incluye" con íconos de línea en baldosas y caja con doble marco; beneficios, comparación, reseñas (sin cambio de texto) y preguntas con filetes; "Otros kits" ya usa la tarjeta nueva. Despacho, Cambios y Privacidad: título en banda azul como Contacto y texto sin cambios dentro de doble marco; contacto con bandeja tonal; 404 con título azul.
+- Verificación: 3 fichas y contacto/despacho/cambios a 390 y 1366 sin scroll horizontal ni errores de consola; sin JS y reduced-motion con contenido visible; verificar.py = 0. Capturas: scratchpad/capturas/r12-*.png. En móvil el botón "Pide el tuyo" queda justo bajo el pliegue por la foto cuadrada (decisión por la preferencia del dueño; la barra fija de compra cubre el scroll).
+- Próximas 5 tareas: (1) subir fotos reales para "Qué incluye" (hoy foto de contenido solo si existe) y alt informativo; (2) probar fichas de los otros 16 kits con textos largos; (3) fuentes autoalojadas; (4) probar envío real en iPhone/Android; (5) decidir bloque de costo de despacho cuando haya dato.
+

@@ -1000,3 +1000,69 @@ summary::after{border-color:var(--primario)}
 .tile-solo{display:flex;align-items:center;justify-content:space-between;padding:0}
 .tile-solo .tile-pie{flex:1;padding:18px 18px}
 @media(min-width:1100px){.tile-solo{min-height:84px}}
+
+/* ===== Ronda 12 (2026-10-05): ficha de producto al nivel de la portada; legales con el mismo sistema =====
+   Jerarquía de compra: categoría (texto), nombre, beneficio, precio, fila de confianza, cantidad discreta, botón azul.
+   "Qué incluye" con íconos de línea (trazo 1.75 px, un solo set), cajas con doble marco, radios 3-6 px. Sin movimiento nuevo. */
+.compra-cat{display:flex;align-items:center;gap:8px;margin:0;font-size:.85rem;font-weight:700;color:var(--acento-t);line-height:1.3}
+.compra-cat .ico{width:18px;height:18px}
+.compra h1{margin-top:10px;text-wrap:balance;letter-spacing:-.022em}
+.compra .sub{color:var(--gris);margin:0 0 4px;max-width:46ch;text-wrap:pretty}
+.precio{margin:18px 0 0;gap:4px 12px;align-items:baseline}
+.precio strong{font-size:2.4rem;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+/* Fila de confianza: dos celdas entre filetes */
+.clave{margin:16px 0 18px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);font-size:.88rem;font-weight:500}
+.clave li{display:flex;gap:10px;align-items:flex-start;padding:14px 12px 14px 0;color:var(--texto);line-height:1.4}
+.clave li+li{padding-left:16px;border-left:1px solid var(--linea)}
+.clave li strong{font-weight:700}
+.clave .ico{flex:none;width:22px;height:22px;margin:0;color:var(--primario);stroke-width:1.75}
+@media(max-width:560px){.clave{grid-template-columns:1fr}.clave li{padding:12px 0}.clave li+li{padding-left:0;border-left:0;border-top:1px solid var(--linea)}}
+@media(max-width:959px){.compra h1{margin:8px 0 6px}.precio{margin:10px 0 0}.clave{margin:12px 0 14px}}
+/* Cantidad discreta: etiqueta a la izquierda, 1 / 2 chicos a la derecha */
+.cant-fila{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.cant-fila .pedido-tit{margin:0}
+.cant-fila .cant{width:48px;height:40px}
+.cant input:checked{background:var(--primario);border-color:var(--primario)}
+.pedido-tit{font-family:var(--titulo);font-weight:600;font-size:1.05rem;color:var(--primario);letter-spacing:0}
+.paso-f{display:none}
+.pedido{gap:16px}
+.cant-fila+.campo,.cant-fila+.extra{margin-top:-4px}
+/* Qué incluye: lista visual con íconos de línea, dentro de doble marco */
+.caja{background:var(--fondo);border:1px solid var(--linea);border-radius:var(--r-3);padding:8px;box-shadow:none}
+.caja-in{background:#fff;border-radius:var(--r-1);padding:24px;box-shadow:inset 0 0 0 1px rgba(28,32,51,.06)}
+.caja h3{font-size:1.3rem;margin:0 0 2px}
+.caja-sub{margin:0 0 14px}
+.incluye li{gap:14px;padding:12px 0;font-weight:600;line-height:1.35}
+.inc-ico{flex:none;width:40px;height:40px;display:grid;place-items:center;background:var(--suave);border:1px solid var(--linea);border-radius:var(--r-2);color:var(--primario)}
+.inc-ico .ico{width:22px;height:22px;margin:0;stroke-width:1.75}
+.nota-chica strong{color:var(--texto)}
+@media(max-width:560px){.caja-in{padding:18px}}
+/* Beneficios, comparación y reseñas con la misma piel */
+.beneficios li{background:#fff;border-color:var(--linea)}
+.beneficios h3,.beneficios strong{color:var(--primario)}
+.tabla-envoltura{background:#fff;border-color:var(--linea)}
+.resenas-vacio{border-style:solid;background:var(--suave);border-color:var(--linea)}
+.resenas-vacio .ico{color:var(--primario);width:26px;height:26px}
+details{background:transparent}
+.faq{gap:0;border-top:1px solid var(--linea)}
+.faq details{border:0;border-bottom:1px solid var(--linea);border-radius:0;padding:0}
+.faq summary{padding:18px 2px;font-weight:700}
+.faq-r p{margin:0 2px 18px}
+/* Legales: banda azul como Contacto y texto dentro de doble marco */
+.legal-hero{padding:48px 0 52px}
+.legal-hero h1{margin:0}
+.legal-marco{margin-top:-28px;position:relative}
+.legal-marco .legal{background:#fff;border-radius:var(--r-1);padding:32px 36px;box-shadow:inset 0 0 0 1px rgba(28,32,51,.06)}
+.legal-marco .legal>:first-child{margin-top:0}
+.legal-marco .legal>:last-child{margin-bottom:0}
+.legal-marco .legal p,.legal-marco .legal li{max-width:68ch}
+@media(max-width:560px){.legal-hero{padding:36px 0 44px}.legal-marco .legal{padding:22px 18px}}
+/* Contacto: tarjeta de teléfono y ayudas con la bandeja tonal */
+.contacto-card,.contacto-ayuda{background:var(--suave);border-color:var(--linea)}
+.contacto-ayuda strong{color:var(--primario)}
+/* 404: tipografía y botones ya heredan el sistema; título en azul de marca */
+.e404 h1{color:var(--primario)}
+.clave{grid-template-columns:auto minmax(0,1fr)}
+@media(max-width:560px){.clave{grid-template-columns:1fr}.clave li{padding:10px 0}}
+@media(max-width:959px){.foto-producto{aspect-ratio:1}}
+.legal-hero .contenedor{text-align:left}.legal-hero h1{text-align:left}

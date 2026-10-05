@@ -37,6 +37,7 @@ ICONOS = {
     "garantia": '<path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/>',
     "retracto": '<path d="M4 12a8 8 0 1 0 3-6.2"/><path d="M4 4v4h4"/>',
     "chat": '<path d="M4 5h16v11H9l-5 4z"/>',
+    "caja": '<path d="M3 7.5L12 3l9 4.5v9L12 21l-9-4.5z"/><path d="M3 7.5l9 4.5 9-4.5M12 12v9"/>',
     "check": '<path d="M5 12l5 5 9-10"/>',
     "x": '<path d="M6 6l12 12M18 6L6 18"/>',
     "kit": '<path d="M4 8h16v12H4z"/><path d="M2 8h20M12 8v12M12 8c-2-4-6-4-6-1s6 1 6 1 6 2 6-1-4-3-6 1"/>',
@@ -337,11 +338,11 @@ def formulario(prod, ficha, tienda):
     regiones = "".join(f'<option data-zona="{"extrema" if r in REGIONES_EXTREMAS else ("rm" if r == "Metropolitana" else "regiones")}">{e(r)}</option>' for r in REGIONES)
     aviso = "" if tienda.get("whatsapp") else '<p class="aviso">Estamos preparando la tienda: muy pronto podrás pedir aquí.</p>'
     return f"""<form class="pedido" id="pedido" data-producto="{e(ficha['titulo_seo'].split(':')[0])}" data-id="{e(prod['id'])}" data-wa="{e(tienda.get('whatsapp') or '')}" novalidate>
-<p class="pedido-tit"><span class="paso-f">1</span>Cantidad</p>
-<div class="cantidad" role="radiogroup" aria-label="Cantidad">{radios}</div>
+<div class="cant-fila"><p class="pedido-tit">Cantidad</p>
+<div class="cantidad" role="radiogroup" aria-label="Cantidad">{radios}</div></div>
 {tallas}
 {extra}
-<p class="pedido-tit"><span class="paso-f">2</span>Datos de entrega</p>
+<p class="pedido-tit">Datos de entrega</p>
 <label class="campo">Nombre y apellido<input name="nombre" id="f-nombre" required autocomplete="name" autocapitalize="words" maxlength="80" placeholder="Ej: Camila Rojas" aria-describedby="e-nombre"><small class="error-txt" id="e-nombre">Escribe tu nombre y apellido.</small></label>
 <label class="campo">Celular (WhatsApp)<input name="telefono" id="f-telefono" type="tel" required inputmode="tel" autocomplete="tel" maxlength="20" placeholder="9 1234 5678" aria-describedby="e-telefono"><small class="error-txt" id="e-telefono">Escribe tu celular de 9 dígitos, por ejemplo 9 1234 5678.</small></label>
 <div class="fila">
@@ -379,7 +380,7 @@ def pagina_producto(prod, ficha, marca, tienda, productos=()):
     pasos = "".join(f'<li><span class="num">{i}</span><p>{e(p)}</p></li>' for i, p in enumerate(ficha["como_usar"], 1))
     # Medidas: solo se muestran si el dato ya está en la ficha; si no, se declara "por confirmar con proveedor".
     tiene_medida = lambda t: re.search(r"\d\s*(x|cm|mm|ml|\bm\b)|\d,\d\s*m\b", t) is not None
-    incluye = "".join(f'<li><span class="inc-num" aria-hidden="true">{i}</span><span>{e(t)}</span></li>' for i, t in enumerate(ficha["incluye"], 1))
+    incluye = "".join(f'<li><span class="inc-ico" aria-hidden="true">{icono("caja")}</span><span>{e(t)}</span></li>' for t in ficha["incluye"])
     tag_contenido = img_tag(f"{prod['id']}-contenido", "Piezas del " + ficha["titulo_seo"].split(":")[0] + ": " + "; ".join(ficha["incluye"])[:120], "../", sizes="(min-width:900px) 40vw, 100vw")
     contenido = f'<figure class="foto-contenido">{tag_contenido}</figure>' if tag_contenido else ""
     nombre = ficha["titulo_seo"].split(":")[0]
@@ -406,17 +407,17 @@ def pagina_producto(prod, ficha, marca, tienda, productos=()):
 <section class="producto contenedor">
 <div class="galeria">{galeria(prod, ficha)}</div>
 <div class="compra">
-<span class="etiqueta">{icono('kit', 'ico ico-s')} Kit completo · {len(ficha['incluye'])} {'pieza' if len(ficha['incluye']) == 1 else 'piezas'}</span>
+<p class="compra-cat">{icono('kit', 'ico ico-s')} Kit completo · {len(ficha['incluye'])} {'pieza' if len(ficha['incluye']) == 1 else 'piezas'}</p>
 <h1>{e(ficha['titular'])}</h1>
 <p class="sub">{e(ficha['subtitular'])}</p>
 <div class="precio"><strong>{clp(prod['precio'])}</strong><span class="iva">IVA incluido</span></div>
-<ul class="clave"><li>{icono('pago', 'ico ico-s')} <span><strong>Pagas al recibir.</strong> Llega en {e(tienda['plazos_despacho']['RM'])} en RM; {e(tienda['plazos_despacho']['regiones'])} en regiones.</span></li></ul>
+<ul class="clave"><li>{icono('pago', 'ico')} <span><strong>Pagas al recibir.</strong></span></li><li>{icono('envio', 'ico')} <span>Llega en {e(tienda['plazos_despacho']['RM'])} en RM; {e(tienda['plazos_despacho']['regiones'])} en regiones.</span></li></ul>
 <a class="boton boton-grande cta-ficha" href="#pedido">Pide el tuyo {isla()}</a>
 <div class="pedido-marco">{formulario(prod, ficha, tienda)}</div>
 </div>
 </section>
 <section class="seccion contenedor"><h2>Por qué funciona</h2><ul class="beneficios">{benef}</ul></section>
-<section class="seccion seccion-suave"><div class="contenedor dos-col"><div><h2>Cómo se usa: listo en minutos</h2><ol class="pasos">{pasos}</ol></div><div class="caja"><h3>Qué incluye</h3><p class="caja-sub">{len(ficha['incluye'])} {'pieza' if len(ficha['incluye']) == 1 else 'piezas'} en un solo pedido</p>{contenido}<ul class="incluye">{incluye}</ul>{NOTA_NO_INCLUYE.get(prod['id'], '')}<p class="nota-chica">Medidas y materiales: te los confirmamos por WhatsApp antes de despachar.</p></div></div></section>
+<section class="seccion seccion-suave"><div class="contenedor dos-col"><div><h2>Cómo se usa: listo en minutos</h2><ol class="pasos">{pasos}</ol></div><div class="caja"><div class="caja-in"><h3>Qué incluye</h3><p class="caja-sub">{len(ficha['incluye'])} {'pieza' if len(ficha['incluye']) == 1 else 'piezas'} en un solo pedido</p>{contenido}<ul class="incluye">{incluye}</ul>{NOTA_NO_INCLUYE.get(prod['id'], '')}<p class="nota-chica">Medidas y materiales: te los confirmamos por WhatsApp antes de despachar.</p></div></div></div></section>
 {comparacion(prod, ficha)}
 <section class="contenedor estrecho seccion-corta"><p class="resenas-vacio">{icono('estrella')}<span><strong>Reseñas reales, pronto.</strong> Solo publicamos opiniones de clientes que recibieron su pedido.</span></p></section>
 {bloque_faq(preguntas, id_="preguntas-producto")}
@@ -616,8 +617,12 @@ def legales(marca, tienda):
 <p>No enviamos mensajes promocionales sin tu consentimiento expreso. Puedes pedir acceso, corrección o eliminación de tus datos escribiéndonos (Ley 19.628 y Ley 21.719).</p>"""),
     }
     for archivo, (titulo, cuerpo) in paginas.items():
+        # El título pasa a la misma banda azul que Contacto; el texto legal no cambia.
+        h1, resto = re.match(r"(<h1>.*?</h1>)(.*)", cuerpo, re.S).groups()
+        banda = f'<section class="contacto-hero legal-hero"><div class="contenedor estrecho">{h1}</div></section>'
         (SITIO / archivo).write_text(pagina(marca, tienda, f"{titulo} | {marca['nombre']}", f"{titulo} de {marca['nombre']}",
-                                            f'<section class="seccion contenedor estrecho legal">{cuerpo}</section>', canonica=archivo), encoding="utf-8")
+                                            f'{banda}<section class="seccion contenedor estrecho"><div class="marco legal-marco"><div class="legal">{resto}</div></div></section>',
+                                            canonica=archivo), encoding="utf-8")
     (SITIO / "contacto.html").write_text(pagina(marca, tienda, f"Contacto | {marca['nombre']}", f"Contacto de {marca['nombre']}: escríbenos por WhatsApp.",
                                                 pagina_contacto(marca, tienda), canonica="contacto.html", clase_body="pg-contacto"), encoding="utf-8")
 
