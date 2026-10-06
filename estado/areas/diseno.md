@@ -9,9 +9,10 @@ Agente: `disenador-web`. Lo actualiza el propio agente en cada ronda.
 ## Hecho (ronda 15, 2026-10-06, pulido sin cambiar el mundo visual)
 - Revisadas 19 fichas, contacto, despacho, cambios, privacidad y 404 a 390 y 1366: sin scroll horizontal ni errores de consola. Formulario con datos extremos (nombre de 45 caracteres, celular "1234"): Región y Comuna ahora apilan hasta 430 px (antes "Elige tu regió" se cortaba); la barra de compra fija ya no tapa el botón "Confirmar" ni los errores (se oculta mientras el botón se ve; `scroll-padding` para el foco). 404 solo se ve sin estilos en local por sus URLs absolutas (esperado). Capturas r15-*.
 
+## Hecho (ronda 16, 2026-10-06, zona táctil)
+- Enlaces "10 días de retracto" y "Cómo usamos tus datos" ahora miden 44 px de alto (`.garantias-form a`); label de consentimiento con `min-height:44px` y relleno vertical; `.extra` con `min-height:48px` (la fila entera ya era clicable). Mundo visual intacto. Medido en Chromium a 390 y 1366 en la ficha de Baño y Secado: sin scroll horizontal ni errores de consola; detector Impeccable `[]`; verificar.py = 0. Confirmado: 0 `tel:` y 0 "Llámanos" en `sitio/`; wa.me solo en formulario, contacto y una línea del pie (portada: 1 enlace en el pie).
+
 ## Próximas tareas
-- Enlaces "10 días de retracto" y "Cómo usamos tus datos" de la ficha miden 22 px de alto: darles 44 px de zona táctil.
-- Casillas de verificación de 18-20 px: ampliar la zona del label.
 - [hecho 2026-10-06] CSS consolidado en un solo sistema.
 - Fuente Figtree: en el sandbox Google Fonts no carga (error de certificado, solo entorno); revisar en producción y, si hay layout shift, autoalojar woff2.
 - Mover reglas de estilo repetidas del generador (`construir_sitio.py`) a tokens si se agregan más componentes.
@@ -69,3 +70,4 @@ Skills leídas con Read: impeccable (SKILL, craft-floor, layout, typeset, polish
 - Verificación: 3 fichas y contacto/despacho/cambios a 390 y 1366 sin scroll horizontal ni errores de consola; sin JS y reduced-motion con contenido visible; verificar.py = 0. Capturas: scratchpad/capturas/r12-*.png. En móvil el botón "Pide el tuyo" queda justo bajo el pliegue por la foto cuadrada (decisión por la preferencia del dueño; la barra fija de compra cubre el scroll).
 - Próximas 5 tareas: (1) subir fotos reales para "Qué incluye" (hoy foto de contenido solo si existe) y alt informativo; (2) probar fichas de los otros 16 kits con textos largos; (3) fuentes autoalojadas; (4) probar envío real en iPhone/Android; (5) decidir bloque de costo de despacho cuando haya dato.
 
+- (de SEO, 2026-10-06) FAQ de Pelo Cero muestra "por confirmar con proveedor" (visible y en JSON-LD): ocultar ese texto o la FAQ hasta confirmación (I4). FAQ de Baño y Gato: quitar "medidas exactas" (pedido de legal). Descartado: "Pagas al recibir" en barra superior de fichas (choca con "un mensaje, un lugar") y `priceValidUntil` (sin dato confirmado).
