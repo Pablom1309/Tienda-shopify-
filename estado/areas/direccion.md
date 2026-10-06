@@ -7,6 +7,13 @@ Agente: `director-estrategia`. Lo actualiza el propio agente en cada ronda.
 
 Etapa: validación, antes del lanzamiento (0 ventas, 0 pauta). Del 5 al 7 de octubre es CyberMonday y no se pauta. Prioridad vigente del dueño: **diseño de la web primero**. Las demás áreas trabajan para alimentar a diseño.
 
+### Revisión de avance, 2026-10-06 21:50 UTC (meta: primer pedido posible el 11-oct)
+- **Diseño:** el rediseño (ronda 14, Figtree, azul #24316B, fondo sin crema, según PRODUCT.md/DESIGN.md) y el pulido de la ronda 15 están hechos. Las fichas y páginas de confianza están terminadas en lo que depende del equipo. Lo que falta depende del dueño (textos legales con datos y bloque de despacho A/B).
+- **Brechas C1 a C3:** siguen abiertas solo por datos del dueño (razón social, RUT, domicilio, correo) y la decisión de envío. Sin eso no hay primer pedido publicable el 11-oct, aunque el sitio esté listo.
+- **Foco de esta ronda (decidido):**
+  - **Diseño:** accesibilidad táctil de la ficha. Los enlaces "10 días de retracto" y "Cómo usamos tus datos" pasan a 44 px de zona táctil y las casillas amplían su zona de label. Además se revisa que se cumpla la regla del dueño del 06-oct: sin `tel:` ni "Llámanos" y WhatsApp solo en el formulario, en contacto y en una línea del pie. Una sola mejora por ronda, verificada en 390 px. Nada cosmético.
+  - **SEO:** auditar el HTML ya regenerado tras el rediseño en los 3 kits (title ≤ 60, meta ≤ 155 con "Pagas al recibir", canónica, `Product` coherente con el precio visible y sin `shippingRate`) y la portada (un solo h1). Las correcciones van como propuestas al generador para diseño, sin tocar el sitio. La guía de verano sigue con la fecha del 26-oct.
+
 ## Prioridades (en orden)
 1. **Diseño: tienda profesional donde se convierte.** Fichas de Baño y Secado, Gato Sin Pelusas y Pelo Cero, más las páginas de confianza. Cada mensaje va en un solo lugar y las piezas que no tienen dato muestran "por confirmar con proveedor". Lo cosmético (animaciones, transiciones) va después de esto.
 2. **Legal y operaciones entregan a diseño el contenido que falta.** Legal aporta los textos finales de C1, C3 e I1 y operaciones las medidas y materiales "por confirmar", porque una ficha bonita sin datos obligatorios no se puede publicar.
@@ -31,6 +38,8 @@ Datos de `datos/economia.json` y `datos/supuestos.json`. Todos los costos son **
 - **Con B se ganan unos $2.261 por pedido generado (0,595 × 3.800), o cerca de $1.900 si se descuenta el IVA.** El costo es que el total que se paga en la puerta sube a $30.790–$33.790, por encima del umbral de envío gratis de Petco ($29.990). En contra entrega eso arriesga confirmación y entrega. No hay datos propios para medir ese efecto.
 - **Sensibilidad:** cada $1.000 de flete real por sobre lo estimado le quita a G unos $850 por pedido generado (c × 1.000). Pelo Cero es el más expuesto.
 - **Recomendación de dirección: opción A, "Despacho incluido en el precio, sin cargos al recibir",** con dos condiciones. (1) El flete real en Dropi debe ser ≤ $4.500 (es el umbral que ya usa el catálogo). (2) Las comunas sin cobertura se excluyen en el formulario en vez de cobrarse aparte. Si el flete real supera $4.500 en alguna zona, se usa B solo para esa zona y el monto se declara en la ficha. Razones: la economía actual ya absorbe el flete, el total a pagar queda simple (un número, sin sorpresas en la puerta, que es la causa de C3) y se compite con Petco sin bajar el precio. La oferta de 2 kits reparte el flete, que es fijo por paquete.
+
+- **2026-10-06: Se mantiene la regla "sin teléfono, WhatsApp limitado" por encima de las propuestas antiguas de contacto (tarjeta "Llámanos", botón flotante).** Por qué: es una decisión vigente del dueño y lo de antes queda descartado.
 
 ## Conflictos resueltos entre áreas
 - **Diseño ya ejecuta propuestas de SEO, marca y legal, y cada área sigue anotando su versión:** las tareas duplicadas se dan por cerradas cuando diseño las marca como HECHO (por ejemplo, el evento Lead en vez de Purchase y el alt de Baño y Secado). Cada área revisa en `diseno.md` antes de volver a proponer.
