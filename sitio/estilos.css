@@ -1066,3 +1066,36 @@ details{background:transparent}
 @media(max-width:560px){.clave{grid-template-columns:1fr}.clave li{padding:10px 0}}
 @media(max-width:959px){.foto-producto{aspect-ratio:1}}
 .legal-hero .contenedor{text-align:left}.legal-hero h1{text-align:left}
+
+/* ===== Ronda 13 (orquestador, impeccable craft-floor): menos plantilla ===== */
+/* Elige por mascota: título arriba, tiles a lo ancho (sin hueco lateral) */
+.mascotas-in{display:block}
+.mascotas-txt{margin-bottom:24px;max-width:none}
+.mascotas-in .tile{display:block}
+@media(min-width:700px){.mascotas-in{display:grid;grid-template-columns:1fr 1fr;gap:20px}.mascotas-txt{grid-column:1/-1;margin-bottom:4px}}
+/* Cómo funciona: lista editorial, sin tarjetas ni íconos */
+.pasos-ed{display:grid;gap:0;counter-reset:none;list-style:none;padding:0;margin:24px 0 0;border-top:1px solid var(--linea)}
+.pasos-ed li{display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:baseline;background:none;border:0;border-bottom:1px solid var(--linea);border-radius:0;box-shadow:none;padding:20px 0;min-height:0}
+.pasos-ed .paso-num{position:static;font-family:var(--titulo,serif);font-size:1.5rem;font-weight:700;color:var(--primario);opacity:1;line-height:1}
+.pasos-ed h3{margin:0 0 4px;font-size:1.1rem}
+.pasos-ed p{margin:0;color:var(--gris)}
+.pasos-ed .ico{display:none}
+@media(min-width:900px){.pasos-ed{grid-template-columns:repeat(3,1fr);gap:0 40px;border-top:0}.pasos-ed li{grid-template-columns:1fr;border-bottom:0;border-top:1px solid var(--linea);gap:10px;padding:24px 0 0}}
+/* Por qué funciona: dos columnas con filete, sin cajas */
+.beneficios-ed{display:grid;gap:0;list-style:none;padding:0;margin:24px 0 0}
+.beneficios-ed li{display:block;background:none;border:0;border-top:1px solid var(--linea);border-radius:0;box-shadow:none;padding:18px 0}
+.beneficios-ed strong{display:block;font-size:1.05rem;color:var(--primario);margin-bottom:4px}
+.beneficios-ed p{margin:0;color:var(--gris)}
+@media(min-width:800px){.beneficios-ed{grid-template-columns:1fr 1fr;column-gap:48px}}
+/* Tarjeta: categoría bajo el nombre */
+.tarjeta-meta{margin:2px 0 6px;font-size:.85rem;color:var(--gris)}
+.tarjeta-cat{display:none}
+/* Pie: enlace de texto, sin íconos */
+.pie-lnk{display:inline-flex;gap:6px}
+/* correcciones: reglas antiguas pisaban la lista editorial y el formato de los tiles */
+.tres-pasos.pasos-ed li{grid-template-columns:40px 1fr;padding:18px 0;background:none;border:0;border-bottom:1px solid var(--linea);border-radius:0;column-gap:12px}
+.tres-pasos.pasos-ed .paso-num{display:block}
+@media(min-width:900px){.tres-pasos.pasos-ed li{grid-template-columns:1fr;border-bottom:0;border-top:1px solid var(--linea);padding:24px 0 0}}
+.tres-pasos.pasos-ed li:hover{border-color:var(--linea)}
+@media(min-width:700px){.mascotas-in .tile-img{aspect-ratio:16/9}.mascotas-in .foto-tile{aspect-ratio:auto;height:100%}.mascotas-in .tile-img img{width:100%;height:100%;object-fit:cover;object-position:center 45%}}
+@media(max-width:699px){.mascotas-in{display:grid;grid-template-columns:1fr 1fr;gap:12px}.mascotas-txt{grid-column:1/-1;margin-bottom:4px}}

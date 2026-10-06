@@ -69,14 +69,16 @@ def wa_url(tienda, texto="Hola Kuchiwau, tengo una consulta"):
     return f"https://wa.me/{n}?text={quote(texto)}"
 
 
-def redes_html(tienda, marca, clase="redes"):
+def redes_html(tienda, marca, clase="redes", con_wa=True):
     """Íconos de contacto/redes. WhatsApp siempre (cuenta real); el resto solo si hay URL en datos/tienda.json."""
     items = []
-    if tienda.get("whatsapp"):
+    if con_wa and tienda.get("whatsapp"):
         items.append(("whatsapp", "WhatsApp", wa_url(tienda)))
     for k, nombre in REDES.items():
         if (tienda.get("redes") or {}).get(k):
             items.append((k, nombre, tienda["redes"][k]))
+    if not items:
+        return ""
     return f'<ul class="{clase}">' + "".join(
         f'<li><a href="{e(u)}" target="_blank" rel="noopener noreferrer" aria-label="{nombre} de {e(marca["nombre"])} (se abre en otra pestaña)" title="{nombre}">{icono(i)}</a></li>'
         for i, nombre, u in items) + "</ul>"
@@ -207,11 +209,11 @@ def pagina(marca, tienda, titulo, descripcion, cuerpo, base="", canonica=None, i
         og += f'<meta property="og:url" content="{e(url + "/" + canonica)}">'
     pre = f'<link rel="preload" as="image" href="{base}{precarga}" fetchpriority="high">' if precarga else ""
     wa = tienda.get("whatsapp")
-    flotante_wa = f'<a class="wa" href="{e(wa_url(tienda))}" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">{icono("whatsapp")}<span class="wa-txt">WhatsApp</span></a>' if wa else ""
-    hdr_wa = f'<a class="barra-wa" href="{e(wa_url(tienda))}" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">{icono("whatsapp")}</a>' if wa else ""
+    # Dueño 2026-10-06: WhatsApp en pocos lugares (formulario, contacto y una línea en el pie); sin flotante ni ícono en el encabezado; sin teléfono.
+    flotante_wa = ""
+    hdr_wa = ""
     if wa:
-        pie_contacto = (f'<a class="pie-lnk" href="{e(wa_url(tienda))}" target="_blank" rel="noopener noreferrer">{icono("whatsapp", "ico ico-s")} {e(wa_numero(tienda))}</a>'
-                        f'<a class="pie-lnk" href="tel:+{e(wa)}">{icono("telefono", "ico ico-s")} Llamar</a>')
+        pie_contacto = f'<a class="pie-lnk" href="{e(wa_url(tienda))}" target="_blank" rel="noopener noreferrer">WhatsApp {e(wa_numero(tienda))}</a>'
     else:
         pie_contacto = ""
     if tienda.get("correo"):
@@ -268,10 +270,10 @@ def pagina(marca, tienda, titulo, descripcion, cuerpo, base="", canonica=None, i
 </main>
 <footer class="pie">
 <div class="contenedor pie-in">
-<div class="pie-marca"><p class="logo logo-pie" aria-label="{e(marca['nombre'])}">{logo_svg(pie=True)}</p><p>Kits de cuidado para perros y gatos.</p>{redes_html(tienda, marca, "redes redes-pie")}</div>
+<div class="pie-marca"><p class="logo logo-pie" aria-label="{e(marca['nombre'])}">{logo_svg(pie=True)}</p><p>Kits de cuidado para perros y gatos.</p>{redes_html(tienda, marca, "redes redes-pie", con_wa=False)}</div>
 <div><p class="pie-tit">Tienda</p><nav class="pie-nav"><a href="{base}index.html#kits">Kits</a><a href="{base}index.html#como-funciona">Cómo funciona</a><a href="{base}index.html#preguntas">Preguntas frecuentes</a></nav></div>
 <div><p class="pie-tit">Ayuda</p><nav class="pie-nav"><a href="{base}despacho.html">Despacho</a><a href="{base}cambios.html">Cambios, retracto y garantía</a><a href="{base}privacidad.html">Privacidad</a><a href="{base}contacto.html">Contacto</a></nav></div>
-<div><p class="pie-tit">Escríbenos</p><nav class="pie-nav">{pie_contacto}</nav></div>
+<div><p class="pie-tit">Contacto</p><nav class="pie-nav">{pie_contacto}</nav></div>
 </div>
 <p class="legal-pie">© {e(tienda.get('razon_social') or marca['nombre'])}{' · RUT ' + e(tienda['rut']) if tienda.get('rut') else ''}{' · ' + e(tienda['direccion_comercial']) if tienda.get('direccion_comercial') else ''} · Precios en pesos chilenos, IVA incluido.</p>
 </footer>
@@ -295,12 +297,12 @@ def como_funciona():
     pasos = [("carro", "Haz tu pedido", "Elige tu kit y deja tus datos de entrega. Sin cuenta ni tarjeta."),
              ("chat", "Te confirmamos por WhatsApp", "Revisamos dirección y plazo contigo antes de despachar."),
              ("pago", "Pagas cuando llega", "Recibes el kit en tu puerta y pagas al repartidor.")]
-    items = "".join(f'<li><span class="paso-num">{i}</span>{icono(ic)}<h3>{e(t)}</h3><p>{e(d)}</p></li>' for i, (ic, t, d) in enumerate(pasos, 1))
+    items = "".join(f'<li><span class="paso-num">{i}</span><div><h3>{e(t)}</h3><p>{e(d)}</p></div></li>' for i, (ic, t, d) in enumerate(pasos, 1))
     foto = ambiente("ambiente-entrega", sizes="(min-width:900px) 40vw, 100vw")
     visual = f'<div class="como-visual"><div class="marco"><figure class="foto foto-ambiente">{foto}</figure></div></div>' if foto else ""
     nota = f'<p class="nota-cambios">{icono("retracto", "ico ico-s")} ¿No te convenció? Tienes 10 días de retracto desde que lo recibes. <a href="cambios.html">Ver cambios y garantía</a></p>'
     return (f'<section class="seccion seccion-suave" id="como-funciona"><div class="contenedor como{" como-con-img" if foto else ""}">'
-            f'<div class="como-txt"><h2>Comprar es así de simple</h2><ol class="tres-pasos">{items}</ol>{nota}</div>{visual}</div></section>')
+            f'<div class="como-txt"><h2>Comprar es así de simple</h2><ol class="tres-pasos pasos-ed">{items}</ol>{nota}</div>{visual}</div></section>')
 
 
 def faq_general(tienda):
@@ -376,7 +378,7 @@ def comparacion(prod, ficha):
 
 
 def pagina_producto(prod, ficha, marca, tienda, productos=()):
-    benef = "".join(f'<li>{icono("check")}<div><strong>{e(b["titulo"])}</strong><p>{e(b["texto"])}</p></div></li>' for b in ficha["beneficios"])
+    benef = "".join(f'<li><div><strong>{e(b["titulo"])}</strong><p>{e(b["texto"])}</p></div></li>' for b in ficha["beneficios"])
     pasos = "".join(f'<li><span class="num">{i}</span><p>{e(p)}</p></li>' for i, p in enumerate(ficha["como_usar"], 1))
     # Medidas: solo se muestran si el dato ya está en la ficha; si no, se declara "por confirmar con proveedor".
     tiene_medida = lambda t: re.search(r"\d\s*(x|cm|mm|ml|\bm\b)|\d,\d\s*m\b", t) is not None
@@ -407,7 +409,6 @@ def pagina_producto(prod, ficha, marca, tienda, productos=()):
 <section class="producto contenedor">
 <div class="galeria">{galeria(prod, ficha)}</div>
 <div class="compra">
-<p class="compra-cat">{icono('kit', 'ico ico-s')} Kit completo · {len(ficha['incluye'])} {'pieza' if len(ficha['incluye']) == 1 else 'piezas'}</p>
 <h1>{e(ficha['titular'])}</h1>
 <p class="sub">{e(ficha['subtitular'])}</p>
 <div class="precio"><strong>{clp(prod['precio'])}</strong><span class="iva">IVA incluido</span></div>
@@ -416,10 +417,9 @@ def pagina_producto(prod, ficha, marca, tienda, productos=()):
 <div class="pedido-marco">{formulario(prod, ficha, tienda)}</div>
 </div>
 </section>
-<section class="seccion contenedor"><h2>Por qué funciona</h2><ul class="beneficios">{benef}</ul></section>
+<section class="seccion contenedor"><h2>Por qué funciona</h2><ul class="beneficios beneficios-ed">{benef}</ul></section>
 <section class="seccion seccion-suave"><div class="contenedor dos-col"><div><h2>Cómo se usa: listo en minutos</h2><ol class="pasos">{pasos}</ol></div><div class="caja"><div class="caja-in"><h3>Qué incluye</h3><p class="caja-sub">{len(ficha['incluye'])} {'pieza' if len(ficha['incluye']) == 1 else 'piezas'} en un solo pedido</p>{contenido}<ul class="incluye">{incluye}</ul>{NOTA_NO_INCLUYE.get(prod['id'], '')}<p class="nota-chica">Medidas y materiales: te los confirmamos por WhatsApp antes de despachar.</p></div></div></div></section>
 {comparacion(prod, ficha)}
-<section class="contenedor estrecho seccion-corta"><p class="resenas-vacio">{icono('estrella')}<span><strong>Reseñas reales, pronto.</strong> Solo publicamos opiniones de clientes que recibieron su pedido.</span></p></section>
 {bloque_faq(preguntas, id_="preguntas-producto")}
 {otros_kits(prod, productos)}
 <section class="cta-final"><div class="contenedor"><h2>¿Listo para probarlo?</h2><p>Elige la cantidad y deja tus datos: toma menos de un minuto.</p><a class="boton boton-grande boton-auto" href="#pedido">Pide el tuyo · {clp(prod['precio'])} {isla()}</a></div></section>
@@ -510,8 +510,8 @@ def tarjeta(p, f, mascota, base, referencial=False):
     n_piezas = f'<small class="tarjeta-piezas">{piezas} {"pieza" if piezas == 1 else "piezas"}</small>' if piezas else ""
     ben = beneficio(f)
     return f"""<a class="tarjeta" data-mascota="{mascota}" href="{base}productos/{e(f['handle'])}.html"><div class="tarjeta-img">{img}</div>
-<div class="tarjeta-cuerpo"><span class="tarjeta-cat">{e(etiqueta_publica(p))}</span><h3><span>{e(f['titulo_seo'].split(':')[0])}</span></h3>{f'<p class="tarjeta-beneficio">{e(ben)}</p>' if ben else ''}
-<div class="tarjeta-pie"><strong>{clp(p['precio'])}</strong>{n_piezas}</div><span class="tarjeta-btn" aria-hidden="true">Ver kit {icono('flecha', 'ico ico-s')}</span></div></a>"""
+<div class="tarjeta-cuerpo"><h3><span>{e(f['titulo_seo'].split(':')[0])}</span></h3><p class="tarjeta-meta">{e(etiqueta_publica(p))}{' · ' + str(piezas) + (' pieza' if piezas == 1 else ' piezas') if piezas else ''}</p>{f'<p class="tarjeta-beneficio">{e(ben)}</p>' if ben else ''}
+<div class="tarjeta-pie"><strong>{clp(p['precio'])}</strong></div><span class="tarjeta-btn" aria-hidden="true">Ver kit {icono('flecha', 'ico ico-s')}</span></div></a>"""
 
 
 RELACIONADOS = {"kit-bano-secado-perro": ["kit-pelo-cero", "kit-verano-fresco"],
@@ -563,8 +563,7 @@ def portada(productos, marca, tienda):
 {mascotas}
 <section class="seccion contenedor" id="kits"><h2>Elige el que necesita tu casa</h2><p class="nota-fotos">Algunas fotos son referenciales hasta que lleguen las reales.</p>{filtros}<p class="sr" id="conteo" role="status" aria-live="polite"></p><div class="grilla" id="grilla">{tarjetas}</div><div class="vacio" id="vacio" hidden><p><strong>Todavía no tenemos kits para esta mascota.</strong> Mira todos los que sí tenemos.</p><button type="button" class="boton boton-fantasma-claro boton-auto" data-filtro-todos>Ver todos los kits</button></div><nav class="paginas" id="paginas" aria-label="Páginas de kits" hidden></nav></section>
 {como_funciona()}
-{bloque_faq(preguntas)}
-<section class="cta-final"><div class="contenedor"><h2>¿Dudas antes de pedir?</h2><p>Escríbenos y te ayudamos a elegir el kit para tu mascota.</p><div class="cta-botones"><a class="boton boton-grande boton-auto boton-wa" href="{e(wa_url(tienda, 'Hola Kuchiwau, necesito ayuda para elegir un kit'))}" target="_blank" rel="noopener noreferrer">Escríbenos por WhatsApp {isla('whatsapp')}</a><a class="boton boton-grande boton-auto boton-fantasma-claro" href="contacto.html">Ver contacto</a></div></div></section>"""
+{bloque_faq(preguntas)}"""
     url = (tienda.get("url_sitio") or "").rstrip("/")
     web_ld = {"@context": "https://schema.org", "@type": "WebSite", "name": marca["nombre"], **({"url": url + "/"} if url else {})}
     return pagina(marca, tienda, f"{marca['nombre']}: kits para perros y gatos con pago al recibir", marca["promesa"],
@@ -575,8 +574,6 @@ def portada(productos, marca, tienda):
 def pagina_contacto(marca, tienda):
     wa = tienda.get("whatsapp")
     tarjetas = []
-    if wa:
-        tarjetas.append(("telefono", "Llámanos", f'<a class="contacto-dato" href="tel:+{e(wa)}">{e(wa_numero(tienda))}</a>', "Toca el número para llamar desde tu teléfono."))
     if tienda.get("correo"):
         tarjetas.append(("correo", "Correo", f'<a class="contacto-dato" href="mailto:{e(tienda["correo"])}">{e(tienda["correo"])}</a>', "Para consultas con detalle o adjuntos."))
     if tienda.get("direccion_comercial"):
@@ -588,7 +585,7 @@ def pagina_contacto(marca, tienda):
     if wa:
         principal = f"""<div class="contacto-wa"><div class="contacto-wa-txt"><span class="contacto-wa-ico">{icono('whatsapp', 'ico ico-tile ico-xl')}</span>
 <h2>Escríbenos por WhatsApp</h2><p>Es nuestro canal principal: respondemos por ahí tus consultas y confirmamos tu pedido antes de despachar.</p>
-<a class="contacto-num" href="{e(wa_url(tienda))}" target="_blank" rel="noopener noreferrer">{e(wa_numero(tienda))}</a></div>
+<p class="contacto-num">{e(wa_numero(tienda))}</p></div>
 <a class="boton boton-grande boton-wa" href="{e(wa_url(tienda))}" target="_blank" rel="noopener noreferrer">Abrir WhatsApp {isla('whatsapp')}</a></div>"""
     else:
         principal = '<p class="aviso">Estamos completando nuestros datos de contacto. Muy pronto podrás escribirnos desde aquí.</p>'
