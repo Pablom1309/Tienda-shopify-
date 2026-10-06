@@ -149,3 +149,8 @@ Cada ciclo agrega una entrada al final: fecha, nodos ejecutados, decisiones del 
 - 2026-10-06 ~00:30 UTC — Orquestador aplicó impeccable (craft-floor) directamente por pedido del dueño: fuera teléfono, WhatsApp reducido a formulario/contacto/pie, sin flotante ni banda final; sin rótulos sobre títulos; Cómo funciona y Por qué funciona como listas editoriales; sin caja de reseñas vacía; Elige por mascota a lo ancho (lado a lado en móvil). Sin errores ni desbordes a 390/1366.
 - 2026-10-06 ~02:30 UTC — Rediseño con Impeccable completo (lanzador + detector instalados, PRODUCT.md con entrevista al dueño, DESIGN.md nuevo): Figtree, fondo blanco, azul #24316B + mandarina en compra, grilla retail tipo Falabella/Paris, estilos.css reescrito (1101→366 líneas). Detector 0 hallazgos en portada/ficha/contacto. Auditor OK (WhatsApp del 404 cambiado a enlace a contacto).
 - 2026-10-06 ~06:05 UTC — Ronda nocturna diseño (pulido Impeccable): región/comuna apiladas en móvil, barra de compra no tapa el botón de confirmar, selects con elipsis. Detector 0 en portada/ficha/contacto.
+
+## 2026-10-06T21:51:26Z — equipo: dirección, diseño, SEO
+- Dirección: sin cambio de prioridades; foco diseño (zonas táctiles) y SEO (revisión HTML).
+- Diseño r16: enlaces de garantías y casillas del formulario con zona táctil ≥ 44 px; detector 0; auditor OK.
+- SEO: portada y 3 kits cumplen título/meta/canónica/h1/Product; propuestas a diseño: quitar 'por confirmar con proveedor' en FAQ de Pelo Cero y 'medidas exactas' en Baño/Gato.

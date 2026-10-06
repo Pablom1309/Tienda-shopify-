@@ -231,7 +231,7 @@ details[open] summary::after{background:linear-gradient(currentColor,currentColo
 .cant input:focus-visible{outline:3px solid var(--primario);outline-offset:2px}
 .cant span{position:relative;pointer-events:none;font-size:1.0625rem}
 .cant input:checked+span{color:#fff}
-.extra{display:flex;align-items:center;gap:12px;background:var(--superficie);border-radius:var(--r);padding:14px;cursor:pointer;font-size:.9375rem}
+.extra{display:flex;align-items:center;gap:12px;min-height:48px;background:var(--superficie);border-radius:var(--r);padding:14px;cursor:pointer;font-size:.9375rem}
 .extra input{width:20px;height:20px;margin:0;flex:none}
 .opcion-precio{margin-left:auto;font-weight:700;white-space:nowrap}
 .campo{display:grid;gap:6px;font-weight:600;font-size:.9375rem}
@@ -256,10 +256,10 @@ details[open] summary::after{background:linear-gradient(currentColor,currentColo
 .pedido-ok strong{overflow-wrap:anywhere}
 .ok-check{display:block;width:36px;height:36px}
 .ok-check svg{width:100%;height:100%;fill:none;stroke:var(--primario);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.consentimiento{display:flex;gap:10px;align-items:flex-start;font-size:.875rem;color:var(--apagado);cursor:pointer}
+.consentimiento{display:flex;gap:10px;align-items:flex-start;min-height:44px;padding:10px 0;font-size:.875rem;color:var(--apagado);cursor:pointer}
 .consentimiento input{width:18px;height:18px;margin:2px 0 0;flex:none}
 .garantias-form{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;justify-content:center;gap:4px 16px;font-size:.875rem;font-weight:600}
-.garantias-form a{display:inline-flex;align-items:center;gap:4px;color:var(--apagado);text-decoration:none}
+.garantias-form a{display:inline-flex;align-items:center;gap:4px;min-height:44px;padding:0 4px;color:var(--apagado);text-decoration:none}
 .garantias-form a:hover{color:var(--primario);text-decoration:underline}
 
 /* Contenido de la ficha */

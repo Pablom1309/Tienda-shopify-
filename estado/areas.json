@@ -4,14 +4,14 @@
     "direccion": {
       "agente": "director-estrategia",
       "ttl_horas": 24,
-      "ultima": "2026-10-05T17:41:26Z",
+      "ultima": "2026-10-06T21:51:26Z",
       "prioridad": 6,
       "foco": "Diseño primero: secuenciar insumos hacia diseño y cerrar con el dueño la política de envío (A incluido recomendada) y los datos legales"
     },
     "diseno": {
       "agente": "disenador-web",
       "ttl_horas": 2,
-      "ultima": "2026-10-06T05:50:59Z",
+      "ultima": "2026-10-06T21:51:26Z",
       "prioridad": 1,
       "foco": "Zonas táctiles de 44 px en los enlaces de retracto y datos y en las casillas de la ficha; revisar que no haya tel: ni WhatsApp fuera del formulario, contacto y pie; una mejora por ronda, verificada en 390 px"
     },
@@ -32,7 +32,7 @@
     "seo": {
       "agente": "seo-contenido",
       "ttl_horas": 24,
-      "ultima": "2026-10-05T17:41:26Z",
+      "ultima": "2026-10-06T21:51:26Z",
       "prioridad": 4,
       "foco": "Auditar el HTML regenerado tras el rediseño (3 kits y portada): title ≤ 60, meta ≤ 155, canónica, Product coherente con el precio visible, un solo h1; proponer correcciones al generador sin tocar el sitio; borrador de la guía de verano para el 26-oct"
     },

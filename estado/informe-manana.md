@@ -2,6 +2,11 @@
 
 Se actualiza al final de cada turno autónomo. Lo más reciente arriba.
 
+## 2026-10-06 noche — ronda del equipo
+- **Web:** enlaces de la ficha y casillas del formulario más fáciles de tocar en el celular (44 px). Auditor OK.
+- **SEO:** portada y 3 kits de partida bien configurados para Google. Pendiente: la FAQ de Pelo Cero muestra "por confirmar con proveedor"; se corrige con tu verificación Dropi.
+- **Sigue faltando de ti:** datos legales, verificación Dropi y decisión de envío.
+
 ## 2026-10-06 06:17 — resumen de las últimas 24 h (ciclo diario)
 - **Web rediseñada con Impeccable** (como pediste): tipografía Figtree, fondo blanco, azul de marca protagonista y mandarina solo en el botón de compra, grilla tipo retail, imágenes cuadradas y de ambiente (las tuyas de Canva). Detector de Impeccable: 0 problemas.
 - **Tus reglas aplicadas:** sin teléfono ni "Llámanos"; WhatsApp solo en el formulario, contacto y una línea en el pie; sin "2 por $X", sin píldoras, movimiento casi nulo, sin rótulos sobre títulos.

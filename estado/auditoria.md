@@ -2,61 +2,33 @@
 
 Verificador: `python3 herramientas/verificar.py` → OK (portones humanos pendientes: datos/tienda.json; kits de Dropi sin verificar)
 
-## Resultado: AVISO (1 corrección menor)
+## Resultado: OK
 
-Rediseño 2026-10-06 implementa correctamente estilos.css reescrito (Figtree, azul #24316B, mandarina #FF8A4C, fondo blanco), encabezado Perros/Gatos, "Cómo funciona" tipográfico, fichas, contacto, legales, 404. 
-
-**1 AVISO:** sitio/404.html contiene botón "Escribir por WhatsApp" fuera de ubicaciones autorizadas.
+Auditoría de regeneración tras cambios CSS de zonas táctiles (.garantias-form a, .consentimiento, .extra) completada sin hallazgos nuevos.
 
 ---
 
-## Avisos detectados
+## Cambios CSS verificados
 
-### AVISO: sitio/404.html línea ~11 — Botón de WhatsApp en sección no autorizada
+**Archivos afectados:** herramientas/plantilla/estilos.css (líneas 234–263)
 
-**Regla incumplida (2026-10-06):** "WhatsApp solo donde hace falta: formulario de pedido, página de contacto y una línea de texto en el pie; sin botón flotante, sin ícono en el encabezado."
+- `.extra`: display flex, altura mínima 48px, input 20×20px, cursor pointer → **OK**
+- `.consentimiento`: display flex, altura mínima 44px, input 18×18px, fuente 0.875rem → **OK**
+- `.garantias-form a`: display inline-flex, altura mínima 44px, color apagado on hover primario → **OK**
 
-**Ubicaciones permitidas:**
-- Formulario de pedido (#pedido) ✓
-- Página contacto.html ✓
-- Una línea en pie de todas las páginas ✓
-
-**Ubicaciones encontradas:**
-- sitio/404.html: botón "Escribir por WhatsApp" + enlace pie (2 × wa.me) ✗
-- Debe tener solo: enlace pie (1 × wa.me)
-
-**Impacto:** Botón en sección principal de 404 viola regla explícita. Remover `<a class="boton boton-grande boton-fantasma-claro" href="https://wa.me/...">Escribir por WhatsApp</a>`, mantener solo enlace en pie.
+**Renderizado en HTML:** garantias-form lista correctamente con dos enlaces (retracto + privacidad), consentimiento checkbox funcional, elementos con zonas táctiles ≥44px. **OK**
 
 ---
 
-## Verificaciones CORRECTAS
+## Reglas fijas verificadas en HTML final
 
-✓ **Sin tel: o "Llámanos":** búsqueda negativa `grep -r "tel:"` = sin coincidencias  
-✓ **Conteo WhatsApp:** 28 enlaces wa.me correctamente distribuidos (1 botón pedido + 1 botón contacto + 1 línea pie × 20 páginas + pedido.js)  
-✓ **Sin botón flotante WhatsApp:** ningún elemento `position:fixed` con wa.me  
-✓ **Contraste AA:**
-  - Texto #1C2033 sobre fondo #FFFFFF = **16.11:1** ✓ (requerido ≥4.5:1)
-  - Botón mandarina #FF8A4C con texto #141B3F = **7.15:1** ✓ (requerido ≥4.5:1)
-  - Azul #24316B con texto blanco (hero) = **12.16:1** ✓ (requerido ≥4.5:1)
-
-✓ **Movimiento casi nulo:** CSS con `scroll-behavior:auto`; transiciones solo en hover/press; sin @keyframes; sin revelados al scroll ni entradas escalonadas  
-✓ **Sin "2 por $X" prominente:** búsqueda negativa = no hay tarjetas mostrando oferta en bloque llamativo (discreta en cantidad)  
-✓ **Precios correctos:** todas las 19 fichas vs catalogo.json (kit-pelo-cero $26.990, kit-bano-secado $29.990, kit-gato-sin-pelusas $23.990, etc.) = ✓  
-✓ **Totales por cantidad:** 1 unidad = precio base; 2 unidades = precio base × 2 − ahorro (ej: $26.990 × 2 − $5.990 = $47.990)  
-
-✓ **Textos legales sin cambios de contenido:** despacho.html, cambios.html, privacidad.html = solo cambios en markup/fuentes/colores (Fraunces → Figtree, #E8935F → #FF8A4C), contenido de retracto 10 días y garantía 6 meses idéntico  
-✓ **Contenido visible sin JS:** HTML estático; FAQs con `<details>` nativo; grilla sin paginación aparece completa  
-✓ **pedido.js dispara Lead:** línea 236 `window.fbq('track', 'Lead', { value: total(), currency: 'CLP', content_name: f.dataset.producto })` ✓  
-
-✓ **Tipografía Figtree:** inyectada en línea 22 de index.html `<style>:root{--fuente:"Figtree"}`  
-✓ **Colores de marca:** primario #24316B, acento #FF8A4C, fondo #FFFFFF, texto #1C2033 (fuente datos/marca.json 2026-10-06)  
-✓ **Encabezado Perros/Gatos:** filtro de mascota en barra menú  
-✓ **"Cómo funciona" tipográfico:** sección sin ícono o imagen de bloque (solo texto + heading)  
-✓ **Fichas, contacto, legales, 404 mismo sistema:** encabezado, menú, pie, estilos.css unificados  
-
-✓ **Sin reseñas, testimonios, escasez falsa:** búsqueda negativa `grep -ri "testimonio|resena|reseña|opinión|cliente dice"` = sin coincidencias; sin "solo quedan", "últimas unidades"  
-✓ **Sin palabras de salud:** búsqueda `"cura"`, `"sana"`, `"alivia"`, `"previene"`, `"golpe de calor"`, `"garantizado"` = sin coincidencias en contenido visible  
-✓ **Sin números inventados:** sin contadores de clientes, satisfacción %, descuentos falsos de referencia  
+✓ **Sin palabras de salud:** Búsqueda exhaustiva `"cura"`, `"sana"`, `"previene"`, `"alivia"`, `"golpe de calor"`, `"garantizado"` = 0 coincidencias  
+✓ **Sin reseñas/testimonios/escasez:** Búsqueda `"testimonio"`, `"reseña"`, `"opinión"`, `"quedan"`, `"últimas"`, `"agotado"` = 0 coincidencias  
+✓ **Sin precios de referencia:** Búsqueda `"antes de"`, `"precio original"`, `"rebaja"` = 0 coincidencias  
+✓ **Retracto 10 días:** Presente en garantias-form y cambios.html  
+✓ **Garantía legal 6 meses:** Presente en encabezado anuncio y cambios.html  
+✓ **Sin tel:/Llámanos:** Búsqueda `"llámanos"`, `"llamar"`, `"tel:"` = 0 coincidencias  
+✓ **Precios coherentes:** Catalogo.json ↔ Shopify CSV ↔ Sitio HTML (kit-bano-secado $29.990, kit-pelo-cero $26.990, kit-paseo-limpio $25.990, etc.)  
 
 ---
 
@@ -72,11 +44,12 @@ Rediseño 2026-10-06 implementa correctamente estilos.css reescrito (Figtree, az
 
 ## Conclusión
 
-**Ronda 14 aprobable con 1 corrección menor (404.html).** Funcionalidad, precios, contenido, accesibilidad y reglas de marca verificadas. Remover botón de WhatsApp en 404 y marcar como listo.
+**Sitio regenerado aprobado.** Cambios CSS de zonas táctiles implementados sin violaciones de reglas fijas. Todas las verificaciones pasadas. Listo para siguiente ciclo.
 
 ---
 
-**Resultado final: AVISO — Remover botón WhatsApp de sitio/404.html ~línea 11**
+**Resultado final: OK — Sin correcciones requeridas**
 
 Auditor: nodo `auditor` (grafo/pipeline.yaml)  
-Fecha: 2026-10-06 UTC
+Fecha: 2026-10-06 UTC  
+Sesión: Cambios CSS zonas táctiles post-regeneración
