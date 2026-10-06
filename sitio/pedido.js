@@ -94,10 +94,14 @@
   // Barra de compra fija (móvil): aparece cuando el formulario sale de la pantalla.
   var barra = document.getElementById('barra-compra');
   if (barra && 'IntersectionObserver' in window) {
+    var formFuera = false, botonViendose = false;
+    var pintar = function () { barra.classList.toggle('visible', formFuera && !botonViendose); };
     new IntersectionObserver(function (en) {
-      var fuera = !en[0].isIntersecting && en[0].boundingClientRect.top < 0;
-      barra.classList.toggle('visible', fuera);
+      formFuera = !en[0].isIntersecting && en[0].boundingClientRect.top < 0;
+      pintar();
     }).observe(f);
+    var envio = f.querySelector('button[type=submit]');
+    if (envio) new IntersectionObserver(function (en) { botonViendose = en[0].isIntersecting; pintar(); }).observe(envio);
   }
 
   var total = function () {

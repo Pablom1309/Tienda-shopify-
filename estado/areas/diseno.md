@@ -6,7 +6,12 @@ Agente: `disenador-web`. Lo actualiza el propio agente en cada ronda.
 - 2026-10-06 (ronda 14, Impeccable completo, pedido del dueño): REDISEÑO del mundo visual. Documentado en `DESIGN.md`. Fondo blanco/gris azulado `#F3F5F9` (sin crema), Figtree como única tipografía (reemplaza Fraunces y Nunito; `marca.json` tipografia = Figtree), azul `#24316B` protagonista y mandarina `#FF8A4C` solo para la compra, radios de 4 px, sin píldoras ni sombras de color. Portada retail: barra de anuncio, encabezado con navegación directa (Perros/Gatos filtran), hero panel azul + foto de ambiente, accesos por mascota con foto, grilla 4/2 columnas con imagen cuadrada, nombre, beneficio, precio protagonista y botón "Ver kit"; "Cómo funciona" como pasos tipográficos sin tarjetas ni iconos; preguntas con +/−; pie azul profundo. Fichas, contacto, legales y 404 con el mismo sistema. `estilos.css` reescrito desde cero (1101 → 366 líneas, sin bloques de rondas anteriores). Detector Impeccable: antes 6 hallazgos en portada (cramped-padding) y 3 en contacto (overused-font Fraunces, cream-palette, dark-glow); ahora 0 en todas las páginas.
 - Historial anterior (diagnóstico 2026-10-05, rondas 1-13) reemplazado por este rediseño; las tareas pendientes por datos del dueño siguen abajo.
 
+## Hecho (ronda 15, 2026-10-06, pulido sin cambiar el mundo visual)
+- Revisadas 19 fichas, contacto, despacho, cambios, privacidad y 404 a 390 y 1366: sin scroll horizontal ni errores de consola. Formulario con datos extremos (nombre de 45 caracteres, celular "1234"): Región y Comuna ahora apilan hasta 430 px (antes "Elige tu regió" se cortaba); la barra de compra fija ya no tapa el botón "Confirmar" ni los errores (se oculta mientras el botón se ve; `scroll-padding` para el foco). 404 solo se ve sin estilos en local por sus URLs absolutas (esperado). Capturas r15-*.
+
 ## Próximas tareas
+- Enlaces "10 días de retracto" y "Cómo usamos tus datos" de la ficha miden 22 px de alto: darles 44 px de zona táctil.
+- Casillas de verificación de 18-20 px: ampliar la zona del label.
 - [hecho 2026-10-06] CSS consolidado en un solo sistema.
 - Fuente Figtree: en el sandbox Google Fonts no carga (error de certificado, solo entorno); revisar en producción y, si hay layout shift, autoalojar woff2.
 - Mover reglas de estilo repetidas del generador (`construir_sitio.py`) a tokens si se agregan más componentes.

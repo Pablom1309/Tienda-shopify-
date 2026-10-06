@@ -11,7 +11,7 @@
 
 /* Base */
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:auto}
+html{-webkit-text-size-adjust:100%;scroll-behavior:auto;scroll-padding-top:80px;scroll-padding-bottom:96px}
 body{margin:0;font-family:var(--fuente,"Figtree"),system-ui,-apple-system,"Segoe UI",sans-serif;font-size:1rem;line-height:1.6;background:var(--fondo);color:var(--texto);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;caret-color:var(--primario);accent-color:var(--primario)}
 ::selection{background:var(--primario);color:#fff}
 img{max-width:100%;height:auto;display:block}
@@ -240,10 +240,11 @@ details[open] summary::after{background:linear-gradient(currentColor,currentColo
 .campo input::placeholder{color:#6B7388}
 .opcional{font-weight:400;color:var(--apagado)}
 .error-txt{display:none;color:var(--error);font-weight:600;font-size:.875rem;line-height:1.35}
+.campo select{text-overflow:ellipsis}
 .campo.error input,.campo.error select{border-color:var(--error)}
 .campo.error .error-txt{display:block}
 .fila{display:grid;gap:12px;grid-template-columns:1fr 1fr}
-@media(max-width:380px){.fila{grid-template-columns:1fr}}
+@media(max-width:430px){.fila{grid-template-columns:1fr}}
 .entrega{margin:0;background:var(--superficie);color:var(--primario);border-radius:var(--r);padding:12px;font-weight:600;font-size:.9375rem}
 .total{display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid var(--linea);padding-top:16px}
 .total strong{font-size:1.75rem;font-weight:800;color:var(--primario)}
