@@ -2,6 +2,17 @@
 
 Se actualiza al final de cada turno autónomo. Lo más reciente arriba.
 
+## 2026-10-06 06:17 — resumen de las últimas 24 h (ciclo diario)
+- **Web rediseñada con Impeccable** (como pediste): tipografía Figtree, fondo blanco, azul de marca protagonista y mandarina solo en el botón de compra, grilla tipo retail, imágenes cuadradas y de ambiente (las tuyas de Canva). Detector de Impeccable: 0 problemas.
+- **Tus reglas aplicadas:** sin teléfono ni "Llámanos"; WhatsApp solo en el formulario, contacto y una línea en el pie; sin "2 por $X", sin píldoras, movimiento casi nulo, sin rótulos sobre títulos.
+- **Formulario móvil pulido**; la barra de compra fija se oculta cuando el botón de confirmar está a la vista.
+- **Productos:** ciclo sin cambios (nada vencido; 19 kits activos). Control OK.
+- **Necesito de ti (en orden):**
+  1. Razón social, RUT, domicilio y correo → `datos/tienda.json`.
+  2. Dropi: verificar los 3 kits de partida y certificación SEC de Pelo Cero (19/19 kits sin verificar: no pautar aún).
+  3. Decidir si el despacho va incluido; dominio; cuentas @kuchiwau.
+  4. Imagen de ambiente "entrega" (se acabaron los créditos de Canva).
+
 ## 2026-10-05 tarde — sesión de 30 min con todo el equipo
 - **Web publicada:** página 404 de marca, ficha con "Qué incluye" numerado, formulario de pedido por pasos más claro en el celular, "Pack de 2" con el ahorro exacto, despacho y cambios con textos revisados por legal, bloque de reclamos (SERNAC) en contacto. Auditor OK.
 - **Para ti, listo para usar:** `datos/preguntas_dropi.md` (mensajes para copiar y pegar a Dropi/proveedores) y `datos/guia_fotos.md` (cómo fotografiar cada kit).
