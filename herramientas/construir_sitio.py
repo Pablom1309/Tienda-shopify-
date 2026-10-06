@@ -185,16 +185,15 @@ def logo_svg(pie=False):
     """Isotipo + palabra (texto convertido a trazos, color heredado) desde herramientas/plantilla."""
     iso = (PLANTILLA / "isotipo.svg").read_text(encoding="utf-8").strip()
     if pie:
-        iso = iso.replace('fill="#24316B"', 'fill="#FFF8F0"', 1).replace('<g fill="#FFF8F0">', '<g fill="#24316B">')
+        iso = iso.replace('fill="#24316B"', 'fill="#FFFFFF"', 1).replace('<g fill="#FFF8F0">', '<g fill="#24316B">')
     iso = iso.replace("<svg ", '<svg class="logo-iso" aria-hidden="true" ', 1).replace(' role="img" aria-label="Kuchiwau"', "")
     palabra = (PLANTILLA / "palabra.svg").read_text(encoding="utf-8").strip().replace("<svg ", '<svg class="logo-palabra" aria-hidden="true" ', 1)
     return iso + palabra
 
 
-# Paleta de marca vigente (ronda 10, 2026-10-05): azul tinta del logo como color protagonista (encabezado de portada, botón
-# principal, pie), mandarina apagada como acento sobre azul y neutros cálidos de fondo. Sin degradados ni saturación alta.
-# Derivados (tinta profunda, acento para texto sobre claro, bandejas tonales) viven en estilos.css, bloque "Ronda 10".
-PALETA_TIENDA = {"primario": "#24316B", "acento": "#E8935F", "fondo": "#F6F2EA", "texto": "#1C2033"}
+# Paleta de la tienda (rediseño ronda 14, 2026-10-06; ver DESIGN.md): azul de marca protagonista, mandarina solo para la compra,
+# fondo blanco. Los derivados (superficie, línea, azul profundo) viven en estilos.css como variables.
+PALETA_TIENDA = {"primario": "#24316B", "acento": "#FF8A4C", "fondo": "#FFFFFF", "texto": "#1C2033"}
 
 
 def pagina(marca, tienda, titulo, descripcion, cuerpo, base="", canonica=None, imagen_og=None, precarga=None, extra_ld=(), tipo_og="website", clase_body="", pago_en_anuncio=True):
@@ -210,8 +209,6 @@ def pagina(marca, tienda, titulo, descripcion, cuerpo, base="", canonica=None, i
     pre = f'<link rel="preload" as="image" href="{base}{precarga}" fetchpriority="high">' if precarga else ""
     wa = tienda.get("whatsapp")
     # Dueño 2026-10-06: WhatsApp en pocos lugares (formulario, contacto y una línea en el pie); sin flotante ni ícono en el encabezado; sin teléfono.
-    flotante_wa = ""
-    hdr_wa = ""
     if wa:
         pie_contacto = f'<a class="pie-lnk" href="{e(wa_url(tienda))}" target="_blank" rel="noopener noreferrer">WhatsApp {e(wa_numero(tienda))}</a>'
     else:
@@ -229,7 +226,7 @@ def pagina(marca, tienda, titulo, descripcion, cuerpo, base="", canonica=None, i
     if sociales:
         org["sameAs"] = sociales
     scripts = "".join(ld(x) for x in (org, *extra_ld))
-    fuentes = f"https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family={marca['tipografia']}:wght@400;600;700;800&display=swap"
+    fuentes = f"https://fonts.googleapis.com/css2?family={marca['tipografia']}:wght@400;500;600;700;800&display=swap"
     pago_anuncio = f'<span class="anuncio-pago">{icono("pago", "ico ico-s")} Pagas al recibir</span><span class="sep" aria-hidden="true">·</span>' if pago_en_anuncio else ""
     return f"""<!doctype html>
 <html lang="es-CL">
@@ -248,7 +245,7 @@ def pagina(marca, tienda, titulo, descripcion, cuerpo, base="", canonica=None, i
 <meta name="twitter:title" content="{e(titulo)}">
 <meta name="twitter:description" content="{e(descripcion)}">
 {can}
-<meta name="theme-color" content="{c['fondo']}">
+<meta name="theme-color" content="{c['primario']}">
 <link rel="icon" href="{base}favicon.svg" type="image/svg+xml">
 {pre}
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -256,15 +253,15 @@ def pagina(marca, tienda, titulo, descripcion, cuerpo, base="", canonica=None, i
 <link rel="preload" as="style" href="{fuentes}" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="{fuentes}"></noscript>
 <link rel="stylesheet" href="{base}estilos.css?v={version('estilos.css')}">
-<style>:root{{--primario:{c['primario']};--acento:{c['acento']};--fondo:{c['fondo']};--texto:{c['texto']}}}</style>
+<style>:root{{--primario:{c['primario']};--acento:{c['acento']};--fondo:{c['fondo']};--texto:{c['texto']};--fuente:"{marca['tipografia']}"}}</style>
 {scripts}
 </head>
 <body class="{clase_body}">
 <a class="saltar" href="#contenido">Saltar al contenido</a>
 <div class="anuncio">{pago_anuncio}<span class="anuncio-envio">{icono('envio', 'ico ico-s')} Despachos a todo Chile, plazos por zona</span><span class="sep ocultar-movil" aria-hidden="true">·</span><span class="ocultar-movil">{icono('garantia', 'ico ico-s')} Garantía legal 6 meses</span></div>
 <header class="barra"><div class="contenedor barra-in"><a class="logo" href="{base}index.html" aria-label="{e(marca['nombre'])}, inicio">{logo_svg()}</a>
-<nav class="menu" aria-label="Principal"><a href="{base}index.html#kits">Kits</a><a href="{base}index.html#como-funciona">Cómo funciona</a><a href="{base}index.html#preguntas">Preguntas</a><a href="{base}contacto.html">Contacto</a></nav>
-<div class="barra-acc">{hdr_wa}<a class="boton boton-chico" href="{base}index.html#kits">Comprar {isla('carro')}</a></div></div></header>
+<div class="barra-acc"><a class="boton boton-chico" href="{base}index.html#kits">{icono('carro', 'ico ico-s')} Ver kits</a></div></div>
+<nav class="menu" aria-label="Principal"><div class="contenedor menu-in"><a href="{base}index.html#kits">Todos los kits</a><a href="{base}index.html#kits" data-filtro-ir="perro">Perros</a><a href="{base}index.html#kits" data-filtro-ir="gato">Gatos</a><a href="{base}index.html#como-funciona">Cómo funciona</a><a href="{base}index.html#preguntas">Preguntas</a><a href="{base}contacto.html">Contacto</a></div></nav></header>
 <main id="contenido">
 {cuerpo}
 </main>
@@ -277,32 +274,22 @@ def pagina(marca, tienda, titulo, descripcion, cuerpo, base="", canonica=None, i
 </div>
 <p class="legal-pie">© {e(tienda.get('razon_social') or marca['nombre'])}{' · RUT ' + e(tienda['rut']) if tienda.get('rut') else ''}{' · ' + e(tienda['direccion_comercial']) if tienda.get('direccion_comercial') else ''} · Precios en pesos chilenos, IVA incluido.</p>
 </footer>
-{flotante_wa}
 <script src="{base}pedido.js?v={version('pedido.js')}" defer></script>
 </body>
 </html>
 """
 
 
-def sellos(tienda):
-    pl = tienda["plazos_despacho"]
-    items = [("pago", "Pagas al recibir", "Sin tarjeta ni pagos por adelantado"),
-             ("envio", "Despacho a todo Chile", f"RM {pl['RM']}"),
-             ("garantia", "Garantía legal", "6 meses por fallas"),
-             ("retracto", "Retracto", "10 días desde que lo recibes")]
-    return '<ul class="sellos">' + "".join(f'<li>{icono(i)}<div><strong>{e(t)}</strong><span>{e(s)}</span></div></li>' for i, t, s in items) + "</ul>"
-
-
 def como_funciona():
-    pasos = [("carro", "Haz tu pedido", "Elige tu kit y deja tus datos de entrega. Sin cuenta ni tarjeta."),
-             ("chat", "Te confirmamos por WhatsApp", "Revisamos dirección y plazo contigo antes de despachar."),
-             ("pago", "Pagas cuando llega", "Recibes el kit en tu puerta y pagas al repartidor.")]
-    items = "".join(f'<li><span class="paso-num">{i}</span><div><h3>{e(t)}</h3><p>{e(d)}</p></div></li>' for i, (ic, t, d) in enumerate(pasos, 1))
+    pasos = [("", "Haz tu pedido", "Elige tu kit y deja tus datos de entrega. Sin cuenta ni tarjeta."),
+             ("", "Te confirmamos por WhatsApp", "Revisamos dirección y plazo contigo antes de despachar."),
+             ("", "Pagas cuando llega", "Recibes el kit en tu puerta y pagas al repartidor.")]
+    items = "".join(f'<li><span class="paso-num" aria-hidden="true">{i}</span><h3>{e(t)}</h3><p>{e(d)}</p></li>' for i, (ic, t, d) in enumerate(pasos, 1))
     foto = ambiente("ambiente-entrega", sizes="(min-width:900px) 40vw, 100vw")
     visual = f'<div class="como-visual"><div class="marco"><figure class="foto foto-ambiente">{foto}</figure></div></div>' if foto else ""
-    nota = f'<p class="nota-cambios">{icono("retracto", "ico ico-s")} ¿No te convenció? Tienes 10 días de retracto desde que lo recibes. <a href="cambios.html">Ver cambios y garantía</a></p>'
+    nota = f'<p class="nota-cambios">¿No te convenció? Tienes 10 días de retracto desde que lo recibes. <a href="cambios.html">Ver cambios y garantía</a></p>'
     return (f'<section class="seccion seccion-suave" id="como-funciona"><div class="contenedor como{" como-con-img" if foto else ""}">'
-            f'<div class="como-txt"><h2>Comprar es así de simple</h2><ol class="tres-pasos pasos-ed">{items}</ol>{nota}</div>{visual}</div></section>')
+            f'<div class="como-txt"><h2>Comprar es así de simple</h2><ol class="tres-pasos">{items}</ol>{nota}</div>{visual}</div></section>')
 
 
 def faq_general(tienda):
@@ -504,14 +491,13 @@ def beneficio(f):
 
 
 def tarjeta(p, f, mascota, base, referencial=False):
-    """Tarjeta de kit (doble marco sobrio): bandeja tonal + foto cuadrada, categoría, nombre, beneficio, piezas, precio y acción."""
+    """Tarjeta de kit estilo retail: foto cuadrada, nombre, categoría y piezas, beneficio, precio protagonista y acción."""
     img = imagen(p['id'], alt_principal(p, f), base, 'foto foto-tarjeta', referencial=referencial, sizes='(min-width:1100px) 25vw, (min-width:700px) 33vw, 50vw')
     piezas = len(f.get("incluye") or [])
-    n_piezas = f'<small class="tarjeta-piezas">{piezas} {"pieza" if piezas == 1 else "piezas"}</small>' if piezas else ""
     ben = beneficio(f)
     return f"""<a class="tarjeta" data-mascota="{mascota}" href="{base}productos/{e(f['handle'])}.html"><div class="tarjeta-img">{img}</div>
 <div class="tarjeta-cuerpo"><h3><span>{e(f['titulo_seo'].split(':')[0])}</span></h3><p class="tarjeta-meta">{e(etiqueta_publica(p))}{' · ' + str(piezas) + (' pieza' if piezas == 1 else ' piezas') if piezas else ''}</p>{f'<p class="tarjeta-beneficio">{e(ben)}</p>' if ben else ''}
-<div class="tarjeta-pie"><strong>{clp(p['precio'])}</strong></div><span class="tarjeta-btn" aria-hidden="true">Ver kit {icono('flecha', 'ico ico-s')}</span></div></a>"""
+<p class="tarjeta-pie"><strong>{clp(p['precio'])}</strong></p><span class="tarjeta-btn" aria-hidden="true">Ver kit</span></div></a>"""
 
 
 RELACIONADOS = {"kit-bano-secado-perro": ["kit-pelo-cero", "kit-verano-fresco"],
@@ -526,7 +512,7 @@ def otros_kits(prod, productos):
     elegidos = [por_id[i] for i in ids[:3]]
     if not elegidos:
         return ""
-    cards = "".join(tarjeta(p, f, "", "../", referencial=True).replace(" revelar", "") for p, f in elegidos)
+    cards = "".join(tarjeta(p, f, "", "../", referencial=True) for p, f in elegidos)
     return f'<section class="seccion contenedor" id="otros-kits"><h2>Otros kits que te pueden servir</h2><div class="grilla grilla-otros">{cards}</div></section>'
 
 
@@ -539,7 +525,7 @@ def portada(productos, marca, tienda):
     tarjetas = "".join(tarjeta(p, f, mascota(p), "") for p, f in productos)
     # Hero: con ambiente-hero.jpg (16:9) la imagen va al lado del texto; sin archivo, panel de marca (sin huecos rotos).
     hero = ambiente("ambiente-hero", sizes="(min-width:900px) 52vw, 100vw", principal=True)
-    hero_visual = f'<div class="hero-visual"><div class="marco-azul"><figure class="foto foto-hero">{hero}</figure></div></div>' if hero else ""
+    hero_visual = f'<div class="hero-visual"><figure class="foto-hero">{hero}</figure></div>' if hero else ""
     # Tiles de mascota: enlazan al filtro de la grilla; con ambiente-perros.jpg / ambiente-gatos.jpg muestran foto, si no un panel de marca.
     def tile(clave, nombre):
         n = sum(1 for p, f in productos if mascota(p) in (clave, "ambos"))
@@ -556,12 +542,12 @@ def portada(productos, marca, tienda):
                '<button type="button" class="filtro" data-filtro="gato" aria-pressed="false">Gatos</button></div>') if len(productos) > 6 else ""
     cuerpo = f"""<section class="hero{' hero-con-img' if hero else ' hero-solo'}">
 <div class="contenedor hero-in"><div class="hero-txt">
-<h1>Menos pelo en tu casa. Más frescura para tu mascota.</h1>
+<h1>Menos pelo en tu casa. <span class="resalta">Más frescura para tu mascota.</span></h1>
 <p class="hero-sub">Soluciones completas para el pelo y el calor, pensadas para la vida en casa.</p>
 <div class="hero-acciones"><a class="boton boton-grande" href="#kits">Mira los kits {isla()}</a><a class="boton boton-fantasma-claro" href="#como-funciona">¿Cómo funciona?</a></div></div>
 {hero_visual}</div></section>
 {mascotas}
-<section class="seccion contenedor" id="kits"><h2>Elige el que necesita tu casa</h2><p class="nota-fotos">Algunas fotos son referenciales hasta que lleguen las reales.</p>{filtros}<p class="sr" id="conteo" role="status" aria-live="polite"></p><div class="grilla" id="grilla">{tarjetas}</div><div class="vacio" id="vacio" hidden><p><strong>Todavía no tenemos kits para esta mascota.</strong> Mira todos los que sí tenemos.</p><button type="button" class="boton boton-fantasma-claro boton-auto" data-filtro-todos>Ver todos los kits</button></div><nav class="paginas" id="paginas" aria-label="Páginas de kits" hidden></nav></section>
+<section class="seccion seccion-suave" id="kits"><div class="contenedor"><h2>Elige el que necesita tu casa</h2><p class="nota-fotos">Algunas fotos son referenciales hasta que lleguen las reales.</p>{filtros}<p class="sr" id="conteo" role="status" aria-live="polite"></p><div class="grilla" id="grilla">{tarjetas}</div><div class="vacio" id="vacio" hidden><p><strong>Todavía no tenemos kits para esta mascota.</strong> Mira todos los que sí tenemos.</p><button type="button" class="boton boton-fantasma-claro boton-auto" data-filtro-todos>Ver todos los kits</button></div><nav class="paginas" id="paginas" aria-label="Páginas de kits" hidden></nav></div></section>
 {como_funciona()}
 {bloque_faq(preguntas)}"""
     url = (tienda.get("url_sitio") or "").rstrip("/")
@@ -581,18 +567,18 @@ def pagina_contacto(marca, tienda):
     hay_redes = any((tienda.get("redes") or {}).get(k) for k in REDES)
     if hay_redes:
         tarjetas.append(("instagram", "Síguenos", redes_html(tienda, marca, "redes redes-contacto"), "Nuestras cuentas oficiales."))
-    cards = "".join(f'<li class="contacto-card">{icono(i, "ico ico-tile")}<h3>{t}</h3><p>{d}</p><p class="contacto-nota">{n}</p></li>' for i, t, d, n in tarjetas)
+    cards = "".join(f'<li class="contacto-card"><h3>{t}</h3><p>{d}</p><p class="contacto-nota">{n}</p></li>' for i, t, d, n in tarjetas)
     if wa:
-        principal = f"""<div class="contacto-wa"><div class="contacto-wa-txt"><span class="contacto-wa-ico">{icono('whatsapp', 'ico ico-tile ico-xl')}</span>
+        principal = f"""<div class="contacto-wa"><div class="contacto-wa-txt">
 <h2>Escríbenos por WhatsApp</h2><p>Es nuestro canal principal: respondemos por ahí tus consultas y confirmamos tu pedido antes de despachar.</p>
 <p class="contacto-num">{e(wa_numero(tienda))}</p></div>
-<a class="boton boton-grande boton-wa" href="{e(wa_url(tienda))}" target="_blank" rel="noopener noreferrer">Abrir WhatsApp {isla('whatsapp')}</a></div>"""
+<a class="boton boton-grande boton-auto" href="{e(wa_url(tienda))}" target="_blank" rel="noopener noreferrer">Abrir WhatsApp {isla('whatsapp')}</a></div>"""
     else:
         principal = '<p class="aviso">Estamos completando nuestros datos de contacto. Muy pronto podrás escribirnos desde aquí.</p>'
     ayuda = [("envio", "Despacho", "Plazos por región y cómo coordinamos la entrega.", "despacho.html"),
              ("retracto", "Cambios y garantía", "Retracto de 10 días y garantía legal de 6 meses.", "cambios.html"),
              ("ayuda", "Preguntas frecuentes", "Las dudas más comunes antes de pedir.", "index.html#preguntas")]
-    ayuda_html = "".join(f'<li><a class="contacto-ayuda" href="{h}">{icono(i, "ico ico-tile")}<span><strong>{t}</strong><small>{d}</small></span>{icono("flecha", "ico ico-s ir")}</a></li>' for i, t, d, h in ayuda)
+    ayuda_html = "".join(f'<li><a class="contacto-ayuda" href="{h}"><span><strong>{t}</strong><small>{d}</small></span>{icono("flecha", "ico ico-s ir")}</a></li>' for i, t, d, h in ayuda)
     return f"""<section class="contacto-hero"><div class="contenedor estrecho"><h1>Hablemos</h1><p class="hero-sub">¿Dudas sobre un kit, tu pedido o el despacho? Escríbenos y te ayudamos.</p></div></section>
 <section class="contenedor estrecho contacto">{principal}
 {f'<ul class="contacto-grid">{cards}</ul>' if cards else ''}
@@ -627,11 +613,11 @@ def legales(marca, tienda):
 def pagina_404(marca, tienda, productos):
     """404 de marca: ruta absoluta al sitio (GitHub Pages la sirve desde cualquier ruta), sin canónica y con noindex."""
     raiz = (tienda.get("url_sitio") or "").rstrip("/") + "/"
-    cards = "".join(tarjeta(p, f, "", raiz, referencial=True).replace(" revelar", "") for p, f in productos[:3])
+    cards = "".join(tarjeta(p, f, "", raiz, referencial=True) for p, f in productos[:3])
     cuerpo = f"""<section class="e404"><div class="contenedor estrecho"><h1>No encontramos esa página</h1>
 <p class="hero-sub">Puede que el enlace haya cambiado. Vuelve al inicio o escríbenos y te ayudamos.</p>
-<div class="hero-acciones"><a class="boton boton-grande" href="{raiz}index.html">Ir al inicio {isla()}</a><a class="boton boton-grande boton-fantasma-claro" href="{wa_url(tienda)}" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a></div></div>
-<div class="contenedor"><div class="grilla grilla-otros e404-kits">{cards}</div></div></section>"""
+<div class="hero-acciones"><a class="boton boton-grande" href="{raiz}index.html">Ir al inicio {isla()}</a><a class="boton boton-grande boton-fantasma-claro" href="{raiz}contacto.html">Ir a contacto</a></div></div>
+<div class="contenedor e404-kits"><h2>Kits que te pueden servir</h2><div class="grilla grilla-otros">{cards}</div></div></section>"""
     html_ = pagina(marca, tienda, f"Página no encontrada | {marca['nombre']}", f"Página no encontrada en {marca['nombre']}.", cuerpo, base=raiz)
     return html_.replace("<head>", '<head>\n<meta name="robots" content="noindex">', 1)
 

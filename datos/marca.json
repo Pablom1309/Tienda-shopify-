@@ -33,14 +33,14 @@
   "colores": {
     "primario": "#24316B",
     "acento": "#FF8A4C",
-    "fondo": "#FFF8F0",
+    "fondo": "#FFFFFF",
     "texto": "#1C2033",
     "oscuro": "#141B3F",
-    "suave": "#FCEFE3",
+    "suave": "#F3F5F9",
     "estrella": "#FFC845"
   },
-  "tipografia": "Nunito",
+  "tipografia": "Figtree",
   "nombre_anterior": "Huella Sur → Kimo (descartado 2026-10-04: KIMO registrado en INAPI por Puratos S.A., clases 1 y 30) → Kuchiwau",
-  "paleta_nota": "Paleta 'tinta y mandarina' (2026-10-04): azul tinta = confianza (como Chewy/BarkBox), mandarina = calidez y botón de compra, crema cálida de fondo (estilo DTC tipo Wild One/Fable). Contrastes verificados WCAG AA. Ver investigacion/paleta-colores.md.",
+  "paleta_nota": "Rediseño 2026-10-06 (ver DESIGN.md): fondo blanco, azul tinta #24316B protagonista, mandarina solo para la acción de compra, tipografía Figtree.",
   "origen_nombre": "'Cuchi cuchi' (el mimo a la mascota) + 'wau' (ladrido). Idea del dueño."
 }

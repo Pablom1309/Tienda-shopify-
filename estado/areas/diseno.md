@@ -2,23 +2,14 @@
 
 Agente: `disenador-web`. Lo actualiza el propio agente en cada ronda.
 
-## Diagnóstico 2026-10-05 con skills
-Skills usadas: impeccable (critique.md y audit.md, modo "Launcher unavailable": sin detector, evaluación manual + Playwright), redesign-existing-projects, design-taste-frontend (lectura: tienda DTC de confianza para dueños de mascotas, lenguaje cálido y sobrio, se conserva Fraunces + Nunito + tinta/mandarina/crema), find-animation-opportunities, improve-animations y review-animations (STANDARDS.md), break-ui. Capturas base: scratchpad/capturas/base-*.png (390 y 1366).
-Puntaje heurístico (Nielsen, estimado, los 10 aplican): 31/40 (Bueno). Visibilidad 3, Match mundo real 4, Control 3, Consistencia 3, Prevención de errores 3, Reconocimiento 3, Flexibilidad 3, Estética minimalista 3 (ruido de etiquetas repetidas), Recuperación de errores 3, Ayuda 3.
-Top 10 problemas (P0 bloquea, P1 mayor, P2 menor):
-1. [P1] Hero escritorio: el bloque de texto quedaba centrado por el flex y desalineado del logo, y el titular se acercaba a la cara del perro. HECHO.
-2. [P1] Hero móvil: el kicker en píldora gris sobre la foto, tres líneas de kicker, dos botones apilados y ningún kit a la vista. HECHO (kicker en línea, imagen 4:3, secundario como enlace).
-3. [P1] Ficha móvil: la bajada se cortaba con puntos suspensivos a mitad de frase ("para que us…"). HECHO.
-4. [P1] "Imagen referencial" repetido en las 8 fotos de la grilla ("un mensaje, un lugar"). HECHO: una nota sobre la grilla; se mantiene en la ficha y en "Otros kits".
-5. [P1] Contacto: título, botón y flotante decían lo mismo ("Escríbenos por WhatsApp") y el botón se partía en 2 líneas en móvil. HECHO (botón "Abrir WhatsApp", flotante oculto en contacto).
-6. [P1] Móvil: el botón flotante de WhatsApp tapaba texto del formulario en la ficha (el header ya tiene WhatsApp). HECHO: oculto en fichas móvil.
-7. [P2] Kickers en MAYÚSCULAS espaciadas en todas las secciones (choca con el tono "sin mayúsculas gritonas"). HECHO: minúsculas con filete mandarina.
-8. [P2] Ritmo plano: portada con todo sobre el mismo crema. HECHO: "Cómo funciona" en banda suave de ancho completo; espaciado 88/56.
-9. [P2] Tarjetas sin dato útil de contenido y precio secundario de 11 px. HECHO: "Kit de N piezas" (dato de la ficha), 2 por $X a .8rem, nombre en 2 líneas máx., etiqueta en una línea.
-10. [P2] Cabecera desborda a 320 px (61 px de scroll horizontal) y títulos en peso 700 pesados. HECHO: cabecera compacta a <360 px; títulos Fraunces 600 con tracking -0.022em; cifras tabulares.
+## Hecho
+- 2026-10-06 (ronda 14, Impeccable completo, pedido del dueño): REDISEÑO del mundo visual. Documentado en `DESIGN.md`. Fondo blanco/gris azulado `#F3F5F9` (sin crema), Figtree como única tipografía (reemplaza Fraunces y Nunito; `marca.json` tipografia = Figtree), azul `#24316B` protagonista y mandarina `#FF8A4C` solo para la compra, radios de 4 px, sin píldoras ni sombras de color. Portada retail: barra de anuncio, encabezado con navegación directa (Perros/Gatos filtran), hero panel azul + foto de ambiente, accesos por mascota con foto, grilla 4/2 columnas con imagen cuadrada, nombre, beneficio, precio protagonista y botón "Ver kit"; "Cómo funciona" como pasos tipográficos sin tarjetas ni iconos; preguntas con +/−; pie azul profundo. Fichas, contacto, legales y 404 con el mismo sistema. `estilos.css` reescrito desde cero (1101 → 366 líneas, sin bloques de rondas anteriores). Detector Impeccable: antes 6 hallazgos en portada (cramped-padding) y 3 en contacto (overused-font Fraunces, cream-palette, dark-glow); ahora 0 en todas las páginas.
+- Historial anterior (diagnóstico 2026-10-05, rondas 1-13) reemplazado por este rediseño; las tareas pendientes por datos del dueño siguen abajo.
 
 ## Próximas tareas
-- (orquestador 2026-10-05) Limpiar CSS muerto de estilos.css: reglas antiguas (p. ej. border-radius:999px en .boton, .etiqueta, .chip, .insignia, figcaption) anuladas por los bloques de las rondas 8-12; consolidar en un solo sistema para que el archivo no confunda auditorías.
+- [hecho 2026-10-06] CSS consolidado en un solo sistema.
+- Fuente Figtree: en el sandbox Google Fonts no carga (error de certificado, solo entorno); revisar en producción y, si hay layout shift, autoalojar woff2.
+- Mover reglas de estilo repetidas del generador (`construir_sitio.py`) a tokens si se agregan más componentes.
 Ronda 6 (2026-10-05) agrupó y resolvió o descartó las ~47 propuestas anteriores. Quedan solo estas, con su condición:
 - [espera datos del dueño] Integrar textos legales (C1 contacto/pie, privacidad, enlace "Cómo usamos tus datos") cuando razón social, RUT, domicilio y correo dejen de ser null; hoy no se publica nada con null.
 - [espera decisión dueño] Bloque de costo de despacho (variante A incluido / B por zona) bajo el precio, elegido por un dato en `datos/tienda.json`; mientras sea null no se muestra.
@@ -26,7 +17,7 @@ Ronda 6 (2026-10-05) agrupó y resolvió o descartó las ~47 propuestas anterior
 - [espera marca/datos] Copys de `datos/fichas.json` (nombre y FAQ de Pelo Cero, "Sin repuestos adhesivos" de Gato/Pelo Cero): no son del generador y las afirmaciones no están verificadas.
 - [espera activos] Video/GIF de la unidad real, ilustraciones planas para espacios sin foto y set de íconos propio (trazo 2 px + estrella mandarina): requieren arte de marca; no se improvisa.
 - [espera fotos reales] Miniaturas: ya funcionan; basta subir `img/<id>-2.jpg` y `<id>-3.jpg` (probado con una copia temporal, ya retirada).
-- Fuentes autoalojadas (woff2 subset de Fraunces y Nunito): necesita descargar los archivos; hoy la hoja de Google Fonts ya no bloquea el render (preload + onload).
+- Fuentes autoalojadas (woff2 subset de Figtree): necesita descargar los archivos; hoy la hoja de Google Fonts ya no bloquea el render (preload + onload).
 - Guías de contenido (`Article` + `FAQPage`) y enlace desde "Otros kits" cuando existan; `priceValidUntil`/`shippingRate` solo con dato confirmado.
 - Probar envío real en iPhone/Android (teclado, autocompletar, apertura de WhatsApp con `window.open`).
 - Página Nosotros honesta y página de gracias con complemento (backlog P3).
