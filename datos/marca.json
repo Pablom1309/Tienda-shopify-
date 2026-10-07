@@ -1,0 +1,46 @@
+{
+  "nombre": "Kuchiwau",
+  "verificar": "Dueño verificó en INAPI (2026-10-04) que no existen marcas 'Kuchi'. kuchiwau.cl, kuchiguau.cl y cuchiguau.cl libres en nic.cl el 2026-10-04. Pendiente: solicitar registro en INAPI (clases 35, 18, 21, 28) y registrar los dominios.",
+  "promesa": "Menos pelo en tu casa y más frescura para tu mascota, con pago al recibir.",
+  "enunciado": "Para dueños de perros y gatos en Chile que viven con pelo en todas partes y veranos cada vez más calurosos, Kuchiwau es una tienda de kits de cuidado en casa que resuelve el problema completo en un solo pedido, porque arma soluciones y no productos sueltos. A diferencia de comprar piezas sueltas en marketplaces, recibes el kit probado, con garantía legal y pagas cuando llega.",
+  "cliente_ideal": "Dueños de perros y gatos de 25 a 50 años en Chile urbano, que viven en departamento o casa con muebles de tela, y valoran el tiempo.",
+  "pilares": [
+    {
+      "pilar": "Soluciones completas",
+      "prueba": "Cada kit cubre el problema de punta a punta (mascota + casa)."
+    },
+    {
+      "pilar": "Compra sin riesgo",
+      "prueba": "Pago contra entrega, garantía legal de 6 meses y retracto de 10 días."
+    },
+    {
+      "pilar": "Honestidad",
+      "prueba": "Plazos reales por zona, fotos reales y reseñas solo de clientes verificados."
+    }
+  ],
+  "tono": {
+    "es": [
+      "cercano",
+      "práctico",
+      "sobrio"
+    ],
+    "nunca": [
+      "prometer salud o curas",
+      "escasez falsa",
+      "mayúsculas gritonas"
+    ]
+  },
+  "colores": {
+    "primario": "#24316B",
+    "acento": "#FF8A4C",
+    "fondo": "#FFFFFF",
+    "texto": "#1C2033",
+    "oscuro": "#141B3F",
+    "suave": "#F3F5F9",
+    "estrella": "#FFC845"
+  },
+  "tipografia": "Figtree",
+  "nombre_anterior": "Huella Sur → Kimo (descartado 2026-10-04: KIMO registrado en INAPI por Puratos S.A., clases 1 y 30) → Kuchiwau",
+  "paleta_nota": "Rediseño 2026-10-06 (ver DESIGN.md): fondo blanco, azul tinta #24316B protagonista, mandarina solo para la acción de compra, tipografía Figtree.",
+  "origen_nombre": "'Cuchi cuchi' (el mimo a la mascota) + 'wau' (ladrido). Idea del dueño."
+}

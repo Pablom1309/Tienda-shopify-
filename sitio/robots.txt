@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://pablom1309.github.io/Tienda-shopify-/sitemap.xml

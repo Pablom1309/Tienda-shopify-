@@ -1,0 +1,46 @@
+name: Tienda (verificar y publicar)
+
+on:
+  push:
+    branches: [main, claude/shopify-autonomous-agent-d55vw7]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Recalcular nodos deterministas
+        run: |
+          python3 herramientas/economia.py
+          python3 herramientas/puntaje.py
+          python3 herramientas/construir_sitio.py
+          python3 herramientas/verificar.py
+          python3 herramientas/probar_guardian.py
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: sitio
+
+  publicar:
+    # Requiere activar Pages una vez: Settings → Pages → Source: GitHub Actions.
+    needs: verificar
+    continue-on-error: true   # no marca rojo mientras Pages no esté activado
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4
