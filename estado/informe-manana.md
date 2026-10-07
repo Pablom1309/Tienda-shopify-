@@ -2,6 +2,9 @@
 
 Se actualiza al final de cada turno autónomo. Lo más reciente arriba.
 
+## 2026-10-07 madrugada — ronda de diseño
+- **Web:** ya no se muestran textos internos ("por confirmar con proveedor") ni "medidas exactas" en las fichas; Pelo Cero queda sin preguntas frecuentes hasta tener un dato confirmado. Auditor OK.
+
 ## 2026-10-06 noche — ronda del equipo
 - **Web:** enlaces de la ficha y casillas del formulario más fáciles de tocar en el celular (44 px). Auditor OK.
 - **SEO:** portada y 3 kits de partida bien configurados para Google. Pendiente: la FAQ de Pelo Cero muestra "por confirmar con proveedor"; se corrige con tu verificación Dropi.

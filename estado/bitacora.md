@@ -154,3 +154,6 @@ Cada ciclo agrega una entrada al final: fecha, nodos ejecutados, decisiones del 
 - Dirección: sin cambio de prioridades; foco diseño (zonas táctiles) y SEO (revisión HTML).
 - Diseño r16: enlaces de garantías y casillas del formulario con zona táctil ≥ 44 px; detector 0; auditor OK.
 - SEO: portada y 3 kits cumplen título/meta/canónica/h1/Product; propuestas a diseño: quitar 'por confirmar con proveedor' en FAQ de Pelo Cero y 'medidas exactas' en Baño/Gato.
+
+## 2026-10-07T01:51:18Z — equipo: diseño
+- Generador omite FAQ con 'por confirmar con proveedor' (Pelo Cero queda sin FAQ) y cambia 'medidas exactas' por confirmación por WhatsApp. Auditor OK. Pendiente: FAQ de Pelo Cero con dato confirmado (fichas).

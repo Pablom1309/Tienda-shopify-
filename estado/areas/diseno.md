@@ -71,3 +71,7 @@ Skills leídas con Read: impeccable (SKILL, craft-floor, layout, typeset, polish
 - Próximas 5 tareas: (1) subir fotos reales para "Qué incluye" (hoy foto de contenido solo si existe) y alt informativo; (2) probar fichas de los otros 16 kits con textos largos; (3) fuentes autoalojadas; (4) probar envío real en iPhone/Android; (5) decidir bloque de costo de despacho cuando haya dato.
 
 - (de SEO, 2026-10-06) FAQ de Pelo Cero muestra "por confirmar con proveedor" (visible y en JSON-LD): ocultar ese texto o la FAQ hasta confirmación (I4). FAQ de Baño y Gato: quitar "medidas exactas" (pedido de legal). Descartado: "Pagas al recibir" en barra superior de fichas (choca con "un mensaje, un lugar") y `priceValidUntil` (sin dato confirmado).
+
+## Hecho 2026-10-07 (ronda SEO/legal)
+- Generador: FAQ con "por confirmar con proveedor" se omite (HTML y JSON-LD; sección y FAQPage se omiten si queda vacía); "medidas exactas" neutralizado a "medidas" sin datos nuevos. Pelo Cero verificado a 390 px.
+- Propuesta para quien edite fichas: reescribir la FAQ de Pelo Cero con dato confirmado.

@@ -303,6 +303,8 @@ def faq_general(tienda):
 
 
 def bloque_faq(preguntas, titulo="Preguntas frecuentes", id_="preguntas"):
+    if not preguntas:
+        return ""
     items = "".join(f"<details><summary>{e(p)}</summary><div class='faq-r'><p>{e(r)}</p></div></details>" for p, r in preguntas)
     return f'<section class="seccion contenedor estrecho" id="{id_}"><h2>{e(titulo)}</h2><div class="faq">{items}</div></section>'
 
@@ -374,7 +376,9 @@ def pagina_producto(prod, ficha, marca, tienda, productos=()):
     contenido = f'<figure class="foto-contenido">{tag_contenido}</figure>' if tag_contenido else ""
     nombre = ficha["titulo_seo"].split(":")[0]
     url = (tienda.get("url_sitio") or "").rstrip("/")
-    preguntas = [(f["p"], f["r"]) for f in ficha["faq"]]
+    # Texto interno ("por confirmar con proveedor") nunca se muestra; "medidas exactas" se neutraliza sin inventar datos.
+    preguntas = [(f["p"], f["r"].replace("Las medidas exactas las publicamos en esta página apenas recibamos la ficha del proveedor.", "Las medidas del kit te las confirmamos por WhatsApp antes de despachar.").replace("medidas exactas", "medidas"))
+                 for f in ficha["faq"] if "por confirmar con proveedor" not in f["r"].lower()]
     producto_ld = {
         "@context": "https://schema.org", "@type": "Product", "name": ficha["titulo_seo"].split(" | ")[0],
         "description": ficha["meta_descripcion"], "brand": {"@type": "Brand", "name": marca["nombre"]}, "sku": f"KW-{prod['id'].upper()}",
@@ -413,7 +417,7 @@ def pagina_producto(prod, ficha, marca, tienda, productos=()):
 <div class="barra-compra" id="barra-compra"><div><strong>{clp(prod['precio'])}</strong></div><a class="boton" href="#pedido">Pide el tuyo {isla()}</a></div>"""
     og = f"img/{prod['id']}.jpg" if (PLANTILLA / "img" / f"{prod['id']}.jpg").exists() else None
     return pagina(marca, tienda, titulo_web(ficha, marca), meta_web(ficha), cuerpo, base="../",
-                  canonica=f"productos/{ficha['handle']}.html", imagen_og=og, extra_ld=(producto_ld, migas_ld, ld_faq(preguntas)), tipo_og="product", clase_body="ficha", pago_en_anuncio=False)
+                  canonica=f"productos/{ficha['handle']}.html", imagen_og=og, extra_ld=(producto_ld, migas_ld, *([ld_faq(preguntas)] if preguntas else [])), tipo_og="product", clase_body="ficha", pago_en_anuncio=False)
 
 
 NOTA_NO_INCLUYE = {"kit-bano-secado-perro": '<p class="nota-chica"><strong>No incluye shampoo.</strong> Usas el que ya tienes.</p>'}
