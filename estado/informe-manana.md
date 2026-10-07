@@ -2,6 +2,16 @@
 
 Se actualiza al final de cada turno autónomo. Lo más reciente arriba.
 
+## 2026-10-07 06:17 — resumen de las últimas 24 h (ciclo diario)
+- **Web (3 rondas de diseño):** enlaces y casillas del formulario más fáciles de tocar (44 px); fichas sin textos internos ("por confirmar con proveedor") ni "medidas exactas"; ficha sin desborde en celulares chicos. Auditor OK.
+- **SEO:** portada y 3 kits de partida bien configurados para Google.
+- **Productos:** ciclo sin cambios (nada vencido hasta el 11-oct; 19 kits activos). Control OK.
+- **Necesito de ti (en orden):**
+  1. Razón social, RUT, domicilio y correo → `datos/tienda.json`.
+  2. Dropi: verificar los 3 kits de partida (costo, flete, plazo) y certificación SEC de Pelo Cero; con eso se reescribe su pregunta frecuente.
+  3. Decidir si el despacho va incluido; dominio; cuentas @kuchiwau.
+  4. Probar en tu celular un pedido de prueba hasta abrir WhatsApp (sin enviarlo).
+
 ## 2026-10-07 05:47 — ronda de diseño
 - **Web:** prueba con datos extremos (precios y nombres muy largos); se corrigió un desborde lateral de la ficha en celulares chicos (320 px).
 
