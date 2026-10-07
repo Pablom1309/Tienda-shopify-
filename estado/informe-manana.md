@@ -2,6 +2,9 @@
 
 Se actualiza al final de cada turno autónomo. Lo más reciente arriba.
 
+## 2026-10-07 05:47 — ronda de diseño
+- **Web:** prueba con datos extremos (precios y nombres muy largos); se corrigió un desborde lateral de la ficha en celulares chicos (320 px).
+
 ## 2026-10-07 madrugada — ronda de diseño
 - **Web:** ya no se muestran textos internos ("por confirmar con proveedor") ni "medidas exactas" en las fichas; Pelo Cero queda sin preguntas frecuentes hasta tener un dato confirmado. Auditor OK.
 

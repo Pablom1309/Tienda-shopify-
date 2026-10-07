@@ -75,3 +75,7 @@ Skills leídas con Read: impeccable (SKILL, craft-floor, layout, typeset, polish
 ## Hecho 2026-10-07 (ronda SEO/legal)
 - Generador: FAQ con "por confirmar con proveedor" se omite (HTML y JSON-LD; sección y FAQPage se omiten si queda vacía); "medidas exactas" neutralizado a "medidas" sin datos nuevos. Pelo Cero verificado a 390 px.
 - Propuesta para quien edite fichas: reescribir la FAQ de Pelo Cero con dato confirmado.
+
+## Hecho 2026-10-07 (ronda 17, break-ui)
+- Estrés con datos inyectados en Playwright (sin toggles): precio $1.299.990 en tarjeta, ficha y barra fija; nombre de 110 caracteres; cantidad 2 con total $2.599.980; 320, 390 y 1366 px. Rotura única: ficha a 320 px con scroll horizontal (327 px) porque `.producto` en móvil tenía columna `auto` y el título largo la ensanchaba. Arreglo: `grid-template-columns:minmax(0,1fr)` en `.producto` (estilos.css). Tras el arreglo: 320/390/1366 sin scroll horizontal ni errores de consola (los `A` fuera de pantalla son el menú con scroll propio, intencional). Detector Impeccable sin hallazgos; verificar.py = 0.
+- Próximas 5 tareas: (1) fuentes autoalojadas; (2) probar fichas de los otros kits con textos largos; (3) envío real en iPhone/Android; (4) fotos reales de ambiente; (5) bloque de despacho cuando haya dato.

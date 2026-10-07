@@ -157,3 +157,6 @@ Cada ciclo agrega una entrada al final: fecha, nodos ejecutados, decisiones del 
 
 ## 2026-10-07T01:51:18Z — equipo: diseño
 - Generador omite FAQ con 'por confirmar con proveedor' (Pelo Cero queda sin FAQ) y cambia 'medidas exactas' por confirmación por WhatsApp. Auditor OK. Pendiente: FAQ de Pelo Cero con dato confirmado (fichas).
+
+## 2026-10-07T05:49:17Z — equipo: diseño r17
+- Prueba de estrés (precio $1.299.990, nombre de 110 caracteres, cantidad 2) a 320/390/1366: arreglado scroll horizontal de la ficha a 320 px (columna minmax(0,1fr)). Solo CSS de layout, sin cambio de contenido: auditor no requerido.
