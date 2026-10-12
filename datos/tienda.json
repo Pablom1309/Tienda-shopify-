@@ -1,0 +1,27 @@
+{
+  "nota": "Datos que SOLO el dueño puede completar (portón humano 'cuentas'). Mientras sean null, el sitio muestra avisos y el pedido se arma pero no se envía.",
+  "whatsapp": "56979814797",
+  "whatsapp_formato": "56912345678 (sin + ni espacios)",
+  "correo": null,
+  "direccion_comercial": null,
+  "razon_social": null,
+  "rut": null,
+  "url_sitio": "https://pablom1309.github.io/Tienda-shopify-/",
+  "plazos_despacho": {
+    "RM": "2 a 4 días hábiles",
+    "regiones": "3 a 7 días hábiles",
+    "zonas_extremas": "consultar por WhatsApp"
+  },
+  "comunas_sin_cobertura": [],
+  "whatsapp_nota": "Número entregado por el dueño el 2026-10-04 (Claro).",
+  "orden_vitrina": [
+    "kit-bano-secado-perro"
+  ],
+  "orden_vitrina_nota": "Orden de los kits en la portada (pedido del dueño 2026-10-04: primero Kit Baño y Secado). Los kits no listados van después, en orden de catálogo.",
+  "redes": {
+    "instagram": null,
+    "tiktok": null,
+    "facebook": null,
+    "nota": "completar con el usuario cuando el dueño cree las cuentas (LANZAMIENTO 0.4). Poner la URL completa del perfil; mientras sea null no se muestra el ícono."
+  }
+}

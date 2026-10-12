@@ -1,0 +1,264 @@
+{
+  "generado": "2026-10-04",
+  "marca": "Kuchiwau",
+  "requiere_aprobacion": true,
+  "nota": "Nada se gasta sin aprobación humana (portón 'gasto'). Antes de pautar: píxel + API de conversiones en nivel Máximo, evento de compra que se dispara una sola vez, dominio verificado y UTM en todos los anuncios. Los costos de los 4 kits nuevos son ESTIMADOS (sin verificar en Dropi): verificar costo real, flete y despacho en un solo paquete antes de aprobar el gasto de cada kit.",
+  "politicas_meta": "Sin atributos personales (nada de '¿tu perro sufre...?'), sin salud ni comportamiento (ansiedad, calma, piel, alergias, pelaje sano), sin antes/después engañosos (solo demostración real del producto en uso), sin testimonios, escasez ni precios de referencia inventados. La página de destino debe prometer lo mismo que el anuncio. Material propio o con licencia; no copiar anuncios de otros.",
+  "orden_lanzamiento": {
+    "regla_caja": "Capital de trabajo disponible $300.000-$400.000 (investigacion/plan-financiero.md). Máximo 2 kits en pauta a la vez (test o escala). Un kit nuevo solo entra si libera un cupo (kit apagado) y la suma de tests en curso no supera ~$210.000, para dejar al menos ~$90.000 de colchón mientras llegan los cobros (~14 días de desfase). Decidir cada kit con la entrega real, no solo con el CPA.",
+    "gate_previo_todos": "Dueño aprueba el gasto; costo real y flete verificados en app.dropi.cl; píxel + CAPI listos; una unidad de prueba revisada.",
+    "secuencia": [
+      {
+        "orden": 1,
+        "id": "kit-gato-sin-pelusas",
+        "cupo": "A",
+        "inicio_sugerido": "apenas se apruebe (semana del 5 al 11 de octubre)",
+        "motivo": "Búsqueda 'cepillo gato' con pico en octubre (índice 1,52, +27 %). Es la ventana que primero se cierra. Test $100.000.",
+        "si_pasa": "Escalar durante octubre-noviembre; es producto de todo el año.",
+        "si_falla": "Apagar y liberar el cupo para el kit 3."
+      },
+      {
+        "orden": 2,
+        "id": "kit-pelo-cero",
+        "cupo": "B",
+        "inicio_sugerido": "junto con el kit 1 (misma semana)",
+        "motivo": "Perros, pelo parejo todo el año con leve alza sep-ene; ficha, página y CSV ya listos. Test $78.000. Total de los dos tests simultáneos: $178.000.",
+        "si_pasa": "Escalar; seguir en pauta.",
+        "si_falla": "Apagar y liberar el cupo."
+      },
+      {
+        "orden": 3,
+        "id": "kit-bano-secado-perro",
+        "cupo": "el que quede libre tras decidir los kits 1 y 2 (decisión ~día 14 con entrega real)",
+        "inicio_sugerido": "desde el 26 de octubre hasta el 15 de noviembre",
+        "motivo": "Baño en casa en primavera-verano; encaja antes de la ventana de verano. Es el CPA de equilibrio más holgado ($9.407) pero con costos estimados. Test $112.000.",
+        "si_pasa": "Mantener en pauta junto con Verano Fresco (ver kit 4).",
+        "si_falla": "Apagar al llegar el 16 de noviembre."
+      },
+      {
+        "orden": 4,
+        "id": "kit-verano-fresco",
+        "cupo": "reservado desde el 16 de noviembre; tiene prioridad sobre cualquier otro kit",
+        "inicio_sugerido": "16 de noviembre (antes de Black Friday 27-30 nov); apagar a fines de enero",
+        "motivo": "Búsquedas de verano parten en noviembre, pico en diciembre (x4-5) y enero (x3). Test $90.000. Simultáneo con baño-secado: $202.000.",
+        "si_pasa": "Escalar hasta el 31 de enero.",
+        "si_falla": "Evaluar piscina plegable solo como sustituto (nunca en paralelo)."
+      },
+      {
+        "orden": 5,
+        "id": "kit-enriquecimiento-perro",
+        "cupo": "segundo cupo, cuando el kit de pelo o baño se apague o se estabilice",
+        "inicio_sugerido": "desde el 1 de diciembre (ángulo regalo de Navidad); no antes de que haya cobros de las olas previas",
+        "motivo": "Producto de todo el año sin estacionalidad; el ángulo regalo le da empuje en diciembre. Test $104.000. Junto a Verano: $194.000.",
+        "si_pasa": "Mantener como segundo producto de la tienda.",
+        "si_falla": "Apagar y liberar el cupo."
+      },
+      {
+        "orden": 6,
+        "id": "kit-paseo-hogar-limpio",
+        "cupo": "primer cupo libre",
+        "inicio_sugerido": "enero (o antes si un cupo queda libre y la caja lo permite)",
+        "motivo": "Producto de todo el año con recompra de bolsas; el de menor urgencia estacional y menor precio. Test $88.000.",
+        "si_pasa": "Mantener; la recompra de bolsas es parte del valor.",
+        "si_falla": "Descartar o reemplazar."
+      }
+    ],
+    "no_hacer": "No lanzar los 6 a la vez: seis tests suman $572.000 y superan la caja. No lanzar un kit nuevo con otro test aún sin decidir si ya hay 2 en pauta."
+  },
+  "productos": [
+    {
+      "id": "kit-pelo-cero",
+      "publico_mascota": "perros",
+      "pauta_bloqueada": "Bloqueada hasta confirmar certificación eléctrica/SEC de la batería USB y qué hace realmente la niebla (legal I4), además de C1-C3, I5 y verificación Dropi. En anuncios decir 'cepillo con niebla de agua', nunca 'vapor caliente'.",
+      "conceptos_creativos": {"archivo": "datos/conceptos_ads.md", "ids": ["P1 sillón oscuro (video sin rostro)", "P2 demostración botón (video corto)", "P3 muda de primavera (dueño real)", "P4 comparación rodillo adhesivo (estática+video)", "P5 cómo funciona la niebla en 3 pasos (carrusel)"], "nota": "Conceptos por persona x ángulo x formato; los 'angulos' de abajo son el borrador previo. Sin presupuesto nuevo."},
+      "orden_lanzamiento": 2,
+      "inicio_sugerido": "junto con el kit de gato, apenas se cumplan las condiciones del catálogo (octubre-noviembre; la muda de primavera es suave, el kit rinde todo el año)",
+      "estructura": {
+        "campana": "Ventas · evento Compra · ABO",
+        "publico": "Chile, 25-55, amplio, sin intereses, ubicaciones Advantage+",
+        "conjuntos": 3,
+        "anuncios_por_conjunto": 2,
+        "angulos_en_test": ["problema-casa", "demostracion", "temporada-muda"],
+        "angulos_de_reserva": ["regalo (desde el 1 de diciembre)", "comparacion (para rotar creativos al fatigarse)"],
+        "presupuesto_diario_por_conjunto": 6500,
+        "dias": 4,
+        "presupuesto_total_test": 78000,
+        "utm": "utm_source=meta&utm_medium=paid&utm_campaign=test-pelo-cero&utm_content={{ad.name}}"
+      },
+      "reglas": {
+        "cpa_equilibrio": 6908,
+        "cpa_objetivo": 4908,
+        "matar_conjunto": "Gastó $20.000 sin pedidos, o CPA > $9.000 con CTR de enlace < 1 % a las 72 h.",
+        "arreglar": "CTR ≥ 1,5 % pero conversión < 1 %: revisar página y formulario. Retención 3 s < 25 %: cambiar gancho.",
+        "escalar": "CPA ≤ $4.908 por 3 días y entrega real ≥ 70 %: consolidar en Advantage+ (CBO) y subir 20-30 % cada 2-3 días."
+      },
+      "angulos": [
+        {"id": "problema-casa", "persona": "persona con perro en casa con sillones oscuros", "gancho": "Mano pasando por un sillón oscuro lleno de pelo blanco.", "texto_en_pantalla": "Si el pelo está en el sillón, no está en el cepillo", "guion": "0-3 s sillón con pelo · 3-8 s cepillado con bruma fina, el pelo suelto se pega a las cerdas · 8-12 s el botón suelta la mota de pelo · 12-18 s el removedor limpia el sillón de una pasada · 18-22 s la caja Kuchiwau con el kit sobre la mesa; garantía de 10 días de retracto · 22-28 s 'Pagas al recibir, $26.990' · CTA 'Pide el tuyo'", "formato": "video vertical sin rostro"},
+        {"id": "demostracion", "persona": "persona que quiere ver el producto funcionando antes de decidir", "gancho": "Primer plano: botón presionado y sale una mota de pelo entera.", "texto_en_pantalla": "Esto salió en 5 minutos", "guion": "0-3 s mota de pelo · 3-12 s cepillado real en un perro, sin cortes · 12-20 s comparación con un cepillo común que deja pelo volando · 20-26 s oferta 2 kits $47.990, 'Pagas al recibir' · CTA", "formato": "video vertical, demostración"},
+        {"id": "temporada-muda", "persona": "dueño real de la tienda mostrando su propia rutina (requiere filmar material propio)", "gancho": "Calendario de octubre con pelos encima.", "texto_en_pantalla": "Primavera = más pelo suelto", "guion": "0-3 s calendario · 3-10 s pelo en ropa, cama, auto · 10-20 s rutina de 5 minutos con el kit · 20-26 s 'Pagas al recibir, despacho a todo Chile' · CTA", "formato": "video con persona"},
+        {"id": "regalo", "persona": "persona que busca un regalo para alguien con perro", "gancho": "Caja del kit con moño junto a un perro.", "texto_en_pantalla": "Un regalo útil para quien vive con un perro", "guion": "Para noviembre-diciembre. 0-3 s caja · 3-15 s uso del kit · 15-22 s oferta 2 kits $47.990 para regalar, 'Pagas al recibir' · CTA", "formato": "carrusel de 4 imágenes"},
+        {"id": "comparacion", "persona": "persona que ya usa rodillos adhesivos", "gancho": "Rodillo adhesivo gastado vs removedor reutilizable.", "texto_en_pantalla": "Deja de comprar repuestos", "guion": "0-3 s pila de repuestos adhesivos usados · 3-12 s removedor reutilizable, se vacía el depósito · 12-20 s cepillo en perro · 20-26 s 'Pagas al recibir' · CTA", "formato": "imagen estática + video corto"}
+      ]
+    },
+    {
+      "id": "kit-verano-fresco",
+      "orden_lanzamiento": 4,
+      "inicio_sugerido": "desde el 16 de noviembre (antes de Black Friday 27-30 nov) hasta el 31 de enero; apagar en febrero",
+      "estructura": {
+        "campana": "Ventas · evento Compra · ABO",
+        "publico": "Chile, 25-55, amplio, excluir Magallanes y Aysén en el test (verificar cobertura)",
+        "conjuntos": 3,
+        "anuncios_por_conjunto": 2,
+        "angulos_en_test": ["calor-departamento", "paseo-verano", "sin-enchufe"],
+        "angulos_de_reserva": ["regalo-navidad-mascota (desde el 1 de diciembre)", "auto-viaje (enero)"],
+        "presupuesto_diario_por_conjunto": 7500,
+        "dias": 4,
+        "presupuesto_total_test": 90000,
+        "utm": "utm_source=meta&utm_medium=paid&utm_campaign=test-verano-fresco&utm_content={{ad.name}}"
+      },
+      "reglas": {
+        "cpa_equilibrio": 8514,
+        "cpa_objetivo": 6514,
+        "matar_conjunto": "Gastó $25.000 sin pedidos, o CPA > $11.000 con CTR de enlace < 1 % a las 72 h.",
+        "arreglar": "CTR alto y conversión baja: revisar tallas y medidas visibles en la página. Retención 3 s < 25 %: cambiar gancho.",
+        "escalar": "CPA ≤ $6.514 por 3 días y entrega real ≥ 70 %: consolidar en Advantage+ y subir 20-30 % cada 2-3 días."
+      },
+      "angulos": [
+        {"id": "calor-departamento", "persona": "persona que vive en departamento con perro", "gancho": "Termómetro marcando 32 °C en un departamento; el perro busca la baldosa.", "texto_en_pantalla": "Su lugar favorito en verano", "guion": "0-3 s termómetro y perro en la baldosa · 3-10 s se extiende la alfombra y el perro se acuesta · 10-18 s mano sobre la alfombra 'se siente fresca, sin enchufe' · 18-26 s oferta $32.990 y 'Pagas al recibir' · CTA", "formato": "video vertical"},
+        {"id": "paseo-verano", "persona": "persona que pasea por el parque todos los días", "gancho": "Botón de la botella y el bebedero se llena.", "texto_en_pantalla": "Agua en cada paseo, sin plato", "guion": "0-3 s botón · 3-12 s paseo en el parque, el perro bebe y se devuelve el agua sobrante · 12-20 s alfombra en casa al volver · 20-26 s 'Pagas al recibir' · CTA", "formato": "video con persona"},
+        {"id": "regalo-navidad-mascota", "persona": "persona que busca regalo para alguien con perro", "gancho": "Árbol de Navidad y perro sobre la alfombra.", "texto_en_pantalla": "Un regalo que se usa todo el verano", "guion": "Desde el 1 de diciembre. 0-3 s árbol y alfombra · 3-15 s uso · 15-22 s oferta 2 kits $57.990, 'Pagas al recibir' · CTA", "formato": "carrusel"},
+        {"id": "auto-viaje", "persona": "familia que viaja en auto a la playa con el perro", "gancho": "Perro en el asiento trasero sobre la alfombra en ruta a la playa.", "texto_en_pantalla": "Vacaciones con tu perro", "guion": "Enero. 0-3 s asiento trasero · 3-12 s auto, playa, botella y alfombra · 12-20 s oferta · 20-26 s 'Pagas al recibir, despacho a todo Chile' · CTA", "formato": "video vertical"},
+        {"id": "sin-enchufe", "persona": "persona que quiere entender cómo funciona antes de comprar", "gancho": "Enchufe tachado.", "texto_en_pantalla": "No se congela, no se enchufa", "guion": "0-3 s enchufe tachado · 3-15 s explicación en 3 pasos del gel que se activa con el peso · 15-22 s oferta y 'Pagas al recibir' · CTA", "formato": "imagen estática"}
+      ]
+    },
+    {
+      "id": "kit-gato-sin-pelusas",
+      "publico_mascota": "gatos",
+      "pauta_bloqueada": "Bloqueada hasta resolver C1, C2, C3, I5 (legal) y verificación Dropi.",
+      "conceptos_creativos": {"archivo": "datos/conceptos_ads.md", "ids": ["G1 camisa oscura POV (video sin rostro)", "G2 un botón, todo el pelo (demostración primer plano)", "G3 departamento chico, rutina 3 piezas (dueño real)", "G4 regalo/unboxing (carrusel+estática)", "G5 sin repuestos adhesivos (comparación)"], "nota": "Sin presupuesto nuevo."},
+      "orden_lanzamiento": 1,
+      "inicio_sugerido": "apenas se apruebe el gasto (semana del 5 al 11 de octubre): el pico de búsqueda 'cepillo gato' es en octubre",
+      "estado_costos": "estimados (sin verificar en Dropi)",
+      "estructura": {
+        "campana": "Ventas · evento Compra · ABO",
+        "publico": "Chile, 25-55, amplio, sin intereses, ubicaciones Advantage+",
+        "conjuntos": 4,
+        "anuncios_por_conjunto": 2,
+        "presupuesto_diario_por_conjunto": 6250,
+        "dias": 4,
+        "presupuesto_total_test": 100000,
+        "utm": "utm_source=meta&utm_medium=paid&utm_campaign=test-gato-sin-pelusas&utm_content={{ad.name}}"
+      },
+      "reglas": {
+        "cpa_equilibrio": 8217,
+        "cpa_objetivo": 6217,
+        "matar_conjunto": "Gastó $25.000 (≈3 CPA de equilibrio) sin pedidos, o CPA > $10.700 con CTR de enlace < 1 % a las 72 h.",
+        "arreglar": "CTR ≥ 1,5 % pero conversión < 1 %: revisar página, medidas y formulario. Retención 3 s < 25 %: cambiar gancho.",
+        "escalar": "CPA ≤ $6.217 por 3 días y entrega real ≥ 70 %: consolidar en Advantage+ (CBO) y subir 20-30 % cada 2-3 días."
+      },
+      "angulos": [
+        {"id": "ropa-lista", "persona": "persona que sale al trabajo con ropa oscura", "gancho": "Camisa negra con pelusa justo antes de salir.", "texto_en_pantalla": "El pelo suelto, en el cepillo y no en tu ropa", "guion": "0-3 s camisa oscura con pelusa · 3-9 s cepillado en el sentido del pelo y pelo suelto en el cepillo · 9-15 s removedor reutilizable pasa por la ropa y el sillón · 15-21 s se muestran las 3 piezas del kit, garantía de 10 días de retracto · 21-27 s 'Pagas al recibir, $27.990' · CTA 'Pide el tuyo'", "formato": "video vertical POV sin rostro"},
+        {"id": "boton-un-gesto", "persona": "persona a la que le gustan las demostraciones satisfactorias", "gancho": "Primer plano: se presiona el botón y todo el pelo sale de una vez.", "texto_en_pantalla": "Un botón y listo", "guion": "0-3 s botón y pelo desprendido · 3-12 s cepillado completo, cámara fija, sonido real · 12-18 s el depósito del removedor se vacía · 18-27 s oferta 2 kits $49.990, 'Pagas al recibir' · CTA", "formato": "video demostración primer plano con sonido ambiente"},
+        {"id": "ritual-tres-en-uno", "persona": "persona con gato en un departamento pequeño", "gancho": "Tres piezas en una caja sobre la mesa.", "texto_en_pantalla": "Cepillar, limpiar y jugar. Un solo kit", "guion": "0-3 s las 3 piezas · 3-10 s cepillado · 10-16 s removedor en el sillón · 16-22 s juego con la varita de plumas (con supervisión, se guarda después) · 22-28 s 'Pagas al recibir, despacho a todo Chile' · CTA", "formato": "video con persona (dueño real, requiere filmar)"},
+        {"id": "regalo-dueno-de-gato", "persona": "persona que busca un regalo para alguien con gato", "gancho": "Unboxing: se abre la caja Kuchiwau con las tres piezas.", "texto_en_pantalla": "Un regalo útil para quien vive con un gato", "guion": "0-3 s caja cerrada · 3-12 s se abre y se muestran las piezas · 12-20 s uso rápido · 20-27 s oferta 2 kits $49.990 para regalar, 'Pagas al recibir' · CTA", "formato": "carrusel de 4 imágenes + imagen estática"}
+      ]
+    },
+    {
+      "id": "kit-enriquecimiento-perro",
+      "publico_mascota": "perros",
+      "orden_lanzamiento": 5,
+      "inicio_sugerido": "desde el 1 de diciembre (ángulo regalo de Navidad), con un cupo libre y cobros de las olas previas en caja",
+      "estado_costos": "estimados (sin verificar en Dropi)",
+      "estructura": {
+        "campana": "Ventas · evento Compra · ABO",
+        "publico": "Chile, 25-55, amplio, sin intereses, ubicaciones Advantage+",
+        "conjuntos": 4,
+        "anuncios_por_conjunto": 2,
+        "presupuesto_diario_por_conjunto": 6500,
+        "dias": 4,
+        "presupuesto_total_test": 104000,
+        "utm": "utm_source=meta&utm_medium=paid&utm_campaign=test-enriquecimiento-perro&utm_content={{ad.name}}"
+      },
+      "reglas": {
+        "cpa_equilibrio": 8812,
+        "cpa_objetivo": 6812,
+        "matar_conjunto": "Gastó $26.000 (≈3 CPA de equilibrio) sin pedidos, o CPA > $11.500 con CTR de enlace < 1 % a las 72 h.",
+        "arreglar": "CTR ≥ 1,5 % pero conversión < 1 %: revisar página, medidas y formulario. Retención 3 s < 25 %: cambiar gancho.",
+        "escalar": "CPA ≤ $6.812 por 3 días y entrega real ≥ 70 %: consolidar en Advantage+ (CBO) y subir 20-30 % cada 2-3 días."
+      },
+      "restriccion_copy": "Solo juego y entretención. Prohibido 'ansiedad', 'estrés', 'calma', 'conducta', 'aburrimiento dañino' o cualquier efecto de salud. Siempre con supervisión; no es mordedor.",
+      "angulos": [
+        {"id": "dia-de-lluvia", "persona": "persona que vive en departamento y no puede salir a jugar", "gancho": "Ventana con lluvia y un perro mirando el living.", "texto_en_pantalla": "Juegos para tu perro, sin salir del departamento", "guion": "0-3 s lluvia en la ventana · 3-10 s se despliega la alfombra olfativa en el living · 10-18 s el perro busca los premios con el olfato · 18-23 s se muestran las 2 piezas del kit y 10 días de retracto · 23-29 s 'Pagas al recibir, $27.990' · CTA 'Pide el tuyo'", "formato": "video vertical con persona"},
+        {"id": "busca-premios", "persona": "persona a la que le gusta ver a su perro en acción", "gancho": "Primer plano de la nariz del perro entre los pliegues de la alfombra.", "texto_en_pantalla": "Esconde premios, que los encuentre", "guion": "0-3 s nariz buscando · 3-8 s se esparcen croquetas entre los pliegues · 8-18 s el perro las va encontrando, plano continuo · 18-24 s oferta 2 kits $48.990 y 'Pagas al recibir' · CTA", "formato": "video demostración sin rostro, plano fijo"},
+        {"id": "tapete-lamer", "persona": "persona que prepara la once o cocina mientras el perro tiene lo suyo", "gancho": "Pasta de snack untada en el tapete de silicona.", "texto_en_pantalla": "Su propio momento mientras tú preparas la once", "guion": "0-3 s se unta el tapete · 3-10 s el perro lo lame en el suelo · 10-16 s se lava con agua y jabón · 16-22 s se guardan ambas piezas enrolladas · 22-28 s 'Pagas al recibir, despacho a todo Chile' · CTA", "formato": "video vertical pantalla dividida (persona cocinando / perro)"},
+        {"id": "regalo-navidad", "persona": "persona que busca un regalo para alguien con perro", "gancho": "Caja con moño al pie del árbol y un perro curioseando.", "texto_en_pantalla": "Dos juegos en una caja para regalar", "guion": "Desde el 1 de diciembre. 0-3 s caja y árbol · 3-12 s las dos piezas en uso · 12-20 s oferta 2 kits $48.990, 'Pagas al recibir' · CTA", "formato": "carrusel de 4 imágenes"}
+      ]
+    },
+    {
+      "id": "kit-paseo-hogar-limpio",
+      "publico_mascota": "perros",
+      "orden_lanzamiento": 6,
+      "inicio_sugerido": "enero, o antes si queda un cupo libre y la caja lo permite",
+      "estado_costos": "estimados (sin verificar en Dropi)",
+      "estructura": {
+        "campana": "Ventas · evento Compra · ABO",
+        "publico": "Chile, 25-55, amplio, sin intereses, ubicaciones Advantage+",
+        "conjuntos": 4,
+        "anuncios_por_conjunto": 2,
+        "presupuesto_diario_por_conjunto": 5500,
+        "dias": 4,
+        "presupuesto_total_test": 88000,
+        "utm": "utm_source=meta&utm_medium=paid&utm_campaign=test-paseo-hogar-limpio&utm_content={{ad.name}}"
+      },
+      "reglas": {
+        "cpa_equilibrio": 7324,
+        "cpa_objetivo": 5324,
+        "matar_conjunto": "Gastó $22.000 (≈3 CPA de equilibrio) sin pedidos, o CPA > $9.500 con CTR de enlace < 1 % a las 72 h.",
+        "arreglar": "CTR ≥ 1,5 % pero conversión < 1 %: revisar página, tamaño del limpiador de patas y formulario. Retención 3 s < 25 %: cambiar gancho.",
+        "escalar": "CPA ≤ $5.324 por 3 días y entrega real ≥ 70 %: consolidar en Advantage+ (CBO) y subir 20-30 % cada 2-3 días."
+      },
+      "restriccion_copy": "No mostrar precios de referencia ni invitar a comparar pieza a pieza. Medidas reales visibles en la página (el tamaño del limpiador de patas aún está por confirmar con el proveedor).",
+      "angulos": [
+        {"id": "barro-en-la-puerta", "persona": "persona con perro que vuelve del parque con las patas sucias", "gancho": "Huellas de barro cruzando el piso del hall.", "texto_en_pantalla": "Vuelve del paseo sin llenar la casa de barro", "guion": "0-3 s huellas en el piso · 3-10 s las patas pasan por el limpiador en la puerta · 10-16 s el piso queda limpio · 16-22 s se muestran las 3 piezas del kit, 10 días de retracto · 22-28 s 'Pagas al recibir, $25.990' · CTA 'Pide el tuyo'", "formato": "video vertical POV en la puerta"},
+        {"id": "todo-a-mano", "persona": "persona que pasea todos los días a la misma hora", "gancho": "Mano enganchando el dispensador a la correa.", "texto_en_pantalla": "Bolsas y agua, siempre a mano", "guion": "0-3 s clic del dispensador en la correa · 3-12 s paseo, se saca una bolsa y se pliega el comedero para servir agua · 12-20 s el comedero plegado cabe en el bolsillo · 20-26 s oferta 2 kits $44.990 y 'Pagas al recibir' · CTA", "formato": "video con persona caminando"},
+        {"id": "ocho-rollos", "persona": "persona que quiere dejar resuelto el tema de las bolsas", "gancho": "Ocho rollos de bolsas alineados sobre la mesa.", "texto_en_pantalla": "8 rollos incluidos: bolsas para rato", "guion": "0-3 s los 8 rollos · 3-10 s se carga el dispensador · 10-16 s qué incluye el kit, pieza por pieza, con medidas visibles · 16-22 s las bolsas se pueden reponer después · 22-27 s 'Pagas al recibir' · CTA", "formato": "imagen estática + carrusel 'qué incluye'"},
+        {"id": "rincon-del-paseo", "persona": "persona que busca orden en el hall de entrada", "gancho": "Hall desordenado: correa, bolsas y plato tirados.", "texto_en_pantalla": "El rincón del paseo, ordenado", "guion": "0-3 s hall desordenado · 3-10 s se cuelga el dispensador en la correa y se guarda el comedero plegado · 10-17 s limpiador de patas junto a la puerta · 17-23 s 'Pagas al recibir, despacho a todo Chile' · CTA", "formato": "carrusel de 4 imágenes de hogar"}
+      ]
+    },
+    {
+      "id": "kit-bano-secado-perro",
+      "publico_mascota": "perros",
+      "pauta_bloqueada": "Bloqueada hasta resolver C1, C2, C3, I5 (legal) y verificación Dropi (costos estimados).",
+      "conceptos_creativos": {"archivo": "datos/conceptos_ads.md", "ids": ["B1 del baño a la toalla (video con persona)", "B2 guante y cepillo, sonido real + 'usa tu shampoo' (video sin rostro)"], "nota": "Decir siempre 'no incluye shampoo'. Sin presupuesto nuevo."},
+      "orden_lanzamiento": 3,
+      "inicio_sugerido": "desde el 26 de octubre y antes del 16 de noviembre (primavera-verano)",
+      "estado_costos": "estimados (sin verificar en Dropi)",
+      "estructura": {
+        "campana": "Ventas · evento Compra · ABO",
+        "publico": "Chile, 25-55, amplio, sin intereses, ubicaciones Advantage+",
+        "conjuntos": 4,
+        "anuncios_por_conjunto": 2,
+        "presupuesto_diario_por_conjunto": 7000,
+        "dias": 4,
+        "presupuesto_total_test": 112000,
+        "utm": "utm_source=meta&utm_medium=paid&utm_campaign=test-bano-secado-perro&utm_content={{ad.name}}"
+      },
+      "reglas": {
+        "cpa_equilibrio": 9407,
+        "cpa_objetivo": 7407,
+        "matar_conjunto": "Gastó $28.000 (≈3 CPA de equilibrio) sin pedidos, o CPA > $12.200 con CTR de enlace < 1 % a las 72 h.",
+        "arreglar": "CTR ≥ 1,5 % pero conversión < 1 %: revisar página, medidas de la toalla y formulario. Retención 3 s < 25 %: cambiar gancho.",
+        "escalar": "CPA ≤ $7.407 por 3 días y entrega real ≥ 70 %: consolidar en Advantage+ (CBO) y subir 20-30 % cada 2-3 días."
+      },
+      "restriccion_copy": "El kit no incluye shampoo ni productos químicos: decirlo siempre. Sin afirmaciones sobre piel, pelaje sano ni limpieza profunda. Sin antes/después.",
+      "angulos": [
+        {"id": "salida-de-la-ducha", "persona": "persona que baña a su perro en la ducha de casa", "gancho": "Perro mojado saliendo de la ducha y la toalla abierta.", "texto_en_pantalla": "Del baño a la toalla, sin mojar todo el piso", "guion": "0-3 s perro mojado y toalla · 3-10 s se envuelve en la toalla de microfibra · 10-17 s se escurre el agua de la toalla, la toalla absorbe · 17-23 s se muestran las 3 piezas y 10 días de retracto · 23-29 s 'Pagas al recibir, $29.990' · CTA 'Pide el tuyo'", "formato": "video vertical con persona"},
+        {"id": "guante-asmr", "persona": "persona que disfruta los videos de limpieza con sonido real", "gancho": "Primer plano: el guante de baño espumando el pelaje.", "texto_en_pantalla": "Enjabonar y enjuagar, a mano", "guion": "0-3 s guante con espuma · 3-12 s enjabonado con guante y cepillo de silicona, sonido real · 12-18 s enjuague · 18-24 s oferta 2 kits $52.990 y 'Pagas al recibir' · CTA", "formato": "video sin rostro, sonido ambiente"},
+        {"id": "bano-en-casa-primavera", "persona": "persona que baña a su perro en casa tras el parque o la playa", "gancho": "Perro con tierra y pasto de vuelta de la salida.", "texto_en_pantalla": "Día de baño en casa, con lo justo", "guion": "0-3 s perro de vuelta del parque · 3-10 s ducha en casa, cepillo de silicona y guante · 10-17 s secado con la toalla · 17-23 s 'Pagas al recibir, despacho a todo Chile' · CTA", "formato": "video con persona (dueño real, requiere filmar)"},
+        {"id": "usa-tu-shampoo", "persona": "persona que ya tiene su shampoo favorito y quiere solo las herramientas", "gancho": "Frasco de shampoo de uso diario junto a las tres piezas.", "texto_en_pantalla": "Sin shampoo incluido: usas el que ya tienes", "guion": "0-3 s shampoo y 3 piezas sobre el lavamanos · 3-12 s qué trae el kit, pieza por pieza, medidas visibles · 12-18 s 'No incluye shampoo' dicho con claridad · 18-24 s oferta y 'Pagas al recibir' · CTA", "formato": "imagen estática + carrusel 'qué incluye'"}
+      ]
+    }
+  ],
+  "embudo_alternativo": "Si la entrega real del formulario es < 65 %, probar anuncios de clic a WhatsApp (confirmación en el mismo chat).",
+  "organico_gratis": "Publicar 3 reels por semana con los mismos guiones en Instagram y TikTok de la marca Kuchiwau antes de pagar anuncios: valida ganchos sin costo. Priorizar los ganchos del kit que parte primero (gato y pelo cero)."
+}

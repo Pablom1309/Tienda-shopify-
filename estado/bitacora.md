@@ -1,0 +1,162 @@
+# Bitácora del orquestador
+
+Cada ciclo agrega una entrada al final: fecha, nodos ejecutados, decisiones del portón, pendientes humanos.
+
+## Ciclo 1 — 2026-10-04
+
+- **Nodos ejecutados:** investigador-mercado → cazador-productos → economia → puntaje → validador (reintento 1) → cazador-productos → economia → puntaje → validador → creador-tienda ‖ estratega-ads → construir-sitio → auditor.
+- **Portón, iteración 0:** 11 candidatos, 0 aprobados. Causa común: ROAS de equilibrio > 4 a precio unitario; el flete fijo ($3.500-$4.500) se come tickets de $13.000-$23.000.
+- **Corrección (arista de reintento):** se modeló la oferta de 2 unidades (30 % de los pedidos) y se propusieron kits. Pasan **Kit Pelo Cero** (puntaje 4,17; ROAS eq. 3,73; CPA eq. $6.908) y **Kit Verano Fresco** (4,01; 3,74; $8.514).
+- **Descartados:** lifting de pestañas y masajeador cervical (política/regulación), localizador, ventilador, aspiradora, luces solares, removedor suelto.
+- **Sitio:** generado en `sitio/` con formulario contra entrega por WhatsApp; CSV para Shopify en `shopify/productos.csv` (en borrador).
+- **Publicado:** https://pablom1309.github.io/Tienda-shopify-/ (GitHub Pages, despliegue automático desde la rama).
+- **Pendiente humano (bloquea ventas):** cuenta Dropi CL validada, costos reales de los 4 componentes y que un mismo proveedor despache cada kit, WhatsApp de atención, datos legales de contacto.
+
+## Turno 2026-10-04 03:00 UTC — mercado objetivo
+- Tarea: mercado de mascotas Chile → `investigacion/mercado-mascotas-chile.md` (CNC/INE, Kantar, censo UC, CCS; con URL).
+- Hallazgos: 70 % de hogares con perro o gato; gasto $60.100/mes; accesorios sube a 7,8 % del gasto; ecommerce mascotas US$650-670 M en 2026; conversión de referencia 1,72 %.
+- Decisión: no pautar en CyberMonday (5-7 oct) ni Black Friday (27-30 nov); separar anuncios familias con perro vs dueños de gato.
+- Nueva tarea: estacionalidad con Google Trends CL. Sin bloqueos del guardián.
+
+## Turno 2026-10-04 03:55 UTC — competencia con precios
+- Tarea: precios de Falabella y Paris para los 4 componentes y la fuente de gatos → `investigacion/competencia-precios.md` (+ datos crudos en `investigacion/datos-competencia/`); evidencia actualizada en `datos/candidatos.json`.
+- Hallazgo: cepillo a vapor mediana $7.445 (Falabella), con reseñas desde $4.990; manta refrescante mediana ~$14.500; Kit Pelo Cero cobra +55 % sobre la suma de piezas, Kit Verano +41 %.
+- Decisión: no se toca el catálogo; nueva tarea para que el validador revalúe el precio de Kit Pelo Cero.
+- Bloqueo: Mercado Libre CL (anti-bots y API 403) → anotado en Bloqueadas.
+
+## Turno 2026-10-04 04:55 UTC — cliente ideal y objeciones
+- Tarea: reseñas públicas de 9 productos en Falabella (45 reseñas, ~25 con texto) → `investigacion/cliente-objeciones.md` (+ `datos-competencia/resenas_falabella.json`).
+- Hallazgos: quejas por tamaño vs foto, vapor que "casi no se nota", falta de instructivo de carga, deshilachado; fuente de gatos: filtros/hongos y bomba. Lenguaje: "regalón/a", "pelo muerto".
+- Dos públicos: familia con perro (principal) y dueño/a de gato en hogar pequeño.
+- Nuevas tareas: FAQ/copy desde objeciones y plantilla de confirmación por WhatsApp. Mercado Libre sigue bloqueado.
+
+## Turno 2026-10-04 05:55 UTC — referentes mundiales
+- Tarea: Chewy (Autoship 83,3 % de ventas FY2025), Wild One/Fable (kits con 15-20 % de descuento), Baymard (abandono: costos extra 39 %, envío lento 21 %), Hormozi (ecuación de valor), Meta Andromeda (diversidad creativa) y operadores COD → `investigacion/playbook-referentes.md`.
+- Decisión: creativos pasan de "10 ganchos" a 4-5 conceptos distintos por kit.
+- Nuevas tareas P3: oferta por kit, plazo y cambios junto al botón, página de gracias con upsell, consentimiento WhatsApp (Ley 21.719).
+
+## Turno 2026-10-04 06:55 UTC — estacionalidad Google Trends
+- Tarea: 10 años mensuales + 5 años semanales de Google Trends CL (7+6 términos) → `investigacion/estacionalidad-trends.md`.
+- Hallazgos: verano concentrado (manta refrescante dic ×4,9, ene ×3,3); pelo/cepillado parejo todo el año; cepillo gato pico en oct; fuente para gatos estable.
+- Decisión: Kit Verano del 16-nov al 31-ene; guía SEO de verano antes del 15-nov (agregado al calendario).
+- Bloqueo menor: Google Trends devolvió 429 en la comparación de volumen entre términos; queda pendiente.
+
+## Ciclo 2 — 2026-10-04 — validador (portón de productos)
+- **Entrada:** 7 kits nuevos pasan el portón duro (gato sin pelusas 4,13; enriquecimiento perro 4,04; piscina 3,92; paseo limpio 3,85; baño y secado 3,83; gato hidratación 3,62; gato juego 3,51). Sin resultados reales (`estado/decisiones.md` no existe).
+- **Activos sin cambio (2/2):** Kit Pelo Cero (principal) y Kit Verano Fresco (temporada 16-nov a 31-ene). No se reemplaza Pelo Cero: todos los costos son estimados y es el único con ficha, sitio y CSV listos.
+- **Precio Pelo Cero:** se mantiene $26.990. Bajar a $24.990 solo si Dropi confirma cepillo + removedor ≤ $8.000 (con el supuesto de $9.700 el ROAS eq. mezcla sube a ~4,1 y no pasa). Alternativa: 3.ª pieza barata sin bajar precio.
+- **En observación (con condiciones y criterios):** 1) kit-gato-sin-pelusas = reemplazo preferente de Pelo Cero (prima +8 % vs +55 %, ROAS eq. 3,26), no en paralelo; 2) kit-enriquecimiento-perro = principal post-verano, sin lenguaje de ansiedad; 3) piscina = solo sustituto de Kit Verano (canibaliza, voluminosa); 4-7) paseo limpio, baño y secado, gato hidratación (ROAS 3,91, frágil), gato juego (voluminoso).
+- **Descartados:** fuente-agua-gatos (reemplazada por kit con filtros), kit-bienvenida-cachorro (puntaje 3,36).
+- **Pendiente humano:** costos reales y flete en Dropi CL de Pelo Cero y del kit de gatos para decidir precio o reemplazo.
+
+## Turno 2026-10-04 07:55 UTC — ciclo 2 de productos (orquestador)
+- Nodos: cazador-productos (sonnet) → economia → puntaje → validador (opus). 8 nuevos, 7 pasan el filtro determinista; medianas de Falabella medidas por el orquestador (el cazador no tiene Bash).
+- Portón: activos sin cambio; 7 en observación con prioridad (Kit Gato Sin Pelusas primero); 2 descartados.
+
+## Turno 2026-10-04 08:55 UTC — segundo producto con recompra
+- Tarea: LTV de kit hidratación gatos + filtros → `investigacion/recompra-fuente-gatos.md`; nodo determinista nuevo `ltv` (`herramientas/ltv.py`, `datos/ltv.json`, bloque `recompra` en supuestos).
+- Resultado: G por recompra $5.209; LTV base $12.260 (+13 %); ROAS eq. 3,91 → 3,47.
+- Decisión: sigue en observación; requisito: filtros compatibles del mismo proveedor en Dropi + WhatsApp con consentimiento.
+
+## Turno 2026-10-04 09:55 UTC — plan financiero
+- Tarea: equilibrio, sensibilidad (entrega × CPA × comisión/devolución) y caja diaria a 90 días → `investigacion/plan-financiero.md`; nodo determinista nuevo `finanzas` (`herramientas/finanzas.py`, `datos/finanzas.json`, bloque `finanzas` en supuestos).
+- Resultado: capital de trabajo necesario $270.000-$400.000; pérdida máxima si nada funciona ~$180.000; CPA de equilibrio Pelo Cero $8.925 ($7.262 con comisión + devolución).
+- Se omitió "Revalidar precio Pelo Cero": depende de costo real (portón humano).
+
+## Turno 2026-10-04 10:55 UTC — auditoría de conversión
+- Tarea: auditoría vs Baymard y objeciones → `investigacion/auditoria-conversion.md`.
+- Implementado (plantilla + construir_sitio.py): plazo junto al precio, retracto/privacidad enlazados, consentimiento WhatsApp opcional (cierra 2 tareas P3).
+- Chromium 390/1366 px: sin scroll horizontal; solo error de Google Fonts por certificado del proxy del entorno.
+- Nueva tarea: corregir evento del píxel (Purchase → Lead).
+
+## 2026-10-04 ~11:30 UTC — instrucción directa del dueño: más productos en la tienda
+- Límite de activos 2 → 6 (`max_activos` en supuestos; verificar.py y validador.md lo leen).
+- Activados desde observación: kit-gato-sin-pelusas, kit-enriquecimiento-perro, kit-paseo-hogar-limpio, kit-bano-secado-perro (piscina no: canibaliza Kit Verano). Fichas por creador-tienda; sitio con 6 kits.
+- Costos siguen estimados: verificar todos en Dropi antes de pautar.
+
+## 2026-10-04 ~11:45 UTC — pedido del dueño: logo y foto repetida
+- Logo nuevo (isotipo de huella con estrella de la Cruz del Sur + nombre en minúsculas convertido a trazos) en `marca/`; integrado en cabecera, pie y favicon.
+- Kit Pelo Cero tenía una foto de gato cepillado, igual que Kit Gato Sin Pelusas: se cambió a perro con cepillo a vapor y se reposicionó el kit para perros (rol, subtítulo, título SEO y texto alternativo de la imagen).
+
+## 2026-10-04 ~12:00 UTC — pedido del dueño: nombre nuevo
+- La marca pasa de "Huella Sur" a **Kimo** (elegido por el dueño entre 4 opciones con .cl libre en nic.cl). Cambiado en marca.json, fichas, plantilla, CLAUDE.md, README, SKU (KM-) y logo (`marca/`).
+- Pendiente humano: registrar kimo.cl y buscar "Kimo" en INAPI antes de invertir.
+
+## 2026-10-04 ~12:30 UTC — pedido del dueño: paleta nueva y fotos completas
+- Paleta "tinta y mandarina" (`investigacion/paleta-colores.md`, contrastes WCAG AA): marca.json, CSS y logo actualizados.
+- Fotos: las tarjetas recortaban a 4:3 y cortaban las piezas; ahora tarjetas y ficha en 4:5 con la foto completa. Foto de contenido (catálogo, todas las piezas) en "Qué incluye" para Pelo Cero y Verano; Canva sin créditos y el dueño detuvo su uso para los demás.
+
+## Ciclo 3 — 2026-10-04 (ciclo diario)
+- Nodos: economia, ltv, finanzas, puntaje (código) → estratega-ads (sonnet) → auditor (haiku) → construir-sitio. Resto vigente (TTL 7 días, corrieron hoy).
+- estratega-ads: plan_ads.json con 6 kits y orden de lanzamiento (máx. 2 en pauta): Gato Sin Pelusas + Pelo Cero primero ($178.000 de test), Baño y Secado 26-oct, Verano 16-nov, Enriquecimiento 1-dic, Paseo en enero. requiere_aprobacion: true.
+- auditor (`estado/auditoria.md`): sin problemas en precios, salud, testimonios ni restos de "Huella Sur"; alta = datos legales/WhatsApp pendientes (portón humano); media = ángulos "regalo para quien vive con un perro/gato" a revisar en Biblioteca de anuncios antes de pautar.
+- Configuración: Canva permitido sin prompt en `.claude/settings.json` (pedido del dueño).
+
+## 2026-10-04 ~13:00 UTC — dueño entregó WhatsApp
+- `datos/tienda.json` → whatsapp 56979814797. Formulario probado en Chromium: abre wa.me con el pedido completo. La tienda ya puede recibir pedidos por WhatsApp.
+- Siguen pendientes: correo, dirección comercial, razón social y RUT.
+
+## 2026-10-04 ~14:00 UTC — nombre definitivo: Kuchiwau
+- Kimo descartado: KIMO registrado en INAPI por Puratos S.A. (clases 1 y 30), detectado por el dueño. Lección: verificar INAPI (lo hace el dueño; INAPI no es accesible desde el entorno) antes de proponer nombres.
+- Nuevo nombre **Kuchiwau** (idea del dueño; "cuchi cuchi" + "wau"). Dueño verificó en INAPI que no hay marcas "Kuchi"; kuchiwau.cl libre. Cambiado en marca, fichas, plan de anuncios, plantilla, logo (estrella como punto de la i), SKU KW-.
+- 2026-10-04 ~14:15 UTC: por pedido del dueño, Kit Baño y Secado primero en la portada (`orden_vitrina` en datos/tienda.json).
+- 2026-10-04 ~14:30 UTC: pedido del dueño, quitar mensajes repetidos. Regla 'un mensaje, un lugar': barra superior = resumen de confianza; 'Cómo funciona' = pago contra entrega; 'Compra sin riesgo' = retracto y garantía; FAQ = plazos. Eliminados: sellos del hero, franja de sellos (portada y kit), pilar 'Compra sin riesgo', sello del pie, sellos bajo la foto del kit, filas repetidas de la tabla y FAQs '¿Cómo pago?'/'¿Y si no me sirve?'.
+
+## Ciclo 3 — 2026-10-04 — validador (portón, crecimiento de catálogo a máx. 20)
+- Aprobados nuevos (7): kit-caja-regalo-navidad (temporada 15-nov a ~15-dic), kit-paseo-nocturno-led, kit-juegos-interactivos-perro (juego activo, diferenciado del kit de enriquecimiento: olfato/lamer), kit-gato-arenero-limpio, kit-gato-rascador-pared, kit-cachorro-entrenamiento, piscina-plegable-perros-120 (16-nov a 28-feb; en tienda junto a Kit Verano, nunca en pauta simultánea). Total activos: 13/20.
+- Campo `mascota` agregado a los 13 activos (10 perro, 3 gato): falta oferta para gatos.
+- En observación: kit-gato-hidratacion-filtros (ROAS eq. 3,91 al borde), kit-gato-juego-rascado (duplica rascador de pared, peor economía y logística), kit-mordedores-cepillo-dedal (cepillo de dedal insinúa higiene bucal = salud; duplica cuerda con otros kits).
+- Descartados (no pasan portón duro): kit-auto-viaje-perro, kit-comedero-elevado-ajustable, kit-descanso-cojin-lavable, kit-abrigo-invierno-perro (reevaluar en marzo), kit-orden-alimento.
+- Pendiente: fichas de los 7 nuevos (creador-tienda); todos con costos estimados, verificar en Dropi antes de pautar. Próximo cazador: priorizar kits para gato o ambos.
+
+## Ciclo 3 — 2026-10-04 (pedido del dueño: autónomo, límite 20)
+- max_activos 20. cazador (sonnet): 12 candidatos; 7 pasan el filtro. validador (opus): aprueba 7 → 13 activos (10 perro, 3 gato); descarta 5; mordedores/dedal a observación (riesgo de salud bucal). creador-tienda: 7 fichas.
+- Portada: filtro Todos/Perros/Gatos; etiquetas públicas cortas (`etiqueta` en catálogo) para no mostrar notas internas.
+- Fotos Canva: 2 nuevas (Navidad, Paseo nocturno). Juegos y Arenero descartadas porque mostraban piezas no incluidas; Canva sin créditos para el resto → imagen provisional de marca "Foto real muy pronto".
+- Próximo: buscar kits de gato/ambos para equilibrar (7 cupos libres).
+
+## Ciclo 4 — 2026-10-04 — validador (portón, equilibrio gatos)
+- Aprobados nuevos (6 de 7 cupos): kit-gato-navidad (temporada 15-nov a ~15-dic; no pautar junto a la caja de perro), kit-gato-ventana-mirador (condición: costo ≤ $11.000 y flete ≤ $4.200, ROAS eq. pesimista 4,11), kit-gato-laser-varitas (riesgo 2: clase del láser, despacho de batería y política de Meta antes de pautar), kit-gato-aseo-unas-pelo (eje uñas; no pautar con el ángulo de pelo de Sin Pelusas), kit-gato-arnes-paseo, kit-id-collar-placa (ambos; condición dura: grabado en Dropi o se descarta). Total activos: 19/20 (10 perro, 8 gato, 1 ambos).
+- En observación: kit-gato-tunel-juego (duplica juego activo de gato; set equivalente a $8.990 en Paris; reemplazo del láser si este cae), kit-bandanas-fotos (superpone ángulo foto/regalo con los dos kits de Navidad; reevaluar en enero).
+- Descartados (portón duro): kit-manta-viaje-premios (3,24), kit-gato-transporte-mochila (3,17).
+- Cupo libre (1) reservado para kit-gato-hidratacion-filtros si el costo real en Dropi cierra. Pendiente: fichas de los 6 nuevos (creador-tienda); todos con costos estimados.
+
+## Ciclo 4 — 2026-10-04 (orquestador)
+- cazador (sonnet) 10 candidatos gato/ambos → 8 pasan → validador (opus) aprueba 6 → **19 activos** (10 perro, 8 gato, 1 ambos). creador-tienda: 6 fichas. Metas sin "Pagas al recibir/Despacho" repetidos.
+- Fotos Canva: Ventana y Rascador; resto sin créditos → imagen provisional. Chromium: 19 páginas sin errores ni scroll horizontal; filtro OK.
+- 2026-10-04 ~16:00 UTC: pedido del dueño, tarjetas más compactas. Grilla 2 columnas (celular) / 3 (tablet) / 4 (escritorio), foto cuadrada, solo etiqueta + nombre + precio (+ botón en pantallas ≥700 px). Sección de kits en celular: de ~9.000 px a ~3.500 px. Kits con foto primero (después de orden_vitrina).
+- 2026-10-04 ~16:20 UTC: pedido del dueño, paginación del catálogo: 8 kits por página con ‹ 1 2 3 ›, compatible con el filtro Perros/Gatos (sin JS se ven todos). Probado en Chromium 390/1366.
+- 2026-10-04 ~16:40 UTC: dueño pregunta por calidad en Dropi. Respuesta honesta: no verificado (requiere su cuenta). Creado control: `datos/verificacion_dropi.csv` (19 kits), `investigacion/guia-verificacion-dropi.md`, economia.py usa costos reales si existen, verificar.py avisa kits sin verificar ("NO pautar"), regla en validador.md.
+- 2026-10-04 13:20 — Portada: "Cómo funciona" + "Compra sin riesgo" fusionados (3 pasos compactos + 1 línea de retracto); fuera "Cómo trabajamos". CSS/JS con ?v=huella para que el celular no use caché vieja.
+- 2026-10-04 17:10 — Lanzamiento: 3 investigaciones (legal, pagos/Shopify/Dropi, Instagram/Meta) y guía maestra `LANZAMIENTO.md` por fases con costos (UTM oct = $72.151). Backlog P0 de redes y privacidad para el loop.
+- 2026-10-04 17:30 — Turno: kit de perfil para redes (`marca/redes/`) y plantillas de WhatsApp Business (`datos/plantillas_whatsapp.md`). Controles OK.
+- 2026-10-05 03:00 — Dueño: grilla de Instagram "no es necesario" → tarea descartada. Turno cada 2 h todo el día (rutina actualizada).
+- 2026-10-05 — Equipo de expertos: 7 agentes nuevos (dirección, diseño, legal, operaciones, SEO, competencia, marca) + ads; comando `/equipo`, registro `estado/areas.json`. Decisiones del dueño copiadas al buzón.
+- 2026-10-05 04:00 UTC — Equipo ronda 1 (dirección, legal, operaciones, diseño). Objetivo semana: listos para el 1er pedido COD al 11-oct con 3 kits (Baño y Secado, Gato Sin Pelusas, Pelo Cero).
+  Legal: `datos/legal/privacidad.md` (Ley 21.719) y `brechas.md` (3 críticas: datos del proveedor, privacidad, costo de despacho). Operaciones: `datos/operaciones.md` + plantilla de tablero. Diseño: ficha móvil con precio, pago al recibir, plazo y botón sin desplazarse (auditor OK). LANZAMIENTO 5.6 sin grilla.
+- 2026-10-05 ~05:00 UTC — Equipo ronda 2 (competencia, ads, SEO + diseño por pedido del dueño: "diseño de la página primero" → diseño prioridad 1, TTL 2 h). Competencia `datos/competencia.md`; ads 12 conceptos `datos/conceptos_ads.md` (pauta bloqueada); SEO `datos/seo/auditoria.md`. Auditor: Pelo Cero "a vapor" → "cepillo con bruma" (creador-tienda). Diseño: foto principal prioritaria, bloque "Otros kits", og/twitter y JSON-LD con offers.url y deliveryTime. Auditor OK, controles en 0.
+- 2026-10-05 04:10 UTC — Rediseño visual pedido por el dueño (contacto con WhatsApp/tel clicables, íconos de redes condicionados a cuentas reales, botón flotante, tarjetas e íconos). Auditor OK; publicado. Continuación autónoma programada 04:49 UTC.
+- 2026-10-05 ~08:00 UTC — Equipo ronda 3 (diseño, marca; 2 disparos nocturnos atrasados unidos en una ronda). Diseño: píxel Purchase→Lead, srcset 450/900 webp, alt Baño y Secado, sitemap lastmod, "Pagas al recibir" un lugar por vista, flotante solo ícono en fichas de escritorio. Marca: `datos/contenido_organico.md` (30 días, 4 sesiones de grabación, bios @kuchiwau). Auditor OK.
+- 2026-10-05 09:18 UTC — Ciclo diario: ningún nodo vencido ni resultados reales; solo controles (OK). Informe de 24 h actualizado.
+- 2026-10-05 ~12:45 UTC — Diseño ronda 4 con skills nuevas (impeccable, redesign, taste, animación de Emil, break-ui): diagnóstico top 10 (Nielsen ~31/40) en `estado/areas/diseno.md`; hero, ficha, contacto, tarjetas "Kit de N piezas", nota única de fotos referenciales, flotante sin tapar, cabecera a 320 px, revelado 400 ms con reduced-motion. Auditor OK.
+- 2026-10-05 17:35–18:05 UTC — Sesión de 30 min pedida por el dueño, 8 áreas en paralelo. Diseño: 404 de marca, ficha "Qué incluye" numerada, formulario por pasos, Pack de 2 con ahorro exacto, textos legales en despacho/cambios, Reclamos/SERNAC en contacto. Legal: revisión del rediseño. Operaciones: `datos/preguntas_dropi.md`. SEO: palabras clave + esqueleto guía verano. Competencia: `datos/benchmark_diseno.md`. Marca: `datos/guia_fotos.md`. Ads: aterrizaje vs conceptos. Dirección: recomendación de envío. Auditor OK.
+- 2026-10-05 ~18:15 UTC — Diseño ronda 6 con lectura obligatoria de skills (16 guías leídas, impeccable y emil-design-eng invocadas; verificado en el registro). ~30 de 47 propuestas: formulario con validaciones y N.º de pedido KW-, filtro vacío, galería condicionada a fotos reales, botón sobre el pliegue, SEO del generador (title ≤60, meta ≤155), BreadcrumbList, break-ui. Auditor OK tras corregir 4 detalles SEO.
+- 2026-10-05 ~18:25 UTC — Diseño ronda 7 (pedido del dueño: "todo estático, botones genéricos"): sistema de botones propio (ícono en círculo, primario mandarina con luz y sombra teñida), tarjetas con hover "Ver kit", entrada escalonada del hero, revelado al scroll, encabezado que se compacta, acordeón y radios animados, check al confirmar; reduced-motion respetado y contenido visible sin JS. Barra superior móvil en una línea. Auditor OK.
+- 2026-10-05 ~18:35 UTC — Diseño rondas 8-9 por feedback del dueño: formas editoriales (radios 2/4/6 px), sin "2 por $X" (selector de cantidad 1/2 en ficha), movimiento casi nulo, paleta A sobria (hueso #F7F5F1, tinta #1A1A1A, arcilla #A4503A), hero tipográfico sin imagen IA, fotos marcadas referenciales. Auditor OK. Pendiente: dueño elige paleta A/B/C y tarjetas con/sin foto.
+- 2026-10-05 ~19:00 UTC — Diseño ronda 10 (dueño: "muy apagado, sin color característico, tarjeta simple, faltan imágenes"): azul de marca #24316B protagonista, tinta #141B3F, mandarina apagada en detalles; tarjeta de tienda grande (doble marco, imagen cuadrada, beneficio de fichas.json, piezas, precio, "Ver kit"); "Elige por mascota"; espacios para imágenes de ambiente (ambiente-hero/perros/gatos/entrega.jpg) que no dejan huecos si faltan. Canva: 2 imágenes generadas, créditos agotados; faltan en alta resolución (el dueño debe descargarlas). Auditor: 2 falsos positivos descartados por el orquestador.
+- 2026-10-05 ~18:50 UTC — Imágenes de ambiente del dueño (Canva) instaladas: ambiente-hero (perro y gato en living con vista a Santiago), ambiente-perros, ambiente-gatos (recorte del hero). Faltan: ambiente-entrega (créditos Canva agotados).
+- 2026-10-05 ~22:05 UTC — Ronda nocturna (solo diseño vencida): fichas al nivel de la portada (galería cuadrada con doble marco, compra con fila de confianza, cantidad 1/2 discreta, Qué incluye con íconos) y páginas legales/contacto/404 con el mismo sistema, textos legales intactos. Auditor OK; aviso de píldoras descartado (medido en Chromium).
+- 2026-10-06 ~00:30 UTC — Orquestador aplicó impeccable (craft-floor) directamente por pedido del dueño: fuera teléfono, WhatsApp reducido a formulario/contacto/pie, sin flotante ni banda final; sin rótulos sobre títulos; Cómo funciona y Por qué funciona como listas editoriales; sin caja de reseñas vacía; Elige por mascota a lo ancho (lado a lado en móvil). Sin errores ni desbordes a 390/1366.
+- 2026-10-06 ~02:30 UTC — Rediseño con Impeccable completo (lanzador + detector instalados, PRODUCT.md con entrevista al dueño, DESIGN.md nuevo): Figtree, fondo blanco, azul #24316B + mandarina en compra, grilla retail tipo Falabella/Paris, estilos.css reescrito (1101→366 líneas). Detector 0 hallazgos en portada/ficha/contacto. Auditor OK (WhatsApp del 404 cambiado a enlace a contacto).
+- 2026-10-06 ~06:05 UTC — Ronda nocturna diseño (pulido Impeccable): región/comuna apiladas en móvil, barra de compra no tapa el botón de confirmar, selects con elipsis. Detector 0 en portada/ficha/contacto.
+
+## 2026-10-06T21:51:26Z — equipo: dirección, diseño, SEO
+- Dirección: sin cambio de prioridades; foco diseño (zonas táctiles) y SEO (revisión HTML).
+- Diseño r16: enlaces de garantías y casillas del formulario con zona táctil ≥ 44 px; detector 0; auditor OK.
+- SEO: portada y 3 kits cumplen título/meta/canónica/h1/Product; propuestas a diseño: quitar 'por confirmar con proveedor' en FAQ de Pelo Cero y 'medidas exactas' en Baño/Gato.
+
+## 2026-10-07T01:51:18Z — equipo: diseño
+- Generador omite FAQ con 'por confirmar con proveedor' (Pelo Cero queda sin FAQ) y cambia 'medidas exactas' por confirmación por WhatsApp. Auditor OK. Pendiente: FAQ de Pelo Cero con dato confirmado (fichas).
+
+## 2026-10-07T05:49:17Z — equipo: diseño r17
+- Prueba de estrés (precio $1.299.990, nombre de 110 caracteres, cantidad 2) a 320/390/1366: arreglado scroll horizontal de la ficha a 320 px (columna minmax(0,1fr)). Solo CSS de layout, sin cambio de contenido: auditor no requerido.

@@ -1,0 +1,7 @@
+{
+  "buildCommand": "",
+  "installCommand": "",
+  "outputDirectory": "sitio",
+  "cleanUrls": false,
+  "trailingSlash": false
+}
