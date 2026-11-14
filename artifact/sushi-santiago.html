@@ -127,6 +127,13 @@ button { cursor: pointer; }
 .datos { margin: 8px 0 12px; color: var(--suave); font-size: 15px; display: grid; gap: 3px; }
 .datos a { color: var(--enlace); overflow-wrap: anywhere; }
 .datos .copiable { user-select: all; color: var(--tinta); }
+.foto { display: grid; gap: 8px; margin-bottom: 14px; }
+.foto img { width: 100%; max-height: 230px; object-fit: cover; border-radius: 12px; display: block; background: var(--fondo); }
+.foto-botones { display: flex; gap: 8px; flex-wrap: wrap; }
+.foto-botones .boton { flex: 1; font-size: 15px; text-align: center; cursor: pointer; }
+.foto-botones input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.foto-botones label:focus-within { outline: 3px solid var(--salmon); outline-offset: 2px; }
+.foto small { color: var(--suave); }
 .acciones { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
 .acciones .boton { flex: 1; text-align: center; text-decoration: none; font-size: 15px; padding-inline: 10px; color: var(--tinta); }
 .acciones .boton.oscuro { color: var(--sobre-mar); }
@@ -248,6 +255,7 @@ button { cursor: pointer; }
 
   const estado = {
     db: null,
+    assets: null,
     cargando: true,
     problema: '',
     locales: [],
@@ -572,6 +580,7 @@ button { cursor: pointer; }
         enlaceWeb(l.web),
         l.horario && h('span', null, `Horario: ${l.horario}`),
         l.origen === 'manual' && h('span', null, 'Agregado a mano')),
+      bloqueFoto(l),
       h('div', { class: 'acciones' },
         h('a', { class: 'boton oscuro', href: `https://www.google.com/maps/dir/?api=1&destination=${l.lat},${l.lon}`, target: '_blank', rel: 'noopener noreferrer' }, 'Cómo llegar'),
         h('a', { class: 'boton', href: `https://www.google.com/maps/search/?api=1&query=${busqueda}`, target: '_blank', rel: 'noopener noreferrer' }, 'Ver en Google Maps')),
@@ -583,6 +592,78 @@ button { cursor: pointer; }
       const tam = mapa.getSize();
       mapa.panBy([punto.x - tam.x / 2, punto.y - tam.y * 0.12], { animate: true });
     }
+  }
+
+  // ---------- foto de referencia ----------
+  const urlFoto = {};
+  const fuenteFoto = (id) => urlFoto[id] || `/_blob/${id}`;
+
+  // Reduce la foto a un tamaño razonable antes de subirla.
+  async function reducirFoto(archivo) {
+    const imagen = await new Promise((ok, mal) => {
+      const img = new Image();
+      const url = URL.createObjectURL(archivo);
+      img.onload = () => { URL.revokeObjectURL(url); ok(img); };
+      img.onerror = () => { URL.revokeObjectURL(url); mal(new Error('imagen')); };
+      img.src = url;
+    });
+    const escala = Math.min(1, 1280 / Math.max(imagen.naturalWidth, imagen.naturalHeight));
+    const lienzo = document.createElement('canvas');
+    lienzo.width = Math.max(1, Math.round(imagen.naturalWidth * escala));
+    lienzo.height = Math.max(1, Math.round(imagen.naturalHeight * escala));
+    lienzo.getContext('2d').drawImage(imagen, 0, 0, lienzo.width, lienzo.height);
+    return new Promise((ok, mal) => lienzo.toBlob((b) => (b ? ok(b) : mal(new Error('imagen'))), 'image/jpeg', 0.82));
+  }
+
+  function bloqueFoto(l) {
+    const caja = h('div', { class: 'foto' });
+    const pintar = (ocupado) => {
+      const entrada = h('input', { id: 'foto-archivo', type: 'file', accept: 'image/*', disabled: !!ocupado });
+      entrada.addEventListener('change', async () => {
+        const archivo = entrada.files && entrada.files[0];
+        if (!archivo) return;
+        pintar('Subiendo la foto…');
+        const anterior = l.foto;
+        try {
+          const reducida = await reducirFoto(archivo);
+          const subida = await estado.assets.upload(reducida, { type: 'image/jpeg' });
+          urlFoto[subida.id] = subida.url;
+          await estado.db.collection('locales').doc(l.id).update({ foto: subida.id, actualizado: new Date().toISOString() });
+          l.foto = subida.id;
+          if (anterior) estado.assets.delete(anterior).catch(() => {});
+          avisar('Foto guardada');
+        } catch (e) {
+          const grande = e && e.code === 'too_large';
+          const lleno = e && e.code === 'quota_or_state';
+          avisar(grande ? 'La foto es demasiado grande.' : lleno ? 'No queda espacio para más fotos.' : e && e.message === 'imagen' ? 'Ese archivo no es una imagen que se pueda leer.' : 'No se pudo guardar la foto. Intenta de nuevo.', true);
+        }
+        pintar();
+      });
+      const quitar = l.foto && estado.assets && h('button', {
+        class: 'boton peligro', type: 'button', disabled: !!ocupado,
+        onclick: async () => {
+          const id = l.foto;
+          pintar('Quitando la foto…');
+          try {
+            await estado.db.collection('locales').doc(l.id).update({ foto: '', actualizado: new Date().toISOString() });
+            l.foto = '';
+            estado.assets.delete(id).catch(() => {});
+          } catch (e) {
+            avisar(mensajeError(e), true);
+          }
+          pintar();
+        },
+      }, 'Quitar foto');
+      const img = l.foto && h('img', { src: fuenteFoto(l.foto), alt: `Foto de referencia de ${l.nombre}`, loading: 'lazy' });
+      if (img) img.addEventListener('error', () => img.replaceWith(h('small', null, 'No se pudo cargar la foto.')));
+      caja.replaceChildren(
+        img || '',
+        ocupado ? h('small', null, ocupado) : '',
+        estado.assets ? h('div', { class: 'foto-botones' },
+          h('label', { class: 'boton' }, l.foto ? 'Cambiar foto' : 'Agregar foto', entrada), quitar) : '');
+    };
+    pintar();
+    return caja;
   }
 
   // ---------- agregar local ----------
@@ -704,6 +785,10 @@ button { cursor: pointer; }
       estado.cargando = false;
       estado.problema = estado.locales.length ? '' : 'No se pudieron cargar los locales. Vuelve a abrir la página.';
       pintarTodo();
+    });
+    window.claude.use('assets').then((a) => {
+      estado.assets = a;
+      if (a && estado.seleccionado && !estado.sinGuardar && !$('ficha').hidden) abrirFicha(estado.seleccionado);
     });
     const descargas = await window.claude.use('downloads');
     if (descargas) {
