@@ -50,3 +50,9 @@ npm test
   `importar` (OpenStreetMap) y `comuna` (límite comunal).
 - `lib/` — base de datos, clave de acceso y consulta a OpenStreetMap.
 - `data/` — límite de la comuna y copia de respaldo de los locales.
+
+## Versión publicada en Claude
+
+`artifact/sushi-santiago.html` es la misma herramienta como página privada de
+Claude (sin Vercel ni clave): guarda los datos en la base de datos de la página
+y usa imágenes del mapa incluidas en la publicación.
