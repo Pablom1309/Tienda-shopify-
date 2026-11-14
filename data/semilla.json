@@ -1,0 +1,1331 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.4 2390de5a",
+  "osm3s": {
+    "timestamp_osm_base": "2026-11-14T14:32:07Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 1236575383,
+  "lat": -33.4548870,
+  "lon": -70.6611850,
+  "tags": {
+    "addr:city": "Santiago",
+    "addr:housenumber": "624",
+    "addr:street": "Vergara",
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "name": "Aomori Nikkei & Sushi",
+    "source": "Reconocimiento cartográfico 2016 por KG."
+  }
+},
+{
+  "type": "node",
+  "id": 1312927467,
+  "lat": -33.4341490,
+  "lon": -70.6349103,
+  "tags": {
+    "addr:housename": "Patio Bellavista",
+    "addr:housenumber": "30",
+    "addr:street": "Constitucion",
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "name": "Openbox"
+  }
+},
+{
+  "type": "node",
+  "id": 1349277437,
+  "lat": -33.4402133,
+  "lon": -70.6350230,
+  "tags": {
+    "addr:housenumber": "39",
+    "addr:street": "Barón Pierre de Coubertin",
+    "amenity": "restaurant",
+    "cuisine": "japanese",
+    "name": "Japón",
+    "phone": "+5622224517",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 1454525246,
+  "lat": -33.4421841,
+  "lon": -70.6274047,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "japanese",
+    "name": "Sushi Bar Bushido"
+  }
+},
+{
+  "type": "node",
+  "id": 1676954867,
+  "lat": -33.4337814,
+  "lon": -70.6353752,
+  "tags": {
+    "addr:housename": "Patio Bellavista",
+    "addr:housenumber": "30",
+    "addr:street": "Constitución",
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "name": "Fukai Sushi",
+    "website": "https://www.fukai.cl/"
+  }
+},
+{
+  "type": "node",
+  "id": 1691325916,
+  "lat": -33.4425048,
+  "lon": -70.6357176,
+  "tags": {
+    "addr:city": "Santiago",
+    "addr:housenumber": "148",
+    "addr:street": "Diagonal Paraguay",
+    "amenity": "restaurant",
+    "cuisine": "sushi;sandwich",
+    "name": "Zenwich"
+  }
+},
+{
+  "type": "node",
+  "id": 1728009340,
+  "lat": -33.4445235,
+  "lon": -70.6405025,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "japanese",
+    "name": "Hokkaido Sushi"
+  }
+},
+{
+  "type": "node",
+  "id": 1946851320,
+  "lat": -33.4461934,
+  "lon": -70.6385328,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "japanese",
+    "name": "Sushi"
+  }
+},
+{
+  "type": "node",
+  "id": 1975346825,
+  "lat": -33.4386604,
+  "lon": -70.6354884,
+  "tags": {
+    "addr:housenumber": "22",
+    "addr:street": "Carabineros de Chile",
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "name": "SuperSushi",
+    "website": "www.supersushi.cl"
+  }
+},
+{
+  "type": "node",
+  "id": 2186760940,
+  "lat": -33.4375460,
+  "lon": -70.6553848,
+  "tags": {
+    "amenity": "restaurant",
+    "name": "Natural Sushi",
+    "source": "Reconocimiento cortográfico de campo 2016 por KG"
+  }
+},
+{
+  "type": "node",
+  "id": 2296016635,
+  "lat": -33.4534348,
+  "lon": -70.6533465,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "asian",
+    "name": "Sushi Peruano"
+  }
+},
+{
+  "type": "node",
+  "id": 2545293190,
+  "lat": -33.4400175,
+  "lon": -70.6484882,
+  "tags": {
+    "amenity": "fast_food",
+    "cuisine": "sushi",
+    "name": "Sushi Blues"
+  }
+},
+{
+  "type": "node",
+  "id": 2840109218,
+  "lat": -33.4415663,
+  "lon": -70.6332360,
+  "tags": {
+    "addr:city": "Providencia",
+    "addr:housenumber": "036",
+    "addr:street": "Avenida Rancagua",
+    "amenity": "restaurant",
+    "cuisine": "japanese",
+    "email": "contacto.saboresdelparque@gmail.com",
+    "name": "Sabores del parque",
+    "note": "En Sabores del Parque sentirás un ambiente de tranquilidad desde el primer momento que llegas, inmediatamente te darán ganas de comer algo rico, tomar un café y descansar del caos, de la premura de la vida cotidiana en la tranquilidad de un Parque.",
+    "opening_hours": "Mo-Th 09:00-23:00; Fr-Sa 09:00-01:00",
+    "phone": "+56 2 2635 4981",
+    "website": "https://www.facebook.com/SaboresDelParque"
+  }
+},
+{
+  "type": "node",
+  "id": 3032654656,
+  "lat": -33.4475564,
+  "lon": -70.6624586,
+  "tags": {
+    "addr:housenumber": "39",
+    "addr:street": "Vergara",
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "name": "Aoki Sushi Nikkei",
+    "website": "https://www.facebook.com/aokisushinikkei"
+  }
+},
+{
+  "type": "node",
+  "id": 3068695380,
+  "lat": -33.4471144,
+  "lon": -70.6533453,
+  "tags": {
+    "addr:city": "Santiago",
+    "addr:housenumber": "137",
+    "addr:street": "Avenida Presidente Bulnes",
+    "amenity": "restaurant",
+    "check_date": "2024-09-20",
+    "cuisine": "sushi",
+    "name": "Tokyo Sushi"
+  }
+},
+{
+  "type": "node",
+  "id": 3265701488,
+  "lat": -33.4557670,
+  "lon": -70.6665528,
+  "tags": {
+    "addr:city": "Santiago",
+    "addr:housenumber": "2260",
+    "addr:street": "Claudio Gay",
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "name": "Nintai",
+    "source": "Reconocimiento cartográfico 2016 por KG.",
+    "website": "http://www.awabi.cl/"
+  }
+},
+{
+  "type": "node",
+  "id": 3663926982,
+  "lat": -33.4471676,
+  "lon": -70.6428851,
+  "tags": {
+    "addr:city": "santiago",
+    "addr:housenumber": "544",
+    "addr:street": "Root",
+    "amenity": "restaurant",
+    "cuisine": "Sushi_y_Comida_Peruana._También_Menús_diarios",
+    "name": "Kusi",
+    "website": "http://www.kusirestaurant.cl/"
+  }
+},
+{
+  "type": "node",
+  "id": 3663941035,
+  "lat": -33.4484950,
+  "lon": -70.6402873,
+  "tags": {
+    "addr:city": "Santiago",
+    "addr:street": "Manuel Antonio Tocornal",
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "name": "Sushi Adrià",
+    "opening_hours": "Mo-Th 12:00-23:00; Fr-Sa 12:00-00:00; Su 09:00-18:00",
+    "phone": "+56226355896",
+    "website": "https://www.adria.cl/"
+  }
+},
+{
+  "type": "node",
+  "id": 4376697292,
+  "lat": -33.4321261,
+  "lon": -70.6400533,
+  "tags": {
+    "addr:city": "Recoleta",
+    "addr:housenumber": "174",
+    "addr:street": "Bombero Núñez",
+    "amenity": "restaurant",
+    "cuisine": "korean;japanese",
+    "name": "Dae Jang Kum Restaurant Coreano",
+    "name:en": "Dae Jang Kum",
+    "name:ko": "대장금",
+    "phone": "+227324772"
+  }
+},
+{
+  "type": "node",
+  "id": 4422892728,
+  "lat": -33.4332222,
+  "lon": -70.6426304,
+  "tags": {
+    "addr:street": "Loreto",
+    "amenity": "restaurant",
+    "name": "Sushi Bar",
+    "source": "Reconocimiento cortográfico de campo 2016 por KG"
+  }
+},
+{
+  "type": "node",
+  "id": 4423819799,
+  "lat": -33.4319315,
+  "lon": -70.6396845,
+  "tags": {
+    "addr:street": "Bombero Núñez",
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "name": "Sushi Nikkei",
+    "source": "Reconocimiento cortográfico de campo 2016 por KG"
+  }
+},
+{
+  "type": "node",
+  "id": 4424150668,
+  "lat": -33.4249306,
+  "lon": -70.6458942,
+  "tags": {
+    "addr:street": "Avenida Recoleta",
+    "amenity": "restaurant",
+    "name": "Sushi Yoneu",
+    "source": "Reconocimiento cortográfico de campo 2016 por KG"
+  }
+},
+{
+  "type": "node",
+  "id": 4431138655,
+  "lat": -33.4784469,
+  "lon": -70.6706230,
+  "tags": {
+    "addr:street": "Avenida Alcalde Carlos Valdovinos",
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "name": "Suchi Tota",
+    "source": "Reconocimiento cortográfico de campo 2016 por KG"
+  }
+},
+{
+  "type": "node",
+  "id": 4436461529,
+  "lat": -33.4436895,
+  "lon": -70.6233055,
+  "tags": {
+    "addr:housenumber": "1130",
+    "addr:street": "Avenida Salvador",
+    "amenity": "fast_food",
+    "cuisine": "sushi",
+    "indoor_seating": "no",
+    "name": "Tatsu Sushi",
+    "outdoor_seating": "yes",
+    "source": "Reconocimiento cortográfico de campo 2016 por KG"
+  }
+},
+{
+  "type": "node",
+  "id": 4440801511,
+  "lat": -33.4524408,
+  "lon": -70.6256735,
+  "tags": {
+    "addr:city": "Ñuñoa",
+    "addr:street": "Avenida Irarrázaval",
+    "amenity": "fast_food",
+    "name": "Rikuzen Sushi",
+    "source": "Reconocimiento cortográfico de campo 2016 por KG"
+  }
+},
+{
+  "type": "node",
+  "id": 4444080619,
+  "lat": -33.4479061,
+  "lon": -70.6355411,
+  "tags": {
+    "addr:street": "Avenida Portugal",
+    "amenity": "fast_food",
+    "name": "Sushi Mikan",
+    "source": "Reconocimiento cortográfico de campo 2016 por KG"
+  }
+},
+{
+  "type": "node",
+  "id": 4444162916,
+  "lat": -33.4734603,
+  "lon": -70.6351886,
+  "tags": {
+    "addr:street": "Carmen",
+    "amenity": "restaurant",
+    "name": "Sushi Kamy",
+    "source": "Reconocimiento cortográfico de campo 2016 por KG"
+  }
+},
+{
+  "type": "node",
+  "id": 4444970065,
+  "lat": -33.4664768,
+  "lon": -70.6269748,
+  "tags": {
+    "addr:street": "Avenida Vicuña Mackenna",
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "name": "Sushi Mitzui",
+    "source": "Reconocimiento cortográfico de campo 2016 por KG"
+  }
+},
+{
+  "type": "node",
+  "id": 4446864068,
+  "lat": -33.4432835,
+  "lon": -70.6430493,
+  "tags": {
+    "addr:housenumber": "489",
+    "addr:street": "Marcoleta",
+    "amenity": "restaurant",
+    "cuisine": "japanese",
+    "name": "Ramen Kuma"
+  }
+},
+{
+  "type": "node",
+  "id": 4448126348,
+  "lat": -33.4524361,
+  "lon": -70.6310237,
+  "tags": {
+    "addr:street": "Avenida Vicuña Mackenna",
+    "amenity": "restaurant",
+    "name": "Sushi OTA",
+    "source": "Reconocimiento cartográfico 2016 por KG."
+  }
+},
+{
+  "type": "node",
+  "id": 4448400875,
+  "lat": -33.4467897,
+  "lon": -70.6384213,
+  "tags": {
+    "amenity": "restaurant",
+    "name": "Speed Sushi",
+    "source": "Reconocimiento cartográfico 2016 por KG"
+  }
+},
+{
+  "type": "node",
+  "id": 4448525436,
+  "lat": -33.4364362,
+  "lon": -70.6429373,
+  "tags": {
+    "addr:street": "Santo Domingo",
+    "amenity": "restaurant",
+    "name": "Sushi",
+    "source": "Reconocimiento cortográfico de campo 2016 por KG"
+  }
+},
+{
+  "type": "node",
+  "id": 4453787235,
+  "lat": -33.4379071,
+  "lon": -70.6465414,
+  "tags": {
+    "addr:city": "Santiago",
+    "addr:housenumber": "655",
+    "addr:street": "Merced",
+    "amenity": "restaurant",
+    "cuisine": "sushi;japanese;korean",
+    "description": "Comida Fusion Japonesa Coreana",
+    "name": "EveryDay Sushi",
+    "opening_hours": "Mo-Su 12:00-00:00",
+    "source": "Reconocimiento cortográfico de campo 2016 por KG",
+    "website:menu": "https://menu.fu.do/everydaysushi1/qr-menu"
+  }
+},
+{
+  "type": "node",
+  "id": 4454070579,
+  "lat": -33.4362817,
+  "lon": -70.6572484,
+  "tags": {
+    "addr:street": "Amunátegui",
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "name": "Sushi",
+    "name:en": "Sushi Baku",
+    "name:es": "Sushi Baku",
+    "source": "Reconocimiento cortográfico de campo 2016 por KG",
+    "website": "https://www.baku.cl/"
+  }
+},
+{
+  "type": "node",
+  "id": 4454179104,
+  "lat": -33.4525317,
+  "lon": -70.6640887,
+  "tags": {
+    "addr:street": "Gorbea",
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "name": "Sushi Yem",
+    "source": "Reconocimiento cartográfico 2016 por KG."
+  }
+},
+{
+  "type": "node",
+  "id": 4455235818,
+  "lat": -33.4458285,
+  "lon": -70.6363703,
+  "tags": {
+    "amenity": "restaurant",
+    "name": "Santiago Sushi",
+    "source": "Reconocimiento cartográfico 2016 por KG"
+  }
+},
+{
+  "type": "node",
+  "id": 4455235819,
+  "lat": -33.4486042,
+  "lon": -70.6353760,
+  "tags": {
+    "addr:city": "Santiago",
+    "addr:housenumber": "521",
+    "addr:street": "Avenida Portugal",
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "internet_access": "wlan",
+    "name": "Tamashi",
+    "source": "Reconocimiento cartográfico 2016 por KG"
+  }
+},
+{
+  "type": "node",
+  "id": 4455265559,
+  "lat": -33.4666248,
+  "lon": -70.6307615,
+  "tags": {
+    "amenity": "restaurant",
+    "name": "Sushi Pete",
+    "source": "Reconocimiento cartográfico 2016 por KG"
+  }
+},
+{
+  "type": "node",
+  "id": 4456975866,
+  "lat": -33.4516834,
+  "lon": -70.6647020,
+  "tags": {
+    "addr:city": "Santiago",
+    "addr:housenumber": "2106",
+    "addr:street": "Grajales",
+    "amenity": "restaurant",
+    "cuisine": "sushi;indian",
+    "name": "Taste of India"
+  }
+},
+{
+  "type": "node",
+  "id": 4457048223,
+  "lat": -33.4648136,
+  "lon": -70.6276520,
+  "tags": {
+    "addr:street": "Maule",
+    "amenity": "restaurant",
+    "name": "Sushi",
+    "source": "Reconocimiento cortográfico de campo 2016 por KG"
+  }
+},
+{
+  "type": "node",
+  "id": 4458314612,
+  "lat": -33.4587752,
+  "lon": -70.6552702,
+  "tags": {
+    "amenity": "restaurant",
+    "name": "Sushi Happy",
+    "source": "KG Ground Survey 2016"
+  }
+},
+{
+  "type": "node",
+  "id": 4462387457,
+  "lat": -33.4523826,
+  "lon": -70.6728430,
+  "tags": {
+    "addr:street": "Sazié",
+    "amenity": "restaurant",
+    "cuisine": "asian",
+    "name": "Wan Tai",
+    "source": "Reconocimiento cartográfico 2016 por KG."
+  }
+},
+{
+  "type": "node",
+  "id": 4462554072,
+  "lat": -33.4640577,
+  "lon": -70.6647953,
+  "tags": {
+    "addr:housenumber": "1320",
+    "addr:street": "Club Hípico",
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "name": "Atai Sushi",
+    "opening_hours": "Mo-Th 12:00-23:00; Fr-Sa 12:00-00:00",
+    "phone": "+56232691423",
+    "source": "Reconocimiento cartográfico 2016 por KG.",
+    "website": "http://www.sushiatai.cl"
+  }
+},
+{
+  "type": "node",
+  "id": 4465566419,
+  "lat": -33.4479633,
+  "lon": -70.6447812,
+  "tags": {
+    "addr:street": "Avenida Santa Rosa",
+    "amenity": "restaurant",
+    "fixme": "name",
+    "name": "Sushi & Delivery",
+    "source": "Reconocimiento cartográfico 2016 por KG."
+  }
+},
+{
+  "type": "node",
+  "id": 4468629602,
+  "lat": -33.4264973,
+  "lon": -70.6865930,
+  "tags": {
+    "addr:street": "Claudio Vicuña Morla",
+    "amenity": "restaurant",
+    "name": "Sushi Jack",
+    "source": "Reconocimiento cortográfico de campo 2016 por KG"
+  }
+},
+{
+  "type": "node",
+  "id": 4473743649,
+  "lat": -33.4501559,
+  "lon": -70.6552093,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "name": "Yokom",
+    "source": "Reconocimiento cortográfico de campo 2016 por KG"
+  }
+},
+{
+  "type": "node",
+  "id": 4473868389,
+  "lat": -33.4706366,
+  "lon": -70.6674802,
+  "tags": {
+    "addr:street": "El Mirador",
+    "amenity": "restaurant",
+    "cuisine": "japanese"
+  }
+},
+{
+  "type": "node",
+  "id": 4474074844,
+  "lat": -33.4317605,
+  "lon": -70.6912699,
+  "tags": {
+    "addr:housenumber": "4135",
+    "addr:street": "Avenida Mapocho",
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "name": "Sushi Lover's 2.0",
+    "source": "Reconocimiento cartográfico 2016 por KG."
+  }
+},
+{
+  "type": "node",
+  "id": 4474186458,
+  "lat": -33.4534174,
+  "lon": -70.6528272,
+  "tags": {
+    "addr:city": "Santiago",
+    "addr:street": "Nataniel Cox",
+    "amenity": "restaurant",
+    "name": "New Sushi",
+    "source": "Reconocimiento cortográfico de campo 2016 por KG"
+  }
+},
+{
+  "type": "node",
+  "id": 4482203067,
+  "lat": -33.4313679,
+  "lon": -70.6933129,
+  "tags": {
+    "addr:housenumber": "4232",
+    "addr:street": "Avenida Mapocho",
+    "amenity": "fast_food",
+    "cuisine": "sushi",
+    "delivery": "yes",
+    "name": "Gekko Sushi",
+    "source": "Reconocimiento cartográfico 2016 por KG."
+  }
+},
+{
+  "type": "node",
+  "id": 4589492789,
+  "lat": -33.4382787,
+  "lon": -70.6457209,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "internet_access": "wlan",
+    "name": "Yokono",
+    "website": "http://Yokono.cl"
+  }
+},
+{
+  "type": "node",
+  "id": 4828851122,
+  "lat": -33.4408746,
+  "lon": -70.6504603,
+  "tags": {
+    "amenity": "restaurant",
+    "name": "Duri Sushi",
+    "name:en": "Duri Sushi",
+    "name:es": "Duri Sushi"
+  }
+},
+{
+  "type": "node",
+  "id": 5147738706,
+  "lat": -33.4627116,
+  "lon": -70.6520589,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "delivery": "yes",
+    "name": "Sushi Yoi",
+    "opening_hours": "Tu-Su 12:00-01:00",
+    "outdoor_seating": "yes",
+    "smoking": "outside",
+    "takeaway": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5423710021,
+  "lat": -33.4318273,
+  "lon": -70.6397253,
+  "tags": {
+    "addr:housenumber": "197",
+    "addr:street": "Bombero Núñez",
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "name": "Sushi a la Romana",
+    "opening_hours": "Mo-Su 12:00-16:00, 16:30-19:30, 20:00-23:00"
+  }
+},
+{
+  "type": "node",
+  "id": 5456702948,
+  "lat": -33.4509578,
+  "lon": -70.6480335,
+  "tags": {
+    "amenity": "fast_food",
+    "name": "Santiagosushi"
+  }
+},
+{
+  "type": "node",
+  "id": 5514602775,
+  "lat": -33.4798176,
+  "lon": -70.6535490,
+  "tags": {
+    "addr:city": "San Miguel",
+    "addr:street": "San Ignacio de Loyola",
+    "amenity": "fast_food",
+    "cuisine": "sandwich;pizza;sushi",
+    "name": "Sibaritas"
+  }
+},
+{
+  "type": "node",
+  "id": 5586321254,
+  "lat": -33.4239792,
+  "lon": -70.6888894,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "japanese",
+    "name": "Anata Zen Sushi"
+  }
+},
+{
+  "type": "node",
+  "id": 5596417326,
+  "lat": -33.4451392,
+  "lon": -70.6368943,
+  "tags": {
+    "amenity": "restaurant",
+    "name": "Alaska sushi fusion"
+  }
+},
+{
+  "type": "node",
+  "id": 5680622566,
+  "lat": -33.4535574,
+  "lon": -70.6617748,
+  "tags": {
+    "addr:city": "Santiago",
+    "addr:housenumber": "1920",
+    "addr:street": "Toesca",
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "name": "Aomori Nikkei & Sushi"
+  }
+},
+{
+  "type": "node",
+  "id": 5686373021,
+  "lat": -33.4450689,
+  "lon": -70.6364576,
+  "tags": {
+    "addr:housenumber": "198",
+    "addr:street": "Avenida Portugal",
+    "amenity": "restaurant",
+    "cuisine": "chinese;japanese;sushi",
+    "name": "Panda Junior"
+  }
+},
+{
+  "type": "node",
+  "id": 5894520885,
+  "lat": -33.4341110,
+  "lon": -70.6488687,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "sushi;peruvian"
+  }
+},
+{
+  "type": "node",
+  "id": 5907119585,
+  "lat": -33.4328510,
+  "lon": -70.6349043,
+  "tags": {
+    "addr:housenumber": "125",
+    "addr:street": "Constitución",
+    "amenity": "restaurant",
+    "name": "Ootoya Noodles&Sushi House"
+  }
+},
+{
+  "type": "node",
+  "id": 5912949185,
+  "lat": -33.4342748,
+  "lon": -70.6349076,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "internet_access": "wlan",
+    "name": "Pan Ko"
+  }
+},
+{
+  "type": "node",
+  "id": 5926731339,
+  "lat": -33.4341470,
+  "lon": -70.6348254,
+  "tags": {
+    "addr:housename": "Patio Bellavista",
+    "addr:housenumber": "30",
+    "addr:street": "Constitucion",
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "name": "Sushi nikkei"
+  }
+},
+{
+  "type": "node",
+  "id": 5935351779,
+  "lat": -33.4474187,
+  "lon": -70.6413591,
+  "tags": {
+    "addr:street": "Marin",
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "name": "Akuma Sushi"
+  }
+},
+{
+  "type": "node",
+  "id": 6097010647,
+  "lat": -33.4500016,
+  "lon": -70.6434064,
+  "tags": {
+    "addr:housenumber": "471",
+    "addr:street": "San Isidro",
+    "amenity": "restaurant",
+    "name": "Sekai Sushi"
+  }
+},
+{
+  "type": "node",
+  "id": 6216221686,
+  "lat": -33.4397884,
+  "lon": -70.6251712,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "diet:vegan": "yes",
+    "name": "Runaway Sushi Vegan",
+    "phone": "+56957067864"
+  }
+},
+{
+  "type": "node",
+  "id": 6535374906,
+  "lat": -33.4374178,
+  "lon": -70.6418356,
+  "tags": {
+    "addr:city": "Santiago",
+    "addr:housenumber": "336",
+    "addr:street": "Merced",
+    "amenity": "cafe",
+    "cuisine": "japanese",
+    "name": "Sakumu",
+    "name:es": "Sakumu",
+    "opening_hours": "Mo off; Tu 14:00-20:00; We-Fr 08:30-20:00; Sa-Su 09:00-20:00"
+  }
+},
+{
+  "type": "node",
+  "id": 7474097542,
+  "lat": -33.4301600,
+  "lon": -70.6437037,
+  "tags": {
+    "addr:housenumber": "348",
+    "addr:street": "Santa Filomena",
+    "air_conditioning": "yes",
+    "amenity": "restaurant",
+    "cuisine": "asian;korean;pastry",
+    "delivery": "yes",
+    "name": "Misoya - Restaurant coreano y pastelería tradicional",
+    "name:en": "Misoya - Korean restaurant and traditional pastry",
+    "name:ko": "Misoya - 한식당과 전통 빵집",
+    "opening_hours": "Mo-Sa 09:00-16:00",
+    "outdoor_seating": "no",
+    "phone": "+56227357528"
+  }
+},
+{
+  "type": "node",
+  "id": 7487692413,
+  "lat": -33.4239758,
+  "lon": -70.6909531,
+  "tags": {
+    "addr:housenumber": "2149",
+    "addr:street": "Avenida Joaquín Walker Martínez",
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "delivery": "yes",
+    "email": "osukasushidelivery@gmail.com",
+    "name": "Osuka Sushi Delivery",
+    "website": "https://www.osukasushidelivery.cl/"
+  }
+},
+{
+  "type": "node",
+  "id": 8265171049,
+  "lat": -33.4728625,
+  "lon": -70.6718568,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "sushi"
+  }
+},
+{
+  "type": "node",
+  "id": 8340433168,
+  "lat": -33.4528455,
+  "lon": -70.6653057,
+  "tags": {
+    "addr:city": "Santiago",
+    "addr:housenumber": "2145",
+    "addr:street": "Gorbea",
+    "amenity": "restaurant",
+    "cuisine": "sushi"
+  }
+},
+{
+  "type": "node",
+  "id": 8372612337,
+  "lat": -33.4513997,
+  "lon": -70.6662330,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "name": "Sushi Go"
+  }
+},
+{
+  "type": "node",
+  "id": 8564386695,
+  "lat": -33.4514589,
+  "lon": -70.6472513,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "name": "NIU Sushi"
+  }
+},
+{
+  "type": "node",
+  "id": 8600283481,
+  "lat": -33.4538882,
+  "lon": -70.6661563,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "name": "IoruSushi"
+  }
+},
+{
+  "type": "node",
+  "id": 8934042338,
+  "lat": -33.4513426,
+  "lon": -70.6696965,
+  "tags": {
+    "addr:city": "Santiago",
+    "addr:housenumber": "184",
+    "addr:street": "Avenida España",
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "name": "Bamboo"
+  }
+},
+{
+  "type": "node",
+  "id": 9196114717,
+  "lat": -33.4442907,
+  "lon": -70.6949633,
+  "tags": {
+    "addr:housenumber": "632",
+    "addr:street": "Cruchaga Montt",
+    "amenity": "restaurant",
+    "cuisine": "asian",
+    "name": "Tuk tuk cocina y café",
+    "opening_hours": "Tu-Sa 12:00-16:00, 18:00-22:00; Su 12:00-17:00",
+    "website": "https://tuktukcocina.alacarta.online/"
+  }
+},
+{
+  "type": "node",
+  "id": 9554941250,
+  "lat": -33.4437278,
+  "lon": -70.6440467,
+  "tags": {
+    "addr:housenumber": "558",
+    "addr:street": "Marcoleta",
+    "amenity": "restaurant",
+    "name": "Kami Sushi"
+  }
+},
+{
+  "type": "node",
+  "id": 10125146117,
+  "lat": -33.4575415,
+  "lon": -70.6527701,
+  "tags": {
+    "addr:housenumber": "914",
+    "addr:street": "Roberto Espinoza",
+    "amenity": "fast_food",
+    "cuisine": "sushi",
+    "name": "Zenda Sushi",
+    "phone": "+56959276904"
+  }
+},
+{
+  "type": "node",
+  "id": 10695770196,
+  "lat": -33.4429761,
+  "lon": -70.6575294,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "asian;korean",
+    "name": "Dopbap"
+  }
+},
+{
+  "type": "node",
+  "id": 11076980806,
+  "lat": -33.4486496,
+  "lon": -70.6267761,
+  "tags": {
+    "addr:city": "Santiago",
+    "addr:housenumber": "600",
+    "addr:street": "Emilio Vaisse",
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "name": "Maktub Sushi",
+    "opening_hours": "Mo-Su 11:15-22:00"
+  }
+},
+{
+  "type": "node",
+  "id": 11927166735,
+  "lat": -33.4725996,
+  "lon": -70.6432653,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "japanese",
+    "name": "Mirai Food Lab"
+  }
+},
+{
+  "type": "node",
+  "id": 12087887318,
+  "lat": -33.4448619,
+  "lon": -70.6679269,
+  "tags": {
+    "addr:city": "Santiago",
+    "addr:housenumber": "78",
+    "addr:postcode": "8350598",
+    "addr:street": "Avenida Ricardo Cumming",
+    "amenity": "restaurant",
+    "brewery": "various",
+    "cuisine": "burger",
+    "diet:vegan": "yes",
+    "diet:vegetarian": "yes",
+    "min_age": "0",
+    "name": "Rocka Rolla's Restobar"
+  }
+},
+{
+  "type": "node",
+  "id": 12508523701,
+  "lat": -33.4405992,
+  "lon": -70.6327349,
+  "tags": {
+    "addr:housenumber": "77",
+    "addr:street": "Ramón Carnicer",
+    "amenity": "restaurant",
+    "cuisine": "japanese;sushi",
+    "name": "Rai Sushi Bar",
+    "opening_hours": "We-Sa 12:00-00:00; Su-Tu 12:00-22:30",
+    "website": "http://raisushi.cl"
+  }
+},
+{
+  "type": "node",
+  "id": 12880174966,
+  "lat": -33.4791338,
+  "lon": -70.6222298,
+  "tags": {
+    "addr:city": "San Joaquín",
+    "addr:housenumber": "3043",
+    "addr:street": "Avenida Vicuña Mackenna",
+    "amenity": "restaurant",
+    "cuisine": "sushi",
+    "name": "Sushi Xpress",
+    "opening_hours": "Mo-Su 12:00-22:00",
+    "phone": "+56 990 019 898",
+    "website": "https://www.sushiexpresssanjoaquin.cl"
+  }
+},
+{
+  "type": "node",
+  "id": 13189092901,
+  "lat": -33.4428205,
+  "lon": -70.6558765,
+  "tags": {
+    "addr:housenumber": "81",
+    "addr:street": "Amunátegui",
+    "amenity": "restaurant",
+    "contact:instagram": "kiyomisushi.cl",
+    "cuisine": "asian",
+    "name": "Kiyomi sushi-asian food",
+    "opening_hours": "Mo-Sa 00:00-21:30"
+  }
+},
+{
+  "type": "node",
+  "id": 13286347236,
+  "lat": -33.4324964,
+  "lon": -70.6300271,
+  "tags": {
+    "addr:housenumber": "376",
+    "addr:street": "Bellavista",
+    "amenity": "restaurant",
+    "check_date": "2025-11-06",
+    "contact:instagram": "https://www.instagram.com/donkameyoko",
+    "cuisine": "japanese;ramen",
+    "name": "Donkame Yoko",
+    "opening_hours": "Mo-Fr 12:30-16:00,17:00-18:30; Sa 12:30-15:30; Su off",
+    "outdoor_seating": "yes",
+    "payment:cash": "yes",
+    "payment:cash:USD": "yes",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "phone": "+56 9 7630 7760",
+    "toilets": "yes",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 13565453801,
+  "lat": -33.4466285,
+  "lon": -70.6259048,
+  "tags": {
+    "addr:housenumber": "1298",
+    "addr:postcode": "7501463",
+    "addr:street": "Avenida Condell",
+    "amenity": "restaurant",
+    "cuisine": "japanese",
+    "name": "Ramen Ryoma Barrio Italia",
+    "opening_hours": "Th-Sa 13:00-22:00; Su 13:00-17:00, 18:00-22:00"
+  }
+},
+{
+  "type": "node",
+  "id": 13798926752,
+  "lat": -33.4510859,
+  "lon": -70.6235596,
+  "tags": {
+    "addr:city": "Ñuñoa",
+    "addr:housenumber": "1820",
+    "addr:postcode": "7770331",
+    "addr:street": "Avenida Italia",
+    "amenity": "restaurant",
+    "cuisine": "asian;japanese;korean;chinese;ramen",
+    "name": "Speed Ramen Kitchen",
+    "opening_hours": "Mo-Su 12:00-21:00",
+    "website": "https://speedramen.cl"
+  }
+},
+{
+  "type": "way",
+  "id": 326066281,
+  "center": {
+    "lat": -33.4402522,
+    "lon": -70.6276938
+  },
+  "tags": {
+    "addr:city": "Providencia",
+    "addr:housenumber": "390",
+    "addr:street": "Avenida Rancagua",
+    "amenity": "restaurant",
+    "building": "yes",
+    "cuisine": "sushi",
+    "name": "Palillos de Bambú",
+    "source": "Reconocimiento cortográfico de campo 2016 por KG"
+  }
+},
+{
+  "type": "way",
+  "id": 447333333,
+  "center": {
+    "lat": -33.4580232,
+    "lon": -70.6294455
+  },
+  "tags": {
+    "addr:street": "Avenida Vicuña Mackenna",
+    "amenity": "restaurant",
+    "building": "yes",
+    "building:levels": "2",
+    "cuisine": "sushi",
+    "name": "Sushi Miau",
+    "source": "Reconocimiento cortográfico de campo 2016 por KG"
+  }
+},
+{
+  "type": "way",
+  "id": 448340280,
+  "center": {
+    "lat": -33.4588907,
+    "lon": -70.6367609
+  },
+  "tags": {
+    "amenity": "restaurant",
+    "building": "yes",
+    "name": "Taki Sushi",
+    "source": "Reconocimiento cartográfico 2016 por KG"
+  }
+},
+{
+  "type": "way",
+  "id": 448524985,
+  "center": {
+    "lat": -33.4434458,
+    "lon": -70.6738328
+  },
+  "tags": {
+    "addr:street": "Agustinas",
+    "amenity": "restaurant",
+    "building": "yes",
+    "check_date": "2025-07-12",
+    "name": "Kitai Sushi",
+    "source": "Reconocimiento cortográfico de campo 2016 por KG"
+  }
+},
+{
+  "type": "way",
+  "id": 448684183,
+  "center": {
+    "lat": -33.4639333,
+    "lon": -70.6349706
+  },
+  "tags": {
+    "addr:street": "Sierra Bella",
+    "amenity": "restaurant",
+    "building": "yes",
+    "name": "Kim Sushi",
+    "source": "Reconocimiento cortográfico de campo 2016 por KG"
+  }
+},
+{
+  "type": "way",
+  "id": 448996292,
+  "center": {
+    "lat": -33.4787834,
+    "lon": -70.6704064
+  },
+  "tags": {
+    "addr:city": "Santiago",
+    "addr:street": "Avenida Alcalde Carlos Valdovinos",
+    "amenity": "restaurant",
+    "building": "yes",
+    "cuisine": "asian",
+    "name": "Dragon Restaurant",
+    "source": "Reconocimiento cartográfico 2016 por KG."
+  }
+},
+{
+  "type": "way",
+  "id": 927953176,
+  "center": {
+    "lat": -33.4510112,
+    "lon": -70.6661694
+  },
+  "tags": {
+    "addr:city": "Santiago",
+    "addr:housenumber": "216",
+    "addr:street": "Echaurren",
+    "amenity": "restaurant",
+    "building": "yes",
+    "building:levels": "1",
+    "cuisine": "sushi",
+    "name": "Sushi a la Romana"
+  }
+}
+
+  ]
+}

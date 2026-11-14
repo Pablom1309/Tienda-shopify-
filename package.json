@@ -1,0 +1,14 @@
+{
+  "name": "mapa-sushi-ocean-broker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Mapa de prospección de locales de sushi en la comuna de Santiago para Ocean Broker",
+  "scripts": {
+    "dev": "node dev-server.js",
+    "test": "node --test"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "pg": "^8.13.1"
+  }
+}
