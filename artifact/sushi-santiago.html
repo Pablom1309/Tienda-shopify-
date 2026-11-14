@@ -62,7 +62,12 @@ button { cursor: pointer; }
   background: var(--superficie); border-bottom: 1px solid var(--linea); display: grid; gap: 8px;
   padding-block: 8px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
 }
-.filtros input { width: 100%; border: 1px solid var(--linea); border-radius: 10px; padding: 10px 12px; background: var(--fondo); min-width: 0; }
+.busqueda { display: flex; gap: 8px; min-width: 0; }
+.filtros input, .filtros select { border: 1px solid var(--linea); border-radius: 10px; padding: 10px 12px; background: var(--fondo); color: var(--tinta); min-width: 0; min-height: 44px; font: inherit; }
+.filtros input { flex: 1; }
+.filtros select { flex: 0 1 190px; }
+.etiqueta { font-size: 12px; font-weight: 600; color: var(--tinta); background: var(--elegido); border: 1px solid var(--linea); border-radius: 999px; padding: 2px 10px; justify-self: start; }
+.campo select { border: 1px solid var(--linea); border-radius: 10px; padding: 10px 11px; font: inherit; font-size: 16px; color: var(--tinta); background: var(--superficie); width: 100%; min-height: 44px; }
 .chips { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
 .chips::-webkit-scrollbar { display: none; }
 .chip {
@@ -151,7 +156,7 @@ button { cursor: pointer; }
 .toast.mal { background: var(--peligro); color: var(--superficie); }
 
 @media (min-width: 860px) {
-  .filtros { grid-template-columns: 340px 1fr; align-items: center; }
+  .filtros { grid-template-columns: 460px 1fr; align-items: center; }
   .panel { width: 380px; flex: none; border-right: 1px solid var(--linea); }
   .ver-lista { display: none; }
   .flotante { bottom: 24px; }
@@ -181,14 +186,17 @@ button { cursor: pointer; }
   <header class="barra">
     <div class="titulo">
       <span class="marca">Ocean Broker</span>
-      <strong>Sushi · Santiago</strong>
+      <strong>Clientes · Santiago</strong>
     </div>
     <div id="avance" class="avance" aria-live="polite"></div>
     <button id="btn-exportar" class="btn-barra" type="button" hidden>Exportar</button>
   </header>
 
   <div class="filtros">
-    <input id="buscar" type="search" placeholder="Buscar local o calle…" aria-label="Buscar local o calle">
+    <div class="busqueda">
+      <input id="buscar" type="search" placeholder="Buscar local o calle…" aria-label="Buscar local o calle">
+      <select id="rubro" aria-label="Filtrar por rubro"></select>
+    </div>
     <div id="chips" class="chips" role="group" aria-label="Filtrar por estado"></div>
   </div>
 
@@ -219,6 +227,11 @@ button { cursor: pointer; }
     { id: 'cliente', nombre: 'Cliente', plural: 'Clientes', color: '#17935a' },
     { id: 'descartado', nombre: 'Descartado', plural: 'Descartados', color: '#8c98a4' },
   ];
+  const RUBROS = [
+    ['sushi', 'Sushi y japonés'], ['peruano', 'Peruano'], ['mariscos', 'Pescados y mariscos'], ['poke', 'Poke'],
+    ['asiatico', 'Asiático'], ['internacional', 'Internacional'], ['pescaderia', 'Pescadería'], ['hotel', 'Hotel'], ['otro', 'Otro'],
+  ];
+  const NOMBRE_RUBRO = Object.fromEntries(RUBROS);
   const COLOR = Object.fromEntries(ESTADOS.map((e) => [e.id, e.color]));
   const CAMPOS = [
     { id: 'fecha_visita', etiqueta: 'Fecha de visita', tipo: 'date' },
@@ -239,6 +252,7 @@ button { cursor: pointer; }
     problema: '',
     locales: [],
     filtro: 'todos',
+    rubro: 'todos',
     busqueda: '',
     seleccionado: null,
     sinGuardar: false,
@@ -332,6 +346,7 @@ button { cursor: pointer; }
     const q = normalizar(estado.busqueda);
     return estado.locales.filter((l) => {
       if (estado.filtro !== 'todos' && l.estado !== estado.filtro) return false;
+      if (estado.rubro !== 'todos' && l.rubro !== estado.rubro) return false;
       if (!q) return true;
       return normalizar(`${l.nombre} ${l.direccion || ''} ${l.notas || ''} ${l.contacto || ''}`).includes(q);
     });
@@ -357,19 +372,21 @@ button { cursor: pointer; }
   // ---------- cabecera, filtros y lista ----------
   function pintarAvance() {
     if (estado.cargando) return $('avance').replaceChildren();
-    const total = estado.locales.length;
-    const hechos = estado.locales.filter((l) => l.estado !== 'pendiente').length;
+    const delRubro = estado.locales.filter((l) => estado.rubro === 'todos' || l.rubro === estado.rubro);
+    const total = delRubro.length;
+    const hechos = delRubro.filter((l) => l.estado !== 'pendiente').length;
     $('avance').replaceChildren(h('b', null, `${hechos} de ${total}`), 'visitados');
   }
 
   function pintarChips() {
-    const cuenta = (id) => estado.locales.filter((l) => l.estado === id).length;
+    const delRubro = estado.locales.filter((l) => estado.rubro === 'todos' || l.rubro === estado.rubro);
+    const cuenta = (id) => delRubro.filter((l) => l.estado === id).length;
     const chip = (id, texto, n, punto) => h('button', {
       class: 'chip', type: 'button', 'aria-pressed': String(estado.filtro === id),
       onclick: () => { estado.filtro = id; pintarTodo(); },
     }, punto && h('span', { class: `punto ${id}` }), `${texto} ${n}`);
     $('chips').replaceChildren(
-      chip('todos', 'Todos', estado.locales.length),
+      chip('todos', 'Todos', delRubro.length),
       ...ESTADOS.map((e) => chip(e.id, e.plural, cuenta(e.id), true))
     );
   }
@@ -382,7 +399,7 @@ button { cursor: pointer; }
       h('span', { class: `punto ${l.estado}` }),
       h('span', { class: 'txt' },
         h('strong', null, l.nombre),
-        h('small', null, l.direccion || 'Sin dirección registrada'),
+        h('small', null, `${NOMBRE_RUBRO[l.rubro]} · ${l.direccion || 'sin dirección'}`),
         l.notas && h('small', { class: 'nota' }, l.notas))));
     let vacio = '';
     if (!lista.length) {
@@ -394,8 +411,17 @@ button { cursor: pointer; }
     $('lista').replaceChildren(cabeza, ...filas, vacio ? h('p', { class: 'lista-vacia' }, vacio) : '');
   }
 
+  function pintarRubros() {
+    const opcion = (id, texto, n) => h('option', { value: id, selected: estado.rubro === id }, `${texto} (${n})`);
+    $('rubro').replaceChildren(
+      opcion('todos', 'Todos los rubros', estado.locales.length),
+      ...RUBROS.map(([id, nombre]) => [id, nombre, estado.locales.filter((l) => l.rubro === id).length])
+        .filter(([id, , n]) => n || id === estado.rubro).map(([id, nombre, n]) => opcion(id, nombre, n)));
+  }
+
   function pintarTodo() {
     const lista = visibles();
+    pintarRubros();
     pintarAvance();
     pintarChips();
     pintarLista(lista);
@@ -457,6 +483,7 @@ button { cursor: pointer; }
     if (marcadores.has(id)) marcadores.get(id).bringToFront();
 
     const borrador = { estado: l.estado };
+    const selRubro = h('select', { id: 'campo-rubro', onchange: () => marcar() }, RUBROS.map(([id, nombre]) => h('option', { value: id, selected: l.rubro === id }, nombre)));
     const btnDescartar = h('button', { class: 'boton', type: 'button', hidden: true, onclick: () => { estado.sinGuardar = false; abrirFicha(l.id); } }, 'Descartar');
     const marcar = () => { estado.sinGuardar = true; btnDescartar.hidden = false; };
 
@@ -510,7 +537,7 @@ button { cursor: pointer; }
     const formulario = h('form', {
       onsubmit: async (ev) => {
         ev.preventDefault();
-        const cambios = { estado: borrador.estado, actualizado: new Date().toISOString() };
+        const cambios = { estado: borrador.estado, rubro: selRubro.value, actualizado: new Date().toISOString() };
         for (const c of CAMPOS) cambios[c.id] = limpio(entradas[c.id].value, c.id === 'notas' ? 5000 : 300);
         btnGuardar.disabled = true;
         btnGuardar.textContent = 'Guardando…';
@@ -529,6 +556,7 @@ button { cursor: pointer; }
       },
     },
     botonesEstado, campos,
+    h('div', { class: 'campos', style: 'margin-top:10px' }, h('label', { class: 'campo ancho' }, 'Rubro', selRubro)),
     h('div', { class: 'pie' }, btnGuardar, btnDescartar, btnEliminar),
     l.actualizado && h('p', { class: 'guardado' }, `Última modificación: ${new Date(l.actualizado).toLocaleString('es-CL', { dateStyle: 'medium', timeStyle: 'short' })}`));
 
@@ -538,6 +566,7 @@ button { cursor: pointer; }
         h('h2', null, l.nombre),
         h('button', { class: 'cerrar', type: 'button', 'aria-label': 'Cerrar ficha', onclick: cerrarFicha }, '✕')),
       h('div', { class: 'datos' },
+        h('span', { class: 'etiqueta' }, NOMBRE_RUBRO[l.rubro]),
         h('span', null, l.direccion || 'Sin dirección registrada'),
         l.telefono && h('span', { class: 'copiable' }, l.telefono),
         enlaceWeb(l.web),
@@ -586,6 +615,7 @@ button { cursor: pointer; }
     const nombre = h('input', { id: 'nuevo-nombre', type: 'text', required: true, maxLength: 200 });
     const direccion = h('input', { id: 'nuevo-direccion', type: 'text', maxLength: 300 });
     const telefono = h('input', { id: 'nuevo-telefono', type: 'tel', maxLength: 100 });
+    const rubro = h('select', { id: 'nuevo-rubro' }, RUBROS.map(([id, n]) => h('option', { value: id, selected: id === (estado.rubro === 'todos' ? 'sushi' : estado.rubro) }, n)));
     const btn = h('button', { class: 'boton primario', type: 'submit' }, 'Agregar local');
     const cancelar = () => { quitarMarcadorNuevo(); volverALista(); };
 
@@ -599,7 +629,7 @@ button { cursor: pointer; }
           if (!limpio(nombre.value, 200)) return;
           btn.disabled = true;
           const local = {
-            origen: 'manual', nombre: limpio(nombre.value, 200), direccion: limpio(direccion.value, 300),
+            origen: 'manual', rubro: rubro.value, nombre: limpio(nombre.value, 200), direccion: limpio(direccion.value, 300),
             telefono: limpio(telefono.value, 100), web: '', horario: '', lat: punto.lat, lon: punto.lng,
             estado: 'pendiente', fecha_visita: '', contacto: '', contacto_telefono: '', proveedor: '', consumo: '',
             precio: '', notas: '', actualizado: new Date().toISOString(),
@@ -611,6 +641,7 @@ button { cursor: pointer; }
             if (!estado.locales.some((x) => x.id === ref.id)) estado.locales.push({ id: ref.id, ...local });
             ordenar();
             estado.filtro = 'todos';
+            if (estado.rubro !== local.rubro) estado.rubro = 'todos';
             pintarTodo();
             abrirFicha(ref.id);
             avisar('Local agregado');
@@ -622,6 +653,7 @@ button { cursor: pointer; }
       },
       h('div', { class: 'campos' },
         h('label', { class: 'campo ancho' }, 'Nombre del local', nombre),
+        h('label', { class: 'campo ancho' }, 'Rubro', rubro),
         h('label', { class: 'campo ancho' }, 'Dirección', direccion),
         h('label', { class: 'campo ancho' }, 'Teléfono', telefono)),
       h('div', { class: 'pie' }, btn)));
@@ -636,7 +668,11 @@ button { cursor: pointer; }
     estado.locales = snap.docs
       .map((d) => ({ id: d.id, ...d.data() }))
       .filter((l) => typeof l.lat === 'number' && typeof l.lon === 'number' && l.nombre)
-      .map((l) => ({ ...l, nombre: String(l.nombre), estado: COLOR[l.estado] ? l.estado : 'pendiente' }));
+      .map((l) => ({
+        ...l, nombre: String(l.nombre), estado: COLOR[l.estado] ? l.estado : 'pendiente',
+        // Los primeros locales cargados eran todos de sushi y no traían rubro.
+        rubro: NOMBRE_RUBRO[l.rubro] ? l.rubro : l.origen === 'osm' ? 'sushi' : 'otro',
+      }));
     ordenar();
     if (!snap.metadata.fromCache) { estado.cargando = false; estado.problema = ''; clearTimeout(espera); }
     pintarTodo();
@@ -673,12 +709,12 @@ button { cursor: pointer; }
     if (descargas) {
       $('btn-exportar').hidden = false;
       $('btn-exportar').addEventListener('click', async () => {
-        const columnas = ['nombre', 'direccion', 'telefono', 'web', 'horario', 'estado', 'fecha_visita', 'contacto',
+        const columnas = ['nombre', 'rubro', 'direccion', 'telefono', 'web', 'horario', 'estado', 'fecha_visita', 'contacto',
           'contacto_telefono', 'proveedor', 'consumo', 'precio', 'notas', 'lat', 'lon'];
         const celda = (v) => `"${String(v ?? '').replace(/"/g, '""')}"`;
         const filas = [columnas.join(';'), ...estado.locales.map((l) => columnas.map((c) => celda(l[c])).join(';'))];
         try {
-          await descargas.save({ filename: `locales-sushi-santiago-${hoy()}.csv`, data: '﻿' + filas.join('\r\n') });
+          await descargas.save({ filename: `clientes-santiago-${hoy()}.csv`, data: '﻿' + filas.join('\r\n') });
         } catch (e) {
           if (e && e.code !== 'declined') avisar('No se pudo exportar en este dispositivo.', true);
         }
@@ -687,6 +723,7 @@ button { cursor: pointer; }
   }
 
   // ---------- eventos y arranque ----------
+  $('rubro').addEventListener('change', (ev) => { estado.rubro = ev.target.value; pintarTodo(); });
   $('buscar').addEventListener('input', (ev) => { estado.busqueda = ev.target.value; pintarTodo(); });
   $('btn-lista').addEventListener('click', () => mostrarPanel('lista'));
   $('btn-agregar').addEventListener('click', () => modoAgregar(!estado.agregando));
