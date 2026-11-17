@@ -1,0 +1,22 @@
+{
+  "name": "Rumbo",
+  "short_name": "Rumbo",
+  "description": "Gestiona tu negocio, tu vida y tu entrenamiento en un solo lugar.",
+  "lang": "es",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f1f5f4",
+  "theme_color": "#0f2238",
+  "categories": ["productivity", "lifestyle", "business"],
+  "icons": [
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Hoy", "url": "./#hoy" },
+    { "name": "Calendario", "url": "./#calendario" }
+  ]
+}

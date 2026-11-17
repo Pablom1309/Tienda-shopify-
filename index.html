@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Rumbo</title>
+  <meta name="description" content="Gestiona tu negocio, tu vida y tu entrenamiento en un solo lugar: tareas, hábitos, finanzas, sesiones, notas y metas.">
+  <meta name="theme-color" content="#f1f5f4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b1622" media="(prefers-color-scheme: dark)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Rumbo">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <div id="app" style="height:100%"></div>
+  <dialog id="sheet" class="sheet"></dialog>
+  <dialog id="search" class="search"></dialog>
+  <dialog id="confirm" class="confirm"></dialog>
+  <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
+  <noscript><p style="padding:24px">Rumbo necesita JavaScript para funcionar.</p></noscript>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
