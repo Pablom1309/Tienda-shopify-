@@ -2,13 +2,27 @@ import { icon } from '../icons.js';
 import { esc } from '../util.js';
 import { canPersist, CURRENCIES, exportJSON, importJSON, replaceState, resetAll, state, update } from '../store.js';
 import { sampleState } from '../seed.js';
-import { closeSheet, confirmDialog, on, openSheet, textarea, toast } from '../ui.js';
+import { closeSheet, confirmDialog, go, on, openExportSheet, openSheet, rerender, textarea, toast } from '../ui.js';
 
 export function applyTheme() {
   const t = state.profile.theme;
   const root = document.documentElement;
   if (t === 'light' || t === 'dark') root.dataset.theme = t;
   else if (!window.RUMBO_EMBED) delete root.dataset.theme; // incrustada, el tema lo pone quien la aloja
+}
+
+// El navegador avisa cuando la app se puede instalar; se guarda para ofrecer el botón.
+let installPrompt = null;
+if (typeof window !== 'undefined') {
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    installPrompt = e;
+    rerender();
+  });
+  window.addEventListener('appinstalled', () => {
+    installPrompt = null;
+    rerender();
+  });
 }
 
 const CURRENCY_NAMES = { CLP: 'Peso chileno', USD: 'Dólar', EUR: 'Euro', MXN: 'Peso mexicano', COP: 'Peso colombiano', ARS: 'Peso argentino', PEN: 'Sol peruano' };
@@ -63,46 +77,47 @@ export function renderSettings() {
 
       <section class="section" style="margin-top:36px">
         <h2 class="h2">Instalar en tu dispositivo</h2>
-        <p class="muted">Rumbo funciona como app y sin conexión. En el teléfono, abre el menú del navegador y elige "Añadir a pantalla de inicio" o "Instalar app". En el computador, usa el icono de instalar que aparece en la barra de direcciones.</p>
+        ${
+          installPrompt
+            ? `<div class="set-row"><div><span class="h3">Rumbo como app</span><p>Queda con su icono, abre a pantalla completa y funciona sin conexión.</p></div><div class="ctl"><button class="btn" data-action="app-install">${icon('download', 18)}<span>Instalar Rumbo</span></button></div></div>`
+            : '<p class="muted">Rumbo funciona como app y sin conexión. En el teléfono, abre el menú del navegador y elige "Añadir a pantalla de inicio" o "Instalar app". En el computador, usa el icono de instalar que aparece en la barra de direcciones.</p>'
+        }
+      </section>
+
+      <section class="section keys" style="margin-top:36px">
+        <h2 class="h2">Atajos de teclado</h2>
+        <dl class="keys-list">
+          <div><dt><kbd>N</kbd></dt><dd>Añadir algo</dd></div>
+          <div><dt><kbd>Ctrl</kbd> <kbd>K</kbd></dt><dd>Buscar</dd></div>
+          <div><dt><kbd>H</kbd></dt><dd>Ir a Hoy</dd></div>
+          <div><dt><kbd>C</kbd></dt><dd>Ir al Calendario</dd></div>
+          <div><dt><kbd>R</kbd></dt><dd>Ir al Resumen</dd></div>
+          <div><dt><kbd>E</kbd></dt><dd>Ir a Espacios</dd></div>
+          <div><dt><kbd>Esc</kbd></dt><dd>Cerrar lo que esté abierto</dd></div>
+        </dl>
+      </section>
+
+      <section class="section" style="margin-top:36px">
+        <h2 class="h2">Escribir tareas más rápido</h2>
+        <p class="muted">En los campos de "Añadir tarea" puedes escribir todo en una frase y Rumbo lo separa solo.</p>
+        <dl class="keys-list wide">
+          <div><dt>mañana, el viernes, 15/12, en 3 días</dt><dd>Fecha</dd></div>
+          <div><dt>18:00, 6pm, a las 9</dt><dd>Hora</dd></div>
+          <div><dt>! o !!</dt><dd>Prioridad media o alta</dd></div>
+          <div><dt>cada día, cada lunes, cada mes</dt><dd>Se repite</dd></div>
+          <div><dt>#nombre</dt><dd>Espacio donde va</dd></div>
+        </dl>
       </section>
     </div>`;
 }
 
 function openExport() {
-  const json = exportJSON();
-  const name = `rumbo-${new Date().toISOString().slice(0, 10)}.json`;
-  openSheet({
+  openExportSheet({
     title: 'Exportar copia',
-    body: `
-      <p class="muted">Descarga el archivo o copia el texto y guárdalo donde quieras. Contiene todos tus espacios y registros.</p>
-      <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <a class="btn" id="export-file" download="${name}">${icon('download', 18)}<span>Descargar archivo</span></a>
-        <button type="button" class="btn line" id="export-copy">${icon('copy', 18)}<span>Copiar texto</span></button>
-      </div>
-      ${textarea({ label: 'Contenido de la copia', name: 'json', value: json, rows: 8 })}`,
-    onOpen(d) {
-      const ta = d.querySelector('textarea');
-      ta.readOnly = true;
-      ta.style.fontSize = '0.75rem';
-      const link = d.querySelector('#export-file');
-      try {
-        // En la vista previa incrustada las descargas están bloqueadas: queda solo "Copiar texto".
-        if (window.RUMBO_EMBED) throw new Error('sin descargas');
-        link.href = URL.createObjectURL(new Blob([json], { type: 'application/json' }));
-      } catch {
-        link.hidden = true;
-      }
-      d.querySelector('#export-copy').onclick = async () => {
-        try {
-          await navigator.clipboard.writeText(json);
-          toast('Copia en el portapapeles');
-        } catch {
-          ta.focus();
-          ta.select();
-          toast('Selecciona y copia el texto');
-        }
-      };
-    },
+    intro: 'Descarga el archivo o copia el texto y guárdalo donde quieras. Contiene todos tus espacios y registros.',
+    filename: `rumbo-${new Date().toISOString().slice(0, 10)}.json`,
+    text: exportJSON(),
+    mime: 'application/json',
   });
 }
 
@@ -138,6 +153,13 @@ on({
     update((s) => (s.profile.theme = el.dataset.theme));
     applyTheme();
   },
+  'app-install': async () => {
+    if (!installPrompt) return;
+    installPrompt.prompt();
+    await installPrompt.userChoice.catch(() => {});
+    installPrompt = null;
+    rerender();
+  },
   'data-export': openExport,
   'data-import': openImport,
   'data-sample': async () => {
@@ -151,7 +173,7 @@ on({
     Object.assign(next.profile, keep);
     replaceState(next);
     toast('Ejemplo cargado');
-    location.hash = '#hoy';
+    go('#hoy');
   },
   'data-reset': async () => {
     const ok = await confirmDialog({ title: 'Borrar todo', text: 'Se eliminan todos los espacios y registros de este dispositivo. No se puede deshacer.', action: 'Borrar todo' });
@@ -159,7 +181,7 @@ on({
     closeSheet();
     resetAll();
     applyTheme();
-    location.hash = '';
+    go('');
   },
   'start-fresh': async () => {
     const ok = await confirmDialog({ title: 'Empezar con mis datos', text: 'Se quitan los datos de ejemplo y eliges tus propios espacios.', action: 'Empezar', danger: false });
@@ -167,7 +189,7 @@ on({
     const theme = state.profile.theme;
     resetAll();
     update((s) => (s.profile.theme = theme));
-    location.hash = '';
+    go('');
   },
 });
 

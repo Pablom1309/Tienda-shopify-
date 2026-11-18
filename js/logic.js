@@ -1,6 +1,6 @@
 // Cálculos sobre los datos (rachas, totales, avance). Puros y probados en tests/.
 
-import { addDays, addMonths, diffDays, startOfWeek, weekDays, weekdayIndex, ym } from './util.js';
+import { addDays, addMonths, diffDays, startOfWeek, uid, weekDays, weekdayIndex, ym, ymd } from './util.js';
 
 // ---------- Tareas ----------
 
@@ -28,25 +28,86 @@ export function groupTasks(tasks, today) {
   return g;
 }
 
+// Próxima fecha de una tarea que se repite: la siguiente a su fecha que caiga después de hoy.
+export function nextRepeatDate(due, repeat, today) {
+  const step = (d) => {
+    if (repeat === 'daily') return addDays(d, 1);
+    if (repeat === 'weekly') return addDays(d, 7);
+    if (repeat === 'weekdays') {
+      let n = addDays(d, 1);
+      while (weekdayIndex(n) > 4) n = addDays(n, 1);
+      return n;
+    }
+    if (repeat === 'monthly') return sameDayNextMonth(d, Number(due.slice(8, 10)));
+    return null;
+  };
+  let next = step(due);
+  if (!next) return null;
+  while (next <= today) next = step(next);
+  return next;
+}
+
+// Mismo día del mes siguiente; si no existe (31 en un mes de 30), el último día.
+function sameDayNextMonth(d, wantedDay) {
+  const m = addMonths(ym(d), 1);
+  const last = new Date(Number(m.slice(0, 4)), Number(m.slice(5, 7)), 0).getDate();
+  return `${m}-${String(Math.min(wantedDay, last)).padStart(2, '0')}`;
+}
+
+export const stepsDone = (t) => (t.subtasks || []).filter((x) => x.done).length;
+
+// Tareas hechas por semana, las últimas n semanas terminando en la de `today`.
+export function tasksDonePerWeek(tasks, today, n = 8) {
+  const thisWeek = startOfWeek(today);
+  const weeks = Array.from({ length: n }, (_, i) => ({ start: addDays(thisWeek, (i - n + 1) * 7), done: 0 }));
+  for (const t of tasks) {
+    if (t.status !== 'done' || !t.doneAt) continue;
+    const idx = n - 1 + Math.floor(diffDays(startOfWeek(localDay(t.doneAt)), thisWeek) / 7);
+    if (idx >= 0 && idx < n) weeks[idx].done++;
+  }
+  return weeks;
+}
+
 // ---------- Hábitos ----------
 
 export const habitScheduled = (h, day) => h.days.includes(weekdayIndex(day));
 
+// Cuánto se registró ese día. Los datos antiguos guardaban `true`: equivale a la meta completa.
+export function habitCount(h, day) {
+  const v = h.log[day];
+  if (v === true) return h.target || 1;
+  return Number(v) || 0;
+}
+
+export const habitDone = (h, day) => habitCount(h, day) >= (h.target || 1);
+
 // Días seguidos cumplidos, contando solo los días programados.
-// Si hoy toca y todavía no está marcado, la racha de ayer sigue viva.
+// Si hoy toca y todavía no está cumplido, la racha de ayer sigue viva.
 export function habitStreak(h, today) {
   let streak = 0;
   let day = today;
-  if (habitScheduled(h, day) && !h.log[day]) day = addDays(day, -1);
+  if (habitScheduled(h, day) && !habitDone(h, day)) day = addDays(day, -1);
   for (let i = 0; i < 3660; i++) {
     if (day < h.startDate) break;
     if (habitScheduled(h, day)) {
-      if (!h.log[day]) break;
+      if (!habitDone(h, day)) break;
       streak++;
     }
     day = addDays(day, -1);
   }
   return streak;
+}
+
+// La racha más larga desde que empezó el hábito.
+export function bestStreak(h, today) {
+  let best = 0;
+  let run = 0;
+  for (let day = h.startDate; day <= today; day = addDays(day, 1)) {
+    if (!habitScheduled(h, day)) continue;
+    if (habitDone(h, day)) best = Math.max(best, ++run);
+    else if (day !== today) run = 0;
+  }
+  return best;
 }
 
 // Cumplimiento entre dos fechas (inclusive): { done, planned }.
@@ -57,9 +118,21 @@ export function habitRange(h, from, to) {
   for (let day = start; day <= to; day = addDays(day, 1)) {
     if (!habitScheduled(h, day)) continue;
     planned++;
-    if (h.log[day]) done++;
+    if (habitDone(h, day)) done++;
   }
   return { done, planned };
+}
+
+// Parte de los hábitos programados que se cumplió un día (null si no tocaba ninguno).
+export function habitDayRate(habits, day) {
+  let planned = 0;
+  let done = 0;
+  for (const h of habits) {
+    if (day < h.startDate || !habitScheduled(h, day)) continue;
+    planned++;
+    if (habitDone(h, day)) done++;
+  }
+  return planned ? done / planned : null;
 }
 
 // ---------- Finanzas ----------
@@ -91,6 +164,33 @@ export function lastMonths(tx, month, n = 6) {
     const m = addMonths(month, i - n + 1);
     return { month: m, ...monthTotals(tx, m) };
   });
+}
+
+// Movimientos fijos: cada uno marcado "cada mes" genera el del mes siguiente cuando llega su día.
+// La marca viaja al movimiento nuevo, así la cadena sigue. Devuelve cuántos creó.
+export function materializeRecurring(state, today) {
+  let created = 0;
+  for (let guard = 0; guard < 600; guard++) {
+    const src = state.tx.find((t) => t.repeat === 'monthly' && sameDayNextMonth(t.date, t.repeatDay || Number(t.date.slice(8, 10))) <= today);
+    if (!src) break;
+    const day = src.repeatDay || Number(src.date.slice(8, 10));
+    state.tx.push({ ...src, id: uid(), date: sameDayNextMonth(src.date, day), repeat: 'monthly', repeatDay: day });
+    src.repeat = null;
+    created++;
+  }
+  return created;
+}
+
+// Gasto del mes por categoría junto a su presupuesto, si lo tiene.
+export function budgetRows(tx, budgets, month) {
+  const spent = new Map(categoryTotals(tx, month, 'out').map((c) => [c.category, c.total]));
+  const rows = [];
+  for (const b of budgets) {
+    rows.push({ category: b.category, spent: spent.get(b.category) || 0, budget: b.amount });
+    spent.delete(b.category);
+  }
+  for (const [category, total] of spent) rows.push({ category, spent: total, budget: null });
+  return rows.sort((a, b) => b.spent - a.spent || (b.budget || 0) - (a.budget || 0));
 }
 
 // ---------- Entrenamiento ----------
@@ -138,9 +238,53 @@ export function records(workouts) {
   return [...best.values()].sort((a, b) => b.weight - a.weight);
 }
 
+// Historia de un ejercicio: por sesión, el mayor peso y sus series. De la más antigua a la más reciente.
+export function exerciseHistory(workouts, name) {
+  const key = name.trim().toLowerCase();
+  const out = [];
+  for (const w of workouts) {
+    const sets = w.exercises.filter((e) => e.name.trim().toLowerCase() === key).flatMap((e) => e.sets);
+    if (!sets.length) continue;
+    out.push({
+      date: w.date,
+      top: Math.max(...sets.map((s) => Number(s.weight) || 0)),
+      volume: sets.reduce((n, s) => n + (Number(s.reps) || 0) * (Number(s.weight) || 0), 0),
+      sets,
+    });
+  }
+  return out.sort((a, b) => (a.date < b.date ? -1 : 1));
+}
+
+// Última sesión de cada nombre, de la más reciente a la más antigua: sirven como rutinas.
+export function routines(workouts) {
+  const latest = new Map();
+  for (const w of workouts) {
+    const key = (w.name || '').trim().toLowerCase();
+    if (!key || !w.exercises.length) continue;
+    const cur = latest.get(key);
+    if (!cur || w.date > cur.date) latest.set(key, w);
+  }
+  return [...latest.values()].sort((a, b) => (a.date < b.date ? 1 : -1));
+}
+
 // ---------- Metas ----------
 
 export const goalPct = (g) => (g.target > 0 ? Math.min(1, Math.max(0, g.current / g.target)) : 0);
+
+// Ritmo de una meta con fecha: compara lo que llevas con lo que tocaría llevar hoy
+// si avanzaras parejo desde el inicio. `perWeek` es lo que falta repartido en las semanas que quedan.
+export function goalPace(g, today) {
+  if (g.current >= g.target) return { status: 'done' };
+  if (!g.due) return { status: 'open' };
+  const start = g.startDate || today;
+  const total = Math.max(1, diffDays(g.due, start));
+  const left = diffDays(g.due, today);
+  if (left < 0) return { status: 'late' };
+  const elapsed = Math.min(total, Math.max(0, diffDays(today, start)));
+  const expected = g.target * (elapsed / total);
+  const perWeek = (g.target - g.current) / Math.max(1, left / 7);
+  return { status: g.current >= expected * 0.95 ? 'ontrack' : 'behind', expected, perWeek, left };
+}
 
 // ---------- Avance semanal por espacio (lo que dibuja la rosa) ----------
 
@@ -192,7 +336,5 @@ export function weekOverview(state, today) {
 }
 
 function localDay(ts) {
-  const d = new Date(ts);
-  const p = (n) => String(n).padStart(2, '0');
-  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+  return ymd(new Date(ts));
 }

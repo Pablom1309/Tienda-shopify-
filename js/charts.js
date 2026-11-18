@@ -119,3 +119,46 @@ export function barChart(items, ariaLabel) {
     .join('');
   return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(ariaLabel)}">${frame(max, W, H, L, B, T)}${bars}</svg>`;
 }
+
+// Línea con puntos: [{ label, value, title }]. El último punto va resaltado.
+export function lineChart(items, ariaLabel) {
+  const W = 600, H = 190, L = 54, B = 26, T = 14, R = 14;
+  const values = items.map((d) => d.value);
+  const top = niceMax(Math.max(...values));
+  const low = Math.min(...values);
+  // La escala parte un poco por debajo del mínimo para que el progreso se note.
+  const base = low > top * 0.5 ? Math.floor((low * 0.9) / (top / 10)) * (top / 10) : 0;
+  const x = (i) => (items.length === 1 ? (L + W - R) / 2 : L + ((W - R - L) * i) / (items.length - 1));
+  const y = (v) => T + (H - T - B) * (1 - (v - base) / (top - base || 1));
+  let grid = '';
+  for (const f of [0, 0.5, 1]) {
+    const v = base + (top - base) * f;
+    grid += `<line class="${f === 0 ? 'axis' : 'grid'}" x1="${L}" x2="${W}" y1="${y(v)}" y2="${y(v)}"/><text x="${L - 8}" y="${y(v) + 4}" text-anchor="end">${compact(v)}</text>`;
+  }
+  const pts = items.map((d, i) => `${x(i).toFixed(1)},${y(d.value).toFixed(1)}`);
+  const step = Math.ceil(items.length / 6);
+  const marks = items
+    .map(
+      (d, i) => `<circle class="${i === items.length - 1 ? 'pt last' : 'pt'}" cx="${x(i).toFixed(1)}" cy="${y(d.value).toFixed(1)}" r="${i === items.length - 1 ? 5 : 3.5}"><title>${esc(d.title)}</title></circle>
+        ${i % step === 0 || i === items.length - 1 ? `<text x="${x(i).toFixed(1)}" y="${H - 8}" text-anchor="${i === items.length - 1 && items.length > 1 ? 'end' : 'middle'}">${esc(d.label)}</text>` : ''}`,
+    )
+    .join('');
+  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(ariaLabel)}">${grid}
+    ${items.length > 1 ? `<polyline class="line" points="${pts.join(' ')}"/>` : ''}${marks}</svg>`;
+}
+
+// Calendario de calor: una columna por semana, de lunes a domingo. `cells` = [{ level 0-4 | null, title }].
+export function heatGrid(cells, weeks) {
+  const S = 14, G = 4;
+  const W = weeks * (S + G) - G;
+  const H = 7 * (S + G) - G;
+  const rects = cells
+    .map((c, i) => {
+      const col = Math.floor(i / 7);
+      const row = i % 7;
+      const cls = c.level === null ? 'h-none' : `h-${c.level}`;
+      return `<rect class="${cls}" x="${col * (S + G)}" y="${row * (S + G)}" width="${S}" height="${S}" rx="3.5"><title>${esc(c.title)}</title></rect>`;
+    })
+    .join('');
+  return `<svg class="heat-svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="Cumplimiento diario de hábitos">${rects}</svg>`;
+}

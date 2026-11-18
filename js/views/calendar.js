@@ -2,7 +2,7 @@ import { icon } from '../icons.js';
 import { addMonths, dayAndMonth, esc, monthGrid, monthName, today, WEEKDAYS_SHORT, weekdayLong, ym } from '../util.js';
 import { sortTasks } from '../logic.js';
 import { getSpace, spacesWith, state } from '../store.js';
-import { on, view } from '../ui.js';
+import { on, rerender, view } from '../ui.js';
 import { taskRow } from '../modules/tasks.js';
 
 // Tareas con fecha y entrenamientos, agrupados por día.
@@ -81,8 +81,6 @@ export function renderCalendar() {
       </section>
     </div>`;
 }
-
-const rerender = () => document.dispatchEvent(new Event('rumbo:render'));
 
 on({
   'cal-day': (el) => {

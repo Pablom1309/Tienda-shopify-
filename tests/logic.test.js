@@ -3,14 +3,24 @@ import assert from 'node:assert/strict';
 
 import { addDays, addMonths, money, monthGrid, parseAmount, relDate, startOfWeek, weekdayIndex } from '../js/util.js';
 import {
+  bestStreak,
+  budgetRows,
   categoryTotals,
+  exerciseHistory,
+  goalPace,
   groupTasks,
+  habitDayRate,
+  habitDone,
   habitRange,
   habitStreak,
   lastMonths,
+  materializeRecurring,
   monthTotals,
+  nextRepeatDate,
   records,
+  routines,
   spaceWeek,
+  tasksDonePerWeek,
   weeklyTraining,
   workoutVolume,
 } from '../js/logic.js';
@@ -155,4 +165,94 @@ test('avance semanal: mezcla tareas, hábitos y entrenamientos del espacio', () 
   // tareas 1/3, hábito 1/2 (lunes y martes), entrenamiento 1/1
   assert.deepEqual(spaceWeek(state, 's', TODAY), { planned: 6, done: 3, pct: 0.5 });
   assert.equal(spaceWeek(state, 'vacio', TODAY).pct, null);
+});
+
+test('tareas repetidas: la próxima fecha siempre cae después de hoy', () => {
+  assert.equal(nextRepeatDate(TODAY, 'daily', TODAY), '2026-11-18');
+  assert.equal(nextRepeatDate('2026-11-10', 'daily', TODAY), '2026-11-18'); // estaba atrasada
+  assert.equal(nextRepeatDate('2026-11-10', 'weekly', TODAY), '2026-11-24');
+  assert.equal(nextRepeatDate('2026-11-20', 'weekdays', TODAY), '2026-11-23'); // viernes → lunes
+  assert.equal(nextRepeatDate('2026-11-17', 'monthly', TODAY), '2026-12-17');
+  assert.equal(nextRepeatDate('2027-01-31', 'monthly', '2027-01-31'), '2027-02-28'); // febrero no tiene 31
+  assert.equal(nextRepeatDate(TODAY, null, TODAY), null);
+});
+
+test('tareas: hechas por semana', () => {
+  const at = (y, m, d) => new Date(y, m - 1, d, 12).getTime();
+  const weeks = tasksDonePerWeek(
+    [
+      { status: 'done', doneAt: at(2026, 11, 16) },
+      { status: 'done', doneAt: at(2026, 11, 17) },
+      { status: 'done', doneAt: at(2026, 11, 10) },
+      { status: 'todo', doneAt: null },
+      { status: 'done', doneAt: at(2026, 1, 1) }, // fuera del rango
+    ],
+    TODAY,
+    3,
+  );
+  assert.deepEqual(weeks.map((w) => w.done), [0, 1, 2]);
+});
+
+test('hábitos con cantidad: se cumple al llegar a la meta', () => {
+  const h = { days: EVERY_DAY, startDate: '2026-11-01', target: 8, log: { '2026-11-15': 8, '2026-11-16': 5, '2026-11-14': true } };
+  assert.equal(habitDone(h, '2026-11-15'), true);
+  assert.equal(habitDone(h, '2026-11-16'), false);
+  assert.equal(habitDone(h, '2026-11-14'), true); // dato antiguo
+  assert.equal(habitStreak(h, TODAY), 0); // ayer no llegó a la meta
+  assert.deepEqual(habitRange(h, '2026-11-14', '2026-11-16'), { done: 2, planned: 3 });
+});
+
+test('hábitos: mejor racha y cumplimiento del día', () => {
+  const log = {};
+  for (const d of ['02', '03', '04', '05', '08', '09', '16']) log[`2026-11-${d}`] = true;
+  const h = { days: EVERY_DAY, startDate: '2026-11-01', log };
+  assert.equal(bestStreak(h, TODAY), 4);
+  assert.equal(habitStreak(h, TODAY), 1);
+  const otro = { days: EVERY_DAY, startDate: '2026-11-01', log: {} };
+  assert.equal(habitDayRate([h, otro], '2026-11-16'), 0.5);
+  assert.equal(habitDayRate([{ ...h, days: [5] }], '2026-11-16'), null); // ese día no tocaba
+});
+
+test('movimientos fijos: se generan los meses que faltan y la marca avanza', () => {
+  const state = { tx: [{ id: 'a', spaceId: 's', type: 'out', amount: 480, category: 'Arriendo', note: '', date: '2026-08-31', repeat: 'monthly' }] };
+  assert.equal(materializeRecurring(state, TODAY), 2);
+  assert.deepEqual(state.tx.map((t) => t.date), ['2026-08-31', '2026-09-30', '2026-10-31']); // respeta el día 31
+  assert.deepEqual(state.tx.map((t) => t.repeat), [null, null, 'monthly']);
+  assert.equal(materializeRecurring(state, TODAY), 0); // el de noviembre aún no llega
+  assert.equal(materializeRecurring(state, '2026-11-30'), 1);
+});
+
+test('presupuestos: gasto del mes frente a lo presupuestado', () => {
+  const tx = [
+    { type: 'out', amount: 300, category: 'Publicidad', date: '2026-11-05' },
+    { type: 'out', amount: 90, category: 'Envíos', date: '2026-11-06' },
+  ];
+  const budgets = [{ category: 'Publicidad', amount: 250 }, { category: 'Herramientas', amount: 40 }];
+  assert.deepEqual(budgetRows(tx, budgets, '2026-11'), [
+    { category: 'Publicidad', spent: 300, budget: 250 },
+    { category: 'Envíos', spent: 90, budget: null },
+    { category: 'Herramientas', spent: 0, budget: 40 },
+  ]);
+});
+
+test('entrenamiento: historia de un ejercicio y rutinas', () => {
+  const ws = [
+    { id: '2', name: 'Pierna', date: '2026-11-16', exercises: [{ name: 'Sentadilla', sets: [{ reps: 5, weight: 100 }, { reps: 3, weight: 105 }] }] },
+    { id: '1', name: 'pierna', date: '2026-11-09', exercises: [{ name: 'sentadilla', sets: [{ reps: 5, weight: 95 }] }] },
+    { id: '3', name: 'Empuje', date: '2026-11-11', exercises: [{ name: 'Press', sets: [{ reps: 5, weight: 60 }] }] },
+    { id: '4', name: 'Caminata', date: '2026-11-12', exercises: [] },
+  ];
+  const hist = exerciseHistory(ws, 'Sentadilla');
+  assert.deepEqual(hist.map((x) => [x.date, x.top, x.volume]), [['2026-11-09', 95, 475], ['2026-11-16', 105, 815]]);
+  assert.deepEqual(routines(ws).map((w) => w.id), ['2', '3']); // la última de cada nombre, sin las vacías
+});
+
+test('metas: ritmo según el tiempo transcurrido', () => {
+  const g = { target: 100, current: 50, startDate: '2026-11-07', due: '2026-11-27' };
+  assert.equal(goalPace(g, TODAY).status, 'ontrack'); // mitad del plazo, mitad de la meta
+  assert.equal(goalPace({ ...g, current: 30 }, TODAY).status, 'behind');
+  assert.equal(Math.round(goalPace({ ...g, current: 30 }, TODAY).perWeek), 49); // faltan 70 en 10 días
+  assert.equal(goalPace({ ...g, current: 100 }, TODAY).status, 'done');
+  assert.equal(goalPace({ ...g, due: '2026-11-10' }, TODAY).status, 'late');
+  assert.equal(goalPace({ ...g, due: null }, TODAY).status, 'open');
 });

@@ -1,10 +1,10 @@
 import { icon } from '../icons.js';
 import { rose } from '../charts.js';
 import { dayAndMonth, esc, greeting, today, weekdayLong } from '../util.js';
-import { habitScheduled, sortTasks, weekOverview } from '../logic.js';
-import { add, spacesWith, state } from '../store.js';
-import { on, toast, view } from '../ui.js';
-import { taskRow } from '../modules/tasks.js';
+import { habitDone, habitScheduled, sortTasks, weekOverview } from '../logic.js';
+import { state } from '../store.js';
+import { view } from '../ui.js';
+import { quickBar, taskRow, upcomingWeek } from '../modules/tasks.js';
 import { habitTodayRow } from '../modules/habits.js';
 
 const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
@@ -25,8 +25,8 @@ export function renderToday() {
   const open = state.tasks.filter((t) => t.status !== 'done' && t.due && t.due <= now).sort(sortTasks);
   const doneToday = state.tasks.filter((t) => t.status === 'done' && t.doneAt && new Date(t.doneAt).toDateString() === new Date().toDateString());
   const habits = state.habits.filter((h) => habitScheduled(h, now));
-  const habitsLeft = habits.filter((h) => !h.log[now]).length;
-  const taskSpaces = spacesWith('tasks');
+  const habitsLeft = habits.filter((h) => !habitDone(h, now)).length;
+  const upcoming = upcomingWeek();
 
   const animate = !view.roseShown;
   view.roseShown = true;
@@ -54,27 +54,20 @@ export function renderToday() {
       <div class="section-head"><h2 class="h2">Rumbo de la semana</h2><span class="aside">Lo cumplido sobre lo planificado, de lunes a domingo</span></div>
       <div class="week">
         ${rose(overview, { animate })}
-        <div class="legend">${legend}</div>
+        <div class="legend">${legend}<a class="legend-more link" href="#resumen">Ver el resumen completo</a></div>
       </div>
     </section>
 
     <div class="cols">
       <section class="section">
         <div class="section-head"><h2 class="h2">Para hoy</h2>${doneToday.length ? `<span class="aside num">${doneToday.length} ${doneToday.length === 1 ? 'hecha' : 'hechas'} hoy</span>` : ''}</div>
-        ${
-          taskSpaces.length
-            ? `<form class="quick" data-quick>
-                <input name="title" id="quick-title" placeholder="Añadir tarea para hoy" aria-label="Añadir tarea para hoy" autocomplete="off" maxlength="200">
-                ${taskSpaces.length > 1 ? `<select name="spaceId" id="quick-space" aria-label="Espacio">${taskSpaces.map((s) => `<option value="${s.id}" ${view.quickSpace === s.id ? 'selected' : ''}>${esc(s.name)}</option>`).join('')}</select>` : `<input type="hidden" name="spaceId" value="${taskSpaces[0].id}">`}
-                <button class="icon-btn" aria-label="Añadir tarea">${icon('plus', 18)}</button>
-              </form>`
-            : ''
-        }
+        ${quickBar({ id: 'quick-title', dueToday: true, placeholder: 'Añadir tarea para hoy' })}
         ${
           open.length || doneToday.length
             ? `<ul class="list">${open.map((t) => taskRow(t, { showSpace: true })).join('')}${doneToday.map((t) => taskRow(t, { showSpace: true })).join('')}</ul>`
             : '<p class="muted">Nada con fecha para hoy. Lo que añadas arriba queda para hoy.</p>'
         }
+        ${upcoming ? `<div class="section-head" style="margin-top:20px"><h2 class="h2">Próximos 7 días</h2></div><div>${upcoming}</div>` : ''}
       </section>
 
       <section class="section">
@@ -83,18 +76,3 @@ export function renderToday() {
       </section>
     </div>`;
 }
-
-// Alta rápida desde la pantalla Hoy.
-document.addEventListener('submit', (e) => {
-  const form = e.target.closest?.('[data-quick]');
-  if (!form) return;
-  e.preventDefault();
-  const title = form.title.value.trim();
-  if (!title) return form.title.focus();
-  view.quickSpace = form.spaceId.value;
-  view.refocus = 'quick-title';
-  add('tasks', { title, notes: '', spaceId: form.spaceId.value, status: 'todo', priority: 0, due: today(), time: null, doneAt: null, createdAt: Date.now() });
-  toast('Tarea añadida');
-});
-
-on({});

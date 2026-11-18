@@ -1,9 +1,10 @@
 // Estado de la app. Todo vive en este dispositivo (localStorage), sin cuentas ni servidor.
 
-import { today, uid } from './util.js';
+import { today, uid, ymd } from './util.js';
+import { habitCount, materializeRecurring, nextRepeatDate } from './logic.js';
 
 const KEY = 'rumbo:v1';
-const COLLECTIONS = ['spaces', 'tasks', 'habits', 'tx', 'workouts', 'notes', 'goals'];
+const COLLECTIONS = ['spaces', 'tasks', 'habits', 'tx', 'workouts', 'notes', 'goals', 'budgets'];
 
 export const MODULES = ['tasks', 'habits', 'finance', 'training', 'notes', 'goals'];
 export const COLORS = ['magenta', 'marino', 'boya', 'faro', 'baliza', 'turquesa', 'violeta', 'pizarra'];
@@ -26,6 +27,7 @@ export function emptyState() {
     workouts: [],
     notes: [],
     goals: [],
+    budgets: [],
   };
 }
 
@@ -49,12 +51,40 @@ export function normalize(data) {
   }));
   for (const c of COLLECTIONS.slice(1)) out[c] = out[c].filter((x) => ids.has(x.spaceId));
 
-  out.tasks = out.tasks.map((t) => ({ notes: '', priority: 0, due: null, time: null, doneAt: null, createdAt: 0, ...t, status: ['todo', 'doing', 'done'].includes(t.status) ? t.status : 'todo' }));
-  out.habits = out.habits.map((h) => ({ startDate: today(), ...h, days: Array.isArray(h.days) && h.days.length ? h.days : [0, 1, 2, 3, 4, 5, 6], log: h.log && typeof h.log === 'object' ? h.log : {} }));
-  out.tx = out.tx.map((t) => ({ category: '', note: '', ...t, type: t.type === 'in' ? 'in' : 'out', amount: Math.abs(Number(t.amount)) || 0 }));
+  const REPEATS = ['daily', 'weekdays', 'weekly', 'monthly'];
+  out.tasks = out.tasks.map((t) => ({
+    notes: '',
+    priority: 0,
+    due: null,
+    time: null,
+    doneAt: null,
+    createdAt: 0,
+    ...t,
+    status: ['todo', 'doing', 'done'].includes(t.status) ? t.status : 'todo',
+    repeat: REPEATS.includes(t.repeat) ? t.repeat : null,
+    subtasks: Array.isArray(t.subtasks) ? t.subtasks.filter((x) => x && x.title).map((x) => ({ id: x.id || uid(), title: String(x.title), done: !!x.done })) : [],
+  }));
+  out.habits = out.habits.map((h) => ({
+    startDate: today(),
+    unit: '',
+    ...h,
+    target: Math.max(1, Math.round(Number(h.target)) || 1),
+    days: Array.isArray(h.days) && h.days.length ? h.days : [0, 1, 2, 3, 4, 5, 6],
+    log: h.log && typeof h.log === 'object' ? h.log : {},
+  }));
+  out.tx = out.tx.map((t) => ({ category: '', note: '', ...t, type: t.type === 'in' ? 'in' : 'out', amount: Math.abs(Number(t.amount)) || 0, repeat: t.repeat === 'monthly' ? 'monthly' : null }));
   out.workouts = out.workouts.map((w) => ({ notes: '', duration: 0, ...w, exercises: Array.isArray(w.exercises) ? w.exercises.map((e) => ({ name: String(e.name || ''), sets: Array.isArray(e.sets) ? e.sets : [] })) : [] }));
   out.notes = out.notes.map((n) => ({ title: '', body: '', pinned: false, updatedAt: 0, ...n }));
-  out.goals = out.goals.map((g) => ({ unit: '', due: null, ...g, target: Number(g.target) || 0, current: Number(g.current) || 0 }));
+  out.goals = out.goals.map((g) => ({
+    unit: '',
+    due: null,
+    ...g,
+    target: Number(g.target) || 0,
+    current: Number(g.current) || 0,
+    startDate: g.startDate || ymd(new Date(g.createdAt || Date.now())),
+    history: Array.isArray(g.history) ? g.history.filter((x) => x && x.date) : [],
+  }));
+  out.budgets = out.budgets.filter((b) => b.category && Number(b.amount) > 0).map((b) => ({ ...b, category: String(b.category), amount: Number(b.amount) }));
   return out;
 }
 
@@ -85,6 +115,13 @@ function write(s) {
 export const canPersist = () => storageOk;
 
 export let state = read() || emptyState();
+
+// Crea los movimientos fijos que correspondan hasta hoy. Se llama al abrir y al volver a la app.
+export function runRecurring() {
+  const before = state.tx.length;
+  materializeRecurring(state, today());
+  if (state.tx.length !== before) commit();
+}
 
 const listeners = new Set();
 export const subscribe = (fn) => (listeners.add(fn), () => listeners.delete(fn));
@@ -189,15 +226,90 @@ export function removeSpace(id) {
   });
 }
 
+// Cambia el estado de una tarea. Si se repite, al completarla nace la siguiente;
+// al desmarcarla, esa siguiente se retira (si nadie la tocó). Devuelve la fecha de la siguiente, si la hay.
 export function setTaskStatus(id, status) {
-  patch('tasks', id, { status, doneAt: status === 'done' ? Date.now() : null });
+  let nextDue = null;
+  update((s) => {
+    const t = s.tasks.find((x) => x.id === id);
+    if (!t || t.status === status) return;
+    const wasDone = t.status === 'done';
+    t.status = status;
+    t.doneAt = status === 'done' ? Date.now() : null;
+
+    if (status === 'done' && t.repeat && t.due) {
+      nextDue = nextRepeatDate(t.due, t.repeat, today());
+      const next = { ...t, id: uid(), status: 'todo', doneAt: null, due: nextDue, createdAt: Date.now(), subtasks: t.subtasks.map((x) => ({ ...x, id: uid(), done: false })), nextId: null };
+      s.tasks.push(next);
+      t.nextId = next.id;
+      t.repeatWas = t.repeat;
+      t.repeat = null;
+    } else if (wasDone && t.nextId) {
+      const next = s.tasks.find((x) => x.id === t.nextId);
+      if (next && next.status === 'todo') {
+        s.tasks = s.tasks.filter((x) => x.id !== next.id);
+        t.repeat = t.repeatWas || next.repeat;
+      }
+      t.nextId = null;
+      t.repeatWas = null;
+    }
+  });
+  return nextDue;
 }
 
-export function toggleHabit(id, day) {
+export function toggleStep(taskId, stepId) {
+  update((s) => {
+    const step = s.tasks.find((x) => x.id === taskId)?.subtasks.find((x) => x.id === stepId);
+    if (step) step.done = !step.done;
+  });
+}
+
+// Marca un hábito. Con meta 1 alterna; con meta mayor suma de a uno y, al completarse, vuelve a cero.
+export function bumpHabit(id, day) {
   update((s) => {
     const h = s.habits.find((x) => x.id === id);
     if (!h) return;
-    if (h.log[day]) delete h.log[day];
-    else h.log[day] = true;
+    const count = habitCount(h, day);
+    const next = count >= h.target ? 0 : count + 1;
+    if (next) h.log[day] = next;
+    else delete h.log[day];
   });
+}
+
+export function setHabitCount(id, day, count) {
+  update((s) => {
+    const h = s.habits.find((x) => x.id === id);
+    if (!h) return;
+    if (count > 0) h.log[day] = Math.min(count, h.target);
+    else delete h.log[day];
+  });
+}
+
+export function moveSpace(id, step) {
+  update((s) => {
+    const i = s.spaces.findIndex((x) => x.id === id);
+    const j = i + step;
+    if (i < 0 || j < 0 || j >= s.spaces.length) return;
+    [s.spaces[i], s.spaces[j]] = [s.spaces[j], s.spaces[i]];
+  });
+}
+
+// ---------- Preferencias de vista (qué pestaña, lista o tablero) ----------
+
+const PREFS_KEY = 'rumbo:prefs';
+
+export function loadPrefs() {
+  try {
+    return JSON.parse(localStorage.getItem(PREFS_KEY)) || {};
+  } catch {
+    return {};
+  }
+}
+
+export function savePrefs(prefs) {
+  try {
+    localStorage.setItem(PREFS_KEY, JSON.stringify(prefs));
+  } catch {
+    /* sin almacenamiento: las preferencias duran lo que dura la sesión */
+  }
 }

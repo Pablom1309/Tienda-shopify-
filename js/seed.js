@@ -51,23 +51,36 @@ export function sampleState(currency) {
   s.spaces = [tienda, vida, entreno, estudio];
 
   const task = (space, title, due, extra = {}) => {
-    const t = { id: uid(), spaceId: space.id, title, notes: '', status: 'todo', priority: 0, due, time: null, doneAt: null, createdAt: Date.now() - s.tasks.length * 1000, ...extra };
+    const t = { id: uid(), spaceId: space.id, title, notes: '', status: 'todo', priority: 0, due, time: null, repeat: null, subtasks: [], doneAt: null, createdAt: Date.now() - s.tasks.length * 1000, ...extra };
     if (t.status === 'done') t.doneAt = at(t.due && t.due <= now ? t.due : now, 18);
     s.tasks.push(t);
   };
 
-  task(tienda, 'Revisar pedidos pendientes de despacho', now, { priority: 2, time: '09:30' });
+  task(tienda, 'Revisar pedidos pendientes de despacho', now, { priority: 2, time: '09:30', repeat: 'weekdays' });
   task(tienda, 'Responder novedades de envío', now, { status: 'doing' });
-  task(tienda, 'Subir 3 creativos nuevos a la campaña', addDays(now, 1), { priority: 1 });
+  task(tienda, 'Subir 3 creativos nuevos a la campaña', addDays(now, 1), {
+    priority: 1,
+    subtasks: [
+      { id: uid(), title: 'Grabar el video de antes y después', done: true },
+      { id: uid(), title: 'Escribir los textos', done: false },
+      { id: uid(), title: 'Configurar el público de 25 a 34', done: false },
+    ],
+  });
   task(tienda, 'Negociar precio con el proveedor', addDays(now, 3));
   task(tienda, 'Actualizar fotos del producto estrella', addDays(now, -2), { priority: 1 });
   task(tienda, 'Cerrar caja de la semana pasada', mon, { status: 'done' });
   task(tienda, 'Configurar el correo de carrito abandonado', addDays(mon, 1) <= now ? addDays(mon, 1) : mon, { status: 'done' });
   task(tienda, 'Probar una segunda pasarela de pago', null);
 
-  task(vida, 'Pagar la cuenta de la luz', now, { priority: 1 });
+  task(vida, 'Pagar la cuenta de la luz', now, { priority: 1, repeat: 'monthly' });
   task(vida, 'Llamar al dentista para pedir hora', addDays(now, 2));
-  task(vida, 'Comprar regalo de cumpleaños de Sofi', addDays(now, 5), { priority: 1 });
+  task(vida, 'Comprar regalo de cumpleaños de Sofi', addDays(now, 5), {
+    priority: 1,
+    subtasks: [
+      { id: uid(), title: 'Preguntarle a su hermana qué le falta', done: false },
+      { id: uid(), title: 'Comprar y envolver', done: false },
+    ],
+  });
   task(vida, 'Renovar el seguro del auto', addDays(now, 12));
   task(vida, 'Ordenar el escritorio', mon, { status: 'done' });
 
@@ -77,26 +90,28 @@ export function sampleState(currency) {
   task(estudio, 'Terminar la unidad 3', addDays(mon, -3), { status: 'done' });
 
   // Hábitos: se marcan los últimos días con algún hueco para que las rachas sean creíbles.
-  const habit = (space, name, days, misses, backDays = 40) => {
+  const habit = (space, name, days, misses, backDays = 40, extra = {}) => {
     const log = {};
     for (let i = 1; i <= backDays; i++) {
       const day = addDays(now, -i);
       if (days.includes(weekdayIndex(day)) && !misses.includes(i)) log[day] = true;
     }
-    s.habits.push({ id: uid(), spaceId: space.id, name, days, log, startDate: addDays(now, -backDays), createdAt: Date.now() });
+    s.habits.push({ id: uid(), spaceId: space.id, name, days, log, target: 1, unit: '', startDate: addDays(now, -backDays), createdAt: Date.now(), ...extra });
   };
   const all = [0, 1, 2, 3, 4, 5, 6];
   habit(vida, 'Leer 20 minutos', all, [6, 13, 14, 27]);
   habit(vida, 'Dormir antes de las 23:30', [0, 1, 2, 3, 6], [2, 9, 10, 20]);
-  habit(vida, 'Tomar 2 litros de agua', all, [4, 5, 18, 19, 30]);
+  habit(vida, 'Tomar agua', all, [4, 5, 18, 19, 30], 40, { target: 8, unit: 'vasos' });
   habit(entreno, 'Estirar 10 minutos', all, [3, 11, 12, 25, 26]);
   habit(entreno, 'Caminar 8.000 pasos', all, [8, 15, 16, 22, 29]);
   habit(estudio, 'Practicar 15 minutos en la app', all, [5, 17]);
   s.habits[0].log[now] = true;
+  s.habits[2].log[now] = 5; // agua: 5 de 8 vasos
   s.habits[5].log[now] = true;
 
   // Finanzas: tres meses de movimientos.
-  const tx = (space, type, amount, category, note, date) => s.tx.push({ id: uid(), spaceId: space.id, type, amount: $(amount), category, note, date });
+  const tx = (space, type, amount, category, note, date, fixedDay = null) =>
+    s.tx.push({ id: uid(), spaceId: space.id, type, amount: $(amount), category, note, date, repeat: fixedDay ? 'monthly' : null, repeatDay: fixedDay });
   const month = ym(now);
   const dayOfMonth = Number(now.slice(8, 10));
   for (let back = 0; back < 6; back++) {
@@ -109,10 +124,11 @@ export function sampleState(currency) {
     tx(tienda, 'out', 240 * f, 'Publicidad', 'Pruebas de creativos', d(19));
     tx(tienda, 'out', 520 * f, 'Proveedor', 'Costo de productos', d(12));
     tx(tienda, 'out', 140 * f, 'Envíos', 'Fletes y devoluciones', d(15));
-    tx(tienda, 'out', 39, 'Herramientas', 'Plan de la tienda y apps', d(1));
+    // Los fijos del mes en curso quedan marcados "cada mes": así se anotan solos el próximo.
+    tx(tienda, 'out', 39, 'Herramientas', 'Plan de la tienda y apps', d(1), back === 0 ? 1 : null);
 
-    tx(vida, 'in', 1500, 'Sueldo', '', d(1));
-    tx(vida, 'out', 480, 'Arriendo', '', d(3));
+    tx(vida, 'in', 1500, 'Sueldo', '', d(1), back === 0 ? 1 : null);
+    tx(vida, 'out', 480, 'Arriendo', '', d(3), back === 0 ? 3 : null);
     tx(vida, 'out', 260 + back * 12, 'Supermercado', '', d(6));
     tx(vida, 'out', 95, 'Cuentas', 'Luz, agua, internet', d(10));
     tx(vida, 'out', 70 + back * 9, 'Salidas', '', d(14));
@@ -153,7 +169,13 @@ export function sampleState(currency) {
   note(vida, 'Libros pendientes', 'Hábitos atómicos\nEl infinito en un junco\nSapiens', false, 9);
   note(estudio, 'Frases para la clase', 'I have been working on…\nIt depends on whether…\nAs far as I know…', false, 3);
 
-  const goal = (space, name, unit, target, current, due) => s.goals.push({ id: uid(), spaceId: space.id, name, unit, target, current, due, createdAt: Date.now() });
+  // Cada meta parte hace unas semanas, con algunos avances anotados por el camino.
+  const goal = (space, name, unit, target, current, due, startedAgo = 45) => {
+    const startDate = addDays(now, -startedAgo);
+    const history = [0.15, 0.4, 0.62, 0.8, 1].map((f, i) => ({ date: addDays(startDate, Math.round((startedAgo * (i + 1)) / 5)), value: Math.round(current * f * 10) / 10 }));
+    history.at(-1).date = now;
+    s.goals.push({ id: uid(), spaceId: space.id, name, unit, target, current, due, startDate, history, createdAt: Date.now() });
+  };
   goal(tienda, 'Ventas del mes', currency || 'USD', $(2500), $(1780), `${month}-28`);
   goal(tienda, 'Reseñas de clientes', 'reseñas', 50, 31, addDays(now, 40));
   goal(vida, 'Fondo de emergencia', currency || 'USD', $(3000), $(1150), addDays(now, 150));
@@ -161,6 +183,12 @@ export function sampleState(currency) {
   goal(entreno, 'Sentadilla de 100 kg', 'kg', 100, 97.5, addDays(now, 30));
   goal(entreno, 'Correr 10 km sin parar', 'km', 10, 6.5, addDays(now, 60));
   goal(estudio, 'Unidades del curso', 'unidades', 12, 4, addDays(now, 90));
+
+  const budget = (space, category, amount) => s.budgets.push({ id: uid(), spaceId: space.id, category, amount: $(amount) });
+  budget(tienda, 'Publicidad', 600);
+  budget(tienda, 'Envíos', 120);
+  budget(vida, 'Supermercado', 300);
+  budget(vida, 'Salidas', 80);
 
   return s;
 }

@@ -1,9 +1,9 @@
 import { icon } from '../icons.js';
-import { barChart } from '../charts.js';
+import { barChart, lineChart } from '../charts.js';
 import { esc, monthShort, num, relDate, today } from '../util.js';
-import { records, weeklyTraining, workoutSets, workoutVolume } from '../logic.js';
-import { add, bySpace, find, patch, remove, spacesWith, state } from '../store.js';
-import { closeSheet, emptyState, field, on, openSheet, removeWithUndo, spaceSelect, textarea, toast } from '../ui.js';
+import { exerciseHistory, records, routines, weeklyTraining, workoutSets, workoutVolume } from '../logic.js';
+import { add, bySpace, find, getSpace, patch, remove, spacesWith, state } from '../store.js';
+import { closeSheet, emptyState, field, on, openSheet, spaceSelect, textarea, toast, withUndo } from '../ui.js';
 
 const summary = (w) => {
   const parts = [];
@@ -16,6 +16,8 @@ const summary = (w) => {
   return parts;
 };
 
+const shortDay = (d) => `${Number(d.slice(8, 10))} ${monthShort(d)}`;
+
 export function renderTraining(space) {
   const all = bySpace('workouts', space.id).sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
   const now = today();
@@ -25,15 +27,26 @@ export function renderTraining(space) {
     </div>`;
 
   if (!all.length) {
-    return head + emptyState({ ico: 'dumbbell', text: 'Registra cada sesión con sus ejercicios, series y peso. Verás tu volumen por semana y tus mejores marcas.', action: 'workout-new', label: 'Registrar entrenamiento', attrs: `data-space="${space.id}"` });
+    return head + emptyState({ ico: 'dumbbell', text: 'Registra cada sesión con sus ejercicios, series y peso. Verás tu volumen por semana, tus mejores marcas y cómo progresa cada ejercicio.', action: 'workout-new', label: 'Registrar entrenamiento', attrs: `data-space="${space.id}"` });
   }
 
   const weeks = weeklyTraining(all, now, 8);
   const cur = weeks.at(-1);
   const rec = records(all);
   const useVolume = weeks.some((w) => w.volume > 0);
+  const saved = routines(all).slice(0, 6);
 
   return `${head}
+    ${
+      saved.length
+        ? `<section class="section">
+            <div class="section-head"><h2 class="h2">Empezar una sesión</h2><span class="aside">Parte de la última vez, con sus ejercicios y pesos</span></div>
+            <div class="routine-row" data-color="${space.color}">${saved
+              .map((w) => `<button class="routine" data-action="workout-repeat" data-id="${w.id}"><b>${esc(w.name)}</b><small>${w.exercises.length} ${w.exercises.length === 1 ? 'ejercicio' : 'ejercicios'}, ${esc(relDate(w.date, now).toLowerCase())}</small></button>`)
+              .join('')}</div>
+          </section>`
+        : ''
+    }
     <dl class="figures num">
       <div class="figure"><dt>Sesiones esta semana</dt><dd>${cur.sessions}</dd></div>
       <div class="figure"><dt>Tiempo</dt><dd>${cur.minutes} <small>min</small></dd></div>
@@ -44,20 +57,20 @@ export function renderTraining(space) {
         <div class="section-head"><h2 class="h2">${useVolume ? 'Volumen por semana' : 'Sesiones por semana'}</h2><span class="aside">${useVolume ? 'kg levantados, últimas 8 semanas' : 'últimas 8 semanas'}</span></div>
         ${barChart(
           weeks.map((w) => ({
-            label: `${Number(w.start.slice(8, 10))} ${monthShort(w.start)}`,
+            label: shortDay(w.start),
             value: useVolume ? w.volume : w.sessions,
-            title: `Semana del ${Number(w.start.slice(8, 10))} ${monthShort(w.start)}: ${w.sessions} sesiones, ${num(w.volume)} kg`,
+            title: `Semana del ${shortDay(w.start)}: ${w.sessions} sesiones, ${num(w.volume)} kg`,
           })),
           useVolume ? 'Volumen levantado por semana' : 'Sesiones por semana',
         )}
       </section>
       <section class="section">
-        <h2 class="h2">Mejores marcas</h2>
+        <div class="section-head"><h2 class="h2">Mejores marcas</h2><span class="aside">Toca una para ver su progreso</span></div>
         ${
           rec.length
             ? `<ul class="list">${rec
                 .slice(0, 6)
-                .map((r) => `<li class="row"><div class="row-body"><span class="row-title">${esc(r.name)}</span><span class="row-meta"><span>${esc(relDate(r.date, now))}</span></span></div><span class="row-end amount num">${num(r.weight)} kg × ${r.reps}</span></li>`)
+                .map((r) => `<li class="row"><button class="row-body" data-action="exercise-open" data-space="${space.id}" data-name="${esc(r.name)}"><span class="row-title">${esc(r.name)}</span><span class="row-meta"><span>${esc(relDate(r.date, now))}</span></span></button><span class="row-end amount num">${num(r.weight)} kg × ${r.reps}</span></li>`)
                 .join('')}</ul>`
             : '<p class="muted">Aparecen cuando registras series con peso.</p>'
         }
@@ -78,6 +91,35 @@ export function renderTraining(space) {
         )
         .join('')}</ul>
     </section>`;
+}
+
+// ---------- Progreso de un ejercicio ----------
+
+function openExerciseSheet(spaceId, name) {
+  const space = getSpace(spaceId);
+  const hist = exerciseHistory(bySpace('workouts', spaceId), name);
+  if (!hist.length) return;
+  const first = hist[0];
+  const last = hist.at(-1);
+  const gain = last.top - first.top;
+  openSheet({
+    title: name,
+    wide: true,
+    body: `<div data-color="${space?.color || 'marino'}" class="form">
+      <dl class="figures small-figures num">
+        <div class="figure"><dt>Última vez</dt><dd>${num(last.top)} <small>kg</small></dd></div>
+        <div class="figure"><dt>Desde que empezaste</dt><dd class="${gain > 0 ? 'pos' : ''}">${gain > 0 ? '+' : ''}${num(gain)} <small>kg</small></dd></div>
+        <div class="figure"><dt>Sesiones</dt><dd>${hist.length}</dd></div>
+      </dl>
+      ${lineChart(hist.slice(-16).map((h) => ({ label: shortDay(h.date), value: h.top, title: `${shortDay(h.date)}: ${num(h.top)} kg` })), `Peso máximo por sesión de ${name}`)}
+      <p class="hint">El peso más alto de cada sesión.</p>
+      <ul class="list">${[...hist]
+        .reverse()
+        .slice(0, 12)
+        .map((h) => `<li class="row"><div class="row-body"><span class="row-title">${esc(relDate(h.date))}</span><span class="row-meta num"><span>${h.sets.map((s) => `${s.reps} × ${num(Number(s.weight) || 0)} kg`).join(', ')}</span></span></div></li>`)
+        .join('')}</ul>
+    </div>`,
+  });
 }
 
 // ---------- Editor de sesión ----------
@@ -117,6 +159,50 @@ function renumber(sets) {
   [...sets.children].forEach((row, i) => (row.querySelector('.n').textContent = i + 1));
 }
 
+// Temporizador de descanso entre series. Vive mientras la hoja está abierta.
+let restTimer = null;
+
+function stopRest() {
+  clearInterval(restTimer);
+  restTimer = null;
+}
+
+function beep() {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.frequency.value = 880;
+    gain.gain.setValueAtTime(0.18, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.5);
+    osc.connect(gain).connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.5);
+    navigator.vibrate?.([120, 80, 120]);
+  } catch {
+    /* sin sonido */
+  }
+}
+
+function startRest(box, seconds) {
+  stopRest();
+  const end = Date.now() + seconds * 1000;
+  const paint = () => {
+    const left = Math.max(0, Math.ceil((end - Date.now()) / 1000));
+    box.innerHTML = left
+      ? `<span class="rest-clock num" role="timer">${Math.floor(left / 60)}:${String(left % 60).padStart(2, '0')}</span><span class="muted">de descanso</span><button type="button" class="btn soft sm" data-rest="0">Parar</button>`
+      : `<span class="rest-clock done">Listo</span><span class="muted">A la siguiente serie</span>`;
+    if (!left) {
+      stopRest();
+      beep();
+    }
+  };
+  paint();
+  restTimer = setInterval(paint, 250);
+}
+
+const restButtons = () => `<span class="muted">Descanso</span>${[60, 90, 120, 180].map((s) => `<button type="button" class="btn soft sm num" data-rest="${s}">${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}</button>`).join('')}`;
+
 export function openWorkoutSheet({ id, spaceId, copyFrom } = {}) {
   const w = id ? find('workouts', id) : null;
   if (!spacesWith('training').length) return toast('Activa Entrenamiento en algún espacio para registrar sesiones.');
@@ -125,8 +211,9 @@ export function openWorkoutSheet({ id, spaceId, copyFrom } = {}) {
   const names = [...new Set(state.workouts.flatMap((x) => x.exercises.map((e) => e.name.trim())).filter(Boolean))];
 
   openSheet({
-    title: w ? 'Editar entrenamiento' : 'Registrar entrenamiento',
+    title: w ? 'Editar entrenamiento' : src ? `Sesión de ${src.name}` : 'Registrar entrenamiento',
     submitLabel: w ? 'Guardar' : 'Registrar',
+    wide: true,
     body: `
       ${field({ label: 'Nombre de la sesión', name: 'name', value: v.name, placeholder: 'Ej.: pierna, correr, yoga', attrs: `${w || src ? '' : 'autofocus'} maxlength="80" autocomplete="off"` })}
       <div class="form-row">
@@ -135,6 +222,7 @@ export function openWorkoutSheet({ id, spaceId, copyFrom } = {}) {
       </div>
       ${spaceSelect('training', v.spaceId)}
       <fieldset class="field"><legend>Ejercicios</legend>
+        <div class="rest" id="rest">${restButtons()}</div>
         <div id="ex-list" class="form" style="gap:10px">${v.exercises.map(exBlock).join('')}</div>
         <button type="button" class="btn line" data-ex="add-ex">${icon('plus', 18)}<span>Añadir ejercicio</span></button>
         <datalist id="ex-names">${names.map((n) => `<option value="${esc(n)}">`).join('')}</datalist>
@@ -142,7 +230,19 @@ export function openWorkoutSheet({ id, spaceId, copyFrom } = {}) {
       ${textarea({ label: 'Notas', name: 'notes', value: v.notes, placeholder: 'Cómo te sentiste, qué ajustar', rows: 2 })}`,
     onOpen(d) {
       const list = d.querySelector('#ex-list');
+      const rest = d.querySelector('#rest');
       d.querySelector('.sheet-body').onclick = (e) => {
+        const r = e.target.closest('[data-rest]');
+        if (r) {
+          const seconds = Number(r.dataset.rest);
+          if (seconds) startRest(rest, seconds);
+          else {
+            stopRest();
+            rest.innerHTML = restButtons();
+          }
+          return;
+        }
+        if (e.target.closest('.rest-clock.done')) return void (rest.innerHTML = restButtons());
         const b = e.target.closest('[data-ex]');
         if (!b) return;
         const ex = b.closest('.ex');
@@ -165,6 +265,7 @@ export function openWorkoutSheet({ id, spaceId, copyFrom } = {}) {
         }
       };
     },
+    onClose: stopRest,
     onSubmit(d, form) {
       if (!d.date) return { date: 'Elige la fecha.' };
       const exercises = readExercises(form);
@@ -175,7 +276,7 @@ export function openWorkoutSheet({ id, spaceId, copyFrom } = {}) {
       else add('workouts', data);
       toast(w ? 'Entrenamiento guardado' : 'Entrenamiento registrado');
     },
-    onDelete: w ? () => removeWithUndo('Entrenamiento eliminado', () => remove('workouts', w.id)) : null,
+    onDelete: w ? () => withUndo('Entrenamiento eliminado', () => remove('workouts', w.id)) : null,
   });
 }
 
@@ -186,4 +287,5 @@ on({
   },
   'workout-open': (el) => openWorkoutSheet({ id: el.dataset.id }),
   'workout-repeat': (el) => openWorkoutSheet({ copyFrom: el.dataset.id }),
+  'exercise-open': (el) => openExerciseSheet(el.dataset.space, el.dataset.name),
 });

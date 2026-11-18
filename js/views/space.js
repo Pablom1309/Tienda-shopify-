@@ -1,9 +1,9 @@
 import { icon } from '../icons.js';
 import { esc, today } from '../util.js';
 import { spaceWeek } from '../logic.js';
-import { add, bySpace, COLORS, getSpace, MODULES, patch, removeSpace, state } from '../store.js';
+import { add, bySpace, COLORS, getSpace, MODULES, moveSpace, patch, removeSpace, state } from '../store.js';
 import { MODULE_INFO, SPACE_ICONS, TEMPLATES } from '../seed.js';
-import { closeSheet, confirmDialog, field, on, openSheet, toast, view } from '../ui.js';
+import { closeSheet, confirmDialog, field, go, on, openSheet, rememberView, rerender, toast, view } from '../ui.js';
 import { renderTasks } from '../modules/tasks.js';
 import { renderHabits } from '../modules/habits.js';
 import { renderFinance } from '../modules/finance.js';
@@ -58,19 +58,30 @@ function spaceSummary(s) {
 
 export function renderSpaces() {
   const now = today();
+  const sorting = view.sortSpaces && state.spaces.length > 1;
   return `
     <header class="page-head">
       <h1 class="h1">Espacios</h1>
-      <div class="tools"><button class="btn" data-action="space-new">${icon('plus', 18)}<span>Nuevo espacio</span></button></div>
+      <div class="tools">
+        ${state.spaces.length > 1 ? `<button class="btn soft" data-action="spaces-sort" aria-pressed="${sorting}">${sorting ? 'Listo' : 'Ordenar'}</button>` : ''}
+        <button class="btn" data-action="space-new">${icon('plus', 18)}<span>Nuevo espacio</span></button>
+      </div>
     </header>
     ${
       state.spaces.length
-        ? `<div class="space-list">${state.spaces
-            .map((s) => {
+        ? `<div class="space-list ${sorting ? 'sorting' : ''}">${state.spaces
+            .map((s, i) => {
               const w = spaceWeek(state, s.id, now);
-              return `<a class="space-row" href="#e-${s.id}" data-color="${s.color}">
-                <span class="tile">${icon(s.icon, 20)}</span>
-                <span><span class="name">${esc(s.name)}</span><br><span class="sub">${esc(spaceSummary(s))}</span></span>
+              const body = `<span class="tile">${icon(s.icon, 20)}</span>
+                <span><span class="name">${esc(s.name)}</span><br><span class="sub">${esc(spaceSummary(s))}</span></span>`;
+              if (sorting) {
+                return `<div class="space-row" data-color="${s.color}">${body}
+                  <span class="move">
+                    <button class="icon-btn flip" data-action="space-move" data-id="${s.id}" data-step="-1" aria-label="Subir ${esc(s.name)}" ${i === 0 ? 'disabled' : ''}>${icon('chevron-down', 20)}</button>
+                    <button class="icon-btn" data-action="space-move" data-id="${s.id}" data-step="1" aria-label="Bajar ${esc(s.name)}" ${i === state.spaces.length - 1 ? 'disabled' : ''}>${icon('chevron-down', 20)}</button>
+                  </span></div>`;
+              }
+              return `<a class="space-row" href="#e-${s.id}" data-color="${s.color}">${body}
                 <span class="chip num">${w.pct === null ? 'Sin plan' : `${Math.round(w.pct * 100)}% semana`}</span>
               </a>`;
             })
@@ -133,7 +144,7 @@ export function openSpaceSheet(id) {
       } else {
         const created = add('spaces', { ...data, createdAt: Date.now() });
         toast('Espacio creado');
-        location.hash = `#e-${created.id}`;
+        go(`#e-${created.id}`);
       }
     },
     onDelete: s
@@ -146,7 +157,7 @@ export function openSpaceSheet(id) {
           if (!ok) return;
           removeSpace(s.id);
           toast('Espacio eliminado');
-          location.hash = '#espacios';
+          go('#espacios');
         }
       : null,
   });
@@ -161,6 +172,17 @@ on({
   'space-tab': (el, e) => {
     e.preventDefault();
     view.tab[el.dataset.id] = el.dataset.tab;
-    document.dispatchEvent(new Event('rumbo:render'));
+    view.finCat = null;
+    rememberView();
+    rerender();
+  },
+  'spaces-sort': () => {
+    view.sortSpaces = !view.sortSpaces;
+    rerender();
+  },
+  'space-move': (el) => moveSpace(el.dataset.id, Number(el.dataset.step)),
+  // Desde el Resumen: abre el espacio directamente en Metas.
+  'goto-goals': (el) => {
+    view.tab[el.dataset.id] = 'goals';
   },
 });

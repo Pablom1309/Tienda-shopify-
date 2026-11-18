@@ -1,6 +1,6 @@
 // Service worker: guarda la app para que abra sin conexión.
 // Al publicar cambios, sube el número de versión para que los dispositivos se actualicen.
-const VERSION = 'rumbo-v1';
+const VERSION = 'rumbo-v2';
 
 const FILES = [
   './',
@@ -11,6 +11,7 @@ const FILES = [
   'js/charts.js',
   'js/icons.js',
   'js/logic.js',
+  'js/quick.js',
   'js/seed.js',
   'js/store.js',
   'js/ui.js',
@@ -24,6 +25,7 @@ const FILES = [
   'js/views/calendar.js',
   'js/views/settings.js',
   'js/views/space.js',
+  'js/views/summary.js',
   'js/views/today.js',
   'js/views/welcome.js',
   'assets/fonts/bricolage-grotesque.woff2',

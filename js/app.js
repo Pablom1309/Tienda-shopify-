@@ -2,9 +2,9 @@
 
 import { icon } from './icons.js';
 import { esc } from './util.js';
-import { replaceState, spacesWith, state, subscribe } from './store.js';
+import { replaceState, runRecurring, spacesWith, state, subscribe } from './store.js';
 import { MODULE_INFO, sampleState } from './seed.js';
-import { bindActions, closeSheet, initSheet, on, openSheet, view } from './ui.js';
+import { bindActions, closeSheet, go, initSheet, on, openSheet, showDialog, view } from './ui.js';
 import { openTaskSheet } from './modules/tasks.js';
 import { openHabitSheet } from './modules/habits.js';
 import { openTxSheet } from './modules/finance.js';
@@ -15,6 +15,7 @@ import { renderToday } from './views/today.js';
 import { renderCalendar } from './views/calendar.js';
 import { openSpaceSheet, renderSpace, renderSpaces } from './views/space.js';
 import { applyTheme, renderSettings } from './views/settings.js';
+import { renderSummary } from './views/summary.js';
 import { LOGO, renderWelcome } from './views/welcome.js';
 
 const root = document.getElementById('app');
@@ -25,7 +26,7 @@ const root = document.getElementById('app');
 function route() {
   const h = location.hash.replace(/^#/, '');
   if (h.startsWith('e-')) return { name: 'space', id: h.slice(2) };
-  if (['calendario', 'espacios', 'ajustes'].includes(h)) return { name: h };
+  if (['calendario', 'espacios', 'ajustes', 'resumen'].includes(h)) return { name: h };
   return { name: 'hoy' };
 }
 
@@ -34,6 +35,7 @@ function renderView(r) {
   if (r.name === 'calendario') return renderCalendar();
   if (r.name === 'espacios') return renderSpaces();
   if (r.name === 'ajustes') return renderSettings();
+  if (r.name === 'resumen') return renderSummary();
   return renderToday();
 }
 
@@ -48,6 +50,7 @@ function sidebar(r) {
     <nav aria-label="Principal">
       ${link('hoy', 'sun', 'Hoy', r.name === 'hoy')}
       ${link('calendario', 'calendar-days', 'Calendario', r.name === 'calendario')}
+      ${link('resumen', 'trending-up', 'Resumen', r.name === 'resumen')}
       <button class="side-link" data-action="search-open">${icon('search', 19)}<span class="label">Buscar</span><kbd>${isMac ? '⌘K' : 'Ctrl K'}</kbd></button>
     </nav>
     <nav class="side-spaces" aria-label="Espacios">
@@ -100,7 +103,7 @@ function render() {
   if (refocus) document.getElementById(refocus)?.focus({ preventScroll: true });
   lastRoute = key;
 
-  const titles = { hoy: 'Hoy', calendario: 'Calendario', espacios: 'Espacios', ajustes: 'Ajustes' };
+  const titles = { hoy: 'Hoy', calendario: 'Calendario', espacios: 'Espacios', ajustes: 'Ajustes', resumen: 'Resumen' };
   const name = r.name === 'space' ? state.spaces.find((s) => s.id === r.id)?.name : titles[r.name];
   document.title = name ? `${name} – Rumbo` : 'Rumbo';
 }
@@ -144,6 +147,7 @@ function searchResults(q) {
     return `<h3 class="group-title">Ir a</h3>
       ${hit('search-go', 'data-hash="hoy"', 'sun', '', 'Hoy')}
       ${hit('search-go', 'data-hash="calendario"', 'calendar-days', '', 'Calendario')}
+      ${hit('search-go', 'data-hash="resumen"', 'trending-up', '', 'Resumen')}
       ${state.spaces.map((s) => hit('search-go', `data-hash="e-${s.id}"`, s.icon, s.color, s.name, 'Espacio')).join('')}
       ${hit('search-go', 'data-hash="ajustes"', 'settings', '', 'Ajustes')}`;
   }
@@ -165,7 +169,7 @@ function openSearch() {
   if (!state.profile.onboarded) return;
   const d = document.getElementById('search');
   d.innerHTML = `<label class="search-in">${icon('search')}<input id="search-q" type="search" placeholder="Buscar tareas, notas, espacios" aria-label="Buscar" autocomplete="off"><button type="button" class="icon-btn" data-action="search-close" aria-label="Cerrar">${icon('x')}</button></label><div class="search-out" id="search-out">${searchResults('')}</div>`;
-  if (!d.open) d.showModal();
+  showDialog(d);
   const input = d.querySelector('input');
   input.focus();
   input.oninput = () => (d.querySelector('#search-out').innerHTML = searchResults(input.value));
@@ -196,7 +200,7 @@ on({
   'search-close': closeSearch,
   'search-go': (el) => {
     closeSearch();
-    location.hash = `#${el.dataset.hash}`;
+    go(`#${el.dataset.hash}`);
   },
 });
 
@@ -206,6 +210,7 @@ function boot() {
   // La vista previa incrustada abre con datos de ejemplo para que se vea en uso.
   if (window.RUMBO_DEMO && !state.profile.onboarded) replaceState(sampleState(state.profile.currency));
 
+  runRecurring();
   applyTheme();
   initSheet();
   bindActions(document);
@@ -243,14 +248,24 @@ function boot() {
     // Un campo dentro de una hoja ya cerrada no cuenta como "escribiendo".
     const inField = a && /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName) && !a.closest('dialog:not([open])');
     const typing = inField || document.querySelector('dialog[open]');
-    if (!typing && !e.metaKey && !e.ctrlKey && !e.altKey && e.key.toLowerCase() === 'n' && state.profile.onboarded) {
+    if (typing || e.metaKey || e.ctrlKey || e.altKey || !state.profile.onboarded) return;
+    const key = e.key.toLowerCase();
+    const jump = { h: '#hoy', c: '#calendario', r: '#resumen', e: '#espacios' }[key];
+    if (key === 'n') {
       e.preventDefault();
       openQuickAdd();
+    } else if (jump) {
+      e.preventDefault();
+      go(jump);
     }
   });
 
   // El día cambia aunque la app siga abierta: se repinta al volver a ella.
-  document.addEventListener('visibilitychange', () => !document.hidden && !document.querySelector('dialog[open]') && render());
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) return;
+    runRecurring();
+    if (!document.querySelector('dialog[open]')) render();
+  });
 
   render();
 

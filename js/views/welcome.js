@@ -2,7 +2,7 @@ import { icon } from '../icons.js';
 import { esc } from '../util.js';
 import { replaceState, state, update } from '../store.js';
 import { sampleState, spaceFromTemplate, TEMPLATES } from '../seed.js';
-import { on } from '../ui.js';
+import { go, on } from '../ui.js';
 
 export const LOGO = `<svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="var(--tinta)"/><path d="M16 4.5 19.2 12.8 27.5 16 19.2 19.2 16 27.5 12.8 19.2 4.5 16 12.8 12.8Z" fill="var(--carta)"/><path d="M16 4.5 19.2 12.8 16 16ZM27.5 16 19.2 19.2 16 16ZM16 27.5 12.8 19.2 16 16ZM4.5 16 12.8 12.8 16 16Z" fill="var(--magenta)"/></svg>`;
 
@@ -42,7 +42,7 @@ document.addEventListener('submit', (e) => {
     s.profile.sample = false;
     s.spaces = keys.map(spaceFromTemplate);
   });
-  location.hash = state.spaces.length ? '#hoy' : '#espacios';
+  go(state.spaces.length ? '#hoy' : '#espacios');
 });
 
 on({
@@ -50,6 +50,6 @@ on({
     const next = sampleState(state.profile.currency);
     next.profile.theme = state.profile.theme;
     replaceState(next);
-    location.hash = '#hoy';
+    go('#hoy');
   },
 });

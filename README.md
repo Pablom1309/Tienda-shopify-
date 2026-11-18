@@ -7,15 +7,21 @@ Todo se organiza en **espacios**. Cada espacio activa las secciones que necesita
 
 | Sección | Qué hace |
 |---|---|
-| Tareas | Pendientes con fecha, hora y prioridad, en lista o tablero (por hacer, en curso, hecha) |
-| Hábitos | Rutinas por día de la semana, con racha y cumplimiento de 30 días |
-| Finanzas | Ingresos y gastos, balance del mes, gráfico de 6 meses y gasto por categoría |
-| Entrenamiento | Sesiones con ejercicios, series, repeticiones y peso; volumen semanal y mejores marcas |
+| Tareas | Fecha, hora y prioridad; se repiten (cada día, de lunes a viernes, cada semana, cada mes); pasos con su propia casilla; vista de lista o tablero |
+| Hábitos | Días de la semana, rachas y mejor racha; hábitos con cantidad (8 vasos de agua: cada toque suma uno); historial de 12 semanas que se puede corregir |
+| Finanzas | Ingresos y gastos, balance comparado con el mes anterior, presupuesto por categoría con aviso al pasarte, movimientos fijos que se anotan solos cada mes, exportar a CSV |
+| Entrenamiento | Sesiones con ejercicios, series y peso; rutinas para empezar desde la última vez; temporizador de descanso; progreso de cada ejercicio; récords |
 | Notas | Apuntes por espacio, con notas fijadas |
-| Metas | Objetivos con número, unidad y fecha límite |
+| Metas | Número, unidad y fecha; te dice si vas al día y cuánto te falta por semana; sumar avance en vez de recalcular |
 
-Además: pantalla **Hoy** con el avance de la semana por espacio, **Calendario** mensual,
-buscador (`Ctrl K` o `⌘K`), alta rápida (tecla `N`), tema claro y oscuro, y copia de seguridad en JSON.
+Además:
+
+- **Hoy**: lo pendiente, los hábitos del día, los próximos 7 días y el avance de la semana por espacio.
+- **Resumen**: tareas hechas por semana, constancia en hábitos, ingresos y gastos, entrenamientos y metas en curso.
+- **Captura en una frase**: en "Añadir tarea" escribe `pagar la luz mañana 18:00 !alta #vida` y se separan solos la fecha, la hora, la prioridad y el espacio.
+- Calendario mensual, buscador (`Ctrl K` / `⌘K`), atajos (`N` añadir; `H`, `C`, `R`, `E` para ir a cada pantalla).
+- Deshacer al completar o borrar, botón atrás del teléfono que cierra la hoja abierta, deslizar hacia abajo para cerrarla.
+- Tema claro y oscuro, instalable, funciona sin conexión, copia de seguridad en JSON.
 
 ## Probarla en tu computador
 
@@ -58,10 +64,11 @@ sw.js                   Funcionamiento sin conexión (sube VERSION al publicar c
 css/app.css             Sistema visual completo (colores, tipografía, componentes)
 js/app.js               Navegación, buscador y alta rápida
 js/store.js             Estado y guardado
-js/logic.js, util.js    Cálculos (rachas, totales, avance) y fechas; sin interfaz
+js/logic.js, util.js    Cálculos (rachas, totales, ritmo de metas) y fechas; sin interfaz
+js/quick.js             Lectura de fechas y prioridades escritas en la tarea
 js/modules/             Una sección por archivo: tareas, hábitos, finanzas…
-js/views/               Pantallas: Hoy, Calendario, Espacios, Ajustes, bienvenida
-tests/                  Pruebas de los cálculos
+js/views/               Pantallas: Hoy, Calendario, Resumen, Espacios, Ajustes, bienvenida
+tests/                  Pruebas de los cálculos y de la captura en una frase
 ```
 
 ## Pruebas
